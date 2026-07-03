@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <script src="image-slot.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f7efe4; }
+    ::selection { background: #2b2430; color: #f7efe4; }
+    @keyframes floaty { 0% { transform: translateY(0px); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0px); } }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes vt-out { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-12px) scale(0.995); } }
+      @keyframes vt-in { from { opacity: 0; transform: translateY(14px) scale(0.995); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      ::view-transition-old(root) { animation: vt-out 240ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+      ::view-transition-new(root) { animation: vt-in 340ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 767px) {
+      nav { flex-wrap: wrap; row-gap: 10px; padding: 14px 20px !important; }
+      nav > div:last-child { gap: 14px !important; font-size: 11px !important; flex-wrap: wrap; }
+      header { padding: 48px 20px 64px !important; }
+      #work, #skills, #about { padding-left: 20px !important; padding-right: 20px !important; }
+      section[id$="-detail"] > div { padding: 40px 20px 64px !important; }
+      [data-r="next-cta"] > span:last-child { font-size: clamp(24px, 7vw, 40px) !important; }
+      [data-r="split-about2"] { grid-template-columns: 1fr !important; }
+      [data-r="about-steps"] { grid-template-columns: 1fr !important; gap: 20px !important; }
+      [data-r="contact-grid"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #about-portrait { height: 360px !important; }
+      #matcha-art { width: min(300px, 74vw) !important; height: 384px !important; }
+      footer#contact { padding: 64px 20px 32px !important; }
+
+      #hero-word-creative, #hero-word-strategist { font-size: clamp(46px, 16vw, 90px) !important; }
+      #hero-photo { height: 320px !important; }
+      #skills-latte { height: 380px !important; }
+
+      [data-r="hero-pill-wrap"] { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important; margin-top: 24px !important; }
+      [data-r="latte-pill-wrap"] { flex-direction: column !important; gap: 12px !important; }
+      [data-r="float-pill"] { position: static !important; transform: none !important; animation: none !important; }
+
+      [data-r="split-a"], [data-r="split-b"], [data-r="split-skills"], [data-r="split-about"], [data-r="split-title"], [data-r="split-images"], [data-r="grid3"] {
+        grid-template-columns: 1fr !important;
+      }
+      [data-r="row-label"] { grid-template-columns: 1fr !important; gap: 10px !important; }
+      [data-r="stat-4"] { grid-template-columns: repeat(2, 1fr) !important; row-gap: 24px !important; }
+      [data-r="feature-img"] { height: 260px !important; }
+      [data-r="thumb-img"] { height: 200px !important; }
+      [data-r="detail-hero-img"] { height: 260px !important; }
+      [data-r="duo-img"] { height: 200px !important; }
+      [data-r="next-cta"] { flex-wrap: wrap; gap: 10px !important; }
+    }
+  </style>
+</helmet>
+
+<div style="position: relative; min-height: 100vh; background: #f7efe4; color: #2b2430; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: clip;">
+
+  <sc-if value="{{ showGrain }}" hint-placeholder-val="{{ true }}">
+    <div style="position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.05; background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;160&quot; height=&quot;160&quot;&gt;&lt;filter id=&quot;n&quot;&gt;&lt;feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.9&quot; numOctaves=&quot;2&quot;/&gt;&lt;/filter&gt;&lt;rect width=&quot;160&quot; height=&quot;160&quot; filter=&quot;url(%23n)&quot; opacity=&quot;0.6&quot;/&gt;&lt;/svg&gt;');"></div>
+  </sc-if>
+
+  <!-- ============ NAV ============ -->
+  <nav data-screen-label="Nav" style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(247, 239, 228, 0.82); backdrop-filter: blur(12px) saturate(1.2); border-bottom: 1px solid rgba(43, 36, 48, 0.08);">
+    <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; letter-spacing: 0.01em;">Vivien Bui</div>
+    <div style="display: flex; align-items: center; gap: 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="#work" style="color: #2b2430; text-decoration: none; opacity: 0.75;" style-hover="opacity: 1;">Work</a>
+      <a href="#skills" style="color: #2b2430; text-decoration: none; opacity: 0.75;" style-hover="opacity: 1;">Skills</a>
+      <a href="#about" style="color: #2b2430; text-decoration: none; opacity: 0.75;" style-hover="opacity: 1;">About</a>
+      <a href="#contact" style="color: #f7efe4; text-decoration: none; background: #2b2430; padding: 10px 20px; border-radius: 999px;" style-hover="background: {{ accent }};">Contact</a>
+    </div>
+  </nav>
+
+  <sc-if value="{{ onHome }}" hint-placeholder-val="{{ true }}">
+  <!-- ============ HERO ============ -->
+  <header id="hero" data-screen-label="Hero" style="position: relative; max-width: 1280px; margin: 0 auto; padding: 72px 48px 120px; min-height: 78vh;">
+
+    <div style="display: flex; align-items: baseline; gap: 20px;">
+      <span style="color: {{ accent }}; font-size: 28px; line-height: 1;">✳</span>
+      <p style="margin: 0; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6;">Creative strategist · Sydney · Available for agency contracts</p>
+    </div>
+
+    <div style="position: relative; margin-top: 8px;">
+
+      <h1 style="position: relative; z-index: 3; margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(72px, 11vw, 160px); line-height: 0.95; letter-spacing: -0.01em; pointer-events: none; color: {{ heroCreativeColor }}; will-change: transform;" id="hero-word-creative">Creative</h1>
+
+      <div style="position: relative; display: flex; justify-content: center; margin-top: -36px;">
+        <div style="position: relative;" data-r="hero-pill-wrap">
+          <image-slot id="hero-photo" placeholder="a photo with your energy — travel, golden hour, candid" shape="rounded" radius="4" style="width: min(620px, 72vw); height: 400px; display: block; box-shadow: 0 24px 60px rgba(43, 36, 48, 0.18);"></image-slot>
+
+          <div style="position: absolute; top: 12%; left: -140px; animation: floaty 5s ease-in-out infinite; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 999px; padding: 10px 18px; font-size: 13px; font-weight: 500; box-shadow: 0 8px 24px rgba(43, 36, 48, 0.1); white-space: nowrap;" data-r="float-pill">brand strategy</div>
+          <div style="position: absolute; top: -8%; right: -110px; animation: floaty 6s ease-in-out infinite; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 999px; padding: 10px 18px; font-size: 13px; font-weight: 500; box-shadow: 0 8px 24px rgba(43, 36, 48, 0.1); white-space: nowrap;" data-r="float-pill">earned media</div>
+          <div style="position: absolute; bottom: 30%; right: -150px; animation: floaty 5.5s ease-in-out infinite; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 999px; padding: 10px 18px; font-size: 13px; font-weight: 500; box-shadow: 0 8px 24px rgba(43, 36, 48, 0.1); white-space: nowrap;" data-r="float-pill">social &amp; influencer</div>
+          <div style="position: absolute; bottom: -6%; left: -100px; animation: floaty 6.5s ease-in-out infinite; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 999px; padding: 10px 18px; font-size: 13px; font-weight: 500; box-shadow: 0 8px 24px rgba(43, 36, 48, 0.1); white-space: nowrap;" data-r="float-pill">cultural moments</div>
+        </div>
+      </div>
+
+      <h1 style="position: relative; z-index: 3; margin: -48px 0 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(72px, 11vw, 160px); line-height: 0.95; letter-spacing: -0.01em; text-align: right; pointer-events: none; color: {{ heroStrategistColor }}; will-change: transform;" id="hero-word-strategist">Strategist</h1>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 56px; gap: 40px;">
+      <p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.6; opacity: 0.8;">I make brands worth talking about — campaigns built on cultural insight, engineered to earn their reach.</p>
+      <a href="#work" style="color: #2b2430; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid #2b2430; padding-bottom: 4px; white-space: nowrap;" style-hover="color: {{ accent }}; border-bottom-color: {{ accent }};">Selected work ↓</a>
+    </div>
+  </header>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="work" data-screen-label="Selected Work" style="max-width: 1280px; margin: 0 auto; padding: 40px 48px 120px;">
+
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid rgba(43, 36, 48, 0.15); padding-top: 28px; margin-bottom: 48px;">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1;">Selected Work</h2>
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.55;">( 05 CASE STUDIES )</span>
+    </div>
+
+    <!-- Featured 01: CryoGlow (most recent) -->
+    <a href="#cs-cryoglow-detail" style="text-decoration: none; color: #2b2430; display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 24px; overflow: hidden; margin-bottom: 28px; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;" data-r="split-a" style-hover="transform: translateY(-4px); box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14); border-color: {{ accent }};">
+      <image-slot id="cs-cryoglow" placeholder="SharkBeauty CryoGlow — hero campaign shot" shape="rect" style="width: 100%; height: 440px; display: block;" data-r="feature-img"></image-slot>
+      <div style="display: flex; flex-direction: column; justify-content: space-between; padding: 40px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.5;">01 — BEAUTY · 2026</span>
+            <span style="display: flex; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: #f3d9d4; display: inline-block; border: 1px solid rgba(43,36,48,0.15); box-sizing: border-box;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #efe7de; display: inline-block; border: 1px solid rgba(43,36,48,0.15); box-sizing: border-box;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #8e7cf0; display: inline-block;"></i></span>
+          </div>
+          <span style="display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: {{ accent }};">✳ Latest</span>
+          <h3 style="margin: 8px 0 12px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.05;">SharkBeauty <em style="font-style: italic;">CryoGlow</em></h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; opacity: 0.75;">Launching an at-home cryo-LED glow device — cold-tech skincare wrapped in soft neutrals, blush, and a blue-violet glow that reads as clinical <em style="font-style: italic;">and</em> covetable.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid rgba(43, 36, 48, 0.1); padding-top: 20px; margin-top: 24px;">
+          <span style="font-size: 12px; border: 1px solid rgba(43,36,48,0.18); border-radius: 999px; padding: 6px 14px;">Launch strategy</span>
+          <span style="font-size: 12px; border: 1px solid rgba(43,36,48,0.18); border-radius: 999px; padding: 6px 14px;">Creator seeding</span>
+          <span style="font-size: 12px; border: 1px solid rgba(43,36,48,0.18); border-radius: 999px; padding: 6px 14px;">Content system</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Featured 02: AFW -->
+    <a href="#cs-afw-detail" style="text-decoration: none; color: #2b2430; display: grid; grid-template-columns: 1fr 1.15fr; gap: 0; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 24px; overflow: hidden; margin-bottom: 28px; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;" data-r="split-b" style-hover="transform: translateY(-4px); box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14); border-color: {{ accent }};">
+      <div style="display: flex; flex-direction: column; justify-content: space-between; padding: 40px; order: 1;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.5;">02 — FASHION · 2026</span>
+            <span style="display: flex; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: #6a3fa0; display: inline-block;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #17141a; display: inline-block;"></i></span>
+          </div>
+          <h3 style="margin: 16px 0 12px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.05;">Australian <em style="font-style: italic;">Fashion Week</em></h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; opacity: 0.75;">A front-row presence built in polished purple and runway black — turning five days of shows into a shareable, always-on content moment.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid rgba(43, 36, 48, 0.1); padding-top: 20px; margin-top: 24px;">
+          <span style="font-size: 12px; border: 1px solid rgba(43,36,48,0.18); border-radius: 999px; padding: 6px 14px;">Event strategy</span>
+          <span style="font-size: 12px; border: 1px solid rgba(43,36,48,0.18); border-radius: 999px; padding: 6px 14px;">Live content</span>
+          <span style="font-size: 12px; border: 1px solid rgba(43,36,48,0.18); border-radius: 999px; padding: 6px 14px;">Talent &amp; PR</span>
+        </div>
+      </div>
+      <image-slot id="cs-afw" placeholder="Australian Fashion Week — hero campaign shot" shape="rect" style="width: 100%; height: 440px; display: block; order: 2;"></image-slot>
+    </a>
+
+    <!-- 3-up row: older work -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;" data-r="grid3">
+
+      <a href="#cs-cruiser-detail" style="text-decoration: none; color: #2b2430; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14); border-color: {{ accent }};">
+        <image-slot id="cs-cruiser" placeholder="Vodka Cruiser × Brat Summer — campaign visual" shape="rect" style="width: 100%; height: 240px; display: block;" data-r="thumb-img"></image-slot>
+        <div style="padding: 26px 28px 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.5;">03 — BEVERAGE</span>
+            <span style="display: flex; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: #c6f437; display: inline-block;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #17141a; display: inline-block;"></i></span>
+          </div>
+          <h3 style="margin: 12px 0 8px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; line-height: 1.1;">Vodka Cruiser × Brat Summer</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; opacity: 0.7;">Riding an acid-chartreuse cultural wave in real time.</p>
+        </div>
+      </a>
+
+      <a href="#cs-twisties-detail" style="text-decoration: none; color: #2b2430; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14); border-color: {{ accent }};">
+        <image-slot id="cs-twisties" placeholder="Twisties Election — campaign visual" shape="rect" style="width: 100%; height: 240px; display: block;" data-r="thumb-img"></image-slot>
+        <div style="padding: 26px 28px 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.5;">04 — FOOD / POLITICS</span>
+            <span style="display: flex; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: #c62828; display: inline-block;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #ffd23f; display: inline-block;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #2e8b3a; display: inline-block;"></i></span>
+          </div>
+          <h3 style="margin: 12px 0 8px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; line-height: 1.1;">Twisties Election</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; opacity: 0.7;">Turning a national vote into snack-aisle theatre.</p>
+        </div>
+      </a>
+
+      <a href="#cs-detail" style="text-decoration: none; color: #2b2430; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14); border-color: {{ accent }};">
+        <image-slot id="cs-doritos" placeholder="Doritos 'Wash Your Mouth Out' — campaign visual" shape="rect" style="width: 100%; height: 240px; display: block;" data-r="thumb-img"></image-slot>
+        <div style="padding: 26px 28px 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.5;">05 — FOOD / ADVERTISING</span>
+            <span style="display: flex; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: #1c5e3c; display: inline-block;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #17141a; display: inline-block;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #ff5a2a; display: inline-block;"></i></span>
+          </div>
+          <h3 style="margin: 12px 0 8px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; line-height: 1.1;">Doritos — Wash Your Mouth Out</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; opacity: 0.7;">450M+ earned reach from the most divisive chip in history.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ SKILLSET / LATTE ORDER ============ -->
+  <section id="skills" data-screen-label="Skillset" style="max-width: 1280px; margin: 0 auto; padding: 0 48px 120px;">
+    <div style="border-top: 1px solid rgba(43, 36, 48, 0.15); padding-top: 28px; display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 48px;">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1;">The usual order</h2>
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.55;">( MY SKILLSET, AS A MATCHA ORDER )</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;" data-r="split-skills">
+
+      <!-- Left: the drink -->
+      <div style="position: relative; display: flex; justify-content: center;" data-r="latte-pill-wrap">
+        <svg id="matcha-art" viewBox="0 0 360 460" style="width: min(360px, 60vw); height: 460px; display: block;" role="img" aria-label="Iced matcha latte illustration">
+          <defs>
+            <linearGradient id="matchaTop" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9db97c"></stop>
+              <stop offset="1" stop-color="#7e9c5f"></stop>
+            </linearGradient>
+            <linearGradient id="milkGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f4ecdc"></stop>
+              <stop offset="1" stop-color="#eee1c8"></stop>
+            </linearGradient>
+            <clipPath id="cupClip"><rect x="112" y="86" width="136" height="330" rx="22"></rect></clipPath>
+          </defs>
+          <ellipse cx="180" cy="436" rx="96" ry="13" fill="rgba(43,36,48,0.10)"></ellipse>
+          <rect x="196" y="14" width="18" height="120" rx="9" transform="rotate(8 205 74)" fill="#b48a92"></rect>
+          <rect x="106" y="80" width="148" height="342" rx="26" fill="#ffffff" opacity="0.4"></rect>
+          <g clip-path="url(#cupClip)">
+            <rect x="112" y="86" width="136" height="330" fill="url(#milkGrad)"></rect>
+            <path d="M112 252 C 140 230, 166 276, 192 252 C 216 230, 236 268, 248 250 L 248 188 L 112 188 Z" fill="#a9c184" opacity="0.85"></path>
+            <path d="M112 214 C 142 196, 170 238, 200 214 C 224 197, 240 226, 248 212 L 248 148 L 112 148 Z" fill="url(#matchaTop)">
+              <animate attributeName="d" dur="4.5s" repeatCount="indefinite" values="M112 214 C 142 196, 170 238, 200 214 C 224 197, 240 226, 248 212 L 248 148 L 112 148 Z; M112 210 C 146 226, 168 198, 200 220 C 222 234, 240 202, 248 216 L 248 148 L 112 148 Z; M112 214 C 142 196, 170 238, 200 214 C 224 197, 240 226, 248 212 L 248 148 L 112 148 Z"></animate>
+          </path>
+            <rect x="112" y="86" width="136" height="76" fill="url(#matchaTop)"></rect>
+            <path d="M130 162 q 7 28 0 48 q -9 -24 0 -48" fill="#7e9c5f" opacity="0.75"></path>
+            <path d="M224 174 q 8 32 1 54 q -10 -27 -1 -54" fill="#8fae6f" opacity="0.75"></path>
+            <rect x="124" y="100" width="52" height="52" rx="12" transform="rotate(-12 150 126)" fill="#ffffff" opacity="0.4"></rect>
+            <rect x="186" y="94" width="56" height="56" rx="12" transform="rotate(10 214 122)" fill="#ffffff" opacity="0.34"></rect>
+            <rect x="154" y="140" width="48" height="48" rx="12" transform="rotate(22 178 164)" fill="#ffffff" opacity="0.3"></rect>
+            <rect x="186" y="76" width="18" height="270" rx="9" transform="rotate(8 195 210)" fill="#b48a92" opacity="0.9"></rect>
+            <rect x="122" y="96" width="10" height="304" rx="5" fill="#ffffff" opacity="0.4"></rect>
+          </g>
+          <rect x="106" y="80" width="148" height="14" rx="7" fill="#ffffff" opacity="0.65"></rect>
+          <circle cx="132" cy="302" r="4" fill="#ffffff" opacity="0.55"></circle>
+          <circle cx="142" cy="338" r="3" fill="#ffffff" opacity="0.5"></circle>
+          <circle cx="230" cy="320" r="4" fill="#ffffff" opacity="0.55"></circle>
+        </svg>
+        <div style="position: absolute; top: 8%; left: -32px; animation: floaty 5.5s ease-in-out infinite; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 999px; padding: 9px 16px; font-size: 12px; font-weight: 500; box-shadow: 0 8px 24px rgba(43, 36, 48, 0.1); white-space: nowrap;" data-r="float-pill">extra shot of ambition</div>
+        <div style="position: absolute; bottom: 12%; right: -28px; animation: floaty 6.5s ease-in-out infinite; background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.1); border-radius: 999px; padding: 9px 16px; font-size: 12px; font-weight: 500; box-shadow: 0 8px 24px rgba(43, 36, 48, 0.1); white-space: nowrap;" data-r="float-pill">collaborative cold foam</div>
+      </div>
+
+      <!-- Right: the receipt -->
+      <div style="background: #fffdf9; border: 1px solid rgba(43, 36, 48, 0.12); border-radius: 6px; padding: 40px 44px 32px; box-shadow: 0 24px 60px rgba(43, 36, 48, 0.1); font-family: 'Plus Jakarta Sans', sans-serif;">
+        <div style="text-align: center; border-bottom: 1px dashed rgba(43, 36, 48, 0.3); padding-bottom: 18px; margin-bottom: 20px;">
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 30px; line-height: 1;">The Strategist's Order</div>
+          <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.55; margin-top: 8px;">Est. brewing since day one</div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 13px; font-size: 15px;" data-r="receipt-lines">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Venti brand strategy</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">10/10</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Double shot of cultural insight</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">10/10</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Earned media &amp; PR froth</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">10/10</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Social &amp; influencer syrup</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">9/10</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Copywriting, whole-milk smooth</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">9/10</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Figma · Canva · Adobe blend</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">9/10</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: transform 0.25s ease;" style-hover="transform: translateX(4px);"><span>Topped with collaborative foam</span><span style="flex: 1; border-bottom: 1px dotted rgba(43,36,48,0.35); margin: 0 6px; transform: translateY(-3px);"></span><span style="font-family: 'Instrument Serif', serif; font-size: 17px;">10/10</span></div>
+        </div>
+
+        <div style="border-top: 1px dashed rgba(43, 36, 48, 0.3); margin-top: 22px; padding-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.55;">Total</div>
+            <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; line-height: 1;">One new hire</div>
+          </div>
+          <div style="width: 68px; height: 68px; border-radius: 50%; border: 1px solid {{ accent }}; color: {{ accent }}; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; transform: rotate(-8deg); animation: floaty 4s ease-in-out infinite; transition: transform 0.4s ease;" style-hover="transform: rotate(4deg) scale(1.08);">Fresh<br>batch</div>
+        </div>
+
+        <div style="margin-top: 20px; height: 30px; background: repeating-linear-gradient(90deg, #2b2430 0 2px, transparent 2px 4px, #2b2430 4px 7px, transparent 7px 9px, #2b2430 9px 10px, transparent 10px 14px);"></div>
+        <div style="text-align: center; font-size: 11px; letter-spacing: 0.3em; opacity: 0.5; margin-top: 8px;">THANK YOU · COME AGAIN</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT STRIP ============ -->
+  <section id="about" data-screen-label="About" style="max-width: 1280px; margin: 0 auto; padding: 0 48px 120px;">
+    <div style="border-top: 1px solid rgba(43, 36, 48, 0.15); padding-top: 28px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px;" data-r="split-about">
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55;">About</span>
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(26px, 3vw, 38px); line-height: 1.3;">Strategy first, always — I find the cultural tension a brand can own, then build the <em style="font-style: italic; color: {{ accent }};">moment people can't help but share</em>.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 360px 1fr; gap: 56px; margin-top: 64px; align-items: start;" data-r="split-about2">
+      <image-slot id="about-portrait" placeholder="a portrait with warm light" shape="rounded" radius="8" style="width: 100%; height: 440px; display: block; box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14);"></image-slot>
+      <div>
+        <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.75; opacity: 0.85; max-width: 620px;">I'm Vivien - a creative strategist in Sydney working where brands meet culture. My background spans FMCG, beauty and fashion, always with the same brief I give myself: find the tension people already feel, and hand them a moment worth passing on.</p>
+        <p style="margin: 0 0 36px; font-size: 17px; line-height: 1.75; opacity: 0.85; max-width: 620px;">Off the clock, you'll either find me at a wine bar, rotating between three different TV shows and a book all at once, or taking way too many photos of a building that's caught my eye.&nbsp;</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid rgba(43, 36, 48, 0.15); padding-top: 24px;" data-r="about-steps">
+          <div>
+            <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: {{ accent }};">01 · Find</div>
+            <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; opacity: 0.75;">the cultural tension a brand can credibly own.</p>
+          </div>
+          <div>
+            <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: {{ accent }};">02 · Build</div>
+            <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; opacity: 0.75;">the moment - product, stunt or story - that dramatises it.</p>
+          </div>
+          <div>
+            <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: {{ accent }};">03 · Earn</div>
+            <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; opacity: 0.75;">the reach, engineer it to be shared&nbsp; and talked about.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ onCryoglow }}" hint-placeholder-val="{{ false }}">
+  <!-- ============ DETAIL: CRYOGLOW ============ -->
+  <section id="cs-cryoglow-detail" data-screen-label="CryoGlow Detail" style="background: #efe7de; color: #2b2430; border-top: 1px solid rgba(43,36,48,0.1);">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px 100px;">
+      <a href="#work" style="display: inline-flex; align-items: center; gap: 8px; color: #2b2430; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6;" style-hover="opacity: 1;">← All work</a>
+      <div style="margin-top: 40px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end;" data-r="split-title">
+        <div>
+          <span style="display: flex; gap: 8px; margin-bottom: 20px;"><i style="width: 12px; height: 12px; border-radius: 50%; background: #f3d9d4; display: inline-block; border: 1px solid rgba(43,36,48,0.15); box-sizing:border-box;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #fffdf9; display: inline-block; border: 1px solid rgba(43,36,48,0.15); box-sizing:border-box;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #8e7cf0; display: inline-block;"></i></span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8e7cf0;">✳ Most recent · Feb–Jul 2026</span>
+          <h2 style="margin: 10px 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.5vw, 92px); line-height: 0.98;">CryoGlow, <em style="font-style: italic; color: #8e7cf0;">cold</em> to the touch.</h2>
+        </div>
+        <div style="font-size: 14px; line-height: 1.9;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(43,36,48,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Client</span><span>SharkBeauty</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(43,36,48,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Year</span><span>2026</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(43,36,48,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Industry</span><span>Beauty / Skincare</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="opacity: 0.55;">Role</span><span>Launch strategy</span></div>
+        </div>
+      </div>
+      <image-slot id="cryoglow-hero" placeholder="CryoGlow device — soft neutrals, blush, blue-violet LED glow" shape="rounded" radius="16" style="width: 100%; height: 480px; display: block; margin-top: 48px;" data-r="detail-hero-img"></image-slot>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #8e7cf0;">The Insight</div>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.35;">Cold-tech skincare feels clinical. But consumers want the results <em style="font-style: italic;">and</em> the ritual — proof it works, wrapped in something she'd leave out on the shelf.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(43,36,48,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #8e7cf0;">The Idea</div>
+        <div>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.7; opacity: 0.85; max-width: 640px;">Position CryoGlow as the calm meeting point of clinic and vanity, launching in Australia by partnering with underpriced beauty creator Chloe Morello - a trusted voice with strong credibility among our core audience.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.7; opacity: 0.85; max-width: 640px;">A creator-first launch let real routines carry the proof, with a repeatable content system so every post looked unmistakably CryoGlow.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px;" data-r="split-images">
+        <image-slot id="cryoglow-2" placeholder="creator routine / device in-use shot" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"><img src="./screenshot-2026-07-04-at-2-12-19-am-mr54t6mt.png" alt="screenshot-2026-07-04-at-2-12-19-am" style="max-width: 100%; height: auto; display: block; object-fit: cover"></image-slot>
+        <image-slot id="cryoglow-3" placeholder="packaging / product detail" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px; border-top: 1px solid rgba(43,36,48,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #8e7cf0;">The Scope</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="font-size: 13px; border: 1px solid rgba(43,36,48,0.2); border-radius: 999px; padding: 8px 18px;">Positioning &amp; messaging</span>
+          <span style="font-size: 13px; border: 1px solid rgba(43,36,48,0.2); border-radius: 999px; padding: 8px 18px;">Creator seeding</span>
+          <span style="font-size: 13px; border: 1px solid rgba(43,36,48,0.2); border-radius: 999px; padding: 8px 18px;">Content system</span>
+          <span style="font-size: 13px; border: 1px solid rgba(43,36,48,0.2); border-radius: 999px; padding: 8px 18px;">Launch calendar</span>
+        </div>
+      </div>
+      <a href="#cs-afw-detail" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 80px; border-top: 1px solid rgba(43,36,48,0.16); padding-top: 36px; flex-wrap: wrap; text-decoration: none; color: #2b2430;" style-hover="color: {{ accent }};">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55;">Next case study</span>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(28px, 4vw, 48px); line-height: 1;">Australian Fashion Week →</span>
+      </a>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ onAfw }}" hint-placeholder-val="{{ false }}">
+  <!-- ============ DETAIL: AFW ============ -->
+  <section id="cs-afw-detail" data-screen-label="AFW Detail" style="background: #17141a; color: #f3efe6;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px 100px;">
+      <a href="#work" style="display: inline-flex; align-items: center; gap: 8px; color: #f3efe6; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65;" style-hover="opacity: 1;">← All work</a>
+      <div style="margin-top: 40px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end;" data-r="split-title">
+        <div>
+          <span style="display: flex; gap: 8px; margin-bottom: 20px;"><i style="width: 12px; height: 12px; border-radius: 50%; background: #9b6ff0; display: inline-block;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #f3efe6; display: inline-block;"></i></span>
+          <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.5vw, 92px); line-height: 0.98;">Front <em style="font-style: italic; color: #9b6ff0;">row</em>, always on.</h2>
+        </div>
+        <div style="font-size: 14px; line-height: 1.9;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Event</span><span>Australian Fashion Week</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Year</span><span>2026</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Industry</span><span>Fashion</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="opacity: 0.55;">Role</span><span>Event &amp; content strategy</span></div>
+        </div>
+      </div>
+      <image-slot id="afw-hero" placeholder="AFW — polished purple, runway black, front-row moment" shape="rounded" radius="16" style="width: 100%; height: 480px; display: block; margin-top: 48px;" data-r="detail-hero-img"></image-slot>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #9b6ff0;">The Insight</div>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.35;">Fashion week is five days of noise. Presence isn't a seat in the room — it's <em style="font-style: italic;">owning the feed</em> the room is looking at.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #9b6ff0;">The Idea</div>
+        <div>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">Make&nbsp;Shark Beauty a cultural centerpiece at Australia Fashion Week .</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">A live content team turned each runway into same-day social, with talent and PR briefed to a shared narrative.<br><br>Influencers, behind-the-scenes moments, on-the-ground vox pops, and giveaways all worked together to capture the energy exactly as it happened.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px;" data-r="split-images">
+        <image-slot id="afw-2" placeholder="runway / backstage content" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+        <image-slot id="afw-3" placeholder="talent / front-row social capture" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #9b6ff0;">The Scope</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Event strategy</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Live content ops</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Talent &amp; PR</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Art direction</span>
+        </div>
+      </div>
+      <a href="#cs-cruiser-detail" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 80px; border-top: 1px solid rgba(243,239,230,0.16); padding-top: 36px; flex-wrap: wrap; text-decoration: none; color: #f3efe6;" style-hover="color: {{ accent }};">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55;">Next case study</span>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(28px, 4vw, 48px); line-height: 1;">Vodka Cruiser →</span>
+      </a>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ onCruiser }}" hint-placeholder-val="{{ false }}">
+  <!-- ============ DETAIL: VODKA CRUISER ============ -->
+  <section id="cs-cruiser-detail" data-screen-label="Cruiser Detail" style="background: #17141a; color: #f3efe6;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px 100px;">
+      <a href="#work" style="display: inline-flex; align-items: center; gap: 8px; color: #f3efe6; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65;" style-hover="opacity: 1;">← All work</a>
+      <div style="margin-top: 40px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end;" data-r="split-title">
+        <div>
+          <span style="display: flex; gap: 8px; margin-bottom: 20px;"><i style="width: 12px; height: 12px; border-radius: 50%; background: #c6f437; display: inline-block;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #f3efe6; display: inline-block;"></i></span>
+          <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.5vw, 92px); line-height: 0.98;">It's a <em style="font-style: italic; color: #c6f437;">brat</em> summer.</h2>
+        </div>
+        <div style="font-size: 14px; line-height: 1.9;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Client</span><span>Vodka Cruiser</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Industry</span><span>Beverage / RTD</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Angle</span><span>Cultural moment</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="opacity: 0.55;">Role</span><span>Reactive strategy</span></div>
+        </div>
+      </div>
+      <image-slot id="cruiser-hero" placeholder="Cruiser × Brat — acid-chartreuse hero" shape="rounded" radius="16" style="width: 100%; height: 480px; display: block; margin-top: 48px;" data-r="detail-hero-img"></image-slot>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #c6f437;">The Insight</div>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.35;">Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it — it joins by <em style="font-style: italic;">moving at its speed</em>.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #c6f437;">The Idea</div>
+        <div>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">Charlii XCX turned the world lime green and we answered in kind: a Summer Apple release with brat-coded OOH ('drinkin' that? ur so...").</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">Reactive posting kept Cruiser inside the conversation while it was still peaking.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px;" data-r="split-images">
+        <image-slot id="cruiser-2" placeholder="social-native creative" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+        <image-slot id="cruiser-3" placeholder="reactive post / meme moment" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #c6f437;">The Scope</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Trend strategy</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Social creative</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Reactive posting</span>
+        </div>
+      </div>
+      <a href="#cs-twisties-detail" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 80px; border-top: 1px solid rgba(243,239,230,0.16); padding-top: 36px; flex-wrap: wrap; text-decoration: none; color: #f3efe6;" style-hover="color: {{ accent }};">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55;">Next case study</span>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(28px, 4vw, 48px); line-height: 1;">Twisties Election →</span>
+      </a>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ onTwisties }}" hint-placeholder-val="{{ false }}">
+  <!-- ============ DETAIL: TWISTIES ============ -->
+  <section id="cs-twisties-detail" data-screen-label="Twisties Detail" style="background: #17141a; color: #f3efe6;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px 100px;">
+      <a href="#work" style="display: inline-flex; align-items: center; gap: 8px; color: #f3efe6; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65;" style-hover="opacity: 1;">← All work</a>
+      <div style="margin-top: 40px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end;" data-r="split-title">
+        <div>
+          <span style="display: flex; gap: 8px; margin-bottom: 20px;"><i style="width: 12px; height: 12px; border-radius: 50%; background: #c62828; display: inline-block;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #ffd23f; display: inline-block;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #2e8b3a; display: inline-block;"></i></span>
+          <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.5vw, 92px); line-height: 0.98;">Cast your <em style="font-style: italic; color: #ffd23f;">crunch</em>.</h2>
+        </div>
+        <div style="font-size: 14px; line-height: 1.9;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Client</span><span>Twisties</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Industry</span><span>Food / Politics</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Angle</span><span>Cultural hijack</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="opacity: 0.55;">Role</span><span>Campaign strategy</span></div>
+        </div>
+      </div>
+      <image-slot id="twisties-hero" placeholder="Twisties Election — poster-red / canary / green hero" shape="rounded" radius="16" style="width: 100%; height: 480px; display: block; margin-top: 48px;" data-r="detail-hero-img"></image-slot>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ffd23f;">The Insight</div>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.35;">Cheese vs Chicken is the only two-party system Australians agree to care about. So we ran it like <em style="font-style: italic;">a real election</em>.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ffd23f;">The Idea</div>
+        <div>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">Election-poster art direction turned the snack aisle into a campaign trail, with each flavour running for the nation's vote. We called an election to settle the debate once and for all: Australia's Official Twistie.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">Familiar political theatre gave a snack rivalry the stakes of a headline.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px;" data-r="split-images">
+        <image-slot id="twisties-2" placeholder="campaign poster / OOH" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+        <image-slot id="twisties-3" placeholder="in-store / social activation" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ffd23f;">The Scope</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Campaign platform</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">Art direction</span>
+          <span style="font-size: 13px; border: 1px solid rgba(243,239,230,0.22); border-radius: 999px; padding: 8px 18px;">OOH &amp; social</span>
+        </div>
+      </div>
+      <a href="#cs-detail" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 80px; border-top: 1px solid rgba(243,239,230,0.16); padding-top: 36px; flex-wrap: wrap; text-decoration: none; color: #f3efe6;" style-hover="color: {{ accent }};">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55;">Next case study</span>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(28px, 4vw, 48px); line-height: 1;">Doritos Coriander →</span>
+      </a>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ onDoritos }}" hint-placeholder-val="{{ false }}">
+  <!-- ============ DETAIL: DORITOS ============ -->
+  <section id="cs-detail" data-screen-label="Doritos Detail" style="background: #17141a; color: #f3efe6;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px 100px;">
+
+      <!-- breadcrumb -->
+      <a href="#work" style="display: inline-flex; align-items: center; gap: 8px; color: #f3efe6; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65;" style-hover="opacity: 1;">← All work</a>
+
+      <!-- title block -->
+      <div style="margin-top: 40px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end;" data-r="split-title">
+        <div>
+          <span style="display: flex; gap: 8px; margin-bottom: 20px;"><i style="width: 12px; height: 12px; border-radius: 50%; background: #1c5e3c; display: inline-block;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #f3efe6; display: inline-block;"></i><i style="width: 12px; height: 12px; border-radius: 50%; background: #ff5a2a; display: inline-block;"></i></span>
+          <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.5vw, 92px); line-height: 0.98;">Wash Your <em style="font-style: italic; color: #ff5a2a;">Mouth</em> Out</h2>
+        </div>
+        <div style="font-size: 14px; line-height: 1.9;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Client</span><span>Doritos</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Year</span><span>2024</span></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(243,239,230,0.14); padding: 8px 0;"><span style="opacity: 0.55;">Industry</span><span>Food / Advertising</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 8px 0;"><span style="opacity: 0.55;">Role</span><span>Creative strategy</span></div>
+        </div>
+      </div>
+
+      <!-- hero image -->
+      <image-slot id="cs-detail-hero" placeholder="Doritos coriander pack styled as soap — the OOH hero" shape="rounded" radius="16" style="width: 100%; height: 480px; display: block; margin-top: 48px;" data-r="detail-hero-img"></image-slot>
+
+      <!-- stat band -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 48px; border-top: 1px solid rgba(243,239,230,0.16); border-bottom: 1px solid rgba(243,239,230,0.16); padding: 36px 0;" data-r="stat-4">
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 52px); line-height: 1;">450M+</div><div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; margin-top: 6px;">Earned reach</div></div>
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 52px); line-height: 1;">430</div><div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; margin-top: 6px;">Earned media pieces</div></div>
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 52px); line-height: 1;">95.7%</div><div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; margin-top: 6px;">Brand mention in headlines</div></div>
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 52px); line-height: 1;">400×</div><div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; margin-top: 6px;">Winning eBay bid vs pack price</div></div>
+      </div>
+
+      <!-- narrative: insight / idea / evolution -->
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ff5a2a;">The Insight</div>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.35;">1 in 5 Australians carry olfactory genes that make coriander taste like <em style="font-style: italic;">soap</em>. Instead of hiding from the hate, we leaned all the way in.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ff5a2a;">The Idea</div>
+        <div>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">An ultra-limited run of 500 coriander-flavoured packs, launched with out-of-home placed right next to soap retailers — Aesop, Lush — styling the chips as an aromatic, indulgent soap.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">It made the divisive flavour the whole point, turning a genetic quirk into a collectible cultural object.</p>
+        </div>
+      </div>
+
+      <!-- OOH headlines -->
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ff5a2a;">The Lines</div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3; border-left: 2px solid #ff5a2a; padding-left: 20px;">"A soap tasting chip? Not a fable."</div>
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3; border-left: 2px solid #ff5a2a; padding-left: 20px;">"Boldly fragrant &amp; indulgently soapy chips? Delush."</div>
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3; border-left: 2px solid #ff5a2a; padding-left: 20px;">"Deliciously fragrant… and indulgently soapy."</div>
+        </div>
+      </div>
+
+      <!-- image duo -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px;" data-r="split-images">
+        <image-slot id="cs-detail-2" placeholder="OOH placement next to soap retailer" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+        <image-slot id="cs-detail-3" placeholder="influencer seeding mailer / eBay auction screenshot" shape="rounded" radius="12" style="width: 100%; height: 340px; display: block;" data-r="duo-img"></image-slot>
+      </div>
+
+      <!-- evolution -->
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 72px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ff5a2a;">The Evolution</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px;">Seeded mailers stoked the influencer feeds, fed the "I Hate Coriander" Facebook page, and — entirely unplanned — the final pack ended up in an eBay bidding war that closed at 400× its retail price. The internet finished the campaign for us.</p>
+      </div>
+
+      <!-- press -->
+      <div style="display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 56px; border-top: 1px solid rgba(243,239,230,0.14); padding-top: 48px;" data-r="row-label">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #ff5a2a;">The Press</div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: rgba(243,239,230,0.05); border: 1px solid rgba(243,239,230,0.12); border-radius: 14px; padding: 22px 26px;">
+            <p style="margin: 0; font-size: 18px; line-height: 1.5;">"Doritos has launched the most controversial chip in history…"</p>
+            <div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; margin-top: 10px;">taste.com.au</div>
+          </div>
+          <div style="background: rgba(243,239,230,0.05); border: 1px solid rgba(243,239,230,0.12); border-radius: 14px; padding: 22px 26px;">
+            <p style="margin: 0; font-size: 18px; line-height: 1.5;">"Doritos' New Flavour That'll Divide The Nation"</p>
+            <div style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; margin-top: 10px;">KIIS 1065</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- next -->
+      <a href="#cs-cryoglow-detail" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 80px; border-top: 1px solid rgba(243,239,230,0.16); padding-top: 36px; flex-wrap: wrap; text-decoration: none; color: #f3efe6;" style-hover="color: {{ accent }};">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55;">Next case study</span>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(28px, 4vw, 48px); line-height: 1;">SharkBeauty CryoGlow →</span>
+      </a>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ onHome }}" hint-placeholder-val="{{ true }}">
+  <!-- ============ CONTACT / FOOTER ============ -->
+  <footer id="contact" data-screen-label="Contact" style="background: #2b2430; color: #f7efe4; padding: 100px 48px 48px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <p style="margin: 0 0 12px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.55;">✳ Currently taking agency contracts</p>
+      <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(48px, 7vw, 96px); line-height: 1.05;">Let's make something people want to talk about.</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 64px;" data-r="contact-grid">
+        <div>
+          <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.7; opacity: 0.8; max-width: 460px;">For agency contracts, freelance strategy sprints, or a coffee chat - my inbox is open.</p>
+          <div style="display: flex; flex-direction: column; gap: 14px; font-size: 14px;">
+            <div style="display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(247,239,228,0.16); padding-bottom: 12px;"><span style="opacity: 0.55;">Email</span><a href="mailto:hello@yourname.com" style="color: #f7efe4; text-decoration: none;" style-hover="color: {{ accent }};">phuongvivien@gmail.com</a></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(247,239,228,0.16); padding-bottom: 12px;"><span style="opacity: 0.55;">Based in</span><span>Sydney, Australia</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(247,239,228,0.16); padding-bottom: 12px;"><span style="opacity: 0.55;">Availability</span><span>Agency contracts · open now</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 4px;"><span style="opacity: 0.55;">Elsewhere</span><span style="display: flex; gap: 18px;"><a href="#" style="color: #f7efe4; text-decoration: none; opacity: 0.85;" style-hover="color: {{ accent }};">Instagram</a><a href="#" style="color: #f7efe4; text-decoration: none; opacity: 0.85;" style-hover="color: {{ accent }};">LinkedIn</a></span></div>
+          </div>
+        </div>
+        <div style="background: rgba(247,239,228,0.05); border: 1px solid rgba(247,239,228,0.14); border-radius: 18px; padding: 32px;">
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; margin-bottom: 20px;">Start the conversation</div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <input id="contact-name" placeholder="Your name" style="background: rgba(247,239,228,0.06); border: 1px solid rgba(247,239,228,0.2); border-radius: 10px; padding: 14px 16px; color: #f7efe4; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; width: 100%; box-sizing: border-box;">
+            <input id="contact-email" placeholder="Your email" style="background: rgba(247,239,228,0.06); border: 1px solid rgba(247,239,228,0.2); border-radius: 10px; padding: 14px 16px; color: #f7efe4; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; width: 100%; box-sizing: border-box;">
+            <textarea id="contact-message" placeholder="What are we making?" rows="4" style="background: rgba(247,239,228,0.06); border: 1px solid rgba(247,239,228,0.2); border-radius: 10px; padding: 14px 16px; color: #f7efe4; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; width: 100%; box-sizing: border-box; resize: vertical;"></textarea>
+            <button onClick="{{ sendMessage }}" style="background: {{ accent }}; color: #2b2430; border: none; border-radius: 999px; padding: 14px 24px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;" style-hover="filter: brightness(1.08);">Send it over →</button>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 24px; margin-top: 64px; border-top: 1px solid rgba(247, 239, 228, 0.18); padding-top: 28px;">
+        <span style="font-size: 12px; opacity: 0.45;">© 2026 · Made with warm light</span>
+        <a href="#hero" style="color: #f7efe4; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7;" style-hover="opacity: 1;">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cinematicNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;scrollReveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;heroParallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;heroCreativeColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2b2430&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#2b2430&quot;,&quot;#f7efe4&quot;,&quot;#8b9486&quot;],&quot;section&quot;:&quot;Hero&quot;},&quot;heroStrategistColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#8b9486&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#2b2430&quot;,&quot;#8b9486&quot;,&quot;#c98a4b&quot;],&quot;section&quot;:&quot;Hero&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#8b9486&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#c98a4b&quot;,&quot;#8b9486&quot;,&quot;#b48a92&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;showGrain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { view: "home" };
+
+  renderVals() {
+    const v = this.state.view;
+    return {
+      accent: this.props.accent ?? "#c98a4b",
+      showGrain: this.props.showGrain ?? true,
+      heroCreativeColor: this.props.heroCreativeColor ?? "#2b2430",
+      heroStrategistColor: this.props.heroStrategistColor ?? "#2b2430",
+      onHome: v === "home",
+      onCryoglow: v === "cs-cryoglow-detail",
+      onAfw: v === "cs-afw-detail",
+      onCruiser: v === "cs-cruiser-detail",
+      onTwisties: v === "cs-twisties-detail",
+      onDoritos: v === "cs-detail",
+      sendMessage: () => {
+        const val = (id) => { const el = document.getElementById(id); return el ? el.value : ""; };
+        const name = val("contact-name");
+        const email = val("contact-email");
+        const msg = val("contact-message");
+        const subject = encodeURIComponent("Portfolio enquiry" + (name ? " — " + name : ""));
+        const body = encodeURIComponent(msg + (email ? "\n\nReply to: " + email : ""));
+        window.location.href = "mailto:hello@yourname.com?subject=" + subject + "&body=" + body;
+      },
+    };
+  }
+
+  _useVT() {
+    return !!document.startViewTransition && (this.props.cinematicNav ?? true) && !this._reduced;
+  }
+
+  _go(view, scrollY) {
+    const apply = () => new Promise((resolve) => {
+      this.setState({ view });
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY || 0);
+        this._setupReveals();
+        this._watchStats();
+        resolve();
+      }));
+    });
+    if (this._useVT()) document.startViewTransition(apply); else apply();
+  }
+
+  _goHome(targetId, restoreY) {
+    const apply = () => new Promise((resolve) => {
+      this.setState({ view: "home" });
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        let y = restoreY;
+        if (y == null) {
+          const t = document.getElementById(targetId);
+          y = t ? window.scrollY + t.getBoundingClientRect().top : 0;
+        }
+        window.scrollTo(0, y);
+        history.replaceState(null, "", "#" + targetId);
+        this._setupReveals();
+        resolve();
+      }));
+    });
+    if (this._useVT()) document.startViewTransition(apply); else apply();
+  }
+
+  _setupReveals() {
+    if (this._io) this._io.disconnect();
+    if (this._reduced) return;
+    const targets = document.querySelectorAll(
+      '#work > a, #work > div > a, #skills > div, #about > div, #contact [data-r="contact-grid"] > *, section[id$="-detail"] > div > *, #cs-detail > div > *'
+    );
+    let batch = [];
+    let batchTimer = null;
+    this._io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        this._io.unobserve(e.target);
+        if (this.props.scrollReveals ?? true) batch.push(e.target);
+        else { e.target.style.opacity = ""; e.target.style.transform = ""; continue; }
+      }
+      if (batch.length && !batchTimer) {
+        batchTimer = setTimeout(() => {
+          batch.forEach((el, i) => {
+            el.animate(
+              [
+                { opacity: 0, transform: "translateY(22px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              { duration: 640, delay: i * 90, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "backwards" }
+            );
+            el.style.opacity = "";
+            el.style.transform = "";
+          });
+          batch = [];
+          batchTimer = null;
+        }, 40);
+      }
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+
+    const vh = window.innerHeight;
+    targets.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top > vh) {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(22px)";
+        this._io.observe(el);
+      }
+    });
+  }
+
+  _watchStats() {
+    if (this._reduced) return;
+    const band = document.querySelector('[data-r="stat-4"]');
+    if (!band || band._counted) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        band._counted = true;
+        band.querySelectorAll(":scope > div > div:first-child").forEach((el) => {
+          const original = el.textContent;
+          const m = original.match(/^([\d.]+)(.*)$/);
+          if (!m) return;
+          const target = parseFloat(m[1]);
+          const decimals = (m[1].split(".")[1] || "").length;
+          const suffix = m[2] || "";
+          const t0 = performance.now();
+          const dur = 1400;
+          const tick = (t) => {
+            const p = Math.min(1, (t - t0) / dur);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = (target * eased).toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = original;
+          };
+          requestAnimationFrame(tick);
+        });
+      });
+    }, { threshold: 0.4 });
+    io.observe(band);
+    this._statsIo = io;
+  }
+
+  componentDidMount() {
+    this._detailViews = ["cs-cryoglow-detail", "cs-afw-detail", "cs-cruiser-detail", "cs-twisties-detail", "cs-detail"];
+    this._reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this._savedScroll = 0;
+
+    // --- Router: card clicks open pages; exits restore scroll ---
+    this._onClick = (ev) => {
+      const a = ev.target.closest && ev.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute("href");
+      const id = href.slice(1);
+      if (!id) { ev.preventDefault(); return; }
+      if (this._detailViews.includes(id)) {
+        ev.preventDefault();
+        if (this.state.view === "home") this._savedScroll = window.scrollY;
+        this._go(id, 0);
+        history.replaceState(null, "", href);
+        return;
+      }
+      if (this.state.view !== "home") {
+        ev.preventDefault();
+        this._goHome(id, id === "work" ? (this._savedScroll || 0) : null);
+        return;
+      }
+      // on home: cinematic same-page jump
+      const target = document.querySelector(href);
+      if (!target) return;
+      if (this._reduced || !document.startViewTransition || !(this.props.cinematicNav ?? true)) return;
+      ev.preventDefault();
+      document.startViewTransition(() => {
+        const rect = target.getBoundingClientRect();
+        window.scrollTo(0, window.scrollY + rect.top);
+        history.replaceState(null, "", href);
+      });
+    };
+    document.addEventListener("click", this._onClick, true);
+
+    // Deep link: open detail page if URL hash points at one
+    const hash = (location.hash || "").slice(1);
+    if (this._detailViews.includes(hash)) {
+      this._go(hash, 0);
+    } else if (!this._reduced) {
+      this._setupReveals();
+    }
+
+    if (this._reduced) return;
+
+    // --- Scroll choreography: nav shadow, hero parallax + photo scale, detail hero drift ---
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const y = window.scrollY;
+        const nav = document.querySelector("nav");
+        if (nav) nav.style.boxShadow = y > 8 ? "0 12px 32px rgba(43, 36, 48, 0.08)" : "none";
+        if (this.state.view === "home") {
+          const creative = document.getElementById("hero-word-creative");
+          const strategist = document.getElementById("hero-word-strategist");
+          if (creative && strategist) {
+            const on = this.props.heroParallax ?? true;
+            const p = on ? Math.min(y, 900) : 0;
+            creative.style.transform = "translateX(" + (-p * 0.12) + "px)";
+            strategist.style.transform = "translateX(" + (p * 0.12) + "px)";
+          }
+          const photo = document.getElementById("hero-photo");
+          if (photo) photo.style.transform = "scale(" + (1 + (Math.min(y, 600) / 600) * 0.045) + ")";
+        } else {
+          const heroImg = document.querySelector('[data-r="detail-hero-img"]');
+          if (heroImg) heroImg.style.transform = "translateY(" + Math.min(y * 0.06, 44) + "px)";
+        }
+      });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    document.removeEventListener("click", this._onClick, true);
+    if (this._io) this._io.disconnect();
+    if (this._statsIo) this._statsIo.disconnect();
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+}
+</script>
+</body>
+</html>
