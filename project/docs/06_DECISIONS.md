@@ -22,6 +22,7 @@
 - **Why:** `PORTFOLIO-DATA.md` only contains quantified stats for Doritos; the other four studies have no numbers provided. Per project content rules, stats must never be fabricated.
 - **Alternatives avoided:** Making up plausible-sounding stats for the other 4 studies to "balance" the page.
 - **Preserve:** Do not add stat bands to CryoGlow/AFW/Cruiser/Twisties unless the user supplies real numbers (open item, see `07_TODO.md`).
+- **Amended (2026-07):** User requested contextual stats on all detail pages, still with a hard no-fabrication rule. Resolution: inline stat strips whose values are verbatim facts already in the source data (e.g. AFW "5 days of shows", Doritos "500 packs", "193k+ comments"); studies without numbers use factual non-numeric values ("Same-day", "Creator-first") that reveal without counting. The no-invented-metrics rule still stands — do not add numbers that aren't in `PORTFOLIO-DATA.md` or existing copy.
 
 ## 5. No WebGL / heavy motion libraries in the "overdrive" pass
 - **Decided (m0018–m0021):** All motion (View Transitions, IntersectionObserver reveals, hero parallax, count-up, floating pills) implemented in vanilla CSS/WAAPI/JS only.

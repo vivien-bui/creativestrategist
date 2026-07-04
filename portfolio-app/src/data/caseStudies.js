@@ -7,6 +7,14 @@
 // Text fields use a light "*word*" markup for a single italic emphasis
 // span, rendered by <Rich>. "\n\n" inside `idea` paragraphs is an
 // intentional in-paragraph line break (mirrors the original's <br><br>).
+//
+// `unfolded` ("How it unfolded") holds each study's execution/outcome
+// narrative — text that previously lived as the second `idea` paragraph
+// (or, for Doritos, the Evolution row). Moved, never rewritten.
+// `insightStats`/`ideaStats`/`unfoldedStats` are contextual stat strips;
+// every value is verbatim from PORTFOLIO-DATA.md or this file's existing
+// copy — non-numeric values exist because those studies have no real
+// metrics on record and none may be invented.
 
 export const caseStudies = [
   {
@@ -49,7 +57,14 @@ export const caseStudies = [
         "Cold-tech skincare feels clinical. But consumers want the results *and* the ritual — proof it works, wrapped in something she'd leave out on the shelf.",
       idea: [
         "Position CryoGlow as the calm meeting point of clinic and vanity, launching in Australia by partnering with underpriced beauty creator Chloe Morello - a trusted voice with strong credibility among our core audience.",
+      ],
+      unfolded: [
         'A creator-first launch let real routines carry the proof, with a repeatable content system so every post looked unmistakably CryoGlow.',
+      ],
+      unfoldedStats: [
+        { value: '2026', label: 'Australian launch' },
+        { value: 'Feb–Jul', label: 'Launch window' },
+        { value: 'Creator-first', label: 'Launch model' },
       ],
       images: [
         { id: 'cryoglow-2', label: 'creator routine / device in-use shot' },
@@ -96,7 +111,14 @@ export const caseStudies = [
         "Fashion week is five days of noise. Presence isn't a seat in the room — it's *owning the feed* the room is looking at.",
       idea: [
         'Make Shark Beauty a cultural centerpiece at Australia Fashion Week .',
+      ],
+      unfolded: [
         'A live content team turned each runway into same-day social, with talent and PR briefed to a shared narrative.\n\nInfluencers, behind-the-scenes moments, on-the-ground vox pops, and giveaways all worked together to capture the energy exactly as it happened.',
+      ],
+      unfoldedStats: [
+        { value: '5', label: 'Days of shows' },
+        { value: 'Same-day', label: 'Runway to social' },
+        { value: '2026', label: 'Fashion Week season' },
       ],
       images: [
         { id: 'afw-2', label: 'runway / backstage content' },
@@ -141,7 +163,14 @@ export const caseStudies = [
         "Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it — it joins by *moving at its speed*.",
       idea: [
         'Charlii XCX turned the world lime green and we answered in kind: a Summer Apple release with brat-coded OOH (\'drinkin\' that? ur so...").',
+      ],
+      unfolded: [
         'Reactive posting kept Cruiser inside the conversation while it was still peaking.',
+      ],
+      unfoldedStats: [
+        { value: 'Summer Apple', label: 'Limited release' },
+        { value: 'Real-time', label: 'Reactive posting' },
+        { value: 'OOH + social', label: 'Brat-coded channels' },
       ],
       images: [
         { id: 'cruiser-2', label: 'social-native creative' },
@@ -186,9 +215,17 @@ export const caseStudies = [
       heroLabel: 'Twisties Election — poster-red / canary / green hero',
       insight:
         'Cheese vs Chicken is the only two-party system Australians agree to care about. So we ran it like *a real election*.',
+      award: '🏆 TikTok Award — Best Social Media Campaign 2025',
       idea: [
         "Election-poster art direction turned the snack aisle into a campaign trail, with each flavour running for the nation's vote. We called an election to settle the debate once and for all: Australia's Official Twistie.",
+      ],
+      unfolded: [
         'Familiar political theatre gave a snack rivalry the stakes of a headline.',
+      ],
+      unfoldedStats: [
+        { value: '2', label: 'Flavours on the ballot' },
+        { value: '1', label: 'National election called' },
+        { value: '2025', label: 'TikTok Award win' },
       ],
       images: [
         { id: 'twisties-2', label: 'campaign poster / OOH' },
@@ -239,10 +276,16 @@ export const caseStudies = [
       ],
       insight:
         '1 in 5 Australians carry olfactory genes that make coriander taste like *soap*. Instead of hiding from the hate, we leaned all the way in.',
+      insightStats: [{ value: '1 in 5', label: 'Australians taste soap in coriander' }],
       idea: [
         'An ultra-limited run of 500 coriander-flavoured packs, launched with out-of-home placed right next to soap retailers — Aesop, Lush — styling the chips as an aromatic, indulgent soap.',
         'It made the divisive flavour the whole point, turning a genetic quirk into a collectible cultural object.',
       ],
+      ideaStats: [{ value: '500', label: 'Packs in the ultra-limited run' }],
+      unfolded: [
+        'Seeded mailers stoked the influencer feeds, fed the "I Hate Coriander" Facebook page, and — entirely unplanned — the final pack ended up in an eBay bidding war that closed at 400× its retail price. The internet finished the campaign for us.',
+      ],
+      unfoldedStats: [{ value: '193k+', label: 'Comments in 3 days' }],
       lines: [
         '"A soap tasting chip? Not a fable."',
         '"Boldly fragrant & indulgently soapy chips? Delush."',
@@ -252,8 +295,6 @@ export const caseStudies = [
         { id: 'cs-detail-2', label: 'OOH placement next to soap retailer' },
         { id: 'cs-detail-3', label: 'influencer seeding mailer / eBay auction screenshot' },
       ],
-      evolution:
-        'Seeded mailers stoked the influencer feeds, fed the "I Hate Coriander" Facebook page, and — entirely unplanned — the final pack ended up in an eBay bidding war that closed at 400× its retail price. The internet finished the campaign for us.',
       press: [
         { quote: 'Doritos has launched the most controversial chip in history…', source: 'taste.com.au' },
         { quote: "Doritos' New Flavour That'll Divide The Nation", source: 'KIIS 1065' },

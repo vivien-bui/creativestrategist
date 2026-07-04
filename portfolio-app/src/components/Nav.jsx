@@ -24,8 +24,9 @@ export default function Nav({ onNavigate }) {
       <div className="nav__logo">Vivien Bui</div>
       <div className="nav__links">
         <a href="#work" onClick={link('work')} className="nav__link">Work</a>
-        <a href="#skills" onClick={link('skills')} className="nav__link">Skills</a>
         <a href="#about" onClick={link('about')} className="nav__link">About</a>
+        <a href="#skills" onClick={link('skills')} className="nav__link">Skills</a>
+        <a href="#bag" onClick={link('bag')} className="nav__link">Bag</a>
         <a href="#contact" onClick={link('contact')} className="nav__contact">Contact</a>
       </div>
     </nav>

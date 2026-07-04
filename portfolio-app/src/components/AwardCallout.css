@@ -1,0 +1,56 @@
+.award-callout {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 44px;
+}
+
+.award-callout__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--study-accent) 55%, transparent)
+  );
+}
+
+.award-callout__rule:last-child {
+  background: linear-gradient(
+    270deg,
+    transparent,
+    color-mix(in srgb, var(--study-accent) 55%, transparent)
+  );
+}
+
+.award-callout__text {
+  border: 1px solid color-mix(in srgb, var(--study-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--study-accent) 9%, transparent);
+  border-radius: 999px;
+  padding: 13px 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--study-accent);
+  white-space: nowrap;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
+}
+
+.award-callout__text:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--study-accent) 15%, transparent);
+}
+
+@media (max-width: 767px) {
+  .award-callout {
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .award-callout__text {
+    white-space: normal;
+    text-align: center;
+    padding: 12px 22px;
+    letter-spacing: 0.08em;
+  }
+}

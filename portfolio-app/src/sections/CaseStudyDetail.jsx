@@ -3,6 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import ColorDots from '../components/ColorDots';
 import Rich from '../components/Rich';
 import StatBand from '../components/StatBand';
+import AwardCallout from '../components/AwardCallout';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
 
@@ -88,17 +89,30 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           <ImagePlaceholder label={detail.heroLabel} radius={16} dark={theme !== 'light'} />
         </div>
 
-        {detail.stats && <StatBand stats={detail.stats} />}
+        {detail.award && <AwardCallout text={detail.award} />}
 
         <Row label="The Insight" accent={accent} first>
           <Rich as="p" className="detail__insight" text={detail.insight} />
+          {detail.insightStats && <StatBand stats={detail.insightStats} variant="inline" />}
         </Row>
 
         <Row label="The Idea" accent={accent}>
           {detail.idea.map((p, i) => (
             <Rich as="p" key={i} className="detail__idea-p" text={p} />
           ))}
+          {detail.ideaStats && <StatBand stats={detail.ideaStats} variant="inline" />}
         </Row>
+
+        {detail.unfolded && (
+          <Row label="How it unfolded" accent={accent}>
+            {detail.unfolded.map((p, i) => (
+              <Rich as="p" key={i} className="detail__idea-p" text={p} />
+            ))}
+            {detail.unfoldedStats && <StatBand stats={detail.unfoldedStats} variant="inline" />}
+          </Row>
+        )}
+
+        {detail.stats && <StatBand stats={detail.stats} />}
 
         {detail.lines && (
           <Row label="The Lines" accent={accent}>
@@ -129,12 +143,6 @@ export default function CaseStudyDetail({ study, onNavigate }) {
                 </span>
               ))}
             </div>
-          </Row>
-        )}
-
-        {detail.evolution && (
-          <Row label="The Evolution" accent={accent}>
-            <p className="detail__evolution">{detail.evolution}</p>
           </Row>
         )}
 

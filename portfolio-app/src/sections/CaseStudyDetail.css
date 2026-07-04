@@ -179,14 +179,6 @@
   padding: 8px 18px;
 }
 
-.detail__evolution {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.7;
-  opacity: 0.87;
-  max-width: 640px;
-}
-
 .detail__press {
   display: flex;
   flex-direction: column;

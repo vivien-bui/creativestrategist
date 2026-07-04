@@ -2,10 +2,15 @@ import { useEffect, useRef } from 'react';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './StatBand.css';
 
-// Quantified proof points — only ever used where real numbers exist
-// (currently Doritos only, see 06_DECISIONS.md #4). Counts up once, the
-// first time it scrolls into view.
-export default function StatBand({ stats }) {
+// Quantified proof points — only ever used where real figures exist in the
+// source data (see 06_DECISIONS.md #4); non-numeric values simply reveal
+// without counting. Two variants:
+//   band   — full-width 4-up strip (Doritos' headline numbers)
+//   inline — smaller contextual strip nested inside a detail row
+// Numeric values count up once, the first time they scroll into view;
+// each stat carries its own data-reveal so the shared scroll-reveal
+// batching staggers them.
+export default function StatBand({ stats, variant = 'band' }) {
   const ref = useRef(null);
   const reduced = useReducedMotion();
 
@@ -18,7 +23,7 @@ export default function StatBand({ stats }) {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           io.disconnect();
-          band.querySelectorAll(':scope > div > div:first-child').forEach((el) => {
+          band.querySelectorAll('.stat-band__value').forEach((el) => {
             const original = el.textContent;
             const m = original.match(/^([\d.]+)(.*)$/);
             if (!m) return;
@@ -45,9 +50,13 @@ export default function StatBand({ stats }) {
   }, [reduced]);
 
   return (
-    <div ref={ref} className="stat-band" data-r="stat-4" data-reveal>
+    <div
+      ref={ref}
+      className={`stat-band${variant === 'inline' ? ' stat-band--inline' : ''}`}
+      data-r={variant === 'inline' ? 'stat-inline' : 'stat-4'}
+    >
       {stats.map((s) => (
-        <div key={s.label}>
+        <div key={s.label} className="stat-band__item" data-reveal>
           <div className="stat-band__value">{s.value}</div>
           <div className="stat-band__label">{s.label}</div>
         </div>

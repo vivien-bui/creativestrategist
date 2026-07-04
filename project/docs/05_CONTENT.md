@@ -10,16 +10,17 @@ Any future case study should first get an entry added to `PORTFOLIO-DATA.md`'s t
 ## Content Structure Per Case Study
 Every detail page follows the same narrative order (see `03_COMPONENTS.md` "Row-label Pattern"):
 1. Title + meta facts
-2. Hero image
-3. (Stats, if real numbers exist — currently Doritos only)
-4. The Insight (1-sentence tension/observation, italicized emphasis on the key phrase)
-5. The Idea (2 short paragraphs: what was done, why it worked)
-6. Two supporting images
-7. The Scope (tag pills) — or for Doritos, additional Evolution + Press rows
-8. Next-case-study link
+2. Hero image (+ award ribbon, Twisties only)
+3. The Insight (1-sentence tension/observation, italicized emphasis on the key phrase)
+4. The Idea (what was done and why)
+5. How it unfolded (execution/outcome narrative — text that previously lived as the second Idea paragraph, or Doritos' old Evolution row; moved, never rewritten)
+6. Contextual stat strips nested inside rows where real figures exist (verbatim from `PORTFOLIO-DATA.md`/existing copy only — never fabricated; non-numeric "fact" values are used where a study has no metrics on record). Doritos additionally keeps its 4-up headline stat band, now placed after "How it unfolded" instead of at the top.
+7. Two supporting images
+8. The Scope (tag pills) — plus Press row for Doritos
+9. Next-case-study link
 
 ## Section Ordering (Homepage)
-Hero → Selected Work → The usual order (skills) → About → Contact. This order is intentional: lead with identity, prove it with work, add personality (skills-as-drink-order), humanize (About), close with a CTA (Contact). Do not reorder without user request.
+Hero → Selected Work → About → The usual order (skills) → What's in my bag → Contact. Reordered per explicit user request (2026-07): work first, then humanize (About), then the two personality sections, closing with the CTA. Do not reorder without user request.
 
 ## Naming Conventions
 - Section/detail IDs: `hero`, `work`, `skills`, `about`, `contact`; detail pages `cs-<name>-detail` (Doritos is `cs-detail`, a legacy exception — do not rename).
