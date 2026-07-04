@@ -8,18 +8,21 @@ Two files in `uploads/` are **authoring reference only** — they are not fetche
 Any future case study should first get an entry added to `PORTFOLIO-DATA.md`'s table (year/industry/colors/stats) before being authored into the DC — keep facts and presentation decoupled the same way.
 
 ## Content Structure Per Case Study
-Every detail page follows the same narrative order (see `03_COMPONENTS.md` "Row-label Pattern"):
+Every detail page mirrors the original Doritos Coriander structure (see `03_COMPONENTS.md` "Row-label Pattern"):
 1. Title + meta facts
-2. Hero image
-3. (Stats, if real numbers exist — currently Doritos only)
+2. Hero image (+ award ribbon, Twisties only)
+3. Stats band — real campaign metrics for all five studies, supplied by the user (2026-07 `cases.js` attachment, mirrored into `PORTFOLIO-DATA.md`). Placed before The Insight like the original Doritos page; count-up + staggered reveal. Values live in `caseStudies.js` in the supplied `{value, prefix, suffix, decimals, label}` shape — never fabricated.
 4. The Insight (1-sentence tension/observation, italicized emphasis on the key phrase)
 5. The Idea (2 short paragraphs: what was done, why it worked)
-6. Two supporting images
-7. The Scope (tag pills) — or for Doritos, additional Evolution + Press rows
-8. Next-case-study link
+6. The Lines (Doritos only — verbatim OOH headlines)
+7. Two supporting images
+8. The Scope (tag pills)
+9. The Evolution — the campaign rollout, populated verbatim from the supplied execution content (bullet list with accent arrows)
+10. The Press (Doritos + Twisties)
+11. Next-case-study link
 
 ## Section Ordering (Homepage)
-Hero → Selected Work → The usual order (skills) → About → Contact. This order is intentional: lead with identity, prove it with work, add personality (skills-as-drink-order), humanize (About), close with a CTA (Contact). Do not reorder without user request.
+Hero → Selected Work → About → The usual order (skills) → What's in my bag → Contact. Reordered per explicit user request (2026-07): work first, then humanize (About), then the two personality sections, closing with the CTA. Do not reorder without user request.
 
 ## Naming Conventions
 - Section/detail IDs: `hero`, `work`, `skills`, `about`, `contact`; detail pages `cs-<name>-detail` (Doritos is `cs-detail`, a legacy exception — do not rename).

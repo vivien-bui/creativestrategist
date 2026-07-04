@@ -42,11 +42,27 @@
   justify-content: center;
 }
 
+/* Layered motion: scroll drift + cursor-follow parallax, set as CSS vars
+   from SkillsSection's rAF handlers. Zero movement by default. */
+.skills__art-parallax {
+  transform: translate3d(
+    var(--skills-mx, 0px),
+    calc(var(--skills-drift, 0px) + var(--skills-my, 0px)),
+    0
+  );
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
 .matcha-art {
   width: min(360px, 60vw);
   height: 460px;
   display: block;
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skills__art-wrap:hover .matcha-art {
+  transform: rotate(-1.5deg) translateY(-6px);
 }
 
 /* ---- Receipt ---- */
@@ -57,6 +73,12 @@
   padding: 40px 44px 32px;
   box-shadow: 0 24px 60px var(--ink-10);
   font-family: var(--font-body);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.receipt:hover {
+  transform: translateY(-4px) rotate(-0.3deg);
+  box-shadow: 0 32px 72px var(--ink-14);
 }
 
 .receipt__head {
@@ -110,6 +132,13 @@
 .receipt__rating {
   font-family: var(--font-display);
   font-size: 17px;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.receipt__line:hover .receipt__rating {
+  transform: scale(1.15) rotate(-3deg);
+  color: var(--accent);
 }
 
 .receipt__total {

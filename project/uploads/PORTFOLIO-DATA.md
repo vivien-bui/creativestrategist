@@ -4,11 +4,13 @@
 
 | Case Study | Year | Industry | Dominant Colors | Key Stats |
 |---|---|---|---|---|
-| Twisties Election | - | Food/Politics | Election-poster red, canary yellow, kelly green | - |
-| Vodka Cruiser × Brat Summer | - | Beverage | Acid chartreuse / lime | - |
-| SharkBeauty CryoGlow | - | Beauty | Soft neutrals, blush pink, LED blue-violet glow | - |
-| Australian Fashion Week | - | Fashion | Polished purple / runway black | - |
+| Twisties Election | - | Food/Politics | Election-poster red, canary yellow, kelly green | 702M earned impressions; 579 earned media pieces; +800% YoY social engagement; +14.6% unit sales; TikTok Award — Best Social Media Campaign 2025 |
+| Vodka Cruiser × Brat Summer | - | Beverage | Acid chartreuse / lime | 757K users reached |
+| SharkBeauty CryoGlow | - | Beauty | Soft neutrals, blush pink, LED blue-violet glow | 12.5M total reach AU+NZ; 18.8× creative ROI; 850 week-one units (target 300); 100+ pieces of social content |
+| Australian Fashion Week | - | Fashion | Polished purple / runway black | 3M total views; 270 posts & stories; +4.34% engagement rate |
 | Doritos Coriander "Wash Your Mouth Out" | 2024 | Food/Advertising | Jungle green, black, red-orange | 430 pieces of earned media; 450M+ earned reach; 95.7% brand mention in headlines; 193k+ comments in 3 days; winning auction bid 400× pack price |
+
+Stats for Twisties/Cruiser/CryoGlow/AFW were supplied by the user in July 2026 (cases.js attachment), alongside per-campaign execution/rollout content now used for each detail page's "The Evolution" section.
 
 ## Doritos Coriander Campaign Details
 

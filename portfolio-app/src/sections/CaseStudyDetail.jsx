@@ -3,6 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import ColorDots from '../components/ColorDots';
 import Rich from '../components/Rich';
 import StatBand from '../components/StatBand';
+import AwardCallout from '../components/AwardCallout';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
 
@@ -88,6 +89,8 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           <ImagePlaceholder label={detail.heroLabel} radius={16} dark={theme !== 'light'} />
         </div>
 
+        {detail.award && <AwardCallout text={detail.award} />}
+
         {detail.stats && <StatBand stats={detail.stats} />}
 
         <Row label="The Insight" accent={accent} first>
@@ -134,7 +137,11 @@ export default function CaseStudyDetail({ study, onNavigate }) {
 
         {detail.evolution && (
           <Row label="The Evolution" accent={accent}>
-            <p className="detail__evolution">{detail.evolution}</p>
+            <ul className="detail__evo-list">
+              {detail.evolution.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </Row>
         )}
 

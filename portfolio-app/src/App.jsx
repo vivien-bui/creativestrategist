@@ -1,10 +1,11 @@
 import { useCallback, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import Nav from './components/Nav';
 import GrainOverlay from './components/GrainOverlay';
 import Hero from './sections/Hero';
 import WorkSection from './sections/WorkSection';
-import SkillsSection from './sections/SkillsSection';
 import AboutSection from './sections/AboutSection';
+import SkillsSection from './sections/SkillsSection';
 import ContactSection from './sections/ContactSection';
 import CaseStudyDetail from './sections/CaseStudyDetail';
 import { detailViewIds, getCaseStudy } from './data/caseStudies';
@@ -33,20 +34,18 @@ export default function App() {
     [reduced]
   );
 
+  // Note: view-transition update callbacks must finish synchronously —
+  // rendering (and rAF) is paused until their promise settles, so waiting
+  // on rAF inside one deadlocks until the browser's bail-out timeout.
+  // flushSync commits the new view so the scroll target exists immediately.
   const goToDetail = useCallback(
     (id) => {
       if (view === 'home') savedScroll.current = window.scrollY;
       history.replaceState(null, '', '#' + id);
-      const apply = () =>
-        new Promise((resolve) => {
-          setView(id);
-          requestAnimationFrame(() =>
-            requestAnimationFrame(() => {
-              window.scrollTo(0, 0);
-              resolve();
-            })
-          );
-        });
+      const apply = () => {
+        flushSync(() => setView(id));
+        window.scrollTo(0, 0);
+      };
       if (canUseViewTransition()) document.startViewTransition(apply);
       else apply();
     },
@@ -55,22 +54,16 @@ export default function App() {
 
   const goHome = useCallback(
     (targetId, restoreY) => {
-      const apply = () =>
-        new Promise((resolve) => {
-          setView('home');
-          requestAnimationFrame(() =>
-            requestAnimationFrame(() => {
-              let y = restoreY;
-              if (y == null) {
-                const t = document.getElementById(targetId);
-                y = t ? window.scrollY + t.getBoundingClientRect().top : 0;
-              }
-              window.scrollTo(0, y);
-              history.replaceState(null, '', '#' + targetId);
-              resolve();
-            })
-          );
-        });
+      const apply = () => {
+        flushSync(() => setView('home'));
+        let y = restoreY;
+        if (y == null) {
+          const t = document.getElementById(targetId);
+          y = t ? window.scrollY + t.getBoundingClientRect().top : 0;
+        }
+        window.scrollTo(0, y);
+        history.replaceState(null, '', '#' + targetId);
+      };
       if (canUseViewTransition()) document.startViewTransition(apply);
       else apply();
     },
@@ -117,12 +110,14 @@ export default function App() {
       <GrainOverlay />
       <Nav onNavigate={handleNavigate} />
 
+      {/* Homepage order (user-specified): Hero → Featured Work → About →
+          The Usual Order → Contact */}
       {view === 'home' && (
         <>
           <Hero onNavigate={handleNavigate} />
           <WorkSection onNavigate={handleNavigate} />
-          <SkillsSection />
           <AboutSection />
+          <SkillsSection />
         </>
       )}
 

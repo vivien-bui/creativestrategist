@@ -7,6 +7,12 @@
 // Text fields use a light "*word*" markup for a single italic emphasis
 // span, rendered by <Rich>. "\n\n" inside `idea` paragraphs is an
 // intentional in-paragraph line break (mirrors the original's <br><br>).
+//
+// `stats` are the real campaign metrics supplied by the user (2026-07,
+// cases.js attachment — mirrored into PORTFOLIO-DATA.md); values are kept
+// in the supplied {value, prefix, suffix, decimals, label} shape and
+// formatted/counted-up by <StatBand>. `evolution` holds the supplied
+// execution/rollout content for "The Evolution" row, verbatim.
 
 export const caseStudies = [
   {
@@ -47,9 +53,21 @@ export const caseStudies = [
       heroLabel: 'CryoGlow device — soft neutrals, blush, blue-violet LED glow',
       insight:
         "Cold-tech skincare feels clinical. But consumers want the results *and* the ritual — proof it works, wrapped in something she'd leave out on the shelf.",
+      stats: [
+        { value: 12.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
+        { value: 18.8, suffix: '×', decimals: 1, label: 'Creative ROI' },
+        { value: 850, label: 'Week-one units — target was 300' },
+        { value: 100, suffix: '+', label: 'Pieces of social content' },
+      ],
       idea: [
         "Position CryoGlow as the calm meeting point of clinic and vanity, launching in Australia by partnering with underpriced beauty creator Chloe Morello - a trusted voice with strong credibility among our core audience.",
         'A creator-first launch let real routines carry the proof, with a repeatable content system so every post looked unmistakably CryoGlow.',
+      ],
+      evolution: [
+        'Creator partnership with Chloe Morello anchors the launch in trust',
+        "Bespoke content series — 'Light Therapy' — turns clinical claims into watchable ritual",
+        '100+ pieces of always-on social keep the algorithm fed for weeks',
+        'Micro-influencer and event program drives trial across AU + NZ',
       ],
       images: [
         { id: 'cryoglow-2', label: 'creator routine / device in-use shot' },
@@ -94,9 +112,20 @@ export const caseStudies = [
       heroLabel: 'AFW — polished purple, runway black, front-row moment',
       insight:
         "Fashion week is five days of noise. Presence isn't a seat in the room — it's *owning the feed* the room is looking at.",
+      stats: [
+        { value: 3, suffix: 'M', label: 'Total views' },
+        { value: 270, label: 'Posts & stories' },
+        { value: 4.34, prefix: '+', suffix: '%', decimals: 2, label: 'Engagement rate' },
+      ],
       idea: [
         'Make Shark Beauty a cultural centerpiece at Australia Fashion Week .',
         'A live content team turned each runway into same-day social, with talent and PR briefed to a shared narrative.\n\nInfluencers, behind-the-scenes moments, on-the-ground vox pops, and giveaways all worked together to capture the energy exactly as it happened.',
+      ],
+      evolution: [
+        'Influencer network mobilised across every show',
+        'Behind-the-scenes and front-row reactions captured in real time',
+        'On-the-ground vox pops bring the audience onto the runway',
+        'Integrated giveaways convert spectacle into participation',
       ],
       images: [
         { id: 'afw-2', label: 'runway / backstage content' },
@@ -139,9 +168,19 @@ export const caseStudies = [
       heroLabel: 'Cruiser × Brat — acid-chartreuse hero',
       insight:
         "Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it — it joins by *moving at its speed*.",
+      stats: [
+        { value: 757, suffix: 'K', label: 'Users reached' },
+        { value: 1, suffix: ' summer', label: 'Owned, start to finish' },
+      ],
       idea: [
         'Charlii XCX turned the world lime green and we answered in kind: a Summer Apple release with brat-coded OOH (\'drinkin\' that? ur so...").',
         'Reactive posting kept Cruiser inside the conversation while it was still peaking.',
+      ],
+      evolution: [
+        'Summer Apple flavour drop, brat-coded from pack to platform',
+        "Lowercase billboards speak fluent brat — 'dyeing your hair green for a festival?'",
+        'Laneway Festival activation puts the bottle in the culture, not just the ad break',
+        'Social-first content built for velocity over polish',
       ],
       images: [
         { id: 'cruiser-2', label: 'social-native creative' },
@@ -186,9 +225,34 @@ export const caseStudies = [
       heroLabel: 'Twisties Election — poster-red / canary / green hero',
       insight:
         'Cheese vs Chicken is the only two-party system Australians agree to care about. So we ran it like *a real election*.',
+      award: '🏆 TikTok Award — Best Social Media Campaign 2025',
+      stats: [
+        { value: 702, suffix: 'M', label: 'Earned impressions' },
+        { value: 579, label: 'Earned media pieces' },
+        { value: 800, prefix: '+', suffix: '%', label: 'YoY social engagement' },
+        { value: 14.6, prefix: '+', suffix: '%', decimals: 1, label: 'Unit sales' },
+      ],
       idea: [
         "Election-poster art direction turned the snack aisle into a campaign trail, with each flavour running for the nation's vote. We called an election to settle the debate once and for all: Australia's Official Twistie.",
         'Familiar political theatre gave a snack rivalry the stakes of a headline.',
+      ],
+      evolution: [
+        "'Chickeese' leaks on Reddit; Chicken and Cheese fans go into meltdown",
+        'A full-page apology cancels Chickeese amid escalating outcry',
+        'A snap election is called, with celebrity candidates for both parties',
+        "Vandalised OOH and transit become lightning rods — 'CHICKEN RULES' sprayed over VOTE CHEESE",
+        'Viral influencer dance remix headlines the campaign spot as voting explodes',
+        'Chicken is crowned; Cheese fans demand a recount',
+      ],
+      press: [
+        {
+          quote: 'More than just a snack attack: Sydney light rail and trams vandalized.',
+          source: 'Breaking news coverage',
+        },
+        {
+          quote: 'Democracy has never been more ridiculous — or more effective.',
+          source: 'Campaign results film',
+        },
       ],
       images: [
         { id: 'twisties-2', label: 'campaign poster / OOH' },
@@ -232,16 +296,23 @@ export const caseStudies = [
       ],
       heroLabel: 'Doritos coriander pack styled as soap — the OOH hero',
       stats: [
-        { value: '450M+', label: 'Earned reach' },
-        { value: '430', label: 'Earned media pieces' },
-        { value: '95.7%', label: 'Brand mention in headlines' },
-        { value: '400×', label: 'Winning eBay bid vs pack price' },
+        { value: 450, suffix: 'M+', label: 'Earned reach — target beaten by 441M' },
+        { value: 430, label: 'Pieces of earned media' },
+        { value: 95.7, suffix: '%', decimals: 1, label: 'Brand mention in headlines' },
+        { value: 400, suffix: '×', label: 'Final-pack auction bid vs pack price' },
       ],
       insight:
         '1 in 5 Australians carry olfactory genes that make coriander taste like *soap*. Instead of hiding from the hate, we leaned all the way in.',
       idea: [
         'An ultra-limited run of 500 coriander-flavoured packs, launched with out-of-home placed right next to soap retailers — Aesop, Lush — styling the chips as an aromatic, indulgent soap.',
         'It made the divisive flavour the whole point, turning a genetic quirk into a collectible cultural object.',
+      ],
+      evolution: [
+        '500 packs drop unannounced; OOH runs beside Aesop & Lush styled as soap product',
+        'Seeded mailers to earned influencers, filled with real consumer comments and reactions',
+        "Stoked the fire in the 'I Hate Coriander' Facebook page as UGC flooded in",
+        'Earned television, print and online coverage drove national saturation',
+        'The final pack went to an unplanned eBay auction — and the country kept bidding',
       ],
       lines: [
         '"A soap tasting chip? Not a fable."',
@@ -252,8 +323,6 @@ export const caseStudies = [
         { id: 'cs-detail-2', label: 'OOH placement next to soap retailer' },
         { id: 'cs-detail-3', label: 'influencer seeding mailer / eBay auction screenshot' },
       ],
-      evolution:
-        'Seeded mailers stoked the influencer feeds, fed the "I Hate Coriander" Facebook page, and — entirely unplanned — the final pack ended up in an eBay bidding war that closed at 400× its retail price. The internet finished the campaign for us.',
       press: [
         { quote: 'Doritos has launched the most controversial chip in history…', source: 'taste.com.au' },
         { quote: "Doritos' New Flavour That'll Divide The Nation", source: 'KIIS 1065' },
