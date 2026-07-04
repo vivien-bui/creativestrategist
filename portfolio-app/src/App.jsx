@@ -6,7 +6,6 @@ import Hero from './sections/Hero';
 import WorkSection from './sections/WorkSection';
 import AboutSection from './sections/AboutSection';
 import SkillsSection from './sections/SkillsSection';
-import BagSection from './sections/BagSection';
 import ContactSection from './sections/ContactSection';
 import CaseStudyDetail from './sections/CaseStudyDetail';
 import { detailViewIds, getCaseStudy } from './data/caseStudies';
@@ -112,14 +111,13 @@ export default function App() {
       <Nav onNavigate={handleNavigate} />
 
       {/* Homepage order (user-specified): Hero → Featured Work → About →
-          The Usual Order → What's In My Bag → Contact */}
+          The Usual Order → Contact */}
       {view === 'home' && (
         <>
           <Hero onNavigate={handleNavigate} />
           <WorkSection onNavigate={handleNavigate} />
           <AboutSection />
           <SkillsSection />
-          <BagSection />
         </>
       )}
 
