@@ -1,6 +1,6 @@
 .stat-band {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 28px;
   margin-top: 48px;
   border-top: 1px solid var(--detail-border-16);
@@ -30,33 +30,9 @@
   margin-top: 6px;
 }
 
-/* Contextual strip, nested inside a detail row's content column */
-.stat-band--inline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px 56px;
-  margin-top: 30px;
-  padding: 22px 0 0;
-  border-top: 1px dashed var(--detail-border-16);
-  border-bottom: none;
-}
-
-.stat-band--inline .stat-band__value {
-  font-size: clamp(26px, 2.8vw, 36px);
-  color: var(--study-accent);
-}
-
-.stat-band--inline .stat-band__label {
-  letter-spacing: 0.08em;
-  margin-top: 5px;
-}
-
 @media (max-width: 767px) {
   .stat-band {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 24px;
-  }
-  .stat-band--inline {
-    gap: 18px 32px;
   }
 }

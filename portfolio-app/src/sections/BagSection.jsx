@@ -163,8 +163,8 @@ export default function BagSection() {
 
       <div ref={sceneRef} className={`bag-scene${inView ? ' bag-scene--in' : ''}`} data-r="bag-scene">
         <div className="bag-layer bag-layer--back">
-          {/* Tote — the source of the spill */}
-          <div className="bag-obj bag-obj--tote" style={{ '--r': '-5deg', '--fx': '0px', '--fy': '40px', '--fr': '-9deg', '--d': '0s' }}>
+          {/* Tote — centred anchor of the flat lay, everything rings around it */}
+          <div className="bag-obj bag-obj--tote" style={{ '--r': '-2deg', '--fx': '0px', '--fy': '34px', '--fr': '-6deg', '--d': '0s' }}>
             <div className="bag-obj__inner">
               <ToteBagArt />
               <span
@@ -176,17 +176,11 @@ export default function BagSection() {
               </span>
             </div>
           </div>
-
-          <div className="bag-obj bag-obj--headphones" style={{ '--r': '9deg', '--fx': '-260px', '--fy': '140px', '--fr': '-24deg', '--d': '0.32s' }}>
-            <div className="bag-obj__inner">
-              <HeadphonesArt />
-            </div>
-          </div>
         </div>
 
         <div className="bag-layer bag-layer--front">
           {/* Laptop — mission control, so it gets the most weight */}
-          <div className="bag-obj bag-obj--laptop" style={{ '--r': '-1.5deg', '--fx': '-180px', '--fy': '110px', '--fr': '-10deg', '--d': '0.12s' }}>
+          <div className="bag-obj bag-obj--laptop" style={{ '--r': '-2deg', '--fx': '300px', '--fy': '170px', '--fr': '9deg', '--d': '0.14s' }}>
             <div className="bag-obj__inner">
               <div className="bag-laptop">
                 <div className="bag-laptop__screen">
@@ -212,7 +206,7 @@ export default function BagSection() {
           </div>
 
           {/* Phone — the social stack */}
-          <div className="bag-obj bag-obj--phone" style={{ '--r': '5deg', '--fx': '-340px', '--fy': '120px', '--fr': '22deg', '--d': '0.24s' }}>
+          <div className="bag-obj bag-obj--phone" style={{ '--r': '5deg', '--fx': '-300px', '--fy': '190px', '--fr': '-20deg', '--d': '0.26s' }}>
             <div className="bag-obj__inner">
               <div className="bag-phone">
                 <i className="bag-phone__notch" />
@@ -234,7 +228,7 @@ export default function BagSection() {
           </div>
 
           {/* Notebook — the analogue layer */}
-          <div className="bag-obj bag-obj--notebook" style={{ '--r': '2deg', '--fx': '-90px', '--fy': '60px', '--fr': '8deg', '--d': '0.2s' }}>
+          <div className="bag-obj bag-obj--notebook" style={{ '--r': '2deg', '--fx': '280px', '--fy': '-160px', '--fr': '-9deg', '--d': '0.2s' }}>
             <div className="bag-obj__inner">
               <div className="bag-notebook">
                 <div className="bag-notebook__spiral" />
@@ -260,15 +254,22 @@ export default function BagSection() {
             </div>
           </div>
 
+          {/* Headphones */}
+          <div className="bag-obj bag-obj--headphones" style={{ '--r': '9deg', '--fx': '-320px', '--fy': '-40px', '--fr': '18deg', '--d': '0.36s' }}>
+            <div className="bag-obj__inner">
+              <HeadphonesArt />
+            </div>
+          </div>
+
           {/* Matcha cup */}
-          <div className="bag-obj bag-obj--coffee" style={{ '--r': '-3deg', '--fx': '-300px', '--fy': '40px', '--fr': '-14deg', '--d': '0.3s' }}>
+          <div className="bag-obj bag-obj--coffee" style={{ '--r': '-3deg', '--fx': '-140px', '--fy': '-170px', '--fr': '10deg', '--d': '0.3s' }}>
             <div className="bag-obj__inner">
               <MatchaCupArt />
             </div>
           </div>
 
           {/* Sticky notes — creative direction as a concept, not software */}
-          <div className="bag-obj bag-obj--sticky" style={{ '--r': '-4deg', '--fx': '-420px', '--fy': '90px', '--fr': '10deg', '--d': '0.38s' }}>
+          <div className="bag-obj bag-obj--sticky" style={{ '--r': '-4deg', '--fx': '-30px', '--fy': '190px', '--fr': '10deg', '--d': '0.4s' }}>
             <div className="bag-obj__inner">
               <div className="bag-sticky bag-sticky--back" aria-hidden="true">✳</div>
               <div
@@ -285,6 +286,12 @@ export default function BagSection() {
           </div>
 
           {/* Handwritten annotations */}
+          <div className="bag-annot bag-annot--laptop" aria-hidden="true">
+            <svg viewBox="0 0 60 34" className="bag-annot__arrow bag-annot__arrow--up">
+              <path className="bag-draw" d="M6 30 C 18 22, 32 14, 48 6 M48 6 l -10 0 M48 6 l -2 9" pathLength="100" />
+            </svg>
+            <span className="bag-annot__text">mission control</span>
+          </div>
           <div className="bag-annot bag-annot--phone" aria-hidden="true">
             <span className="bag-annot__text">the social stack</span>
             <svg viewBox="0 0 60 34" className="bag-annot__arrow">

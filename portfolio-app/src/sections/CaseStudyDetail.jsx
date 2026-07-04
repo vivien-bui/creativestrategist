@@ -91,28 +91,17 @@ export default function CaseStudyDetail({ study, onNavigate }) {
 
         {detail.award && <AwardCallout text={detail.award} />}
 
+        {detail.stats && <StatBand stats={detail.stats} />}
+
         <Row label="The Insight" accent={accent} first>
           <Rich as="p" className="detail__insight" text={detail.insight} />
-          {detail.insightStats && <StatBand stats={detail.insightStats} variant="inline" />}
         </Row>
 
         <Row label="The Idea" accent={accent}>
           {detail.idea.map((p, i) => (
             <Rich as="p" key={i} className="detail__idea-p" text={p} />
           ))}
-          {detail.ideaStats && <StatBand stats={detail.ideaStats} variant="inline" />}
         </Row>
-
-        {detail.unfolded && (
-          <Row label="How it unfolded" accent={accent}>
-            {detail.unfolded.map((p, i) => (
-              <Rich as="p" key={i} className="detail__idea-p" text={p} />
-            ))}
-            {detail.unfoldedStats && <StatBand stats={detail.unfoldedStats} variant="inline" />}
-          </Row>
-        )}
-
-        {detail.stats && <StatBand stats={detail.stats} />}
 
         {detail.lines && (
           <Row label="The Lines" accent={accent}>
@@ -143,6 +132,16 @@ export default function CaseStudyDetail({ study, onNavigate }) {
                 </span>
               ))}
             </div>
+          </Row>
+        )}
+
+        {detail.evolution && (
+          <Row label="The Evolution" accent={accent}>
+            <ul className="detail__evo-list">
+              {detail.evolution.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </Row>
         )}
 
