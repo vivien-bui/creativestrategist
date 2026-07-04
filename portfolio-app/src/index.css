@@ -1,0 +1,102 @@
+/* ============================================================
+   Design tokens — "Warm Gallery" system
+   See project/docs/01_CLAUDE.md for the full rationale.
+   Tweak values below are baked-in from the last Claude Design
+   session (accent: sage, Creative: dark ink, Strategist: sage).
+   ============================================================ */
+:root {
+  --cream: #f7efe4;
+  --paper: #fffdf9;
+  --ink: #2b2430;
+  --ink-08: rgba(43, 36, 48, 0.08);
+  --ink-10: rgba(43, 36, 48, 0.1);
+  --ink-12: rgba(43, 36, 48, 0.12);
+  --ink-14: rgba(43, 36, 48, 0.14);
+  --ink-15: rgba(43, 36, 48, 0.15);
+  --ink-18: rgba(43, 36, 48, 0.18);
+
+  --accent: #8b9486; /* sage */
+  --hero-creative-color: #2b2430;
+  --hero-strategist-color: #8b9486;
+
+  --dark-bg: #17141a;
+  --dark-text: #f3efe6;
+  --dark-text-14: rgba(243, 239, 230, 0.14);
+  --dark-text-16: rgba(243, 239, 230, 0.16);
+  --dark-text-22: rgba(243, 239, 230, 0.22);
+
+  --cryoglow-bg: #efe7de;
+
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --container-wide: 1280px;
+  --container-narrow: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+}
+
+body {
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ============ MOTION ============ */
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes vt-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-12px) scale(0.995); }
+  }
+  @keyframes vt-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.995); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  ::view-transition-old(root) { animation: vt-out 240ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+  ::view-transition-new(root) { animation: vt-in 340ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

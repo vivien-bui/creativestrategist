@@ -1,0 +1,11 @@
+.color-dots {
+  display: flex;
+  align-items: center;
+}
+
+.color-dots__dot {
+  display: inline-block;
+  border-radius: 50%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}

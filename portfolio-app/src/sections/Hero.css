@@ -1,0 +1,134 @@
+.hero {
+  position: relative;
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 72px 48px 120px;
+  min-height: 78vh;
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.hero__mark {
+  color: var(--accent);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.hero__eyebrow p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.hero__headline {
+  position: relative;
+  margin-top: 8px;
+}
+
+.hero__word {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(72px, 11vw, 160px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero__word--creative {
+  color: var(--hero-creative-color);
+}
+
+.hero__word--strategist {
+  margin-top: -48px;
+  text-align: right;
+  color: var(--hero-strategist-color);
+}
+
+.hero__photo-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: -36px;
+}
+
+.hero__photo-wrap {
+  position: relative;
+}
+
+.hero__photo {
+  width: min(620px, 72vw);
+  height: 400px;
+  display: block;
+  box-shadow: 0 24px 60px rgba(43, 36, 48, 0.18);
+}
+
+.hero__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 56px;
+  gap: 40px;
+}
+
+.hero__tagline {
+  margin: 0;
+  max-width: 420px;
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.hero__cta {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero__cta:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 48px 20px 64px;
+  }
+  .hero__word {
+    font-size: clamp(46px, 16vw, 90px) !important;
+  }
+  .hero__photo {
+    height: 320px;
+  }
+  [data-r='hero-pill-wrap'] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .hero__photo-row {
+    margin-top: 16px;
+  }
+  .hero__word--strategist {
+    margin-top: 24px;
+  }
+}
