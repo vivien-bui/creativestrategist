@@ -12,12 +12,31 @@
   gap: 40px;
 }
 
+.about__intro-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .about__eyebrow {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0.55;
+}
+
+.about__motif-rule {
+  flex: 1;
+  width: 0;
+  min-height: 32px;
+  margin: 20px 0 20px 4px;
+  border-left: 1px dashed var(--ink-15);
+}
+
+.about__motif {
+  color: var(--accent);
+  opacity: 0.7;
 }
 
 .about__statement {
@@ -90,5 +109,9 @@
   }
   .about__portrait {
     height: 360px;
+  }
+  .about__motif-rule,
+  .about__motif {
+    display: none;
   }
 }

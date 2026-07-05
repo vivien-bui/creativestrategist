@@ -1,5 +1,6 @@
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Rich from '../components/Rich';
+import { CompassDoodle } from '../components/Doodles';
 import './AboutSection.css';
 
 const STEPS = [
@@ -12,7 +13,11 @@ export default function AboutSection() {
   return (
     <section id="about" data-screen-label="About" className="about">
       <div className="about__intro" data-r="split-about">
-        <span className="about__eyebrow">About</span>
+        <div className="about__intro-left">
+          <span className="about__eyebrow">About</span>
+          <div className="about__motif-rule" />
+          <CompassDoodle className="about__motif" />
+        </div>
         <Rich
           as="p"
           className="about__statement"
