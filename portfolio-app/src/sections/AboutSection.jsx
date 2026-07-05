@@ -23,7 +23,11 @@ export default function AboutSection() {
 
       <div className="about__body" data-r="split-about2">
         <div className="about__portrait" id="about-portrait">
-          <ImagePlaceholder label="a portrait with warm light" radius={8} />
+          <ImagePlaceholder
+            label="a portrait with warm light"
+            radius={8}
+            src="./assets/personal/personal-01-dinner-candle-portrait.jpg"
+          />
         </div>
         <div>
           <p className="about__bio">

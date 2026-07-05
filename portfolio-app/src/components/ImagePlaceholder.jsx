@@ -1,9 +1,19 @@
 import './ImagePlaceholder.css';
 
-// Stands in for every real photo slot until Vivien drops in campaign
-// photography / a headshot. Never a stock or generated image — see
-// project/docs/04_IMAGES.md and 01_CLAUDE.md "Image Philosophy".
-export default function ImagePlaceholder({ label, radius = 0, className = '', style, dark = false }) {
+// Displays real photo content when src is provided, otherwise shows placeholder.
+// See project/docs/04_IMAGES.md and 01_CLAUDE.md "Image Philosophy".
+export default function ImagePlaceholder({ label, radius = 0, className = '', style, dark = false, src = null }) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={label}
+        className={`img-placeholder__image ${className}`}
+        style={{ borderRadius: radius, ...style }}
+      />
+    );
+  }
+
   return (
     <div
       className={`img-placeholder ${dark ? 'img-placeholder--dark' : ''} ${className}`}
