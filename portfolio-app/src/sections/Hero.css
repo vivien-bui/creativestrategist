@@ -6,6 +6,13 @@
   min-height: 78vh;
 }
 
+/* Keep content above the WebGL ambient backdrop (z-index 0). */
+.hero__eyebrow,
+.hero__foot {
+  position: relative;
+  z-index: 1;
+}
+
 .hero__eyebrow {
   display: flex;
   align-items: baseline;
@@ -29,6 +36,7 @@
 
 .hero__headline {
   position: relative;
+  z-index: 1;
   margin-top: 8px;
 }
 

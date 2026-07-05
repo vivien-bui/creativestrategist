@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
+import AmbientBackdrop from '../components/AmbientBackdrop';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
 
@@ -33,6 +34,7 @@ export default function Hero({ onNavigate }) {
 
   return (
     <header id="hero" data-screen-label="Hero" className="hero">
+      <AmbientBackdrop variant="hero" />
       <div className="hero__eyebrow">
         <span className="hero__mark">✳</span>
         <p>Creative strategist · Sydney · Available for agency contracts</p>

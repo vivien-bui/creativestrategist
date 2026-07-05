@@ -30,6 +30,7 @@
 - **Why:** User explicitly prioritized "loads fast, works everywhere" over maximum visual ambition when asked directly.
 - **Alternatives avoided:** WebGL particle/shader hero treatment, GSAP-driven cinematic sequences.
 - **Preserve:** Any future animation additions should stay within this no-heavy-dependency constraint unless the user asks to revisit it.
+- **Revisited (2026-07):** User explicitly asked to bring WebGL in. Implemented as dependency-free raw WebGL1 (no three.js/GSAP — ~3 KB gzipped added to the bundle) so the "loads fast, works everywhere" priority still holds: two ambient shader backdrops (hero warm wash, contact footer aurora) in `src/webgl/` + `src/components/AmbientBackdrop.jsx`. Guards: no-WebGL browsers keep the exact pre-WebGL look (canvas never fades in over the CSS background), `prefers-reduced-motion` gets a single static frame, rendering pauses offscreen/hidden-tab, resolution is capped (DPR ≤ 1.5 × renderScale ≤ 0.7), 30 fps throttle, low-power context, context-loss recovery. The no-heavy-dependency constraint itself still stands — future WebGL work should extend `useShaderCanvas`, not add a 3D library.
 
 ## 6. Client-side "pages" via state, not real multi-page routing
 - **Decided:** Case-study detail pages are `<sc-if>`-gated sections toggled by `state.view`, not separate HTML files/DCs.
