@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import FloatingPill from '../components/FloatingPill';
 import MatchaIllustration from './MatchaIllustration';
 import ZineLetters from '../components/ZineLetters';
-import { StampDoodle } from '../components/Doodles';
+import { StampDoodle, HeartDoodle, CoffeeDoodle, LightningDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
@@ -99,7 +99,7 @@ export default function SkillsSection() {
         <h2 className="skills__heading">
           <ZineLetters text="the usual order" salt={8} />
         </h2>
-        <span className="skills__eyebrow">( my skillset, as a matcha order )</span>
+        <span className="skills__eyebrow"><CoffeeDoodle size={13} className="skills__eyebrow-doodle" /> ( my skillset, as a matcha order )</span>
       </div>
 
       <div className="skills__layout" data-r="split-skills">
@@ -166,7 +166,10 @@ export default function SkillsSection() {
           <div className="receipt__barcode-num" data-reveal>
             4 820135 002471
           </div>
-          <div className="receipt__thanks" data-reveal>THANK YOU · COME AGAIN</div>
+          <div className="receipt__thanks" data-reveal>THANK YOU · COME AGAIN <HeartDoodle size={10} className="receipt__thanks-heart" /></div>
+          <div className="receipt__diary-scribble" data-reveal aria-hidden="true">
+            <LightningDoodle size={12} /> best order yet tbh
+          </div>
         </div>
       </div>
     </section>

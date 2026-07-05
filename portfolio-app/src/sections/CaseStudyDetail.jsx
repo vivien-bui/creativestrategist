@@ -5,7 +5,7 @@ import Rich from '../components/Rich';
 import StatBand from '../components/StatBand';
 import AwardCallout from '../components/AwardCallout';
 import AmbientBackdrop from '../components/AmbientBackdrop';
-import { SparkleDoodle } from '../components/Doodles';
+import { SparkleDoodle, BookmarkDoodle, LightningDoodle, PinDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
 
@@ -62,7 +62,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
             onNavigate('work');
           }}
         >
-          ← All work
+          <BookmarkDoodle size={13} /> ← All work
         </a>
 
         <div className="detail__title-block" data-r="split-title" data-reveal>
@@ -95,6 +95,10 @@ export default function CaseStudyDetail({ study, onNavigate }) {
         {detail.award && <AwardCallout text={detail.award} />}
 
         {detail.stats && <StatBand stats={detail.stats} />}
+
+        <div className="detail__diary-annotation" aria-hidden="true" data-reveal>
+          <LightningDoodle size={13} /> <span>the part where it gets good</span>
+        </div>
 
         <Row label="The Insight" accent={accent} first>
           <Rich as="p" className="detail__insight" text={detail.insight} />
@@ -171,7 +175,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
             onNavigate(detail.nextId);
           }}
         >
-          <span className="detail__next-label">Next case study</span>
+          <span className="detail__next-label"><PinDoodle size={12} /> Next case study</span>
           <span className="detail__next-title">{detail.nextLabel}</span>
         </a>
       </div>

@@ -1,5 +1,6 @@
 .tag-pill {
-  font-size: 12px;
+  font-family: var(--font-decorative);
+  font-size: 12.5px;
   border: 1px solid var(--ink-18);
   border-radius: 999px;
   padding: 6px 14px;
@@ -103,7 +104,8 @@
 
 .work-featured__desc {
   margin: 0;
-  font-size: 15px;
+  font-family: var(--font-decorative);
+  font-size: 15.5px;
   line-height: 1.6;
   opacity: 0.75;
 }
@@ -172,6 +174,7 @@
 
 .work-grid-card__desc {
   margin: 0;
+  font-family: var(--font-decorative);
   font-size: 14px;
   line-height: 1.6;
   opacity: 0.7;

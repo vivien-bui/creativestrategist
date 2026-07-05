@@ -1,6 +1,6 @@
 import { caseStudies } from '../data/caseStudies';
 import { FeaturedWorkCard, GridWorkCard } from '../components/WorkCard';
-import { SwipeDoodle } from '../components/Doodles';
+import { SwipeDoodle, EyeDoodle, PaperclipDoodle } from '../components/Doodles';
 import ZineLetters from '../components/ZineLetters';
 import './WorkSection.css';
 
@@ -15,8 +15,11 @@ export default function WorkSection({ onNavigate }) {
         <h2 className="work__heading">
           <ZineLetters text="selected work" salt={6} />
         </h2>
-        <span className="work__count">( 05 case studies )</span>
+        <span className="work__count"><PaperclipDoodle size={13} className="work__count-doodle" /> ( 05 case studies )</span>
       </div>
+      <p className="work__diary-note" aria-hidden="true">
+        <EyeDoodle size={13} /> the ones i'm most proud of
+      </p>
 
       <p className="work__mobile-hint" aria-hidden="true">
         Swipe to explore all five <SwipeDoodle />

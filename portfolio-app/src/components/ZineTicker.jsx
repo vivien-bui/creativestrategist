@@ -1,9 +1,8 @@
-import { SparkleDoodle } from './Doodles';
+import { SparkleDoodle, HeartDoodle, StarDoodle, LightningDoodle, CoffeeDoodle, PinDoodle } from './Doodles';
 import './ZineTicker.css';
 
-// Running-head marquee strip (06_DECISIONS.md #10) — the zine's masthead
-// ticker, looping the site's recurring phrases between hero and work.
-// Track is rendered twice and slid -50% for a seamless loop; hover pauses.
+const DOODLES = [SparkleDoodle, HeartDoodle, StarDoodle, LightningDoodle, CoffeeDoodle, PinDoodle];
+
 const PHRASES = [
   'strategy first, always',
   'cultural tension, found',
@@ -16,12 +15,15 @@ const PHRASES = [
 export default function ZineTicker() {
   const run = (ariaHidden) => (
     <span className="zine-ticker__run" aria-hidden={ariaHidden || undefined}>
-      {PHRASES.map((p) => (
-        <span key={p} className="zine-ticker__item">
-          <span className="zine-ticker__phrase">( {p} )</span>
-          <SparkleDoodle className="zine-ticker__mark" size={11} />
-        </span>
-      ))}
+      {PHRASES.map((p, i) => {
+        const Doodle = DOODLES[i % DOODLES.length];
+        return (
+          <span key={p} className="zine-ticker__item">
+            <span className="zine-ticker__phrase">( {p} )</span>
+            <Doodle className="zine-ticker__mark" size={11} />
+          </span>
+        );
+      })}
     </span>
   );
 

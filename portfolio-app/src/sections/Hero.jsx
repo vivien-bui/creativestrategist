@@ -3,7 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
 import ZineLetters from '../components/ZineLetters';
-import { SparkleDoodle } from '../components/Doodles';
+import { SparkleDoodle, HeartDoodle, PencilDoodle, ArrowDoodle, TapeDoodle } from '../components/Doodles';
 import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
@@ -65,6 +65,11 @@ export default function Hero({ onNavigate }) {
         <p>Creative strategist · Sydney · Available for agency contracts</p>
       </div>
 
+      <div className="hero__margin-note hero__margin-note--left" aria-hidden="true">
+        <PencilDoodle size={14} className="hero__margin-doodle" />
+        <span className="hero__margin-text">this is the good stuff</span>
+      </div>
+
       <div className="hero__headline">
         <h1 ref={creativeRef} id="hero-word-creative" className="hero__word hero__word--creative">
           <ZineLetters text="creative" salt={2} magnet baseDelay={HERO_LETTER_DELAY} />
@@ -72,6 +77,7 @@ export default function Hero({ onNavigate }) {
 
         <div className="hero__photo-row">
           <div className="hero__photo-wrap" data-r="hero-pill-wrap">
+            <TapeDoodle className="hero__tape hero__tape--top" size={80} />
             <div ref={photoRef} id="hero-photo" className="hero__photo" data-cursor-note="hi, that's me">
               <ImagePlaceholder
                 label="a photo with your energy: travel, golden hour, candid"
@@ -79,6 +85,7 @@ export default function Hero({ onNavigate }) {
                 src="./assets/personal/personal-02-mountain-lookout-portrait.jpg"
               />
             </div>
+            <TapeDoodle className="hero__tape hero__tape--bottom" size={70} />
 
             <FloatingPill
               pos={{ top: '12%', left: '-140px' }}
@@ -116,9 +123,15 @@ export default function Hero({ onNavigate }) {
         </h1>
       </div>
 
+      <div className="hero__margin-note hero__margin-note--right" aria-hidden="true">
+        <ArrowDoodle size={16} className="hero__margin-doodle" />
+        <span className="hero__margin-text">scroll down, trust me</span>
+      </div>
+
       <div className="hero__foot">
         <p className="hero__tagline">
           I make brands worth talking about, campaigns built on cultural insight, engineered to earn their reach.
+          <HeartDoodle className="hero__tagline-heart" size={15} />
         </p>
         <a
           href="#work"

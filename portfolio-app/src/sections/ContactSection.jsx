@@ -1,5 +1,5 @@
 import AmbientBackdrop from '../components/AmbientBackdrop';
-import { SparkleDoodle } from '../components/Doodles';
+import { SparkleDoodle, HeartDoodle, PencilDoodle, StarDoodle } from '../components/Doodles';
 import './ContactSection.css';
 
 const CONTACT_EMAIL = 'phuongvivien@gmail.com';
@@ -24,6 +24,9 @@ export default function ContactSection({ onNavigate }) {
           </div>
 
           <div className="contact__details">
+            <div className="contact__diary-note" aria-hidden="true">
+              <PencilDoodle size={13} /> <span>leave a note in my diary?</span>
+            </div>
             <div className="contact__ledger">
               <div className="contact__row">
                 <span className="contact__row-label">Email</span>
@@ -51,7 +54,7 @@ export default function ContactSection({ onNavigate }) {
         </div>
 
         <div className="contact__foot">
-          <span className="contact__copyright">© 2026 · Made with warm light</span>
+          <span className="contact__copyright"><HeartDoodle size={12} className="contact__copyright-heart" /> © 2026 · Made with warm light <StarDoodle size={12} className="contact__copyright-star" /></span>
           <a
             href="#hero"
             className="contact__top-link"

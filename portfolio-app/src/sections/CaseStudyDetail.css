@@ -112,8 +112,21 @@
 }
 
 .detail__meta-label {
+  font-family: var(--font-decorative);
   opacity: 0.55;
   text-transform: lowercase;
+}
+
+.detail__diary-annotation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 32px;
+  font-family: var(--font-decorative);
+  font-size: 13px;
+  color: var(--study-accent);
+  opacity: 0.45;
+  transform: rotate(-1.2deg);
 }
 
 .detail__hero-img {
@@ -268,9 +281,10 @@
 }
 
 .detail__press-source {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--font-decorative);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
   opacity: 0.5;
   margin-top: 10px;
 }
@@ -294,6 +308,9 @@
 }
 
 .detail__next-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
