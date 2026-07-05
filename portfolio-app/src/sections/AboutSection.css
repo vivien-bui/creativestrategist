@@ -63,7 +63,7 @@
 }
 
 .about__step-num {
-  font-family: var(--font-display);
+  font-family: var(--font-decorative);
   font-style: italic;
   font-size: 22px;
   color: var(--accent);
