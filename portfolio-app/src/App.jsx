@@ -8,14 +8,19 @@ import AboutSection from './sections/AboutSection';
 import SkillsSection from './sections/SkillsSection';
 import ContactSection from './sections/ContactSection';
 import CaseStudyDetail from './sections/CaseStudyDetail';
+import DiaryPage from './sections/DiaryPage';
 import { detailViewIds, getCaseStudy } from './data/caseStudies';
 import useReducedMotion from './hooks/useReducedMotion';
 import useScrollReveal from './hooks/useScrollReveal';
 import './App.css';
 
+const diaryViewIds = ['diary'];
+
 function initialView() {
   const hash = window.location.hash.slice(1);
-  return detailViewIds.includes(hash) ? hash : 'home';
+  if (detailViewIds.includes(hash)) return hash;
+  if (diaryViewIds.includes(hash)) return hash;
+  return 'home';
 }
 
 // Client-side view routing: home vs one of the 5 case-study detail pages.
@@ -94,6 +99,10 @@ export default function App() {
         goToDetail(id);
         return;
       }
+      if (diaryViewIds.includes(id)) {
+        goToDetail(id);
+        return;
+      }
       if (view !== 'home') {
         goHome(id, id === 'work' ? savedScroll.current : null);
         return;
@@ -122,6 +131,8 @@ export default function App() {
       )}
 
       {activeStudy && <CaseStudyDetail key={activeStudy.id} study={activeStudy} onNavigate={handleNavigate} />}
+
+      {diaryViewIds.includes(view) && <DiaryPage onNavigate={handleNavigate} />}
 
       {view === 'home' && <ContactSection onNavigate={handleNavigate} />}
     </div>

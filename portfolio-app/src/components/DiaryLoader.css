@@ -1,0 +1,122 @@
+.diary-loader {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(180deg, #201c24 0%, #17141a 100%);
+  color: #f3efe6;
+  display: grid;
+  place-items: center;
+}
+
+.diary-loader__center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.diary-loader__doc {
+  width: min(560px, 92%);
+}
+
+.diary-loader__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.45);
+  margin-bottom: 26px;
+}
+
+.diary-loader__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8b9486;
+  animation: diary-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes diary-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.diary-loader__line {
+  font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: clamp(16px, 2.6vw, 21px);
+  line-height: 1.9;
+  min-height: 3.8em;
+  color: #f3efe6;
+  white-space: pre-wrap;
+}
+
+.diary-loader__text {
+  display: inline;
+}
+
+.diary-loader__caret {
+  display: inline-block;
+  width: 10px;
+  height: 1.15em;
+  vertical-align: text-bottom;
+  background: #8b9486;
+  margin-left: 2px;
+  animation: diary-blink 1s steps(1) infinite;
+}
+
+@keyframes diary-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.diary-loader__save {
+  margin-top: 30px;
+  font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 12px;
+  color: rgba(243, 239, 230, 0.5);
+}
+
+.diary-loader__save em {
+  font-style: normal;
+  color: #8b9486;
+}
+
+.diary-loader__replay {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  border: 1px solid rgba(243, 239, 230, 0.25);
+  background: rgba(23, 20, 26, 0.7);
+  color: #f3efe6;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.diary-loader__replay:hover {
+  background: rgba(23, 20, 26, 0.9);
+  border-color: rgba(243, 239, 230, 0.4);
+}
+
+.diary-loader__replay:focus-visible {
+  outline: 2px solid #8b9486;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diary-loader__dot,
+  .diary-loader__caret {
+    animation: none;
+  }
+}

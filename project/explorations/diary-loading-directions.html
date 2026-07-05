@@ -1,0 +1,262 @@
+<title>Virtual Diary — Loading Page Directions</title>
+<style>
+  :root {
+    --cream: #f7efe4;
+    --paper: #fffdf9;
+    --ink: #2b2430;
+    --ink-12: rgba(43, 36, 48, 0.12);
+    --ink-40: rgba(43, 36, 48, 0.4);
+    --sage: #8b9486;
+    --dark-bg: #17141a;
+    --dark-text: #f3efe6;
+    --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --font-body: 'Plus Jakarta Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+    --font-hand: 'Mynerve', 'Segoe Print', 'Comic Sans MS', cursive;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { background: var(--cream); color: var(--ink); font-family: var(--font-body); }
+
+  /* Chrome around the demos */
+  .frame { max-width: 1080px; margin: 0 auto; padding: 40px 24px 80px; }
+  .frame > header { margin-bottom: 28px; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px;
+    color: var(--ink-40); margin-bottom: 10px;
+  }
+  h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 5vw, 44px); text-wrap: balance; }
+  .lede { max-width: 62ch; margin-top: 10px; font-size: 15px; line-height: 1.6; color: rgba(43,36,48,0.72); }
+
+  .tabs { display: flex; gap: 8px; margin: 26px 0 14px; flex-wrap: wrap; }
+  .tabs button {
+    border: 1px solid var(--ink-12); background: var(--paper); color: var(--ink);
+    padding: 9px 16px; border-radius: 999px; font-size: 13px; cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .tabs button[aria-selected="true"] { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .tabs button:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+  .stage-wrap { border: 1px solid var(--ink-12); border-radius: 18px; overflow: hidden; background: var(--paper); }
+  .stage { position: relative; height: min(64vh, 560px); min-height: 420px; display: none; overflow: hidden; }
+  .stage.active { display: block; }
+
+  .note { display: none; padding: 18px 4px 0; font-size: 14px; line-height: 1.65; color: rgba(43,36,48,0.75); max-width: 70ch; }
+  .note.active { display: block; }
+  .note strong { color: var(--ink); }
+
+  .replay {
+    position: absolute; right: 14px; bottom: 14px; z-index: 9;
+    border: 1px solid var(--ink-12); background: rgba(255,253,249,0.85); color: var(--ink);
+    padding: 7px 14px; border-radius: 999px; font-size: 12px; cursor: pointer; font-family: var(--font-body);
+  }
+  .stage.dark .replay { background: rgba(23,20,26,0.7); color: var(--dark-text); border-color: rgba(243,239,230,0.25); }
+
+  /* ---------- Direction 1 · Dear Diary (ink on paper) ---------- */
+  #d1 { background:
+      repeating-linear-gradient(to bottom, transparent 0 35px, rgba(139,148,134,0.28) 35px 36px),
+      var(--paper);
+  }
+  #d1::before { /* margin rule */
+    content: ""; position: absolute; inset: 0 auto 0 72px; width: 1px;
+    background: rgba(196,120,120,0.35);
+  }
+  #d1 .center { position: absolute; inset: 0; display: grid; place-items: center; }
+  #d1 svg { width: min(520px, 80%); overflow: visible; }
+  #d1 .script {
+    fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+  }
+  #d1.play .script { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: write 3.4s ease-in-out forwards; }
+  @keyframes write { to { stroke-dashoffset: 0; } }
+  #d1 .caption {
+    position: absolute; left: 0; right: 0; bottom: 64px; text-align: center;
+    font-family: var(--font-hand); font-size: 19px; color: var(--sage); opacity: 0;
+  }
+  #d1.play .caption { animation: fadeUp 0.9s ease 3.1s forwards; }
+  #d1 .blot { position: absolute; border-radius: 50%; background: var(--ink); opacity: 0; }
+  #d1.play .blot { animation: blot 0.5s ease forwards; }
+  @keyframes blot { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 0.85; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- Direction 2 · Nightstand (dark, page turn) ---------- */
+  #d2 { background: radial-gradient(80% 90% at 50% 20%, #241f29 0%, var(--dark-bg) 70%); color: var(--dark-text); }
+  #d2 .center { position: absolute; inset: 0; display: grid; place-items: center; }
+  #d2 .book { perspective: 1100px; width: 300px; height: 200px; position: relative; }
+  #d2 .cover, #d2 .leaf {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 148px;
+    border-radius: 4px 10px 10px 4px; transform-origin: left center;
+  }
+  #d2 .base-l, #d2 .base-r {
+    position: absolute; top: 0; bottom: 0; width: 148px; background: #f0e9dc;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  }
+  #d2 .base-l { left: calc(50% - 148px); border-radius: 10px 4px 4px 10px; background: #e9e1d2; }
+  #d2 .base-r { left: 50%; border-radius: 4px 10px 10px 4px; }
+  #d2 .leaf { background: linear-gradient(to right, #ddd4c3, #f5efe2); }
+  #d2.play .leaf { animation: flip 1.5s cubic-bezier(0.55, 0, 0.2, 1) infinite; }
+  #d2.play .leaf:nth-child(4) { animation-delay: 0.5s; }
+  #d2.play .leaf:nth-child(5) { animation-delay: 1s; }
+  @keyframes flip {
+    0% { transform: rotateY(0deg); opacity: 1; }
+    60%, 100% { transform: rotateY(-180deg); opacity: 1; }
+  }
+  #d2 .date {
+    margin-top: 200px; font-family: var(--font-display); font-size: 26px; letter-spacing: 0.02em;
+    color: var(--dark-text); text-align: center;
+  }
+  #d2 .sub { text-align: center; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(243,239,230,0.5); margin-top: 10px; }
+  #d2 .moon { position: absolute; top: 42px; right: 60px; width: 34px; height: 34px; border-radius: 50%;
+    background: transparent; box-shadow: -9px 6px 0 0 #f3efe6; opacity: 0.9; }
+
+  /* ---------- Direction 3 · Desk Ephemera (collage) ---------- */
+  #d3 { background: var(--cream); }
+  #d3 .item { position: absolute; opacity: 0; will-change: transform; }
+  #d3.play .item { animation: settle 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.05) forwards; }
+  #d3 .polaroid { width: 130px; background: #fff; padding: 8px 8px 26px; box-shadow: 0 8px 22px rgba(43,36,48,0.18); }
+  #d3 .polaroid .ph { height: 100px; }
+  #d3 .tape { position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotate(-3deg);
+    width: 56px; height: 18px; background: rgba(139,148,134,0.45); }
+  #d3 .stamp { width: 74px; height: 88px; background: var(--sage); padding: 7px;
+    -webkit-mask: radial-gradient(circle 4px, transparent 97%, #000) -4px -4px / 12px 12px;
+            mask: radial-gradient(circle 4px, transparent 97%, #000) -4px -4px / 12px 12px; }
+  #d3 .stamp .inner { width: 100%; height: 100%; border: 1.5px solid rgba(255,253,249,0.8); }
+  #d3 .ticket { width: 150px; padding: 12px 14px; background: var(--paper); border: 1px dashed var(--ink-40);
+    font-family: var(--font-hand); font-size: 15px; transform: rotate(4deg); }
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(-46vh) rotate(var(--spin, 20deg)); }
+    to { opacity: 1; transform: translateY(0) rotate(var(--tilt, -3deg)); }
+  }
+  #d3 .progress { position: absolute; left: 50%; bottom: 52px; transform: translateX(-50%); width: min(300px, 60%); }
+  #d3 .progress .label { font-family: var(--font-hand); font-size: 17px; color: var(--ink); margin-bottom: 8px; text-align: center; }
+  #d3 .bar { height: 10px; background: var(--ink-12); border-radius: 999px; overflow: hidden; transform: rotate(-1deg); }
+  #d3 .bar > i { display: block; height: 100%; width: 0; background: var(--sage); border-radius: 999px; }
+  #d3.play .bar > i { animation: fill 3.2s ease-in-out forwards; }
+  @keyframes fill { to { width: 100%; } }
+  #d3 .pct { font-variant-numeric: tabular-nums; text-align: center; font-size: 12px;
+    letter-spacing: 0.16em; color: var(--ink-40); margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #d1.play .script, #d1.play .caption, #d1.play .blot,
+    #d2.play .leaf, #d3.play .item, #d3.play .bar > i { animation-duration: 0.01s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; }
+  }
+
+  /* dark theme for surrounding chrome only; demos commit to their own worlds */
+  @media (prefers-color-scheme: dark) {
+    :root { --cream: #1d1a20; --paper: #262229; --ink: #f3efe6; --ink-12: rgba(243,239,230,0.16); --ink-40: rgba(243,239,230,0.5); }
+    .lede, .note { color: rgba(243,239,230,0.72); }
+    #d1 { background: repeating-linear-gradient(to bottom, transparent 0 35px, rgba(139,148,134,0.3) 35px 36px), #2a2530; }
+    #d3 .ticket { background: #2a2530; }
+  }
+  :root[data-theme="light"] { --cream: #f7efe4; --paper: #fffdf9; --ink: #2b2430; --ink-12: rgba(43,36,48,0.12); --ink-40: rgba(43,36,48,0.4); }
+  :root[data-theme="light"] #d1 { background: repeating-linear-gradient(to bottom, transparent 0 35px, rgba(139,148,134,0.28) 35px 36px), #fffdf9; }
+  :root[data-theme="light"] #d3 .ticket { background: #fffdf9; }
+  :root[data-theme="dark"] { --cream: #1d1a20; --paper: #262229; --ink: #f3efe6; --ink-12: rgba(243,239,230,0.16); --ink-40: rgba(243,239,230,0.5); }
+  :root[data-theme="dark"] #d1 { background: repeating-linear-gradient(to bottom, transparent 0 35px, rgba(139,148,134,0.3) 35px 36px), #2a2530; }
+  :root[data-theme="dark"] #d3 .ticket { background: #2a2530; }
+</style>
+
+<div class="frame">
+  <header>
+    <div class="eyebrow">Virtual diary · loading page</div>
+    <h1>Three directions, one warm-gallery world</h1>
+    <p class="lede">All three use the portfolio's existing tokens — cream, ink, sage, serif display, handwritten accent — so any of them drops straight in. They differ in the metaphor the wait is built around.</p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-t="d1">1 · Dear Diary</button>
+    <button role="tab" aria-selected="false" data-t="d2">2 · Nightstand</button>
+    <button role="tab" aria-selected="false" data-t="d3">3 · Desk Ephemera</button>
+  </div>
+
+  <div class="stage-wrap">
+    <!-- Direction 1 -->
+    <section class="stage active play" id="d1" aria-label="Dear Diary direction">
+      <div class="center">
+        <svg viewBox="0 0 520 140" aria-hidden="true">
+          <path class="script" d="M40 90 q10 -50 30 -50 q18 0 6 44 q-6 24 8 6 q16 -22 24 -6 q6 12 20 -2 q14 -14 20 2 q5 14 18 0 q13 -14 20 0 q7 14 22 -4 M250 40 q-16 4 -18 46 q-2 34 18 10 M270 70 q14 -18 22 -2 q7 13 20 -2 q13 -15 20 1 q6 15 20 -1 q14 -16 22 0 q7 14 22 -2 M420 30 v70 M415 55 q20 -18 28 -2 q7 13 22 -3"/>
+        </svg>
+        <span class="blot" style="left: 22%; top: 30%; width: 7px; height: 7px; animation-delay: 1.1s;"></span>
+        <span class="blot" style="left: 68%; top: 62%; width: 5px; height: 5px; animation-delay: 2.3s;"></span>
+      </div>
+      <p class="caption">…opening your diary, one line at a time</p>
+      <button class="replay" data-r="d1">↻ Replay</button>
+    </section>
+
+    <!-- Direction 2 -->
+    <section class="stage dark" id="d2" aria-label="Nightstand direction">
+      <div class="moon" aria-hidden="true"></div>
+      <div class="center">
+        <div>
+          <div class="book" aria-hidden="true">
+            <div class="base-l"></div>
+            <div class="base-r"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+          </div>
+          <div class="date">Saturday, July 5</div>
+          <div class="sub">Finding your page</div>
+        </div>
+      </div>
+      <button class="replay" data-r="d2">↻ Replay</button>
+    </section>
+
+    <!-- Direction 3 -->
+    <section class="stage" id="d3" aria-label="Desk Ephemera direction">
+      <div class="item" style="left: 16%; top: 18%; --tilt: -6deg; --spin: -30deg; animation-delay: 0.15s;">
+        <div class="polaroid"><span class="tape"></span><div class="ph" style="background: var(--sage);"></div></div>
+      </div>
+      <div class="item" style="left: 62%; top: 12%; --tilt: 5deg; --spin: 40deg; animation-delay: 0.5s;">
+        <div class="polaroid"><span class="tape"></span><div class="ph" style="background: #d9c9b2;"></div></div>
+      </div>
+      <div class="item" style="left: 44%; top: 30%; --tilt: -2deg; --spin: 25deg; animation-delay: 0.85s;">
+        <div class="stamp"><div class="inner"></div></div>
+      </div>
+      <div class="item" style="left: 26%; top: 52%; --tilt: 4deg; --spin: -20deg; animation-delay: 1.2s;">
+        <div class="ticket">admit one · today's entry</div>
+      </div>
+      <div class="progress">
+        <div class="label">gathering your week…</div>
+        <div class="bar"><i></i></div>
+        <div class="pct" id="pct">0%</div>
+      </div>
+      <button class="replay" data-r="d3">↻ Replay</button>
+    </section>
+  </div>
+
+  <p class="note active" data-n="d1"><strong>Direction 1 · Dear Diary.</strong> The wait <em>is</em> handwriting: an ink line writes itself across ruled paper with a red margin rule, ending on a handwritten caption. Quietest of the three, closest to the portfolio's existing voice, and cheap to build (one SVG stroke animation). Best if the diary is text-first.</p>
+  <p class="note" data-n="d2"><strong>Direction 2 · Nightstand.</strong> A bedside mood — dark ink stage, crescent moon, a small book riffling its pages until it "finds today." The serif date doubles as the loaded state's header, so the loader hands off seamlessly. Best if entries are date-anchored and you want an intimate, end-of-day feel.</p>
+  <p class="note" data-n="d3"><strong>Direction 3 · Desk Ephemera.</strong> Scrapbook logic: polaroids, a sage stamp, a ticket stub tumble onto the desk while a slightly crooked washi-tape progress bar fills. The most playful and the only one with explicit percent progress. Best if the diary is visual/photo-heavy.</p>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tabs button');
+  function show(id) {
+    document.querySelectorAll('.stage').forEach(s => {
+      const on = s.id === id;
+      s.classList.toggle('active', on);
+      s.classList.toggle('play', on);
+    });
+    document.querySelectorAll('.note').forEach(n => n.classList.toggle('active', n.dataset.n === id));
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.t === id)));
+    if (id === 'd3') runPct();
+  }
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.t)));
+  document.querySelectorAll('.replay').forEach(b => b.addEventListener('click', () => {
+    const s = document.getElementById(b.dataset.r);
+    s.classList.remove('play');
+    void s.offsetWidth;
+    s.classList.add('play');
+    if (b.dataset.r === 'd3') runPct();
+  }));
+  let pctTimer;
+  function runPct() {
+    clearInterval(pctTimer);
+    const el = document.getElementById('pct');
+    const t0 = performance.now();
+    pctTimer = setInterval(() => {
+      const p = Math.min(100, Math.round((performance.now() - t0) / 32));
+      el.textContent = p + '%';
+      if (p >= 100) clearInterval(pctTimer);
+    }, 80);
+  }
+</script>
