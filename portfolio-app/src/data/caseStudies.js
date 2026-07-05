@@ -215,6 +215,7 @@ export const caseStudies = [
       description: 'Turning a national vote into snack-aisle theatre.',
       imageLabel: 'Twisties Election — campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
+      imageStyle: { objectPosition: 'center 60%' },
     },
     detail: {
       dots: [
