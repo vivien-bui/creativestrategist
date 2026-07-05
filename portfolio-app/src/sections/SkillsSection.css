@@ -68,133 +68,144 @@
   transform: rotate(-1.5deg) translateY(-6px);
 }
 
-/* ---- Receipt ---- */
+/* ---- Receipt: a real, ripped-off thermal receipt ----
+   The paper is torn along the top and bottom (as if pulled off the roll)
+   via an SVG mask whose straight edges are roughed up by a turbulence
+   displacement filter. The sides stay clean-cut (roll width). A
+   filter: drop-shadow — not box-shadow — is used so the cast shadow
+   hugs the torn silhouette instead of a rectangle. */
+:root {
+  --receipt-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono',
+    Menlo, Consolas, monospace;
+  /* Warm thermal-paper ink: never pure black — slightly faded, a touch warm. */
+  --thermal-ink: rgba(38, 31, 43, 0.86);
+  --thermal-faint: rgba(38, 31, 43, 0.42);
+  --torn-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='400' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='t' x='-90' y='-120' width='480' height='640' filterUnits='userSpaceOnUse'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.09' numOctaves='4' seed='7' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='27' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Crect x='-30' y='23' width='360' height='354' fill='%23fff' filter='url(%23t)'/%3E%3C/svg%3E");
+}
+
 .receipt {
   position: relative;
-  background: var(--paper);
-  border: 1px solid var(--ink-12);
-  border-radius: 6px;
-  padding: 40px 44px 32px;
-  box-shadow: 0 24px 60px var(--ink-10);
+  /* Layered paper: fine grain noise + faint thermal banding + a soft aged
+     vignette, all over the warm paper base. */
+  background-color: #fdfaf3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(
+      0deg,
+      rgba(38, 31, 43, 0.015) 0 1px,
+      transparent 1px 4px
+    ),
+    radial-gradient(
+      120% 90% at 50% 8%,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(250, 244, 233, 0.75) 55%,
+      rgba(233, 224, 208, 0.55) 100%
+    );
+  padding: 52px 44px 58px;
   font-family: var(--font-body);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  color: var(--thermal-ink);
+  /* Torn top/bottom edges. */
+  -webkit-mask: var(--torn-mask) center / 100% 100% no-repeat;
+  mask: var(--torn-mask) center / 100% 100% no-repeat;
+  /* Shadow follows the torn shape (drop-shadow reads the mask alpha). */
+  filter: drop-shadow(0 22px 34px rgba(38, 31, 43, 0.18))
+    drop-shadow(0 3px 6px rgba(38, 31, 43, 0.12));
+  transform: rotate(-0.7deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.6s ease;
 }
 
 .receipt:hover {
-  transform: translateY(-4px) rotate(-0.3deg);
-  box-shadow: 0 32px 72px var(--ink-14);
+  transform: rotate(0.2deg) translateY(-5px) scale(1.008);
+  filter: drop-shadow(0 30px 46px rgba(38, 31, 43, 0.24))
+    drop-shadow(0 4px 8px rgba(38, 31, 43, 0.14));
 }
 
-/* Art Deco frame: layered inset borders with geometric motifs. */
+/* Faint coffee/matcha ring stain — the "this receipt has lived a life" touch. */
 .receipt::before {
   content: '';
   position: absolute;
-  inset: 10px;
-  border: 1.5px solid var(--ink-15);
+  top: 34px;
+  right: 30px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 6px solid rgba(139, 148, 134, 0.14);
+  box-shadow: inset 0 0 14px rgba(139, 148, 134, 0.1),
+    0 0 8px rgba(139, 148, 134, 0.08);
+  transform: rotate(12deg) scaleY(0.94);
   pointer-events: none;
-}
-
-.receipt::after {
-  content: '';
-  position: absolute;
-  inset: 14px;
-  border: 0.5px solid var(--ink-10);
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 98%,
-    var(--ink-10) 98%,
-    var(--ink-10) 100%
-  );
-}
-
-.receipt__corner {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  color: var(--accent);
-  opacity: 0.9;
-  pointer-events: none;
-  filter: drop-shadow(0 0 2px color-mix(in srgb, var(--accent) 30%, transparent));
-  transition: opacity 0.4s ease, filter 0.4s ease;
-}
-
-.receipt:hover .receipt__corner {
-  opacity: 1;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 50%, transparent));
-}
-
-.receipt__corner--tl {
-  top: -2px;
-  left: -2px;
-}
-
-.receipt__corner--tr {
-  top: -2px;
-  right: -2px;
-  transform: rotate(90deg);
-}
-
-.receipt__corner--br {
-  bottom: -2px;
-  right: -2px;
-  transform: rotate(180deg);
-}
-
-.receipt__corner--bl {
-  bottom: -2px;
-  left: -2px;
-  transform: rotate(270deg);
 }
 
 .receipt__head {
   text-align: center;
-  padding-bottom: 8px;
-  margin-bottom: 0;
+  padding-bottom: 18px;
+  margin-bottom: 4px;
 }
 
-.receipt__deco-border {
-  display: block;
-  width: 100%;
-  height: 28px;
+.receipt__stamp {
+  font-size: 26px;
+  line-height: 1;
   color: var(--accent);
-  opacity: 0.85;
-  margin-bottom: 18px;
-  transition: opacity 0.4s ease;
-}
-
-.receipt:hover .receipt__deco-border {
-  opacity: 1;
+  opacity: 0.75;
+  margin-bottom: 10px;
 }
 
 .receipt__title {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 30px;
+  font-size: 32px;
   line-height: 1;
+  color: var(--thermal-ink);
 }
 
 .receipt__subtitle {
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-family: var(--receipt-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  opacity: 0.55;
-  margin-top: 8px;
+  color: var(--thermal-faint);
+  margin-top: 10px;
+}
+
+/* Order metadata — monospace like a real till printout. */
+.receipt__meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--receipt-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--thermal-faint);
+  margin-bottom: 14px;
+}
+
+/* Perforated / dashed thermal rule. */
+.receipt__rule {
+  height: 1px;
+  margin: 16px 0;
+  background-image: linear-gradient(
+    90deg,
+    var(--thermal-faint) 0 6px,
+    transparent 6px 11px
+  );
+  background-size: 11px 1px;
+  background-repeat: repeat-x;
+  opacity: 0.7;
 }
 
 .receipt__lines {
   display: flex;
   flex-direction: column;
-  gap: 13px;
-  font-size: 15px;
+  gap: 12px;
+  font-family: var(--receipt-mono);
+  font-size: 13px;
+  letter-spacing: 0.01em;
 }
 
 .receipt__line {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 16px;
+  gap: 14px;
   transition: transform 0.25s ease;
 }
 
@@ -204,14 +215,15 @@
 
 .receipt__dots {
   flex: 1;
-  border-bottom: 1px dotted rgba(43, 36, 48, 0.35);
+  border-bottom: 1px dotted var(--thermal-faint);
   margin: 0 6px;
   transform: translateY(-3px);
 }
 
 .receipt__rating {
-  font-family: var(--font-display);
-  font-size: 17px;
+  font-family: var(--receipt-mono);
+  font-weight: 600;
+  font-size: 13px;
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
@@ -222,44 +234,48 @@
 }
 
 .receipt__total {
-  border-top: 1px dashed rgba(43, 36, 48, 0.3);
-  margin-top: 22px;
-  padding-top: 18px;
+  margin-top: 6px;
+  padding-top: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .receipt__total-label {
-  font-size: 11px;
+  font-family: var(--receipt-mono);
+  font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  opacity: 0.55;
+  color: var(--thermal-faint);
 }
 
 .receipt__total-value {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
+  color: var(--thermal-ink);
 }
 
 .receipt__badge {
-  width: 68px;
-  height: 68px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  border: 1px solid var(--accent);
+  border: 1.5px dashed var(--accent);
   color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--receipt-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  line-height: 1.3;
-  transform: rotate(-8deg);
+  line-height: 1.35;
+  /* Rubber-stamp look: tilted, slightly transparent ink. */
+  transform: rotate(-11deg);
+  opacity: 0.9;
   animation: floaty 4s ease-in-out infinite;
   transition: transform 0.4s ease;
 }
@@ -269,25 +285,37 @@
 }
 
 .receipt__barcode {
-  margin-top: 20px;
-  height: 30px;
+  margin-top: 22px;
+  height: 42px;
   background: repeating-linear-gradient(
     90deg,
-    var(--ink) 0 2px,
+    var(--thermal-ink) 0 2px,
     transparent 2px 4px,
-    var(--ink) 4px 7px,
+    var(--thermal-ink) 4px 7px,
     transparent 7px 9px,
-    var(--ink) 9px 10px,
+    var(--thermal-ink) 9px 10px,
     transparent 10px 14px
   );
+  opacity: 0.9;
+}
+
+.receipt__barcode-num {
+  font-family: var(--receipt-mono);
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-align: center;
+  color: var(--thermal-faint);
+  margin-top: 7px;
+  padding-left: 0.35em;
 }
 
 .receipt__thanks {
   text-align: center;
-  font-size: 11px;
+  font-family: var(--receipt-mono);
+  font-size: 10px;
   letter-spacing: 0.3em;
-  opacity: 0.5;
-  margin-top: 8px;
+  color: var(--thermal-faint);
+  margin-top: 14px;
 }
 
 @media (max-width: 767px) {
@@ -306,14 +334,13 @@
     flex-direction: column;
     gap: 12px;
   }
-  .receipt__corner {
-    width: 36px;
-    height: 36px;
+  .receipt {
+    padding: 44px 30px 50px;
   }
   .receipt::before {
-    inset: 7px;
-  }
-  .receipt::after {
-    inset: 10px;
+    top: 26px;
+    right: 20px;
+    width: 72px;
+    height: 72px;
   }
 }

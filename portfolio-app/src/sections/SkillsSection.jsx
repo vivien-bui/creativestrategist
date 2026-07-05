@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 import FloatingPill from '../components/FloatingPill';
 import MatchaIllustration from './MatchaIllustration';
-import ArtDecoCorner from '../components/ArtDecoCorner';
-import ArtDecoBorder from '../components/ArtDecoBorder';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
@@ -15,6 +13,13 @@ const RECEIPT_LINES = [
   ['Figma · Canva · Adobe blend', '9/10'],
   ['Topped with collaborative foam', '10/10'],
 ];
+
+// Printed on the receipt like a real till timestamp (DD.MM.YY · HH:MM).
+const ORDER_DATE = (() => {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  return `${p(d.getDate())}.${p(d.getMonth() + 1)}.${String(d.getFullYear()).slice(-2)} · ${p(d.getHours())}:${p(d.getMinutes())}`;
+})();
 
 export default function SkillsSection() {
   const sectionRef = useRef(null);
@@ -107,17 +112,18 @@ export default function SkillsSection() {
         </div>
 
         <div className="receipt">
-          <ArtDecoCorner className="receipt__corner--tl" />
-          <ArtDecoCorner className="receipt__corner--tr" />
-          <ArtDecoCorner className="receipt__corner--br" />
-          <ArtDecoCorner className="receipt__corner--bl" />
-
           <div className="receipt__head" data-reveal>
+            <div className="receipt__stamp">✺</div>
             <div className="receipt__title">The Strategist's Order</div>
             <div className="receipt__subtitle">Est. brewing since day one</div>
           </div>
 
-          <ArtDecoBorder />
+          <div className="receipt__meta" data-reveal>
+            <span>ORDER #0705</span>
+            <span>{ORDER_DATE}</span>
+          </div>
+
+          <div className="receipt__rule" aria-hidden="true" />
 
           {/* Each line carries its own data-reveal so the shared scroll
               stagger makes the receipt "print" item by item. */}
@@ -130,6 +136,8 @@ export default function SkillsSection() {
               </div>
             ))}
           </div>
+
+          <div className="receipt__rule" aria-hidden="true" />
 
           <div className="receipt__total" data-reveal>
             <div>
@@ -144,6 +152,9 @@ export default function SkillsSection() {
           </div>
 
           <div className="receipt__barcode" data-reveal />
+          <div className="receipt__barcode-num" data-reveal>
+            4 820135 002471
+          </div>
           <div className="receipt__thanks" data-reveal>THANK YOU · COME AGAIN</div>
         </div>
       </div>
