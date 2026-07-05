@@ -80,60 +80,25 @@
   /* Warm thermal-paper ink: never pure black — slightly faded, a touch warm. */
   --thermal-ink: rgba(38, 31, 43, 0.86);
   --thermal-faint: rgba(38, 31, 43, 0.42);
-  --torn-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='400' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='t' x='-90' y='-120' width='480' height='640' filterUnits='userSpaceOnUse'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.09' numOctaves='4' seed='7' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='27' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Crect x='-30' y='23' width='360' height='354' fill='%23fff' filter='url(%23t)'/%3E%3C/svg%3E");
+  --torn-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='400' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='t' x='-90' y='-160' width='480' height='720' filterUnits='userSpaceOnUse'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.018 0.06' numOctaves='5' seed='12' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='48' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Crect x='-40' y='28' width='380' height='344' fill='%23fff' filter='url(%23t)'/%3E%3C/svg%3E");
 }
 
 .receipt {
   position: relative;
-  /* Layered paper: fine grain noise + faint thermal banding + a soft aged
-     vignette, all over the warm paper base. */
   background-color: #fdfaf3;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
-    repeating-linear-gradient(
-      0deg,
-      rgba(38, 31, 43, 0.015) 0 1px,
-      transparent 1px 4px
-    ),
-    radial-gradient(
-      120% 90% at 50% 8%,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(250, 244, 233, 0.75) 55%,
-      rgba(233, 224, 208, 0.55) 100%
-    );
   padding: 52px 44px 58px;
   font-family: var(--font-body);
   color: var(--thermal-ink);
-  /* Torn top/bottom edges. */
   -webkit-mask: var(--torn-mask) center / 100% 100% no-repeat;
   mask: var(--torn-mask) center / 100% 100% no-repeat;
-  /* Shadow follows the torn shape (drop-shadow reads the mask alpha). */
   filter: drop-shadow(0 22px 34px rgba(38, 31, 43, 0.18))
     drop-shadow(0 3px 6px rgba(38, 31, 43, 0.12));
-  transform: rotate(-0.7deg);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.6s ease;
+  transition: filter 0.6s ease;
 }
 
 .receipt:hover {
-  transform: rotate(0.2deg) translateY(-5px) scale(1.008);
   filter: drop-shadow(0 30px 46px rgba(38, 31, 43, 0.24))
     drop-shadow(0 4px 8px rgba(38, 31, 43, 0.14));
-}
-
-/* Faint coffee/matcha ring stain — the "this receipt has lived a life" touch. */
-.receipt::before {
-  content: '';
-  position: absolute;
-  top: 34px;
-  right: 30px;
-  width: 92px;
-  height: 92px;
-  border-radius: 50%;
-  border: 6px solid rgba(139, 148, 134, 0.14);
-  box-shadow: inset 0 0 14px rgba(139, 148, 134, 0.1),
-    0 0 8px rgba(139, 148, 134, 0.08);
-  transform: rotate(12deg) scaleY(0.94);
-  pointer-events: none;
 }
 
 .receipt__head {
@@ -336,11 +301,5 @@
   }
   .receipt {
     padding: 44px 30px 50px;
-  }
-  .receipt::before {
-    top: 26px;
-    right: 20px;
-    width: 72px;
-    height: 72px;
   }
 }
