@@ -135,35 +135,3 @@ void main() {
   gl_FragColor = vec4(col, 1.0);
 }
 `;
-
-// Global cursor lens: a soft glass glint that tracks the pointer, gated by
-// u_strength (eased 0→1 in JS while hovering an .img-placeholder, 0
-// otherwise). Fully transparent everywhere it isn't needed — this is the
-// one shader that relies on the canvas's alpha channel compositing over the
-// real DOM content underneath, so its RGB is premultiplied by alpha.
-export const LENS_FRAG = `
-precision highp float;
-uniform float u_time;
-uniform vec2 u_res;
-uniform vec2 u_pointer;
-uniform float u_strength;
-
-void main() {
-  vec2 uv = gl_FragCoord.xy / u_res;
-  float aspect = u_res.x / u_res.y;
-  vec2 p = vec2(uv.x * aspect, uv.y);
-  vec2 m = vec2(u_pointer.x * aspect, u_pointer.y);
-  float d = distance(p, m);
-
-  float core = smoothstep(0.16, 0.0, d) * 0.5;
-  float ring = smoothstep(0.024, 0.0, abs(d - 0.1)) * 0.6;
-  float glow = smoothstep(0.26, 0.0, d) * 0.3;
-
-  vec3 paper = vec3(1.0, 0.992, 0.976);
-  vec3 sage = vec3(0.545, 0.58, 0.525);
-  vec3 tint = mix(paper, sage, 0.35 + 0.25 * sin(u_time * 1.2));
-
-  float alpha = clamp((core + ring + glow) * u_strength, 0.0, 0.85);
-  gl_FragColor = vec4(tint * alpha, alpha);
-}
-`;
