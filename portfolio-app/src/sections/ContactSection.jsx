@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import AmbientBackdrop from '../components/AmbientBackdrop';
 import './ContactSection.css';
 
 const CONTACT_EMAIL = 'phuongvivien@gmail.com';
@@ -19,6 +20,7 @@ export default function ContactSection({ onNavigate }) {
 
   return (
     <footer id="contact" data-screen-label="Contact" className="contact">
+      <AmbientBackdrop variant="contact" />
       <div className="contact__inner">
         <p className="contact__eyebrow">✳ Currently taking agency contracts</p>
         <h2 className="contact__heading">Let's make something people want to talk about.</h2>

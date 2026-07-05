@@ -1,10 +1,13 @@
 .contact {
+  position: relative;
   background: var(--ink);
   color: var(--cream);
   padding: 100px 48px 48px;
 }
 
 .contact__inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--container-wide);
   margin: 0 auto;
 }

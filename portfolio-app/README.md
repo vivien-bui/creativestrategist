@@ -26,7 +26,13 @@ npm run preview # serve the production build locally
 - `src/sections/` — the six page sections (Hero, Work, Skills, About,
   Contact, and the generic case-study detail template).
 - `src/components/` — shared pieces (Nav, image placeholders, color
-  dots, floating pills, rich-text emphasis, stat band).
+  dots, floating pills, rich-text emphasis, stat band, ambient WebGL
+  backdrops).
+- `src/webgl/` — dependency-free WebGL layer: `useShaderCanvas` (context
+  setup, resize/DPR capping, offscreen + hidden-tab pausing, reduced-motion
+  static frame, context-loss recovery) and the two fragment shaders
+  (`hero` warm wash, `contact` aurora). Degrades silently: without WebGL
+  the canvas never fades in and the plain CSS background shows.
 - `src/App.jsx` — client-side view routing between the homepage and the
   5 detail pages (View Transitions where supported, scroll position is
   preserved when returning to Selected Work).
