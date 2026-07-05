@@ -48,7 +48,11 @@ export default function Hero({ onNavigate }) {
         <div className="hero__photo-row">
           <div className="hero__photo-wrap" data-r="hero-pill-wrap">
             <div ref={photoRef} id="hero-photo" className="hero__photo">
-              <ImagePlaceholder label="a photo with your energy — travel, golden hour, candid" radius={4} />
+              <ImagePlaceholder
+                label="a photo with your energy — travel, golden hour, candid"
+                radius={4}
+                src="/assets/personal/personal-02-mountain-lookout-portrait.jpg"
+              />
             </div>
 
             <FloatingPill pos={{ top: '12%', left: '-140px' }} duration="5s">brand strategy</FloatingPill>

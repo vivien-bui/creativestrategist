@@ -35,6 +35,7 @@ export const caseStudies = [
         'Launching an at-home cryo-LED glow device — cold-tech skincare wrapped in soft neutrals, blush, and a blue-violet glow that reads as clinical *and* covetable.',
       tags: ['Launch strategy', 'Creator seeding', 'Content system'],
       imageLabel: 'SharkBeauty CryoGlow — hero campaign shot',
+      imageSrc: '/assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
     },
     detail: {
       dots: [
@@ -51,6 +52,7 @@ export const caseStudies = [
         ['Role', 'Launch strategy'],
       ],
       heroLabel: 'CryoGlow device — soft neutrals, blush, blue-violet LED glow',
+      heroSrc: '/assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
       insight:
         "Cold-tech skincare feels clinical. But consumers want the results *and* the ritual — proof it works, wrapped in something she'd leave out on the shelf.",
       stats: [
@@ -70,8 +72,8 @@ export const caseStudies = [
         'Micro-influencer and event program drives trial across AU + NZ',
       ],
       images: [
-        { id: 'cryoglow-2', label: 'creator routine / device in-use shot' },
-        { id: 'cryoglow-3', label: 'packaging / product detail' },
+        { id: 'cryoglow-2', label: 'creator routine / device in-use shot', src: '/assets/cryoglow/cryoglow-02-light-therapy-campaign-grid.webp' },
+        { id: 'cryoglow-3', label: 'packaging / product detail', src: '/assets/cryoglow/cryoglow-03-light-therapy-detail-duo.webp' },
       ],
       scope: ['Positioning & messaging', 'Creator seeding', 'Content system', 'Launch calendar'],
       nextLabel: 'Australian Fashion Week →',
@@ -96,6 +98,7 @@ export const caseStudies = [
         'A front-row presence built in polished purple and runway black — turning five days of shows into a shareable, always-on content moment.',
       tags: ['Event strategy', 'Live content', 'Talent & PR'],
       imageLabel: 'Australian Fashion Week — hero campaign shot',
+      imageSrc: '/assets/afw/afw-01-pavilion-exterior-street-view.jpg',
     },
     detail: {
       dots: [
@@ -110,6 +113,7 @@ export const caseStudies = [
         ['Role', 'Event & content strategy'],
       ],
       heroLabel: 'AFW — polished purple, runway black, front-row moment',
+      heroSrc: '/assets/afw/afw-01-pavilion-exterior-street-view.jpg',
       insight:
         "Fashion week is five days of noise. Presence isn't a seat in the room — it's *owning the feed* the room is looking at.",
       stats: [
@@ -128,8 +132,8 @@ export const caseStudies = [
         'Integrated giveaways convert spectacle into participation',
       ],
       images: [
-        { id: 'afw-2', label: 'runway / backstage content' },
-        { id: 'afw-3', label: 'talent / front-row social capture' },
+        { id: 'afw-2', label: 'runway / backstage content', src: '/assets/afw/afw-03-runway-multi-model-yellow-black.jpg' },
+        { id: 'afw-3', label: 'talent / front-row social capture', src: '/assets/afw/afw-08-runway-full-collection-whites.jpg' },
       ],
       scope: ['Event strategy', 'Live content ops', 'Talent & PR', 'Art direction'],
       nextLabel: 'Vodka Cruiser →',
@@ -152,6 +156,7 @@ export const caseStudies = [
       title: 'Vodka Cruiser × Brat Summer',
       description: 'Riding an acid-chartreuse cultural wave in real time.',
       imageLabel: 'Vodka Cruiser × Brat Summer — campaign visual',
+      imageSrc: '/assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
     },
     detail: {
       dots: [
@@ -166,6 +171,7 @@ export const caseStudies = [
         ['Role', 'Reactive strategy'],
       ],
       heroLabel: 'Cruiser × Brat — acid-chartreuse hero',
+      heroSrc: '/assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
       insight:
         "Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it — it joins by *moving at its speed*.",
       stats: [
@@ -183,8 +189,8 @@ export const caseStudies = [
         'Social-first content built for velocity over polish',
       ],
       images: [
-        { id: 'cruiser-2', label: 'social-native creative' },
-        { id: 'cruiser-3', label: 'reactive post / meme moment' },
+        { id: 'cruiser-2', label: 'social-native creative', src: '/assets/cruiser/cruiser-02-four-pack-product-shot.jpg' },
+        { id: 'cruiser-3', label: 'reactive post / meme moment', src: '/assets/cruiser/cruiser-02-four-pack-product-shot.jpg' },
       ],
       scope: ['Trend strategy', 'Social creative', 'Reactive posting'],
       nextLabel: 'Twisties Election →',
@@ -208,6 +214,7 @@ export const caseStudies = [
       title: 'Twisties Election',
       description: 'Turning a national vote into snack-aisle theatre.',
       imageLabel: 'Twisties Election — campaign visual',
+      imageSrc: '/assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
     },
     detail: {
       dots: [
@@ -223,6 +230,7 @@ export const caseStudies = [
         ['Role', 'Campaign strategy'],
       ],
       heroLabel: 'Twisties Election — poster-red / canary / green hero',
+      heroSrc: '/assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
       insight:
         'Cheese vs Chicken is the only two-party system Australians agree to care about. So we ran it like *a real election*.',
       award: '🏆 TikTok Award — Best Social Media Campaign 2025',
@@ -255,8 +263,8 @@ export const caseStudies = [
         },
       ],
       images: [
-        { id: 'twisties-2', label: 'campaign poster / OOH' },
-        { id: 'twisties-3', label: 'in-store / social activation' },
+        { id: 'twisties-2', label: 'campaign poster / OOH', src: '/assets/twisties/twisties-02-bus-shelter-vote-cheese-chicken.webp' },
+        { id: 'twisties-3', label: 'in-store / social activation', src: '/assets/twisties/twisties-04-video-number-one-twistie-decided.webp' },
       ],
       scope: ['Campaign platform', 'Art direction', 'OOH & social'],
       nextLabel: 'Doritos Coriander →',
@@ -280,6 +288,7 @@ export const caseStudies = [
       title: "Doritos — Wash Your Mouth Out",
       description: '450M+ earned reach from the most divisive chip in history.',
       imageLabel: "Doritos 'Wash Your Mouth Out' — campaign visual",
+      imageSrc: '/assets/doritos/doritos-01-hero-wash-your-mouth-out.jpg',
     },
     detail: {
       dots: [
@@ -295,6 +304,7 @@ export const caseStudies = [
         ['Role', 'Creative strategy'],
       ],
       heroLabel: 'Doritos coriander pack styled as soap — the OOH hero',
+      heroSrc: '/assets/doritos/doritos-01-hero-wash-your-mouth-out.jpg',
       stats: [
         { value: 450, suffix: 'M+', label: 'Earned reach — target beaten by 441M' },
         { value: 430, label: 'Pieces of earned media' },
@@ -320,8 +330,8 @@ export const caseStudies = [
         '"Deliciously fragrant… and indulgently soapy."',
       ],
       images: [
-        { id: 'cs-detail-2', label: 'OOH placement next to soap retailer' },
-        { id: 'cs-detail-3', label: 'influencer seeding mailer / eBay auction screenshot' },
+        { id: 'cs-detail-2', label: 'OOH placement next to soap retailer', src: '/assets/doritos/doritos-04-media-collage-430-pieces.webp' },
+        { id: 'cs-detail-3', label: 'influencer seeding mailer / eBay auction screenshot', src: '/assets/doritos/doritos-06-ugc-social-phones-reviews.webp' },
       ],
       press: [
         { quote: 'Doritos has launched the most controversial chip in history…', source: 'taste.com.au' },

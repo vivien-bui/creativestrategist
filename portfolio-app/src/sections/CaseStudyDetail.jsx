@@ -88,7 +88,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
         </div>
 
         <div ref={heroRef} className="detail__hero-img" data-r="detail-hero-img" data-reveal>
-          <ImagePlaceholder label={detail.heroLabel} radius={16} dark={theme !== 'light'} />
+          <ImagePlaceholder label={detail.heroLabel} radius={16} dark={theme !== 'light'} src={detail.heroSrc} />
         </div>
 
         {detail.award && <AwardCallout text={detail.award} />}
@@ -120,7 +120,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
         <div className="detail__images" data-r="split-images" data-reveal>
           {detail.images.map((img) => (
             <div key={img.id} className="detail__duo-img" data-r="duo-img">
-              <ImagePlaceholder label={img.label} radius={12} dark={theme !== 'light'} />
+              <ImagePlaceholder label={img.label} radius={12} dark={theme !== 'light'} src={img.src} />
             </div>
           ))}
         </div>

@@ -16,7 +16,7 @@ export function FeaturedWorkCard({ study, onNavigate }) {
 
   const image = (
     <div className="work-featured__img" data-r="feature-img">
-      <ImagePlaceholder label={workCard.imageLabel} />
+      <ImagePlaceholder label={workCard.imageLabel} src={workCard.imageSrc} />
     </div>
   );
 
@@ -60,7 +60,7 @@ export function GridWorkCard({ study, onNavigate }) {
   return (
     <a href={`#${study.id}`} className="work-grid-card" onClick={navHandler(onNavigate, study.id)}>
       <div className="work-grid-card__img" data-r="thumb-img">
-        <ImagePlaceholder label={workCard.imageLabel} />
+        <ImagePlaceholder label={workCard.imageLabel} src={workCard.imageSrc} />
       </div>
       <div className="work-grid-card__body">
         <div className="work-grid-card__top">
