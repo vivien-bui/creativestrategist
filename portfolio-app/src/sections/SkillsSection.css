@@ -42,15 +42,18 @@
   justify-content: center;
 }
 
-/* Layered motion: scroll drift + cursor-follow parallax, set as CSS vars
-   from SkillsSection's rAF handlers. Zero movement by default. */
+/* Layered motion: scroll drift + cursor-follow parallax + a continuous
+   floaty bob/rock, all set as CSS vars from SkillsSection's single rAF
+   loop. No CSS transition here — the loop already updates every frame, so
+   a transition would only add lag against motion that's already smooth.
+   Zero movement by default (reduced motion / JS-disabled). */
 .skills__art-parallax {
   transform: translate3d(
-    var(--skills-mx, 0px),
-    calc(var(--skills-drift, 0px) + var(--skills-my, 0px)),
-    0
-  );
-  transition: transform 0.25s ease-out;
+      var(--skills-mx, 0px),
+      calc(var(--skills-drift, 0px) + var(--skills-my, 0px)),
+      0
+    )
+    rotate(var(--skills-rot, 0deg));
   will-change: transform;
 }
 
@@ -67,6 +70,7 @@
 
 /* ---- Receipt ---- */
 .receipt {
+  position: relative;
   background: var(--paper);
   border: 1px solid var(--ink-12);
   border-radius: 6px;
@@ -79,6 +83,47 @@
 .receipt:hover {
   transform: translateY(-4px) rotate(-0.3deg);
   box-shadow: 0 32px 72px var(--ink-14);
+}
+
+/* Art Deco frame: a fine inset ruled line plus four corner fans. */
+.receipt::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--ink-15);
+  pointer-events: none;
+}
+
+.receipt__corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.receipt__corner--tl {
+  top: -1px;
+  left: -1px;
+}
+
+.receipt__corner--tr {
+  top: -1px;
+  right: -1px;
+  transform: rotate(90deg);
+}
+
+.receipt__corner--br {
+  bottom: -1px;
+  right: -1px;
+  transform: rotate(180deg);
+}
+
+.receipt__corner--bl {
+  bottom: -1px;
+  left: -1px;
+  transform: rotate(270deg);
 }
 
 .receipt__head {
@@ -225,5 +270,12 @@
   [data-r='latte-pill-wrap'] {
     flex-direction: column;
     gap: 12px;
+  }
+  .receipt__corner {
+    width: 22px;
+    height: 22px;
+  }
+  .receipt::before {
+    inset: 6px;
   }
 }

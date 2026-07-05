@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import FloatingPill from '../components/FloatingPill';
 import MatchaIllustration from './MatchaIllustration';
+import ArtDecoCorner from '../components/ArtDecoCorner';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
@@ -19,9 +20,12 @@ export default function SkillsSection() {
   const artRef = useRef(null);
   const reduced = useReducedMotion();
 
-  // Subtle layered motion: the matcha art drifts against the receipt on
-  // scroll, plus a very light cursor-follow parallax across the layout.
-  // Same rAF-throttled pattern as the hero/detail parallax.
+  // Layered motion: the matcha art drifts against the receipt on scroll,
+  // eases toward the cursor, and — the "floaty" part — bobs and gently
+  // rocks continuously via two out-of-phase sine waves, like it's actually
+  // hovering rather than just tracking scroll/cursor input. Runs as one
+  // rAF loop (gated by IntersectionObserver) so all three motions combine
+  // into a single coherent transform instead of fighting over the property.
   useEffect(() => {
     if (reduced) return undefined;
     const section = sectionRef.current;
@@ -29,33 +33,52 @@ export default function SkillsSection() {
     if (!section || !art) return undefined;
 
     let raf = null;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = null;
-        const r = section.getBoundingClientRect();
-        const mid = r.top + r.height / 2 - window.innerHeight / 2;
-        const y = Math.max(-16, Math.min(16, -mid * 0.045));
-        art.style.setProperty('--skills-drift', `${y}px`);
-      });
+    let onScreen = false;
+    const start = performance.now();
+    const pointer = { x: 0, y: 0 };
+    const pointerTarget = { x: 0, y: 0 };
+
+    const scrollDrift = () => {
+      const r = section.getBoundingClientRect();
+      const mid = r.top + r.height / 2 - window.innerHeight / 2;
+      return Math.max(-16, Math.min(16, -mid * 0.045));
     };
+
+    const tick = (now) => {
+      raf = null;
+      if (!onScreen) return;
+      const t = (now - start) / 1000;
+      pointer.x += (pointerTarget.x - pointer.x) * 0.08;
+      pointer.y += (pointerTarget.y - pointer.y) * 0.08;
+      const floatY = Math.sin(t * 0.9) * 9 + Math.sin(t * 0.37) * 3;
+      const floatRot = Math.sin(t * 0.6) * 2.2;
+      art.style.setProperty('--skills-mx', `${pointer.x}px`);
+      art.style.setProperty('--skills-my', `${pointer.y + floatY}px`);
+      art.style.setProperty('--skills-drift', `${scrollDrift()}px`);
+      art.style.setProperty('--skills-rot', `${floatRot}deg`);
+      raf = requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      if (onScreen && !raf) raf = requestAnimationFrame(tick);
+    });
+    io.observe(section);
+
     const onMove = (e) => {
       const r = section.getBoundingClientRect();
-      const mx = ((e.clientX - r.left) / r.width - 0.5) * 8;
-      const my = ((e.clientY - r.top) / r.height - 0.5) * 6;
-      art.style.setProperty('--skills-mx', `${mx}px`);
-      art.style.setProperty('--skills-my', `${my}px`);
+      pointerTarget.x = ((e.clientX - r.left) / r.width - 0.5) * 8;
+      pointerTarget.y = ((e.clientY - r.top) / r.height - 0.5) * 6;
     };
     const onLeave = () => {
-      art.style.setProperty('--skills-mx', '0px');
-      art.style.setProperty('--skills-my', '0px');
+      pointerTarget.x = 0;
+      pointerTarget.y = 0;
     };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
     section.addEventListener('mousemove', onMove);
     section.addEventListener('mouseleave', onLeave);
+
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      io.disconnect();
       section.removeEventListener('mousemove', onMove);
       section.removeEventListener('mouseleave', onLeave);
       if (raf) cancelAnimationFrame(raf);
@@ -83,6 +106,11 @@ export default function SkillsSection() {
         </div>
 
         <div className="receipt">
+          <ArtDecoCorner className="receipt__corner--tl" />
+          <ArtDecoCorner className="receipt__corner--tr" />
+          <ArtDecoCorner className="receipt__corner--br" />
+          <ArtDecoCorner className="receipt__corner--bl" />
+
           <div className="receipt__head" data-reveal>
             <div className="receipt__title">The Strategist's Order</div>
             <div className="receipt__subtitle">Est. brewing since day one</div>

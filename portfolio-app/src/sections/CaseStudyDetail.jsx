@@ -4,6 +4,7 @@ import ColorDots from '../components/ColorDots';
 import Rich from '../components/Rich';
 import StatBand from '../components/StatBand';
 import AwardCallout from '../components/AwardCallout';
+import AmbientBackdrop from '../components/AmbientBackdrop';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
 
@@ -49,6 +50,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
       className={`detail ${theme === 'light' ? 'detail--light' : 'detail--dark'}`}
       style={{ '--study-accent': accent }}
     >
+      <AmbientBackdrop variant="detail" theme={theme} accent={accent} />
       <div className="detail__inner">
         <a
           href="#work"

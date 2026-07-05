@@ -41,6 +41,27 @@ Flows worth driving:
      ready stays false, canvas opacity stays 0, page looks pre-WebGL.
 - Overlay safety: `.hero__cta` click must set `location.hash` to `#work`;
   `.contact__input` must accept typed text (canvases are pointer-events:none).
+- Detail-page backdrops (`canvas.ambient-backdrop` inside `#cs-*-detail`):
+  the app only reads `location.hash` on load, so `page.goto`/`page.evaluate`
+  setting `location.hash` needs a `page.reload()` after to land on that
+  view. Check both a light-theme study (`cs-cryoglow-detail`) and a
+  dark-theme one (e.g. `cs-doritos-detail`); clicking `.detail__next`
+  should swap the accent without the canvas ever losing `--ready`.
+- Image lens (`canvas.image-lens`, mounted once in `App.jsx`): moves with
+  `page.mouse.move` over any `.img-placeholder`; check `image-lens--ready`
+  class and that the `.img-placeholder` element's own `--tilt-x`/`--shine-o`
+  inline style vars change while hovered and reset to `0` on
+  `page.mouse.move` away. Under `reducedMotion: 'reduce'` the component
+  returns `null` entirely — assert `canvas.image-lens` count is 0, not just
+  inactive.
+- Matcha "floaty" motion (`#skills .skills__art-parallax`): it now animates
+  continuously (not just on scroll/hover), so
+  `elementHandle.screenshot()`'s "wait for stable bounding box" check will
+  timeout — use `page.screenshot({ clip })` with a manually-computed
+  bounding box instead. Two clips ~900ms apart differing (with the mouse
+  never moved) is the actual proof of the idle bob/rock.
+- Art Deco receipt frame: `document.querySelectorAll('.receipt__corner')`
+  should be 4.
 
 ## Gotchas
 

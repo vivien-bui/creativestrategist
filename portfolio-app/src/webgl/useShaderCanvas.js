@@ -30,9 +30,48 @@ function compileShader(gl, type, source) {
   return shader;
 }
 
+// Dispatches to the right gl.uniformNf(v) call based on how many floats
+// a named uniform carries — lets callers pass plain [r,g,b]-style arrays
+// without knowing GL's API shape.
+function setUniform(gl, loc, values) {
+  if (!loc) return;
+  switch (values.length) {
+    case 1:
+      gl.uniform1f(loc, values[0]);
+      break;
+    case 2:
+      gl.uniform2f(loc, values[0], values[1]);
+      break;
+    case 3:
+      gl.uniform3f(loc, values[0], values[1], values[2]);
+      break;
+    case 4:
+      gl.uniform4f(loc, values[0], values[1], values[2], values[3]);
+      break;
+    default:
+      break;
+  }
+}
+
 export default function useShaderCanvas(
   fragSource,
-  { renderScale = 0.7, dprCap = 1.5, fps = 30, interactive = false, staticTime = 12 } = {}
+  {
+    renderScale = 0.7,
+    dprCap = 1.5,
+    fps = 30,
+    interactive = false,
+    staticTime = 12,
+    alpha = false,
+    // Set once at init — for values that only change when the shader itself
+    // is swapped (e.g. a case study's accent color). Pair with uniformsKey
+    // so the effect re-inits when the values actually change.
+    uniforms = null,
+    uniformsKey = '',
+    // A ref whose `.current` is read fresh every frame — for values that
+    // change continuously without needing to tear down the GL context
+    // (e.g. a hover-eased strength). Consumers mutate `ref.current` directly.
+    dynamicUniforms = null,
+  } = {}
 ) {
   const canvasRef = useRef(null);
   const [ready, setReady] = useState(false);
@@ -42,7 +81,7 @@ export default function useShaderCanvas(
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
     const gl = canvas.getContext('webgl', {
-      alpha: false,
+      alpha,
       antialias: false,
       depth: false,
       stencil: false,
@@ -54,6 +93,7 @@ export default function useShaderCanvas(
     let timeLoc = null;
     let resLoc = null;
     let pointerLoc = null;
+    let dynamicLocs = {};
     let raf = 0;
     let running = false;
     let onScreen = true;
@@ -92,6 +132,18 @@ export default function useShaderCanvas(
       timeLoc = gl.getUniformLocation(program, 'u_time');
       resLoc = gl.getUniformLocation(program, 'u_res');
       pointerLoc = gl.getUniformLocation(program, 'u_pointer');
+
+      if (uniforms) {
+        for (const [name, values] of Object.entries(uniforms)) {
+          setUniform(gl, gl.getUniformLocation(program, name), values);
+        }
+      }
+      dynamicLocs = {};
+      if (dynamicUniforms) {
+        for (const name of Object.keys(dynamicUniforms.current || {})) {
+          dynamicLocs[name] = gl.getUniformLocation(program, name);
+        }
+      }
       return true;
     }
 
@@ -113,6 +165,12 @@ export default function useShaderCanvas(
       gl.uniform1f(timeLoc, timeSec);
       gl.uniform2f(resLoc, canvas.width, canvas.height);
       if (pointerLoc) gl.uniform2f(pointerLoc, pointer.x, pointer.y);
+      if (dynamicUniforms) {
+        for (const [name, loc] of Object.entries(dynamicLocs)) {
+          const v = dynamicUniforms.current[name];
+          if (v) setUniform(gl, loc, v);
+        }
+      }
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       if (!announcedReady) {
         announcedReady = true;
@@ -197,7 +255,10 @@ export default function useShaderCanvas(
       canvas.removeEventListener('webglcontextrestored', onContextRestored);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [fragSource, renderScale, dprCap, fps, interactive, staticTime, reduced]);
+    // `uniforms`/`dynamicUniforms` are intentionally excluded: the former is
+    // only read at init (uniformsKey signals when to actually re-init), the
+    // latter is a ref whose `.current` is read fresh every frame.
+  }, [fragSource, renderScale, dprCap, fps, interactive, staticTime, reduced, alpha, uniformsKey]);
 
   return { canvasRef, ready };
 }

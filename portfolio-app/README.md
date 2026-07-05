@@ -26,13 +26,21 @@ npm run preview # serve the production build locally
 - `src/sections/` — the six page sections (Hero, Work, Skills, About,
   Contact, and the generic case-study detail template).
 - `src/components/` — shared pieces (Nav, image placeholders, color
-  dots, floating pills, rich-text emphasis, stat band, ambient WebGL
-  backdrops).
+  dots, floating pills, rich-text emphasis, stat band, Art Deco corner
+  ornament, ambient WebGL backdrops, the global image-hover lens).
 - `src/webgl/` — dependency-free WebGL layer: `useShaderCanvas` (context
   setup, resize/DPR capping, offscreen + hidden-tab pausing, reduced-motion
-  static frame, context-loss recovery) and the two fragment shaders
-  (`hero` warm wash, `contact` aurora). Degrades silently: without WebGL
-  the canvas never fades in and the plain CSS background shows.
+  static frame, context-loss recovery, static + per-frame uniforms) and
+  the fragment shaders (`hero` warm wash, `contact` aurora, `detail` — one
+  shader parameterised per case study's theme/accent, `lens` — the global
+  cursor glint). Degrades silently: without WebGL canvases never fade in
+  and the plain CSS/DOM look shows.
+  - `AmbientBackdrop` renders the hero/contact/detail backdrops.
+  - `ImageLensOverlay` is a single global canvas (not one per photo) that
+    lights up only while hovering an `.img-placeholder`, paired with a
+    plain-CSS tilt + shine on `ImagePlaceholder` itself for the tactile
+    "displacement" half (real pixel warping needs real photos — see the
+    follow-up below).
 - `src/App.jsx` — client-side view routing between the homepage and the
   5 detail pages (View Transitions where supported, scroll position is
   preserved when returning to Selected Work).
