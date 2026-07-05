@@ -10,37 +10,49 @@ const PHRASES = [
   'okay diary, time to show them what I\'ve been working on.',
 ];
 
-export default function DiaryLoader() {
+const HOLD_MS = 900;
+
+// onComplete: called once, after the phrase has finished typing and held
+// on screen — used to auto-dismiss when this runs as a boot splash rather
+// than a standalone page.
+export default function DiaryLoader({ onComplete, showReplay = true }) {
   const [typed, setTyped] = useState('');
   const [saveTime, setSaveTime] = useState('just now');
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const typeTimer = useRef(null);
+  const [phraseIndex, setPhraseIndex] = useState(() => Math.floor(Math.random() * PHRASES.length));
+  const timer = useRef(null);
   const reduced = useReducedMotion();
 
   useEffect(() => {
     const phrase = PHRASES[phraseIndex % PHRASES.length];
-    let charIndex = 0;
 
+    if (reduced) {
+      setTyped(phrase);
+      setSaveTime('just now');
+      timer.current = setTimeout(() => onComplete?.(), HOLD_MS);
+      return () => clearTimeout(timer.current);
+    }
+
+    let charIndex = 0;
     const type = () => {
       if (charIndex < phrase.length) {
         setTyped(phrase.slice(0, ++charIndex));
-        typeTimer.current = setTimeout(type, 55);
+        timer.current = setTimeout(type, 55);
       } else {
         setSaveTime('just now');
+        timer.current = setTimeout(() => onComplete?.(), HOLD_MS);
       }
     };
+    timer.current = setTimeout(type, 400);
 
-    typeTimer.current = setTimeout(type, reduced ? 0 : 400);
-
-    return () => {
-      if (typeTimer.current) clearTimeout(typeTimer.current);
-    };
+    return () => clearTimeout(timer.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phraseIndex, reduced]);
 
   const handleReplay = () => {
+    clearTimeout(timer.current);
     setTyped('');
     setSaveTime('…');
-    setPhraseIndex((p) => p + 1);
+    setPhraseIndex((p) => (p + 1) % PHRASES.length);
   };
 
   return (
@@ -59,9 +71,11 @@ export default function DiaryLoader() {
           </div>
         </div>
       </div>
-      <button className="diary-loader__replay" onClick={handleReplay} aria-label="Replay animation">
-        ↻ Replay
-      </button>
+      {showReplay && (
+        <button className="diary-loader__replay" onClick={handleReplay} aria-label="Replay animation">
+          ↻ Replay
+        </button>
+      )}
     </div>
   );
 }
