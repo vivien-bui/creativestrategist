@@ -1,28 +1,21 @@
 import { useEffect, useState } from 'react';
 import useReducedMotion from '../hooks/useReducedMotion';
+import { INTRO_ACTIVE_ON_LOAD, INTRO_SEEN_KEY } from './introState';
 import './ZineIntro.css';
 
 // Digital-zine loading page (06_DECISIONS.md #10): a cream cover spread
 // with staggered lowercase grotesque type and small parenthetical
 // annotations, shown once per session on first load, then it fades and
 // the site is already rendered underneath. Reduced motion skips it.
-const SEEN_KEY = 'vb-zine-intro-seen';
-
 export default function ZineIntro() {
   const reduced = useReducedMotion();
-  const [skip] = useState(() => {
-    try {
-      return Boolean(sessionStorage.getItem(SEEN_KEY));
-    } catch {
-      return false;
-    }
-  });
+  const [skip] = useState(!INTRO_ACTIVE_ON_LOAD);
   const [phase, setPhase] = useState('in');
 
   useEffect(() => {
     if (skip) return undefined;
     try {
-      sessionStorage.setItem(SEEN_KEY, '1');
+      sessionStorage.setItem(INTRO_SEEN_KEY, '1');
     } catch {
       /* private mode — show it anyway */
     }

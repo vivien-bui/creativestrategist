@@ -1,0 +1,57 @@
+.zine-ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--ink-10);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 13px 0;
+}
+
+.zine-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: zine-ticker-scroll 36s linear infinite;
+}
+
+.zine-ticker:hover .zine-ticker__track {
+  animation-play-state: paused;
+}
+
+.zine-ticker__run {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.zine-ticker__item {
+  display: flex;
+  align-items: center;
+}
+
+.zine-ticker__phrase {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.6;
+  white-space: nowrap;
+  padding: 0 22px;
+}
+
+.zine-ticker__mark {
+  color: var(--accent);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+@keyframes zine-ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zine-ticker__track {
+    animation: none;
+  }
+}

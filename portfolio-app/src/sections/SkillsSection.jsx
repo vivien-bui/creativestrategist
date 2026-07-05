@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import FloatingPill from '../components/FloatingPill';
 import MatchaIllustration from './MatchaIllustration';
+import ZineLetters from '../components/ZineLetters';
 import { StampDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
@@ -95,12 +96,14 @@ export default function SkillsSection() {
   return (
     <section ref={sectionRef} id="skills" data-screen-label="Skillset" className="skills">
       <div className="skills__header">
-        <h2 className="skills__heading">The usual order</h2>
-        <span className="skills__eyebrow">( MY SKILLSET, AS A MATCHA ORDER )</span>
+        <h2 className="skills__heading">
+          <ZineLetters text="the usual order" salt={8} />
+        </h2>
+        <span className="skills__eyebrow">( my skillset, as a matcha order )</span>
       </div>
 
       <div className="skills__layout" data-r="split-skills">
-        <div className="skills__art-wrap" data-r="latte-pill-wrap" data-reveal>
+        <div className="skills__art-wrap" data-r="latte-pill-wrap" data-reveal data-cursor-note="my usual order">
           <div ref={artRef} className="skills__art-parallax">
             <MatchaIllustration />
           </div>

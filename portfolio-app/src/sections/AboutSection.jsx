@@ -36,7 +36,7 @@ export default function AboutSection() {
       </div>
 
       <div className="about__body" data-r="split-about2">
-        <div className="about__portrait" id="about-portrait">
+        <div className="about__portrait" id="about-portrait" data-cursor-note="off the clock">
           <ImagePlaceholder
             label="a portrait with warm light"
             radius={8}

@@ -2,9 +2,16 @@ import { useEffect, useRef } from 'react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
+import ZineLetters from '../components/ZineLetters';
 import { SparkleDoodle } from '../components/Doodles';
+import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
+
+// Hold the paste-up assembly until the ZineIntro cover lifts (~2.7s), so
+// the headline visibly assembles as the site is revealed instead of
+// finishing behind the cover.
+const HERO_LETTER_DELAY = INTRO_ACTIVE_ON_LOAD ? 2500 : 150;
 
 export default function Hero({ onNavigate }) {
   const creativeRef = useRef(null);
@@ -60,12 +67,12 @@ export default function Hero({ onNavigate }) {
 
       <div className="hero__headline">
         <h1 ref={creativeRef} id="hero-word-creative" className="hero__word hero__word--creative">
-          Creative
+          <ZineLetters text="creative" salt={2} magnet baseDelay={HERO_LETTER_DELAY} />
         </h1>
 
         <div className="hero__photo-row">
           <div className="hero__photo-wrap" data-r="hero-pill-wrap">
-            <div ref={photoRef} id="hero-photo" className="hero__photo">
+            <div ref={photoRef} id="hero-photo" className="hero__photo" data-cursor-note="hi, that's me">
               <ImagePlaceholder
                 label="a photo with your energy: travel, golden hour, candid"
                 radius={4}
@@ -105,7 +112,7 @@ export default function Hero({ onNavigate }) {
         </div>
 
         <h1 ref={strategistRef} id="hero-word-strategist" className="hero__word hero__word--strategist">
-          Strategist
+          <ZineLetters text="strategist" salt={4} magnet baseDelay={HERO_LETTER_DELAY + 340} />
         </h1>
       </div>
 
