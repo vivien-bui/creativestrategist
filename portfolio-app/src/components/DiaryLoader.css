@@ -1,6 +1,6 @@
 .diary-loader {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   background: linear-gradient(180deg, #201c24 0%, #17141a 100%);
   color: #f3efe6;
   display: grid;
