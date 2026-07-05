@@ -121,7 +121,7 @@ export default function App() {
         </>
       )}
 
-      {activeStudy && <CaseStudyDetail study={activeStudy} onNavigate={handleNavigate} />}
+      {activeStudy && <CaseStudyDetail key={activeStudy.id} study={activeStudy} onNavigate={handleNavigate} />}
 
       {view === 'home' && <ContactSection onNavigate={handleNavigate} />}
     </div>
