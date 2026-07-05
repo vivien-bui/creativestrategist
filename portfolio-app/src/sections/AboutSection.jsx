@@ -1,6 +1,5 @@
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Rich from '../components/Rich';
-import { CompassDoodle } from '../components/Doodles';
 import './AboutSection.css';
 
 const STEPS = [
@@ -15,8 +14,18 @@ export default function AboutSection() {
       <div className="about__intro" data-r="split-about">
         <div className="about__intro-left">
           <span className="about__eyebrow">About</span>
-          <div className="about__motif-rule" />
-          <CompassDoodle className="about__motif" />
+          {/* Digital-zine annotation block — see 06_DECISIONS.md #10 */}
+          <div className="about__zine-note" aria-hidden="true">
+            <span className="about__zine-paren">( photo, below )</span>
+            <p className="about__zine-caption">
+              warm light, one candle,
+              <br />
+              a wish being made —
+              <br />
+              somewhere in sydney
+            </p>
+            <span className="about__zine-paren">( fig. 01 — off the clock )</span>
+          </div>
         </div>
         <Rich
           as="p"
@@ -33,6 +42,13 @@ export default function AboutSection() {
             radius={8}
             src="./assets/personal/personal-01-dinner-candle-portrait.jpg"
           />
+          {/* Staggered zine type over the photo — see 06_DECISIONS.md #10 */}
+          <span className="about__zine-word about__zine-word--1" aria-hidden="true">
+            off
+          </span>
+          <span className="about__zine-word about__zine-word--2" aria-hidden="true">
+            the clock
+          </span>
         </div>
         <div>
           <p className="about__bio">

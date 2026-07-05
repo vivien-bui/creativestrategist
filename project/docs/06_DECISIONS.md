@@ -56,3 +56,13 @@
 - **Why:** Direct user request — the illustration should read as genuinely hovering, not just reacting to scroll/cursor input.
 - **Trade-off:** The CSS transition on `.skills__art-parallax` was removed (it fought the now-continuous per-frame updates, adding lag); smoothing instead comes from the pointer-easing math in the loop itself.
 - **Preserve:** Keep the single-rAF-loop structure if adding more motion terms here — don't reintroduce a second competing handler/animation on the same transform property.
+
+## 10. "Digital zine" aesthetic layer
+- **Decided (2026-07):** Decorative accents follow a "digital zine" vocabulary, taken from reference layouts the user supplied (their own Instagram zine spreads — big-type tote/coffee/desk-clutter pages). Ingredients:
+  - **Big lowercase grotesque type** — bold sans (use `--font-body` Plus Jakarta Sans, weight 700, tracking ≈ −0.03 to −0.045em, all lowercase), words *staggered/scattered* across the layout rather than set as a block; they may overlap or sit on photos (white over dark imagery, ink over cream).
+  - **Parenthetical annotations** — small lowercase labels in the form `( left photo )`, `( a )`, `( fig. 01 )`, `( loading )`, ~12–13px, ~0.5 opacity, used as captions/wayfinding.
+  - **Caption lists** — short lowercase credit/note lines in plain small sans (no bullets), like a zine's photo-credit block.
+  - **Generous negative space + asymmetric offsets** — elements placed off-grid, not centered; photos can butt against big type.
+- **Why:** Earlier decorative experiments (compass doodle, paper-note/sticker/terminal cards) read as "boring"/off-tone to the user; the zine references are their actual visual voice.
+- **Where used:** About-section annotation block + staggered type over the portrait (`AboutSection`), and the once-per-session intro cover (`ZineIntro`).
+- **Preserve:** When adding decorative/personality elements anywhere in the site, reach for this zine vocabulary first (staggered lowercase type + parenthetical annotations), not skeuomorphic cards (stickers, tape, receipts outside the existing skills-receipt device, fake app windows). It layers on top of the Warm Gallery system (#1) — cream/ink palette and the italic-serif display voice stay; the zine type uses the body sans, not a new font.

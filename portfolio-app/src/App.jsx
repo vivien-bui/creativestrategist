@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import Nav from './components/Nav';
 import GrainOverlay from './components/GrainOverlay';
+import ZineIntro from './components/ZineIntro';
 import Hero from './sections/Hero';
 import WorkSection from './sections/WorkSection';
 import AboutSection from './sections/AboutSection';
@@ -116,6 +117,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <ZineIntro />
       <GrainOverlay />
       <Nav onNavigate={handleNavigate} />
 
