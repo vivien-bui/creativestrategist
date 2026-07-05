@@ -139,8 +139,9 @@
 }
 
 .contact__copyright {
-  font-size: 12px;
-  opacity: 0.45;
+  font-family: var(--font-decorative);
+  font-size: 16px;
+  opacity: 0.55;
 }
 
 .contact__top-link {
