@@ -15,7 +15,7 @@ export default function ContactSection({ onNavigate }) {
               <SparkleDoodle className="contact__eyebrow-mark" size={16} /> Currently taking agency contracts
             </p>
             <h2 className="contact__heading">
-              Let's make something people want to{' '}
+              Let's make something people want <br /> to{' '}
               <span className="contact__emphasis">talk about.</span>
             </h2>
             <a href={`mailto:${CONTACT_EMAIL}`} className="contact__cta">
