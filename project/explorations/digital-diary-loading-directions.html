@@ -1,0 +1,268 @@
+<title>Digital Diary — Loading Page Directions</title>
+<style>
+  :root {
+    --cream: #f7efe4;
+    --paper: #fffdf9;
+    --ink: #2b2430;
+    --ink-12: rgba(43, 36, 48, 0.12);
+    --ink-40: rgba(43, 36, 48, 0.4);
+    --sage: #8b9486;
+    --dark-bg: #17141a;
+    --dark-text: #f3efe6;
+    --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --font-body: 'Plus Jakarta Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+    --font-mono: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { background: var(--cream); color: var(--ink); font-family: var(--font-body); }
+
+  .frame { max-width: 1080px; margin: 0 auto; padding: 40px 24px 80px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px; color: var(--ink-40); margin-bottom: 10px; }
+  h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 5vw, 44px); text-wrap: balance; }
+  .lede { max-width: 62ch; margin-top: 10px; font-size: 15px; line-height: 1.6; color: rgba(43,36,48,0.72); }
+
+  .tabs { display: flex; gap: 8px; margin: 26px 0 14px; flex-wrap: wrap; }
+  .tabs button {
+    border: 1px solid var(--ink-12); background: var(--paper); color: var(--ink);
+    padding: 9px 16px; border-radius: 999px; font-size: 13px; cursor: pointer; font-family: var(--font-body);
+  }
+  .tabs button[aria-selected="true"] { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .tabs button:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+  .stage-wrap { border: 1px solid var(--ink-12); border-radius: 18px; overflow: hidden; background: var(--paper); }
+  .stage { position: relative; height: min(64vh, 560px); min-height: 440px; display: none; overflow: hidden; }
+  .stage.active { display: block; }
+
+  .note { display: none; padding: 18px 4px 0; font-size: 14px; line-height: 1.65; color: rgba(43,36,48,0.75); max-width: 70ch; }
+  .note.active { display: block; }
+  .note strong { color: var(--ink); }
+
+  .replay {
+    position: absolute; right: 14px; bottom: 14px; z-index: 9;
+    border: 1px solid var(--ink-12); background: rgba(255,253,249,0.85); color: var(--ink);
+    padding: 7px 14px; border-radius: 999px; font-size: 12px; cursor: pointer; font-family: var(--font-body);
+  }
+  .stage.darkish .replay { background: rgba(23,20,26,0.7); color: var(--dark-text); border-color: rgba(243,239,230,0.25); }
+
+  /* ---------- Direction 1 · Draft Autosave (typing cursor) ---------- */
+  #g1 { background: linear-gradient(180deg, #201c24 0%, var(--dark-bg) 100%); color: var(--dark-text); }
+  #g1 .center { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; }
+  #g1 .doc { width: min(560px, 92%); }
+  #g1 .toolbar { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: rgba(243,239,230,0.45); margin-bottom: 26px; }
+  #g1 .toolbar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); }
+  #g1.play .toolbar .dot { animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  #g1 .line { font-family: var(--font-mono); font-size: clamp(16px, 2.6vw, 21px); line-height: 1.9; min-height: 3.8em;
+    color: var(--dark-text); white-space: pre-wrap; }
+  #g1 .caret { display: inline-block; width: 10px; height: 1.15em; vertical-align: text-bottom; background: var(--sage);
+    animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  #g1 .save { margin-top: 30px; font-family: var(--font-mono); font-size: 12px; color: rgba(243,239,230,0.5); }
+  #g1 .save em { font-style: normal; color: var(--sage); }
+
+  /* ---------- Direction 2 · Sync (app window, skeleton UI) ---------- */
+  #g2 { background: var(--cream); }
+  #g2 .center { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; }
+  #g2 .win { width: min(620px, 94%); background: var(--paper); border: 1px solid var(--ink-12); border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(43,36,48,0.14); overflow: hidden; }
+  #g2 .chrome { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--ink-12); }
+  #g2 .chrome i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink-12); }
+  #g2 .chrome .title { flex: 1; text-align: center; font-family: var(--font-display); font-size: 15px; color: var(--ink); }
+  #g2 .body { display: grid; grid-template-columns: 150px 1fr; min-height: 300px; }
+  #g2 .side { border-right: 1px solid var(--ink-12); padding: 16px 12px; display: flex; flex-direction: column; gap: 12px; }
+  #g2 .main { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  #g2 .sk { border-radius: 6px; background: linear-gradient(90deg, var(--ink-12) 25%, rgba(139,148,134,0.28) 50%, var(--ink-12) 75%);
+    background-size: 200% 100%; }
+  #g2.play .sk { animation: shimmer 1.4s linear infinite; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+  #g2 .side .sk { height: 14px; }
+  #g2 .side .sk:first-child { width: 70%; }
+  #g2 .main .sk.h { height: 26px; width: 55%; }
+  #g2 .main .sk.p { height: 12px; }
+  #g2 .main .sk.p:nth-child(3) { width: 92%; }
+  #g2 .main .sk.p:nth-child(4) { width: 84%; }
+  #g2 .main .sk.p:nth-child(5) { width: 60%; }
+  #g2 .status { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-top: 1px solid var(--ink-12);
+    font-size: 12px; color: var(--ink-40); font-variant-numeric: tabular-nums; }
+  #g2 .ring { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--ink-12); border-top-color: var(--sage); }
+  #g2.play .ring { animation: spin 0.9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ---------- Direction 3 · Pocket Pixel (retro handheld) ---------- */
+  #g3 { background: radial-gradient(90% 100% at 50% 0%, #a8b0a2 0%, var(--sage) 80%); }
+  #g3 .center { position: absolute; inset: 0; display: grid; place-items: center; }
+  #g3 .lcd { width: min(360px, 86%); background: #2e2a24; border-radius: 18px; padding: 18px;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 16px 40px rgba(43,36,48,0.3); }
+  #g3 .screen { background: #cfd6b8; border-radius: 6px; padding: 26px 20px; image-rendering: pixelated;
+    font-family: var(--font-mono); color: #3a3a2c; text-align: center; }
+  #g3 .sprite { display: grid; grid-template-columns: repeat(9, 12px); justify-content: center; gap: 0; margin-bottom: 20px; }
+  #g3 .px { width: 12px; height: 12px; }
+  #g3 .px.on { background: #3a3a2c; }
+  #g3.play .sprite { animation: bounce 0.8s steps(2) infinite; }
+  @keyframes bounce { 50% { transform: translateY(-6px); } }
+  #g3 .ldg { font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; }
+  #g3.play .ldg::after { content: ""; animation: dots 1.2s steps(4) infinite; }
+  @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+  #g3 .blocks { display: flex; gap: 5px; justify-content: center; margin-top: 18px; }
+  #g3 .blocks i { width: 20px; height: 12px; background: rgba(58,58,44,0.18); }
+  #g3.play .blocks i { animation: blockfill 3.2s steps(1) infinite; }
+  #g3.play .blocks i:nth-child(1) { animation-delay: 0s; }
+  #g3.play .blocks i:nth-child(2) { animation-delay: 0.4s; }
+  #g3.play .blocks i:nth-child(3) { animation-delay: 0.8s; }
+  #g3.play .blocks i:nth-child(4) { animation-delay: 1.2s; }
+  #g3.play .blocks i:nth-child(5) { animation-delay: 1.6s; }
+  #g3.play .blocks i:nth-child(6) { animation-delay: 2.0s; }
+  #g3.play .blocks i:nth-child(7) { animation-delay: 2.4s; }
+  #g3.play .blocks i:nth-child(8) { animation-delay: 2.8s; }
+  @keyframes blockfill { 0% { background: #3a3a2c; } 100% { background: #3a3a2c; } }
+  #g3 .brand { margin-top: 16px; text-align: center; font-family: var(--font-display); color: #f0ead8; font-size: 15px; letter-spacing: 0.08em; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #g1 .caret, #g1.play .toolbar .dot, #g2.play .sk, #g2.play .ring,
+    #g3.play .sprite, #g3.play .ldg::after, #g3.play .blocks i { animation: none !important; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --cream: #1d1a20; --paper: #262229; --ink: #f3efe6; --ink-12: rgba(243,239,230,0.16); --ink-40: rgba(243,239,230,0.5); }
+    .lede, .note { color: rgba(243,239,230,0.72); }
+  }
+  :root[data-theme="light"] { --cream: #f7efe4; --paper: #fffdf9; --ink: #2b2430; --ink-12: rgba(43,36,48,0.12); --ink-40: rgba(43,36,48,0.4); }
+  :root[data-theme="dark"] { --cream: #1d1a20; --paper: #262229; --ink: #f3efe6; --ink-12: rgba(243,239,230,0.16); --ink-40: rgba(243,239,230,0.5); }
+</style>
+
+<div class="frame">
+  <header>
+    <div class="eyebrow">Digital diary · loading page · round two</div>
+    <h1>Three digital-native directions</h1>
+    <p class="lede">Round one leaned analog — ink, pages, ephemera. These three treat the diary as software: a draft being typed, entries syncing, a pocket device booting. Same Warm Gallery tokens throughout.</p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-t="g1">1 · Draft Autosave</button>
+    <button role="tab" aria-selected="false" data-t="g2">2 · Sync</button>
+    <button role="tab" aria-selected="false" data-t="g3">3 · Pocket Pixel</button>
+  </div>
+
+  <div class="stage-wrap">
+    <!-- Direction 1 -->
+    <section class="stage active play darkish" id="g1" aria-label="Draft Autosave direction">
+      <div class="center">
+        <div class="doc">
+          <div class="toolbar"><span class="dot"></span> entry.draft — unsaved changes</div>
+          <div class="line"><span id="typed"></span><span class="caret"></span></div>
+          <div class="save">autosaved <em id="savetime">just now</em></div>
+        </div>
+      </div>
+      <button class="replay" data-r="g1">↻ Replay</button>
+    </section>
+
+    <!-- Direction 2 -->
+    <section class="stage" id="g2" aria-label="Sync direction">
+      <div class="center">
+        <div class="win">
+          <div class="chrome"><i></i><i></i><i></i><span class="title">My Diary</span><span style="width:46px"></span></div>
+          <div class="body">
+            <div class="side"><span class="sk"></span><span class="sk"></span><span class="sk"></span><span class="sk"></span><span class="sk"></span></div>
+            <div class="main"><span class="sk h"></span><span class="sk p"></span><span class="sk p"></span><span class="sk p"></span><span class="sk p"></span></div>
+          </div>
+          <div class="status"><span class="ring"></span><span id="syncmsg">Syncing 128 entries…</span></div>
+        </div>
+      </div>
+      <button class="replay" data-r="g2">↻ Replay</button>
+    </section>
+
+    <!-- Direction 3 -->
+    <section class="stage" id="g3" aria-label="Pocket Pixel direction">
+      <div class="center">
+        <div>
+          <div class="lcd">
+            <div class="screen">
+              <div class="sprite" aria-hidden="true" id="sprite"></div>
+              <div class="ldg">Loading diary</div>
+              <div class="blocks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="brand">dear-you · pocket edition</div>
+          </div>
+        </div>
+      </div>
+      <button class="replay" data-r="g3">↻ Replay</button>
+    </section>
+  </div>
+
+  <p class="note active" data-n="g1"><strong>Direction 1 · Draft Autosave.</strong> The loader pretends the diary is mid-thought: a monospace line types itself out ("dear me, today felt like…"), a sage caret blinks, and an "autosaved just now" stamp ticks below. The wait reads as the diary composing itself. Rotating the typed phrases keeps repeat loads fresh.</p>
+  <p class="note" data-n="g2"><strong>Direction 2 · Sync.</strong> The most product-like: a small app window with traffic-light chrome, a shimmering skeleton of the sidebar and entry, and a live status bar ("Syncing 128 entries…"). The skeleton is the exact layout of the loaded app, so the transition is a cross-fade into real content — zero layout shift.</p>
+  <p class="note" data-n="g3"><strong>Direction 3 · Pocket Pixel.</strong> The diary as a beloved handheld: sage device shell, olive LCD, a pixel heart bouncing over a chunky block progress bar with a "Loading diary…" ticker. Nostalgic-digital rather than analog — Tamagotchi energy. The boldest personality of the three; best if the diary's voice is playful.</p>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tabs button');
+  function show(id) {
+    document.querySelectorAll('.stage').forEach(s => {
+      const on = s.id === id;
+      s.classList.toggle('active', on);
+      s.classList.toggle('play', on);
+    });
+    document.querySelectorAll('.note').forEach(n => n.classList.toggle('active', n.dataset.n === id));
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.t === id)));
+    if (id === 'g1') runType();
+    if (id === 'g2') runSync();
+  }
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.t)));
+  document.querySelectorAll('.replay').forEach(b => b.addEventListener('click', () => {
+    const s = document.getElementById(b.dataset.r);
+    s.classList.remove('play'); void s.offsetWidth; s.classList.add('play');
+    if (b.dataset.r === 'g1') runType();
+    if (b.dataset.r === 'g2') runSync();
+  }));
+
+  // D1: typewriter
+  const phrases = [
+    'dear me, today felt like the start of something…',
+    'note to self: remember how the light looked at 6pm.',
+    'okay diary, where were we —'
+  ];
+  let typeTimer, pi = 0;
+  function runType() {
+    clearInterval(typeTimer);
+    const el = document.getElementById('typed');
+    const text = phrases[pi++ % phrases.length];
+    let i = 0; el.textContent = '';
+    typeTimer = setInterval(() => {
+      el.textContent = text.slice(0, ++i);
+      if (i >= text.length) clearInterval(typeTimer);
+    }, 55);
+  }
+  runType();
+
+  // D2: sync counter
+  let syncTimer;
+  function runSync() {
+    clearInterval(syncTimer);
+    const el = document.getElementById('syncmsg');
+    let n = 0;
+    syncTimer = setInterval(() => {
+      n = Math.min(128, n + Math.ceil(Math.random() * 9));
+      el.textContent = n >= 128 ? 'Up to date · 128 entries' : `Syncing ${n} of 128 entries…`;
+      if (n >= 128) clearInterval(syncTimer);
+    }, 160);
+  }
+
+  // D3: pixel heart sprite (9x8 grid)
+  const heart = [
+    '.XX...XX.',
+    'XXXX.XXXX',
+    'XXXXXXXXX',
+    'XXXXXXXXX',
+    '.XXXXXXX.',
+    '..XXXXX..',
+    '...XXX...',
+    '....X....'
+  ];
+  const spriteEl = document.getElementById('sprite');
+  heart.forEach(row => [...row].forEach(c => {
+    const d = document.createElement('span');
+    d.className = 'px' + (c === 'X' ? ' on' : '');
+    spriteEl.appendChild(d);
+  }));
+</script>
