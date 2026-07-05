@@ -19,7 +19,6 @@
 - `cryoglow-03-light-therapy-detail-duo.webp` — Two-phone close-up detail crop of the Light Therapy creative.
 
 ## Doritos — "Wash Your Mouth Out" Coriander (14 images)
-- `doritos-01-hero-wash-your-mouth-out.jpg` — Full case-study spread: brief, execution, results (430 earned media pieces, 450+m earned reach, 95.7% brand mention increase, 193+k comments, 450 shares, 400x auction price).
 - `doritos-02-stat-brand-mention-95-percent.webp` — Standalone stat card: 95.7% brand mention increase.
 - `doritos-03-stat-earned-reach-450m.webp` — Standalone stat card: 450M+ earned reach.
 - `doritos-04-media-collage-430-pieces.webp` — Press-coverage collage (Taste, News.com.au, Daily Mail, Pedestrian, Retail World, etc.), "430 pieces of earned media."
@@ -33,6 +32,7 @@
 - `doritos-12-dna-soap-comparison-diagram.webp` — Illustrated DNA-strand diagram linking coriander leaves to bars of soap.
 - `doritos-13-coriander-typography-hero.webp` — Bold "CORIANDER" wordmark over a green leaf-texture background.
 - `doritos-14-creative-trio-ooh-social.png` — Three-up creative summary slide (OOH ad, product close-up "DELUSH" ad, Instagram poll).
+- `doritos-15-case-study-spread-brief-execution-results.jpg` — Full case-study spread: brief, execution, results (430 earned media pieces, 450+m earned reach, 95.7% brand mention increase, 193+k comments, 450 shares, 400x auction price). Formerly `doritos-01-hero-wash-your-mouth-out.jpg`; superseded as the Selected Work / detail hero by `doritos-12-dna-soap-comparison-diagram.webp`.
 
 ## AFW — Australian Fashion Week (Shark Beauty) (17 images)
 - `afw-01-pavilion-exterior-street-view.jpg` — Street view of the AFW pavilion with "Shark Beauty — Glam and Glow Salon" signage, Sydney skyline.
