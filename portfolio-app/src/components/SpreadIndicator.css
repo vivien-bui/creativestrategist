@@ -1,0 +1,45 @@
+/* Bottom-center like a printed page number — keeps it clear of the
+   hero tagline (left) and CTAs (right). */
+.spread-indicator {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 14px;
+  z-index: 45; /* under the nav; the intro cover (55) hides it while booting */
+  pointer-events: none;
+  /* cream + difference reads dark on the cream homepage and light on the
+     dark case-study pages without any per-theme wiring */
+  color: var(--cream);
+  mix-blend-mode: difference;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.spread-indicator__text {
+  display: inline-block;
+  animation: spread-flip 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes spread-flip {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .spread-indicator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spread-indicator__text {
+    animation: none;
+  }
+}

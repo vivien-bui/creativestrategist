@@ -68,6 +68,13 @@ No child DCs exist; "components" below are repeated inline patterns within `Port
 - **States:** Inputs have a subtle translucent fill, no focus ring styling currently defined beyond browser default.
 - **Responsive:** Stacks to 1 column ≤767px.
 
+## Zine Animation Layer (2026-07 refresh — see 06_DECISIONS.md #10)
+All vanilla CSS/WAAPI/rAF (no motion libraries, per 06_DECISIONS #5); every piece no-ops under `prefers-reduced-motion`.
+- **ZineLetters** (`components/ZineLetters.jsx`): splits heading text into per-letter spans that "paste" down with deterministic jitter when scrolled into view (IO-armed); `magnet` prop adds cursor-repel scatter (hero words only, `pointer: fine` only). Real text lives in an `.sr-only` span; letters are `aria-hidden`. Hero delays assembly until the ZineIntro cover lifts (`introState.js`).
+- **ZineTicker** (`components/ZineTicker.jsx`): looping lowercase marquee between hero and work; track rendered twice, slid −50%, pauses on hover. Phrases are brand lines — keep them short and lowercase.
+- **CursorNote** (`components/CursorNote.jsx`): parenthetical label trailing the cursor over any `[data-cursor-note]` element; desktop fine-pointers only. Add notes sparingly — one per major interactive surface.
+- **SpreadIndicator** (`components/SpreadIndicator.jsx`): fixed bottom-center `( p. 0N — label )` page number over `[data-screen-label][id]` landmarks; `mix-blend-mode: difference` handles light/dark pages; hidden ≤767px. Labels map in `LABELS`; detail pages read as `appendix · <study>`.
+
 ## `<image-slot>` (starter component, `image-slot.js`)
 - **Purpose:** Every real photo placeholder across the site — hero, about portrait, 5×3 case-study images (hero + duo per study).
 - **Composition rule:** Never replace with a static `<img>` unless the user explicitly supplies a final image and asks for it to be locked in (see the one exception already in place — `cryoglow-2` currently contains a placeholder screenshot dropped in directly).

@@ -31,27 +31,41 @@
   margin: 0 0 12px;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
   opacity: 0.55;
+}
+
+.contact__eyebrow::before {
+  content: '( ';
+}
+
+.contact__eyebrow::after {
+  content: ' )';
 }
 
 .contact__eyebrow-mark {
   flex-shrink: 0;
 }
 
+/* Zine back-cover type: heavy lowercase grotesque; the emphasized phrase
+   keeps the italic display serif as the accent (06_DECISIONS.md #10). */
 .contact__heading {
   margin: 0;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(42px, 6.5vw, 86px);
-  line-height: 1.05;
+  font-weight: 800;
+  font-size: clamp(38px, 5.5vw, 74px);
+  line-height: 1.08;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
 }
 
 .contact__emphasis {
   position: relative;
   white-space: nowrap;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .contact__emphasis::after {
@@ -75,11 +89,21 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
   text-decoration: none;
   opacity: 0.85;
   transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.contact__cta::before {
+  content: '( ';
+  opacity: 0.5;
+}
+
+.contact__cta::after {
+  content: ' )';
+  opacity: 0.5;
 }
 
 .contact__cta:hover {

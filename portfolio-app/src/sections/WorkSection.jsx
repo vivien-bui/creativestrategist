@@ -1,6 +1,7 @@
 import { caseStudies } from '../data/caseStudies';
 import { FeaturedWorkCard, GridWorkCard } from '../components/WorkCard';
 import { SwipeDoodle } from '../components/Doodles';
+import ZineLetters from '../components/ZineLetters';
 import './WorkSection.css';
 
 export default function WorkSection({ onNavigate }) {
@@ -11,8 +12,10 @@ export default function WorkSection({ onNavigate }) {
   return (
     <section id="work" data-screen-label="Selected Work" className="work">
       <div className="work__header">
-        <h2 className="work__heading">Selected Work</h2>
-        <span className="work__count">( 05 CASE STUDIES )</span>
+        <h2 className="work__heading">
+          <ZineLetters text="selected work" salt={6} />
+        </h2>
+        <span className="work__count">( 05 case studies )</span>
       </div>
 
       <p className="work__mobile-hint" aria-hidden="true">

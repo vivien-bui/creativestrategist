@@ -12,7 +12,21 @@ export default function AboutSection() {
   return (
     <section id="about" data-screen-label="About" className="about">
       <div className="about__intro" data-r="split-about">
-        <span className="about__eyebrow">About</span>
+        <div className="about__intro-left">
+          <span className="about__eyebrow">About</span>
+          {/* Digital-zine annotation block — see 06_DECISIONS.md #10 */}
+          <div className="about__zine-note" aria-hidden="true">
+            <span className="about__zine-paren">( photo, below )</span>
+            <p className="about__zine-caption">
+              warm light, one candle,
+              <br />
+              a wish being made —
+              <br />
+              somewhere in sydney
+            </p>
+            <span className="about__zine-paren">( fig. 01 — off the clock )</span>
+          </div>
+        </div>
         <Rich
           as="p"
           className="about__statement"
@@ -22,12 +36,19 @@ export default function AboutSection() {
       </div>
 
       <div className="about__body" data-r="split-about2">
-        <div className="about__portrait" id="about-portrait">
+        <div className="about__portrait" id="about-portrait" data-cursor-note="off the clock">
           <ImagePlaceholder
             label="a portrait with warm light"
             radius={8}
             src="./assets/personal/personal-01-dinner-candle-portrait.jpg"
           />
+          {/* Staggered zine type over the photo — see 06_DECISIONS.md #10 */}
+          <span className="about__zine-word about__zine-word--1" aria-hidden="true">
+            off
+          </span>
+          <span className="about__zine-word about__zine-word--2" aria-hidden="true">
+            the clock
+          </span>
         </div>
         <div>
           <p className="about__bio">

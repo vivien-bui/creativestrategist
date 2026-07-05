@@ -18,7 +18,7 @@ export default function ContactSection({ onNavigate }) {
               Let's make something people want <br /> to{' '}
               <span className="contact__emphasis">talk about.</span>
             </h2>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="contact__cta">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="contact__cta" data-cursor-note="say hi">
               Start an enquiry →
             </a>
           </div>

@@ -26,6 +26,7 @@ export function FeaturedWorkCard({ study, onNavigate }) {
       href={`#${study.id}`}
       className={`work-featured work-featured--${imageFirst ? 'a' : 'b'}`}
       data-r={imageFirst ? 'split-a' : 'split-b'}
+      data-cursor-note="read the case study"
       onClick={navHandler(onNavigate, study.id)}
     >
       {imageFirst && image}
@@ -63,7 +64,12 @@ export function FeaturedWorkCard({ study, onNavigate }) {
 export function GridWorkCard({ study, onNavigate }) {
   const { workCard } = study;
   return (
-    <a href={`#${study.id}`} className="work-grid-card" onClick={navHandler(onNavigate, study.id)}>
+    <a
+      href={`#${study.id}`}
+      className="work-grid-card"
+      data-cursor-note="read the case study"
+      onClick={navHandler(onNavigate, study.id)}
+    >
       <div className="work-grid-card__img" data-r="thumb-img">
         <ImagePlaceholder label={workCard.imageLabel} src={workCard.imageSrc} imageStyle={workCard.imageStyle} />
       </div>

@@ -56,8 +56,19 @@
 .work-featured__index {
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
   opacity: 0.5;
+}
+
+.work-featured__index::before,
+.work-grid-card__index::before {
+  content: '( ';
+}
+
+.work-featured__index::after,
+.work-grid-card__index::after {
+  content: ' )';
 }
 
 .work-featured__badge {
@@ -67,17 +78,27 @@
   margin-top: 14px;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
   color: var(--accent);
 }
 
+/* Zine card titles: heavy lowercase grotesque, with the *emphasis* span
+   staying italic display serif as the accent (06_DECISIONS.md #10). */
 .work-featured__title {
   margin: 8px 0 12px;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.05;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+}
+
+.work-featured__title em,
+.work-grid-card__title em {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 40px;
-  line-height: 1.05;
+  letter-spacing: 0;
 }
 
 .work-featured__desc {
@@ -135,16 +156,18 @@
 .work-grid-card__index {
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
   opacity: 0.5;
 }
 
 .work-grid-card__title {
   margin: 12px 0 8px;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 26px;
+  font-weight: 800;
+  font-size: 23px;
   line-height: 1.1;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
 }
 
 .work-grid-card__desc {

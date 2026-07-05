@@ -21,12 +21,17 @@ export default function Nav({ onNavigate }) {
 
   return (
     <nav ref={navRef} className="nav" data-screen-label="Nav">
-      <a href="#" className="nav__logo" onClick={link('home')}>Vivien Bui</a>
+      <a href="#" className="nav__logo" onClick={link('home')}>
+        <span className="nav__logo-name">vivien bui</span>
+        <span className="nav__logo-vol">( vol. 01 — sydney )</span>
+      </a>
       <div className="nav__links">
-        <a href="#work" onClick={link('work')} className="nav__link">Work</a>
-        <a href="#about" onClick={link('about')} className="nav__link">About</a>
-        <a href="#skills" onClick={link('skills')} className="nav__link">Skills</a>
-        <a href="#contact" onClick={link('contact')} className="nav__contact">Contact</a>
+        <a href="#work" onClick={link('work')} className="nav__link">work</a>
+        <a href="#about" onClick={link('about')} className="nav__link">about</a>
+        <a href="#skills" onClick={link('skills')} className="nav__link">skills</a>
+        <a href="#contact" onClick={link('contact')} className="nav__contact" data-cursor-note="let's talk">
+          contact
+        </a>
       </div>
     </nav>
   );

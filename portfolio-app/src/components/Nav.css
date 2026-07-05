@@ -17,15 +17,29 @@
   box-shadow: 0 12px 32px rgba(43, 36, 48, 0.08);
 }
 
+/* Masthead logo: title + volume line, like a zine's running head. */
 .nav__logo {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 24px;
-  letter-spacing: 0.01em;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s ease;
+}
+
+.nav__logo-name {
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.nav__logo-vol {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.5;
 }
 
 .nav__logo:hover {
@@ -35,11 +49,10 @@
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .nav__link {
@@ -49,21 +62,32 @@
   transition: opacity 0.2s ease;
 }
 
+.nav__link::before {
+  content: '( ';
+  opacity: 0.5;
+}
+
+.nav__link::after {
+  content: ' )';
+  opacity: 0.5;
+}
+
 .nav__link:hover {
   opacity: 1;
 }
 
 .nav__contact {
-  color: var(--cream);
+  color: var(--ink);
   text-decoration: none;
-  background: var(--ink);
-  padding: 10px 20px;
-  border-radius: 999px;
-  transition: background 0.2s ease;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .nav__contact:hover {
-  background: var(--accent);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 @media (max-width: 767px) {
@@ -72,8 +96,16 @@
     row-gap: 10px;
     padding: 14px 20px;
   }
+  /* Single-line masthead on mobile — the volume line doesn't fit next to
+     the wrapped link row. */
+  .nav__logo-vol {
+    display: none;
+  }
+  .nav__logo-name {
+    font-size: 17px;
+  }
   .nav__links {
-    gap: 14px;
+    gap: 12px;
     font-size: 11px;
     flex-wrap: wrap;
   }

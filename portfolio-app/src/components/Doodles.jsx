@@ -61,6 +61,27 @@ export function SwipeDoodle({ className, size = 16 }) {
   );
 }
 
+export function CompassDoodle({ className, size = 48 }) {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9.4" />
+      <path d="M14.8 7.4 12.6 12.9 7.3 15l2.2-5.5Z" />
+      <circle cx="12" cy="12" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function TrophyDoodle({ className, size = 18 }) {
   return (
     <svg
