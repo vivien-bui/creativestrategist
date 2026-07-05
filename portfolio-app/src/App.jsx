@@ -18,6 +18,15 @@ function initialView() {
   return detailViewIds.includes(hash) ? hash : 'home';
 }
 
+// The nav is position: sticky, so scrolling a section's top edge flush with
+// the viewport top hides its first ~nav-height of content (eyebrow + opening
+// lines) behind the bar. Offset every id-targeted jump by the nav's measured
+// height plus a small breathing gap so the section starts cleanly below it.
+function navOffset() {
+  const nav = document.querySelector('.nav');
+  return nav ? nav.getBoundingClientRect().height + 24 : 0;
+}
+
 // Client-side view routing: home vs one of the 5 case-study detail pages.
 // Not a router library — a single piece of state, wrapped in the View
 // Transitions API when available, mirroring the original DC's _go/_goHome.
@@ -59,7 +68,7 @@ export default function App() {
         let y = restoreY;
         if (y == null) {
           const t = document.getElementById(targetId);
-          y = t ? window.scrollY + t.getBoundingClientRect().top : 0;
+          y = t ? window.scrollY + t.getBoundingClientRect().top - navOffset() : 0;
         }
         window.scrollTo(0, y);
         history.replaceState(null, '', '#' + targetId);
@@ -75,13 +84,13 @@ export default function App() {
       const target = document.getElementById(targetId);
       if (!target) return;
       if (!canUseViewTransition()) {
-        window.scrollTo(0, window.scrollY + target.getBoundingClientRect().top);
+        window.scrollTo(0, window.scrollY + target.getBoundingClientRect().top - navOffset());
         history.replaceState(null, '', '#' + targetId);
         return;
       }
       document.startViewTransition(() => {
         const rect = target.getBoundingClientRect();
-        window.scrollTo(0, window.scrollY + rect.top);
+        window.scrollTo(0, window.scrollY + rect.top - navOffset());
         history.replaceState(null, '', '#' + targetId);
       });
     },
