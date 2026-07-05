@@ -17,7 +17,7 @@ export default function AboutSection() {
           as="p"
           className="about__statement"
           emColor="var(--accent)"
-          text="Strategy first, always — I find the cultural tension a brand can own, then build the *moment people can't help but share*."
+          text="Strategy first, always: I find the cultural tension a brand can own, then build the *moment people can't help but share*."
         />
       </div>
 

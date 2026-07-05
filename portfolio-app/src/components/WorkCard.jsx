@@ -1,6 +1,7 @@
 import ImagePlaceholder from './ImagePlaceholder';
 import ColorDots from './ColorDots';
 import Rich from './Rich';
+import { SparkleDoodle } from './Doodles';
 import './WorkCard.css';
 
 function navHandler(onNavigate, id) {
@@ -31,10 +32,14 @@ export function FeaturedWorkCard({ study, onNavigate }) {
       <div className="work-featured__text">
         <div>
           <div className="work-featured__top">
-            <span className="work-featured__index">{workCard.index} — {workCard.tag}</span>
+            <span className="work-featured__index">{workCard.index} · {workCard.tag}</span>
             <ColorDots colors={workCard.dots} />
           </div>
-          {workCard.badge && <span className="work-featured__badge">{workCard.badge}</span>}
+          {workCard.badge && (
+            <span className="work-featured__badge">
+              <SparkleDoodle size={12} /> {workCard.badge}
+            </span>
+          )}
           <h3 className="work-featured__title">
             <Rich text={workCard.title} />
           </h3>
@@ -64,7 +69,7 @@ export function GridWorkCard({ study, onNavigate }) {
       </div>
       <div className="work-grid-card__body">
         <div className="work-grid-card__top">
-          <span className="work-grid-card__index">{workCard.index} — {workCard.tag}</span>
+          <span className="work-grid-card__index">{workCard.index} · {workCard.tag}</span>
           <ColorDots colors={workCard.dots} />
         </div>
         <h3 className="work-grid-card__title">

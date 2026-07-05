@@ -1,5 +1,9 @@
 .floating-pill {
   position: absolute;
+  top: var(--fp-top, auto);
+  left: var(--fp-left, auto);
+  right: var(--fp-right, auto);
+  bottom: var(--fp-bottom, auto);
   animation: floaty ease-in-out infinite;
   background: var(--paper);
   border: 1px solid var(--ink-10);
@@ -13,7 +17,13 @@
 
 @media (max-width: 767px) {
   .floating-pill {
-    position: static;
-    animation: none;
+    top: var(--fp-top-m, auto);
+    left: var(--fp-left-m, auto);
+    right: var(--fp-right-m, auto);
+    bottom: var(--fp-bottom-m, auto);
+    padding: 7px 12px;
+    font-size: 11px;
+    box-shadow: 0 6px 16px var(--ink-14);
+    z-index: 2;
   }
 }

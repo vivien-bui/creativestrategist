@@ -24,6 +24,9 @@
 }
 
 .award-callout__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border: 1px solid color-mix(in srgb, var(--study-accent) 45%, transparent);
   background: color-mix(in srgb, var(--study-accent) 9%, transparent);
   border-radius: 999px;

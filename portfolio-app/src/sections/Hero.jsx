@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
+import { SparkleDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
 
@@ -13,6 +14,12 @@ export default function Hero({ onNavigate }) {
 
   useEffect(() => {
     if (reduced) return;
+    // Below 768px the words already sit close to the viewport edge (right-
+    // aligned "Strategist" especially), and the page clips overflow-x, so
+    // the sideways drift used on desktop pushes letters off-screen instead
+    // of just drifting past the photo. Skip the horizontal word-parallax on
+    // mobile; the photo scale is still safe since it never leaves its box.
+    const mobileQuery = window.matchMedia('(max-width: 767px)');
     let raf = null;
     const onScroll = () => {
       if (raf) return;
@@ -20,14 +27,25 @@ export default function Hero({ onNavigate }) {
         raf = null;
         const y = window.scrollY;
         const p = Math.min(y, 900);
-        if (creativeRef.current) creativeRef.current.style.transform = `translateX(${-p * 0.12}px)`;
-        if (strategistRef.current) strategistRef.current.style.transform = `translateX(${p * 0.12}px)`;
+        if (!mobileQuery.matches) {
+          if (creativeRef.current) creativeRef.current.style.transform = `translateX(${-p * 0.12}px)`;
+          if (strategistRef.current) strategistRef.current.style.transform = `translateX(${p * 0.12}px)`;
+        }
         if (photoRef.current) photoRef.current.style.transform = `scale(${1 + (Math.min(y, 600) / 600) * 0.045})`;
       });
     };
+    const onModeChange = () => {
+      if (mobileQuery.matches) {
+        if (creativeRef.current) creativeRef.current.style.transform = '';
+        if (strategistRef.current) strategistRef.current.style.transform = '';
+      }
+    };
+    mobileQuery.addEventListener('change', onModeChange);
+    onModeChange();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', onScroll);
+      mobileQuery.removeEventListener('change', onModeChange);
       if (raf) cancelAnimationFrame(raf);
     };
   }, [reduced]);
@@ -36,7 +54,7 @@ export default function Hero({ onNavigate }) {
     <header id="hero" data-screen-label="Hero" className="hero">
       <AmbientBackdrop variant="hero" />
       <div className="hero__eyebrow">
-        <span className="hero__mark">✳</span>
+        <SparkleDoodle className="hero__mark" size={24} />
         <p>Creative strategist · Sydney · Available for agency contracts</p>
       </div>
 
@@ -49,16 +67,40 @@ export default function Hero({ onNavigate }) {
           <div className="hero__photo-wrap" data-r="hero-pill-wrap">
             <div ref={photoRef} id="hero-photo" className="hero__photo">
               <ImagePlaceholder
-                label="a photo with your energy — travel, golden hour, candid"
+                label="a photo with your energy: travel, golden hour, candid"
                 radius={4}
                 src="./assets/personal/personal-02-mountain-lookout-portrait.jpg"
               />
             </div>
 
-            <FloatingPill pos={{ top: '12%', left: '-140px' }} duration="5s">brand strategy</FloatingPill>
-            <FloatingPill pos={{ top: '-8%', right: '-110px' }} duration="6s">earned media</FloatingPill>
-            <FloatingPill pos={{ bottom: '30%', right: '-150px' }} duration="5.5s">social &amp; influencer</FloatingPill>
-            <FloatingPill pos={{ bottom: '-6%', left: '-100px' }} duration="6.5s">cultural moments</FloatingPill>
+            <FloatingPill
+              pos={{ top: '12%', left: '-140px' }}
+              mobilePos={{ top: '2%', left: '2%' }}
+              duration="5s"
+            >
+              brand strategy
+            </FloatingPill>
+            <FloatingPill
+              pos={{ top: '-8%', right: '-110px' }}
+              mobilePos={{ top: '16%', right: '2%' }}
+              duration="6s"
+            >
+              earned media
+            </FloatingPill>
+            <FloatingPill
+              pos={{ bottom: '30%', right: '-150px' }}
+              mobilePos={{ bottom: '24%', right: '-2%' }}
+              duration="5.5s"
+            >
+              social &amp; influencer
+            </FloatingPill>
+            <FloatingPill
+              pos={{ bottom: '-6%', left: '-100px' }}
+              mobilePos={{ bottom: '2%', left: '-2%' }}
+              duration="6.5s"
+            >
+              cultural moments
+            </FloatingPill>
           </div>
         </div>
 
@@ -69,7 +111,7 @@ export default function Hero({ onNavigate }) {
 
       <div className="hero__foot">
         <p className="hero__tagline">
-          I make brands worth talking about — campaigns built on cultural insight, engineered to earn their reach.
+          I make brands worth talking about, campaigns built on cultural insight, engineered to earn their reach.
         </p>
         <a
           href="#work"

@@ -5,6 +5,7 @@ import Rich from '../components/Rich';
 import StatBand from '../components/StatBand';
 import AwardCallout from '../components/AwardCallout';
 import AmbientBackdrop from '../components/AmbientBackdrop';
+import { SparkleDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
 
@@ -69,7 +70,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
             <ColorDots colors={detail.dots} size={12} gap={8} />
             {detail.eyebrow && (
               <span className="detail__eyebrow" style={{ color: accent }}>
-                {detail.eyebrow}
+                <SparkleDoodle size={13} /> {detail.eyebrow}
               </span>
             )}
             <Rich as="h2" className="detail__title" text={detail.title} emColor={accent} />

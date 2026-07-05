@@ -61,7 +61,9 @@
 }
 
 .work-featured__badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   margin-top: 14px;
   font-size: 11px;
   font-weight: 600;
@@ -157,10 +159,33 @@
   .work-featured--b {
     grid-template-columns: 1fr;
   }
-  .work-featured__img {
-    height: 260px;
+
+  /* Compact, uniform cards sized for the horizontal snap-scroll track (see
+     WorkSection.css): a fixed width with the next card peeking in, so both
+     featured and grid studies read as one consistent swipeable set instead
+     of two differently-sized layouts. */
+  .work-featured,
+  .work-grid-card {
+    flex: 0 0 min(78vw, 320px);
+    width: min(78vw, 320px);
+    scroll-snap-align: start;
+    margin-bottom: 0;
   }
+  .work-featured__img,
   .work-grid-card__img {
     height: 200px;
+  }
+  .work-featured__text {
+    padding: 22px 22px 24px;
+  }
+  .work-featured__title {
+    font-size: 26px;
+    margin: 6px 0 8px;
+  }
+  .work-featured__desc {
+    font-size: 14px;
+  }
+  .work-featured__tags {
+    display: none;
   }
 }

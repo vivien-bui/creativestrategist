@@ -29,6 +29,14 @@
   opacity: 0.55;
 }
 
+.work__mobile-hint {
+  display: none;
+}
+
+.work__scroller {
+  display: contents;
+}
+
 .work__grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -37,10 +45,44 @@
 
 @media (max-width: 767px) {
   .work {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 56px;
+  }
+  .work__header {
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: 10px;
+  }
+  .work__mobile-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    opacity: 0.5;
+  }
+
+  /* One flat, swipeable row: the scroller becomes a real flex track and
+     .work__grid3 hoists its 3 cards into it via display:contents, so all
+     5 case studies sit side by side instead of stacking the full page. */
+  .work__scroller {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    padding: 4px 20px 12px;
+    scrollbar-width: none;
+  }
+  .work__scroller::-webkit-scrollbar {
+    display: none;
   }
   .work__grid3 {
-    grid-template-columns: 1fr;
+    display: contents;
   }
 }

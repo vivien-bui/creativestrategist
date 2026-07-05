@@ -108,8 +108,6 @@
 }
 
 .receipt__stamp {
-  font-size: 26px;
-  line-height: 1;
   color: var(--accent);
   opacity: 0.75;
   margin-bottom: 10px;
@@ -181,21 +179,8 @@
 .receipt__dots {
   flex: 1;
   border-bottom: 1px dotted var(--thermal-faint);
-  margin: 0 6px;
+  margin: 0 0 0 6px;
   transform: translateY(-3px);
-}
-
-.receipt__rating {
-  font-family: var(--receipt-mono);
-  font-weight: 600;
-  font-size: 13px;
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
-}
-
-.receipt__line:hover .receipt__rating {
-  transform: scale(1.15) rotate(-3deg);
-  color: var(--accent);
 }
 
 .receipt__total {
@@ -294,10 +279,6 @@
   .matcha-art {
     width: min(300px, 74vw);
     height: 384px;
-  }
-  [data-r='latte-pill-wrap'] {
-    flex-direction: column;
-    gap: 12px;
   }
   .receipt {
     padding: 44px 30px 50px;
