@@ -295,8 +295,8 @@ export const caseStudies = [
       ],
       title: "Doritos — Wash Your Mouth Out",
       description: '450M+ earned reach from the most divisive chip in history.',
-      imageLabel: "Doritos 'Wash Your Mouth Out' — campaign visual",
-      imageSrc: './assets/doritos/doritos-01-hero-wash-your-mouth-out.jpg',
+      imageLabel: "Doritos 'Wash Your Mouth Out' — coriander DNA-to-soap concept diagram",
+      imageSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
     },
     detail: {
       dots: [
@@ -311,8 +311,8 @@ export const caseStudies = [
         ['Industry', 'Food / Advertising'],
         ['Role', 'Creative strategy'],
       ],
-      heroLabel: 'Doritos coriander pack styled as soap — the OOH hero',
-      heroSrc: './assets/doritos/doritos-01-hero-wash-your-mouth-out.jpg',
+      heroLabel: 'Coriander DNA-strand diagram linking leaves to bars of soap',
+      heroSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
       stats: [
         { value: 450, suffix: 'M+', label: 'Earned reach — target beaten by 441M' },
         { value: 430, label: 'Pieces of earned media' },
