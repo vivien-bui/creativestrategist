@@ -2,14 +2,14 @@ import './ImagePlaceholder.css';
 
 // Displays real photo content when src is provided, otherwise shows placeholder.
 // See project/docs/04_IMAGES.md and 01_CLAUDE.md "Image Philosophy".
-export default function ImagePlaceholder({ label, radius = 0, className = '', style, dark = false, src = null }) {
+export default function ImagePlaceholder({ label, radius = 0, className = '', style, imageStyle, dark = false, src = null }) {
   if (src) {
     return (
       <img
         src={src}
         alt={label}
         className={`img-placeholder__image ${className}`}
-        style={{ borderRadius: radius, ...style }}
+        style={{ borderRadius: radius, ...style, ...imageStyle }}
       />
     );
   }

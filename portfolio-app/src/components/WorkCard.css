@@ -37,6 +37,7 @@
   width: 100%;
   height: 440px;
   display: block;
+  overflow: hidden; /* clip any scaled/zoomed image to the image box, not the card body */
 }
 
 .work-featured__text {
@@ -116,6 +117,7 @@
   width: 100%;
   height: 240px;
   display: block;
+  overflow: hidden; /* clip any scaled/zoomed image to the image box, not the card body */
 }
 
 .work-grid-card__body {

@@ -215,6 +215,14 @@ export const caseStudies = [
       description: 'Turning a national vote into snack-aisle theatre.',
       imageLabel: 'Twisties Election — campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
+      // Source art has heavy white body copy (stats + STRATEGY/EXECUTION/RESULTS
+      // + carousel) filling the bottom ~55%. object-fit:cover leaves only ~25px
+      // of vertical overflow to pan, so panning alone can't hide it — we zoom in
+      // (2.2x) anchored to the top so the card shows the banner + stage + cast
+      // and crops all the bottom copy. 2.2x clears the text on the narrower
+      // tablet card (portrait aspect shows more vertical) too. The image box has
+      // overflow:hidden (WorkCard.css) so the scaled art stays clipped to it.
+      imageStyle: { transform: 'scale(2.2)', transformOrigin: 'center top', objectPosition: 'center top' },
     },
     detail: {
       dots: [
