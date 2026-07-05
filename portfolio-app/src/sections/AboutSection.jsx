@@ -1,5 +1,6 @@
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Rich from '../components/Rich';
+import { HeartDoodle, CoffeeDoodle, MusicNoteDoodle, PinDoodle, TapeDoodle, CompassDoodle } from '../components/Doodles';
 import './AboutSection.css';
 
 const STEPS = [
@@ -13,10 +14,9 @@ export default function AboutSection() {
     <section id="about" data-screen-label="About" className="about">
       <div className="about__intro" data-r="split-about">
         <div className="about__intro-left">
-          <span className="about__eyebrow">About</span>
-          {/* Digital-zine annotation block — see 06_DECISIONS.md #10 */}
+          <span className="about__eyebrow"><CompassDoodle size={14} className="about__eyebrow-doodle" /> About</span>
           <div className="about__zine-note" aria-hidden="true">
-            <span className="about__zine-paren">( photo, below )</span>
+            <span className="about__zine-paren"><PinDoodle size={11} /> ( photo, below )</span>
             <p className="about__zine-caption">
               warm light, one candle,
               <br />
@@ -24,7 +24,7 @@ export default function AboutSection() {
               <br />
               somewhere in sydney
             </p>
-            <span className="about__zine-paren">( fig. 01 — off the clock )</span>
+            <span className="about__zine-paren">( fig. 01 — off the clock ) <HeartDoodle size={11} /></span>
           </div>
         </div>
         <Rich
@@ -37,18 +37,19 @@ export default function AboutSection() {
 
       <div className="about__body" data-r="split-about2">
         <div className="about__portrait" id="about-portrait" data-cursor-note="off the clock">
+          <TapeDoodle className="about__tape about__tape--tl" size={65} />
           <ImagePlaceholder
             label="a portrait with warm light"
             radius={8}
             src="./assets/personal/personal-01-dinner-candle-portrait.jpg"
           />
-          {/* Staggered zine type over the photo — see 06_DECISIONS.md #10 */}
           <span className="about__zine-word about__zine-word--1" aria-hidden="true">
             off
           </span>
           <span className="about__zine-word about__zine-word--2" aria-hidden="true">
             the clock
           </span>
+          <TapeDoodle className="about__tape about__tape--br" size={55} />
         </div>
         <div>
           <p className="about__bio">
@@ -60,6 +61,10 @@ export default function AboutSection() {
             Off the clock, you'll either find me at a wine bar, rotating between three different TV shows and a
             book all at once, or taking way too many photos of a building that's caught my eye.&nbsp;
           </p>
+          <div className="about__diary-aside" aria-hidden="true">
+            <CoffeeDoodle size={14} /> <span>currently on my 3rd oat latte today</span>
+            <MusicNoteDoodle size={14} /> <span>& listening to frank ocean on repeat</span>
+          </div>
           <div className="about__steps" data-r="about-steps">
             {STEPS.map((s) => (
               <div key={s.num}>

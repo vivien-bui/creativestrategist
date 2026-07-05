@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { BookmarkDoodle } from './Doodles';
 import './Nav.css';
 
 export default function Nav({ onNavigate }) {
@@ -22,7 +23,7 @@ export default function Nav({ onNavigate }) {
   return (
     <nav ref={navRef} className="nav" data-screen-label="Nav">
       <a href="#" className="nav__logo" onClick={link('home')}>
-        <span className="nav__logo-name">vivien bui</span>
+        <span className="nav__logo-name"><BookmarkDoodle className="nav__logo-doodle" size={15} /> vivien bui</span>
         <span className="nav__logo-vol">( vol. 01 — sydney )</span>
       </a>
       <div className="nav__links">

@@ -11,9 +11,10 @@
      dark case-study pages without any per-theme wiring */
   color: var(--cream);
   mix-blend-mode: difference;
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-family: var(--font-decorative);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .spread-indicator__text {
