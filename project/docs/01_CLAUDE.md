@@ -29,7 +29,8 @@ Confident, campaign-trade-press style copy. Case studies narrate like agency cas
 ## Typography System
 - **Display:** Instrument Serif, italic, weight 400 — used for ALL headings, big pull-quotes ("The Insight" lines), and the receipt heading. Never used at small sizes for body copy.
 - **Body/UI:** Plus Jakarta Sans, weights 400/500/600 — nav, paragraph copy, tags/pills, stat labels.
-- Do not introduce a third typeface. Do not use Instrument Serif non-italic (the italic IS the brand voice).
+- **Decorative (secondary):** Mynerve (`--font-decorative`), used sparingly as a handwritten personal touch — currently the hero tagline and the footer "Made with warm light" line only. Not for headings, nav, or long body copy.
+- Do not use Instrument Serif non-italic (the italic IS the brand voice).
 
 ## Colour System
 - Base cream: `#f7efe4` (home background)
