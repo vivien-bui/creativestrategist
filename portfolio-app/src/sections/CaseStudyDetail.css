@@ -1,6 +1,7 @@
 .detail {
   position: relative;
   border-top: 1px solid var(--ink-10);
+  view-transition-name: case-study-detail;
 }
 
 .detail--dark {

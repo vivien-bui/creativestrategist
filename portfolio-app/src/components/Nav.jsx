@@ -21,7 +21,7 @@ export default function Nav({ onNavigate }) {
 
   return (
     <nav ref={navRef} className="nav" data-screen-label="Nav">
-      <div className="nav__logo">Vivien Bui</div>
+      <a href="#" className="nav__logo" onClick={link('home')}>Vivien Bui</a>
       <div className="nav__links">
         <a href="#work" onClick={link('work')} className="nav__link">Work</a>
         <a href="#about" onClick={link('about')} className="nav__link">About</a>
