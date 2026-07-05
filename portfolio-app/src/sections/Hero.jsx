@@ -51,7 +51,7 @@ export default function Hero({ onNavigate }) {
               <ImagePlaceholder
                 label="a photo with your energy — travel, golden hour, candid"
                 radius={4}
-                src="/assets/personal/personal-02-mountain-lookout-portrait.jpg"
+                src="./assets/personal/personal-02-mountain-lookout-portrait.jpg"
               />
             </div>
 

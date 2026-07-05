@@ -26,7 +26,7 @@ export default function AboutSection() {
           <ImagePlaceholder
             label="a portrait with warm light"
             radius={8}
-            src="/assets/personal/personal-01-dinner-candle-portrait.jpg"
+            src="./assets/personal/personal-01-dinner-candle-portrait.jpg"
           />
         </div>
         <div>
