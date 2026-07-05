@@ -29,12 +29,12 @@ export const caseStudies = [
         { hex: '#efe7de', bordered: true },
         { hex: '#8e7cf0', bordered: false },
       ],
-      badge: '✳ Latest',
+      badge: 'Latest',
       title: 'SharkBeauty *CryoGlow*',
       description:
-        'Launching an at-home cryo-LED glow device — cold-tech skincare wrapped in soft neutrals, blush, and a blue-violet glow that reads as clinical *and* covetable.',
+        'Launching an at-home cryo-LED glow device, cold-tech skincare wrapped in soft neutrals, blush, and a blue-violet glow that reads as clinical *and* covetable.',
       tags: ['Launch strategy', 'Creator seeding', 'Content system'],
-      imageLabel: 'SharkBeauty CryoGlow — hero campaign shot',
+      imageLabel: 'SharkBeauty CryoGlow, hero campaign shot',
       imageSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
     },
     detail: {
@@ -43,7 +43,7 @@ export const caseStudies = [
         { hex: '#fffdf9', bordered: true },
         { hex: '#8e7cf0', bordered: false },
       ],
-      eyebrow: '✳ Most recent · Feb–Jul 2026',
+      eyebrow: 'Most recent · Feb–Jul 2026',
       title: 'CryoGlow, *cold* to the touch.',
       meta: [
         ['Client', 'SharkBeauty'],
@@ -51,14 +51,14 @@ export const caseStudies = [
         ['Industry', 'Beauty / Skincare'],
         ['Role', 'Launch strategy'],
       ],
-      heroLabel: 'CryoGlow device — soft neutrals, blush, blue-violet LED glow',
+      heroLabel: 'CryoGlow device, soft neutrals, blush, blue-violet LED glow',
       heroSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
       insight:
-        "Cold-tech skincare feels clinical. But consumers want the results *and* the ritual — proof it works, wrapped in something she'd leave out on the shelf.",
+        "Cold-tech skincare feels clinical. But consumers want the results *and* the ritual, proof it works, wrapped in something she'd leave out on the shelf.",
       stats: [
         { value: 12.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
         { value: 18.8, suffix: '×', decimals: 1, label: 'Creative ROI' },
-        { value: 850, label: 'Week-one units — target was 300' },
+        { value: 850, label: 'Week-one units, target was 300' },
         { value: 100, suffix: '+', label: 'Pieces of social content' },
       ],
       idea: [
@@ -67,7 +67,7 @@ export const caseStudies = [
       ],
       evolution: [
         'Creator partnership with Chloe Morello anchors the launch in trust',
-        "Bespoke content series — 'Light Therapy' — turns clinical claims into watchable ritual",
+        "Bespoke content series, 'Light Therapy', turns clinical claims into watchable ritual",
         '100+ pieces of always-on social keep the algorithm fed for weeks',
         'Micro-influencer and event program drives trial across AU + NZ',
       ],
@@ -95,9 +95,9 @@ export const caseStudies = [
       ],
       title: 'Australian *Fashion Week*',
       description:
-        'A front-row presence built in polished purple and runway black — turning five days of shows into a shareable, always-on content moment.',
+        'A front-row presence built in polished purple and runway black, turning five days of shows into a shareable, always-on content moment.',
       tags: ['Event strategy', 'Live content', 'Talent & PR'],
-      imageLabel: 'Australian Fashion Week — hero campaign shot',
+      imageLabel: 'Australian Fashion Week, hero campaign shot',
       imageSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
     },
     detail: {
@@ -112,10 +112,10 @@ export const caseStudies = [
         ['Industry', 'Fashion'],
         ['Role', 'Event & content strategy'],
       ],
-      heroLabel: 'AFW — polished purple, runway black, front-row moment',
+      heroLabel: 'AFW, polished purple, runway black, front-row moment',
       heroSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
       insight:
-        "Fashion week is five days of noise. Presence isn't a seat in the room — it's *owning the feed* the room is looking at.",
+        "Fashion week is five days of noise. Presence isn't a seat in the room, it's *owning the feed* the room is looking at.",
       stats: [
         { value: 3, suffix: 'M', label: 'Total views' },
         { value: 270, label: 'Posts & stories' },
@@ -155,7 +155,7 @@ export const caseStudies = [
       ],
       title: 'Vodka Cruiser × Brat Summer',
       description: 'Riding an acid-chartreuse cultural wave in real time.',
-      imageLabel: 'Vodka Cruiser × Brat Summer — campaign visual',
+      imageLabel: 'Vodka Cruiser × Brat Summer, campaign visual',
       imageSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
     },
     detail: {
@@ -170,10 +170,10 @@ export const caseStudies = [
         ['Angle', 'Cultural moment'],
         ['Role', 'Reactive strategy'],
       ],
-      heroLabel: 'Cruiser × Brat — acid-chartreuse hero',
+      heroLabel: 'Cruiser × Brat, acid-chartreuse hero',
       heroSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
       insight:
-        "Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it — it joins by *moving at its speed*.",
+        "Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it, it joins by *moving at its speed*.",
       stats: [
         { value: 757, suffix: 'K', label: 'Users reached' },
         { value: 1, suffix: ' summer', label: 'Owned, start to finish' },
@@ -184,7 +184,7 @@ export const caseStudies = [
       ],
       evolution: [
         'Summer Apple flavour drop, brat-coded from pack to platform',
-        "Lowercase billboards speak fluent brat — 'dyeing your hair green for a festival?'",
+        "Lowercase billboards speak fluent brat, 'dyeing your hair green for a festival?'",
         'Laneway Festival activation puts the bottle in the culture, not just the ad break',
         'Social-first content built for velocity over polish',
       ],
@@ -213,7 +213,7 @@ export const caseStudies = [
       ],
       title: 'Twisties Election',
       description: 'Turning a national vote into snack-aisle theatre.',
-      imageLabel: 'Twisties Election — campaign visual',
+      imageLabel: 'Twisties Election, campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
       // Source art has heavy white body copy (stats + STRATEGY/EXECUTION/RESULTS
       // + carousel) filling the bottom ~55%. object-fit:cover leaves only ~25px
@@ -237,11 +237,11 @@ export const caseStudies = [
         ['Angle', 'Cultural hijack'],
         ['Role', 'Campaign strategy'],
       ],
-      heroLabel: 'Twisties Election — poster-red / canary / green hero',
+      heroLabel: 'Twisties Election, poster-red / canary / green hero',
       heroSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
       insight:
         'Cheese vs Chicken is the only two-party system Australians agree to care about. So we ran it like *a real election*.',
-      award: '🏆 TikTok Award — Best Social Media Campaign 2025',
+      award: 'TikTok Award, Best Social Media Campaign 2025',
       stats: [
         { value: 702, suffix: 'M', label: 'Earned impressions' },
         { value: 579, label: 'Earned media pieces' },
@@ -256,7 +256,7 @@ export const caseStudies = [
         "'Chickeese' leaks on Reddit; Chicken and Cheese fans go into meltdown",
         'A full-page apology cancels Chickeese amid escalating outcry',
         'A snap election is called, with celebrity candidates for both parties',
-        "Vandalised OOH and transit become lightning rods — 'CHICKEN RULES' sprayed over VOTE CHEESE",
+        "Vandalised OOH and transit become lightning rods, 'CHICKEN RULES' sprayed over VOTE CHEESE",
         'Viral influencer dance remix headlines the campaign spot as voting explodes',
         'Chicken is crowned; Cheese fans demand a recount',
       ],
@@ -266,7 +266,7 @@ export const caseStudies = [
           source: 'Breaking news coverage',
         },
         {
-          quote: 'Democracy has never been more ridiculous — or more effective.',
+          quote: 'Democracy has never been more ridiculous, or more effective.',
           source: 'Campaign results film',
         },
       ],
@@ -293,9 +293,9 @@ export const caseStudies = [
         { hex: '#17141a', bordered: false },
         { hex: '#ff5a2a', bordered: false },
       ],
-      title: "Doritos — Wash Your Mouth Out",
+      title: "Doritos: Wash Your Mouth Out",
       description: '450M+ earned reach from the most divisive chip in history.',
-      imageLabel: "Doritos 'Wash Your Mouth Out' — coriander DNA-to-soap concept diagram",
+      imageLabel: "Doritos 'Wash Your Mouth Out', coriander DNA-to-soap concept diagram",
       imageSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
     },
     detail: {
@@ -314,7 +314,7 @@ export const caseStudies = [
       heroLabel: 'Coriander DNA-strand diagram linking leaves to bars of soap',
       heroSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
       stats: [
-        { value: 450, suffix: 'M+', label: 'Earned reach — target beaten by 441M' },
+        { value: 450, suffix: 'M+', label: 'Earned reach, target beaten by 441M' },
         { value: 430, label: 'Pieces of earned media' },
         { value: 95.7, suffix: '%', decimals: 1, label: 'Brand mention in headlines' },
         { value: 400, suffix: '×', label: 'Final-pack auction bid vs pack price' },
@@ -322,7 +322,7 @@ export const caseStudies = [
       insight:
         '1 in 5 Australians carry olfactory genes that make coriander taste like *soap*. Instead of hiding from the hate, we leaned all the way in.',
       idea: [
-        'An ultra-limited run of 500 coriander-flavoured packs, launched with out-of-home placed right next to soap retailers — Aesop, Lush — styling the chips as an aromatic, indulgent soap.',
+        'An ultra-limited run of 500 coriander-flavoured packs, launched with out-of-home placed right next to soap retailers (Aesop, Lush), styling the chips as an aromatic, indulgent soap.',
         'It made the divisive flavour the whole point, turning a genetic quirk into a collectible cultural object.',
       ],
       evolution: [
@@ -330,7 +330,7 @@ export const caseStudies = [
         'Seeded mailers to earned influencers, filled with real consumer comments and reactions',
         "Stoked the fire in the 'I Hate Coriander' Facebook page as UGC flooded in",
         'Earned television, print and online coverage drove national saturation',
-        'The final pack went to an unplanned eBay auction — and the country kept bidding',
+        'The final pack went to an unplanned eBay auction, and the country kept bidding',
       ],
       lines: [
         '"A soap tasting chip? Not a fable."',

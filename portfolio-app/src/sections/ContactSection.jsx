@@ -1,4 +1,5 @@
 import AmbientBackdrop from '../components/AmbientBackdrop';
+import { SparkleDoodle } from '../components/Doodles';
 import './ContactSection.css';
 
 const CONTACT_EMAIL = 'phuongvivien@gmail.com';
@@ -10,7 +11,9 @@ export default function ContactSection({ onNavigate }) {
       <div className="contact__inner">
         <div className="contact__grid">
           <div className="contact__primary">
-            <p className="contact__eyebrow">✳ Currently taking agency contracts</p>
+            <p className="contact__eyebrow">
+              <SparkleDoodle className="contact__eyebrow-mark" size={16} /> Currently taking agency contracts
+            </p>
             <h2 className="contact__heading">
               Let's make something people want to{' '}
               <span className="contact__emphasis">talk about.</span>

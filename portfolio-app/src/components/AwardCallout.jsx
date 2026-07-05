@@ -1,3 +1,4 @@
+import { TrophyDoodle } from './Doodles';
 import './AwardCallout.css';
 
 // Editorial achievement ribbon for a case-study detail page (currently
@@ -6,7 +7,9 @@ export default function AwardCallout({ text }) {
   return (
     <div className="award-callout" data-r="award-callout">
       <span className="award-callout__rule" aria-hidden="true" />
-      <span className="award-callout__text">{text}</span>
+      <span className="award-callout__text">
+        <TrophyDoodle size={14} /> {text}
+      </span>
       <span className="award-callout__rule" aria-hidden="true" />
     </div>
   );

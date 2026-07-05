@@ -15,14 +15,13 @@
 
 .hero__eyebrow {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 20px;
 }
 
 .hero__mark {
   color: var(--accent);
-  font-size: 28px;
-  line-height: 1;
+  flex-shrink: 0;
 }
 
 .hero__eyebrow p {
@@ -127,15 +126,8 @@
   .hero__photo {
     height: 320px;
   }
-  [data-r='hero-pill-wrap'] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 24px;
-  }
   .hero__photo-row {
-    margin-top: 16px;
+    margin-top: 28px;
   }
   .hero__word--strategist {
     margin-top: 24px;
