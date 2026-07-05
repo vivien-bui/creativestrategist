@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import FloatingPill from '../components/FloatingPill';
 import MatchaIllustration from './MatchaIllustration';
 import ArtDecoCorner from '../components/ArtDecoCorner';
+import ArtDecoBorder from '../components/ArtDecoBorder';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
@@ -115,6 +116,8 @@ export default function SkillsSection() {
             <div className="receipt__title">The Strategist's Order</div>
             <div className="receipt__subtitle">Est. brewing since day one</div>
           </div>
+
+          <ArtDecoBorder />
 
           {/* Each line carries its own data-reveal so the shared scroll
               stagger makes the receipt "print" item by item. */}
