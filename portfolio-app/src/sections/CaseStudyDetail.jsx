@@ -96,7 +96,13 @@ export default function CaseStudyDetail({ study, onNavigate }) {
 
         {detail.stats && <StatBand stats={detail.stats} />}
 
-        <Row label="The Insight" accent={accent} first>
+        {detail.brief && (
+          <Row label="The Brief" accent={accent} first>
+            <Rich as="p" className="detail__brief" text={detail.brief} />
+          </Row>
+        )}
+
+        <Row label="The Insight" accent={accent} first={!detail.brief}>
           <Rich as="p" className="detail__insight" text={detail.insight} />
         </Row>
 
@@ -105,6 +111,16 @@ export default function CaseStudyDetail({ study, onNavigate }) {
             <Rich as="p" key={i} className="detail__idea-p" text={p} />
           ))}
         </Row>
+
+        {detail.approach && (
+          <Row label="The Approach" accent={accent}>
+            <ul className="detail__approach-list">
+              {detail.approach.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </Row>
+        )}
 
         {detail.lines && (
           <Row label="The Lines" accent={accent}>
