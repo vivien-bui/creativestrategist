@@ -101,8 +101,8 @@
 }
 
 .detail__title em {
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-weight: 800;
   letter-spacing: 0;
 }
 

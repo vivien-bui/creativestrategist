@@ -226,7 +226,10 @@ export const caseStudies = [
       description: "An escalation campaign that turned Australia's oldest snack rivalry into a national election: 702M earned impressions.",
       imageLabel: 'Twisties Election, campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
-      imageStyle: { transform: 'scale(2.2)', transformOrigin: 'center top', objectPosition: 'center top' },
+      // Cleaned hero: removed all campaign copy (headline, stats, white columns),
+      // repositioned thumbnail strip higher. Image now shows only photography +
+      // campaign assets. No zoom needed.
+      imageStyle: { objectPosition: 'center top' },
     },
     detail: {
       dots: [
