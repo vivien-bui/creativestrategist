@@ -74,6 +74,14 @@
     padding-right: 20px;
     margin-bottom: 10px;
   }
+  .work__count-doodle {
+    display: none;
+  }
+  .work__diary-note {
+    margin: 6px 0 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .work__mobile-hint {
     display: flex;
     align-items: center;
