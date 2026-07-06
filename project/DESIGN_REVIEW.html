@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senior Design Review: Vivien Bui Portfolio</title>
+  <style>
+    :root {
+      --ground: #f8f6f3;
+      --ground-alt: #efe9e3;
+      --text-primary: #1a1714;
+      --text-secondary: #5a4f47;
+      --text-tertiary: #8a7f78;
+      --accent-warm: #c85a54;
+      --accent-sage: #6b7a68;
+      --success: #27ae60;
+      --alert: #d63031;
+      --border: #e8e3dc;
+      --border-light: #f0ebe5;
+
+      --lh-tight: 1.1;
+      --lh-snug: 1.3;
+      --lh-normal: 1.5;
+      --lh-body: 1.7;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #1a1714;
+        --ground-alt: #2a2420;
+        --text-primary: #f0ebe5;
+        --text-secondary: #d4cdc4;
+        --text-tertiary: #9a8b7e;
+        --border: #3a3530;
+        --border-light: #2a2420;
+      }
+    }
+
+    :root[data-theme="light"] {
+      --ground: #f8f6f3;
+      --ground-alt: #efe9e3;
+      --text-primary: #1a1714;
+      --text-secondary: #5a4f47;
+      --text-tertiary: #8a7f78;
+      --border: #e8e3dc;
+      --border-light: #f0ebe5;
+    }
+
+    :root[data-theme="dark"] {
+      --ground: #1a1714;
+      --ground-alt: #2a2420;
+      --text-primary: #f0ebe5;
+      --text-secondary: #d4cdc4;
+      --text-tertiary: #9a8b7e;
+      --border: #3a3530;
+      --border-light: #2a2420;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--ground);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      line-height: var(--lh-body);
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--space-lg);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      line-height: var(--lh-snug);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 2px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-warm);
+    }
+
+    p {
+      margin: 0 0 var(--space-md) 0;
+      line-height: var(--lh-body);
+      color: var(--text-secondary);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--accent-warm);
+      text-decoration: underline;
+      text-decoration-color: var(--accent-warm);
+      text-underline-offset: 0.2em;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-sage);
+      text-decoration-color: var(--accent-sage);
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+      border-bottom: 3px solid var(--accent-warm);
+    }
+
+    .header h1 {
+      margin-bottom: var(--space-xs);
+      font-size: 2.4rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .score {
+      display: inline-block;
+      background: var(--accent-warm);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      margin-top: var(--space-md);
+      font-size: 1.1rem;
+    }
+
+    /* Executive Summary */
+    .section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .summary-box {
+      background: var(--ground-alt);
+      border-left: 4px solid var(--accent-warm);
+      padding: var(--space-md);
+      padding-left: var(--space-lg);
+      margin: var(--space-lg) 0;
+      border-radius: 0.25rem;
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--accent-warm);
+      font-family: Georgia, serif;
+    }
+
+    .verdict {
+      background: var(--ground-alt);
+      border-left: 4px solid var(--accent-sage);
+      padding: var(--space-md);
+      padding-left: var(--space-lg);
+      margin: var(--space-lg) 0;
+      border-radius: 0.25rem;
+      font-weight: 500;
+    }
+
+    .critical {
+      background: var(--ground-alt);
+      border-left: 4px solid var(--alert);
+      padding: var(--space-md);
+      padding-left: var(--space-lg);
+      margin: var(--space-lg) 0;
+      border-radius: 0.25rem;
+    }
+
+    .critical h4 {
+      color: var(--alert);
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: var(--space-md) 0;
+      padding-left: 1.8rem;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: var(--space-sm);
+      line-height: var(--lh-body);
+    }
+
+    li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-lg) 0;
+      background: var(--ground);
+    }
+
+    th {
+      background: var(--ground-alt);
+      color: var(--text-primary);
+      padding: var(--space-md);
+      text-align: left;
+      font-weight: 700;
+      font-family: Georgia, serif;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    td {
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* Strength/Weakness markers */
+    .strength {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .weakness {
+      color: var(--alert);
+      font-weight: 600;
+    }
+
+    .neutral {
+      color: var(--text-tertiary);
+    }
+
+    /* Grade badges */
+    .grade {
+      display: inline-block;
+      background: var(--accent-warm);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+
+    .grade.good {
+      background: var(--success);
+    }
+
+    .grade.weak {
+      background: var(--alert);
+    }
+
+    /* Sections with background */
+    .section-alt {
+      background: var(--ground-alt);
+      padding: var(--space-lg);
+      border-radius: 0.25rem;
+      margin: var(--space-xl) 0;
+    }
+
+    /* Code/Inline */
+    code {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85em;
+      background: var(--ground-alt);
+      padding: 0.2em 0.4em;
+      border-radius: 0.2em;
+      color: var(--accent-warm);
+    }
+
+    .code-block {
+      background: var(--ground-alt);
+      padding: var(--space-md);
+      border-radius: 0.25rem;
+      overflow-x: auto;
+      margin: var(--space-md) 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Emphasis */
+    em {
+      color: var(--accent-warm);
+      font-style: italic;
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Spacing utilities */
+    .spacer {
+      height: var(--space-xl);
+    }
+
+    /* Roadmap priority badges */
+    .priority-critical {
+      display: inline-block;
+      background: var(--alert);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.2rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .priority-high {
+      display: inline-block;
+      background: #e67e22;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.2rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .priority-medium {
+      display: inline-block;
+      background: #f39c12;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.2rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .roadmap-item {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .roadmap-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 2px solid var(--border);
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: var(--space-md);
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+
+      th, td {
+        padding: var(--space-sm);
+      }
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="header">
+      <h1>🔍 Brutally Honest Senior Design Review</h1>
+      <p>Vivien Bui · Creative Strategist Portfolio</p>
+      <div class="score">7.2 / 10</div>
+    </div>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+
+      <div class="summary-box">
+        <h3>The Verdict</h3>
+        <p>Your portfolio is <strong>visually distinctive and crafted with genuine thoughtfulness.</strong> It has a clear point of view, consistent design system, and excellent technical execution.</p>
+        <p><strong>But here's the hard truth:</strong> It reads as <em>mid-level designer/strategist, not senior.</em> The aesthetic is charming but slightly undercuts your credibility. The case studies lack strategic depth. There's no evidence of business impact. A recruiter at Droga5 or AKQA would appreciate the craft but question your strategic chops.</p>
+      </div>
+
+      <div class="verdict">
+        <strong>Overall Positioning:</strong> This portfolio gets you meetings at design-forward agencies (Instrument, Fantasy). It probably <em>doesn't</em> get you meetings at strategy-focused shops (R/GA, AKQA, Wieden+Kennedy, Special). That's a significant gap.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>First Impressions: What a Recruiter Sees in 30 Seconds</h2>
+
+      <h3>What They Notice First</h3>
+      <p>The hero section. Bold lowercase type. Personal photo with playful doodles. Cream background with sage accents.</p>
+      <p><strong>Their first impression:</strong> "This person has strong visual taste and design point of view." ✓</p>
+
+      <h3>What Makes Them Stay</h3>
+      <p>The consistency. Every section reinforces the same visual language (lowercase type, decorative accents, margin notes, parenthetical annotations). The spacing is disciplined. No sloppy details.</p>
+      <p><strong>Their reaction:</strong> "This wasn't thrown together. There's a system here."</p>
+
+      <h3>What Makes Them Leave</h3>
+      <p>Scrolling through the work section, they realize the case studies are all surface-level. "Repositioning cold-tech skincare from clinical to covetable" is the entire strategic insight. No data. No depth. No proof it worked.</p>
+      <p><strong>Their reaction:</strong> "Nice portfolio. But what's the actual thinking?"</p>
+
+      <h3>What Feels Memorable</h3>
+      <p>The overall aesthetic. The "digital zine" voice. The handwritten tagline. The washi tape and doodles.</p>
+      <p><strong>The problem:</strong> They'll remember your <em>design</em> but forget your <em>strategy.</em></p>
+
+      <h3>What Feels Generic</h3>
+      <p>The work descriptions. "Launch strategy." "Creator seeding." "Content system." These are industry Mad Libs that could describe anyone's work.</p>
+    </section>
+
+    <section class="section">
+      <h2>Biggest Strengths</h2>
+
+      <h3>1. Strong Visual Point of View <span class="grade good">⭐⭐⭐</span></h3>
+      <p>You've created a distinctive aesthetic (digital zine meets gallery system) and applied it rigorously. This isn't generic. It's yours. At top agencies, designers often get lost in corporate templates. You're not.</p>
+
+      <h3>2. Excellent Craft & System Discipline <span class="grade good">⭐⭐⭐</span></h3>
+      <p>The design system is sophisticated:</p>
+      <ul>
+        <li>Intentional spacing scale (8px base with 1.4–1.5 ratio)</li>
+        <li>Limited but powerful color palette (cream, sage, ink)</li>
+        <li>Three fonts used with clear hierarchy</li>
+        <li>Consistent opacity and radius scales</li>
+        <li>Disciplined component language</li>
+      </ul>
+      <p>This suggests you think systematically, not just make things look pretty.</p>
+
+      <h3>3. Distinctive Visual Voice <span class="grade good">⭐⭐⭐</span></h3>
+      <p>The "zine" framing (margin notes, doodles, parenthetical annotations, washi tape) is applied consistently and feels intentional. It's not trendy decoration—it's part of your brand.</p>
+
+      <h3>4. Technical Execution <span class="grade good">⭐⭐⭐</span></h3>
+      <ul>
+        <li>Smooth view transitions between pages</li>
+        <li>Parallax effects on hero photo</li>
+        <li>Responsive design (horizontal scroll on mobile)</li>
+        <li>Good performance</li>
+        <li>WebGL ambient backdrops show technical depth</li>
+      </ul>
+
+      <h3>5. Personal Branding is Coherent <span class="grade good">⭐⭐⭐</span></h3>
+      <p>Your "Warm Gallery" system extends beyond aesthetics—it communicates something about your personality. You're saying: "I'm thoughtful, I pay attention to details, I have taste."</p>
+    </section>
+
+    <section class="section">
+      <h2>Biggest Weaknesses</h2>
+
+      <h3>1. The Zine Aesthetic Is Juvenile for a Senior Strategist <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <p><strong>The problem:</strong> Washi tape. Handwritten notes. Decorative doodles. Playful margin annotations. Lowercase everything. This aesthetic works beautifully for a junior designer or indie studio. But for a <em>senior strategist</em> applying to Droga5, AKQA, or Wieden+Kennedy?</p>
+
+      <div class="critical">
+        <h4>The tension:</h4>
+        <p>These agencies hire people to lead strategy, shape culture, make strategic decisions that move millions. The visual voice here says "I'm playful and creative" but whispers "maybe I'm too junior to lead."</p>
+      </div>
+
+      <p>Compare this to senior strategist portfolios at top agencies:</p>
+      <ul>
+        <li><strong>More confident.</strong> Less apologetic.</li>
+        <li><strong>More authoritative.</strong> The design gets out of the way.</li>
+        <li><strong>More data-forward.</strong> Results, metrics, impact.</li>
+        <li><strong>More strategic.</strong> The work demonstrates thinking, not just taste.</li>
+      </ul>
+
+      <p><strong>What a recruiter thinks:</strong> "This is beautiful, but is this person ready to run a strategy team? Or are they still in the 'personality-driven' phase of their career?"</p>
+
+      <h3>2. No Clear Hierarchy of Work <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <p>You have 5 case studies. All seem equally featured. But which is your <em>best</em> work? Which demonstrates your highest level of strategic thinking?</p>
+      <p><strong>The problem:</strong> A senior strategist would lead with their strongest case—the one that best demonstrates their methodology, insight, and impact. Instead, you present a grid of equal weight.</p>
+      <p><strong>What's missing:</strong> Why should I care about Sharkbeauty over Doritos? What makes Cryoglow your signature work? The portfolio doesn't tell me.</p>
+
+      <h3>3. Case Studies Lack Strategic Depth <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <p>Looking at the detail pages, each case study has:</p>
+      <ul>
+        <li>A one-sentence strategy insight</li>
+        <li>Some imagery</li>
+        <li>A few process bullets (Find, Build, Earn)</li>
+        <li>Minimal actual thinking</li>
+      </ul>
+
+      <div class="code-block">
+Example of weak case study:
+"Repositioning cold-tech skincare from clinical to covetable:
+a creator-first launch strategy that tripled the week-one
+sales target in AU + NZ."
+
+Example of strong case study:
+"Research showed beauty creators saw skincare tech as
+'clinical and intimidating.' We flipped the positioning by
+making them the experts—not scientists. Each creator got to
+interpret the tech through their own beauty lens. Result: 3x
+week-one sales. More importantly: we built a creator ecosystem
+that drove 60% of month-two sales organically."
+      </div>
+
+      <p>See the difference? One is a tactic. The other is <em>strategy.</em></p>
+
+      <h3>4. No Evidence of Business Impact <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <div class="critical">
+        <h4>Critical gap:</h4>
+        <p>Where are the numbers?</p>
+        <ul>
+          <li>How much did the campaign move the business?</li>
+          <li>What metrics matter? (Sales? Brand lift? Engagement? Culture shift?)</li>
+          <li>Did the work win any awards?</li>
+          <li>What was the audience reach?</li>
+          <li>How did this compare to the brief's KPIs?</li>
+        </ul>
+      </div>
+
+      <p>A senior strategist <em>leads with impact.</em> Your portfolio is all craft, no results. To a recruiter, that suggests you're talented at design but uncertain about measurement and business outcomes.</p>
+
+      <h3>5. The About Section Doesn't Build Confidence <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <p><strong>Your statement:</strong></p>
+      <p><em>"I find the cultural tension a brand can credibly own, then build the moment people can't help but share."</em></p>
+      <p><strong>What it tells me:</strong> You think poetically about culture. ✓</p>
+      <p><strong>What it doesn't tell me:</strong></p>
+      <ul>
+        <li>What's your <em>actual</em> strategic methodology?</li>
+        <li>Are you a brand strategist? Content strategist? Cultural strategist?</li>
+        <li>What's your track record?</li>
+        <li>Do you lead teams or work solo?</li>
+      </ul>
+
+      <h3>6. The Skills Section Undermines Your Credibility <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <p>"The Strategist's Order" (matcha drink illustration) is charming. But what does it actually communicate about your skills?</p>
+      <p><strong>What you tell me:</strong> Extra shot of ambition, Collaborative cold foam, Oat-milk smooth, Creative something-or-other</p>
+      <p><strong>What a recruiter needs to know:</strong></p>
+      <ul>
+        <li>Brand strategy / cultural strategy / creative strategy?</li>
+        <li>Audience: Startups? Fortune 500? Creative? CPG?</li>
+        <li>Methodology: Design thinking? Strategic foresight? Cultural analysis?</li>
+        <li>Depth: Do you understand research, positioning, competitive landscape?</li>
+      </ul>
+      <p><strong>Right now this section reads:</strong> "I'm quirky and I have a cute design system."</p>
+      <p><strong>It should read:</strong> "I'm dangerous. Here's why."</p>
+
+      <h3>7. Tone Is Too Casual for Senior Level <span class="weakness">⚠️⚠️⚠️</span></h3>
+      <p><em>"Off the clock, you'll either find me at a wine bar, rotating between three different TV shows and a book all at once, or taking way too many photos of a building that's caught my eye."</em></p>
+      <p>This is charming. It's also <em>junior.</em></p>
+      <p><strong>Senior strategist portfolios</strong> don't do the "here's what I do after work" bit. They're comfortable with authority. They don't need to prove they're fun and relatable. Their work speaks.</p>
+    </section>
+
+    <section class="section">
+      <h2>Design System Audit <span class="grade good">8.5/10</span></h2>
+
+      <ul>
+        <li><strong>Typography:</strong> Well-chosen. Instrument Serif (display), Plus Jakarta Sans (body), Mynerve (decorative). Clear hierarchy. Consistently lowercase as a design choice (not a mistake). ✓</li>
+        <li><strong>Color System:</strong> Constrained and intentional. Cream, sage, ink, dark navy. Limited opacity scale. Works cohesively. ✓</li>
+        <li><strong>Spacing:</strong> Disciplined 8px base scale. Consistent rhythm throughout. ✓</li>
+        <li><strong>Layout:</strong> Max-width containers, good breathing room, responsive considerations are thoughtful. ✓</li>
+        <li><strong>Components:</strong> Cards, pills, buttons, tags all follow system. No janky one-offs. ✓</li>
+      </ul>
+
+      <p><strong>Grade:</strong> This is the strongest part of your portfolio. The system work is senior-level.</p>
+    </section>
+
+    <section class="section">
+      <h2>Priority Roadmap: Highest-Impact Fixes</h2>
+
+      <h3>🔴 Critical (Do These First)</h3>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-critical">Critical</span> 1. Rewrite Your Case Studies with Strategic Depth</h4>
+        <p>Add:</p>
+        <ul>
+          <li>Research findings</li>
+          <li>Cultural insight</li>
+          <li>Competitive analysis</li>
+          <li>Your methodology</li>
+          <li>Metrics and business impact (what did it achieve?)</li>
+          <li>Why this strategy worked (not just what you did)</li>
+        </ul>
+        <p>Expand from 1 paragraph to 2–3 pages per study.</p>
+        <p><strong>Impact:</strong> This is the difference between mid-level and senior.</p>
+      </div>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-critical">Critical</span> 2. Add Evidence of Business Impact</h4>
+        <ul>
+          <li>Include KPIs achieved (sales lift, brand consideration, reach, etc.)</li>
+          <li>Show ROI if possible</li>
+          <li>Mention awards or critical recognition</li>
+        </ul>
+        <p><strong>Impact:</strong> Proves you understand business outcomes, not just design.</p>
+      </div>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-critical">Critical</span> 3. Feature ONE Hero Case Study</h4>
+        <ul>
+          <li>Make it your undeniable best work</li>
+          <li>Lead with this on the homepage</li>
+          <li>Show the full strategic arc</li>
+        </ul>
+        <p><strong>Impact:</strong> Establishes you as credible immediately.</p>
+      </div>
+
+      <h3>🟠 High Priority (Do These Next)</h3>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-high">High</span> 4. Reposition the Zine Aesthetic</h4>
+        <p>The aesthetic is fine. But <em>frame it</em> as a strategic choice. Add one paragraph explaining: "I use the zine format because..."</p>
+        <p>Make it feel intentional, not accidental.</p>
+        <p><strong>Impact:</strong> Signals sophistication, not just playfulness.</p>
+      </div>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-high">High</span> 5. Expand the About Section</h4>
+        <ul>
+          <li>Define your specific expertise (brand strategy? cultural strategy? creative strategy?)</li>
+          <li>Mention clients/industries you've worked in</li>
+          <li>Add team leadership experience if applicable</li>
+          <li>Replace personal details with professional credibility</li>
+        </ul>
+        <p><strong>Impact:</strong> Builds authority.</p>
+      </div>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-high">High</span> 6. Replace the Skills Section</h4>
+        <ul>
+          <li>Delete the matcha metaphor</li>
+          <li>Create a visual matrix of competencies, industries, and methodologies</li>
+          <li>Show depth, not cleverness</li>
+        </ul>
+        <p><strong>Impact:</strong> Proves you have real skills, not just a cute aesthetic.</p>
+      </div>
+
+      <h3>🟡 Medium Priority (Do These After)</h3>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-medium">Medium</span> 7. Improve Imagery Consistency</h4>
+        <p>Audit every image for quality and cohesion. Replace weak/confusing imagery. Ensure each image supports your strategic narrative.</p>
+        <p><strong>Impact:</strong> Signals attention to detail.</p>
+      </div>
+
+      <div class="roadmap-item">
+        <h4><span class="priority-medium">Medium</span> 8. Address Layout & Responsive Bugs</h4>
+        <p>Fix the heading clipping issues. Test on tablet viewports. Ensure pixel-perfect rendering.</p>
+        <p><strong>Impact:</strong> Removes doubt about craft.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Final Verdict</h2>
+
+      <div class="summary-box">
+        <h3>What This Portfolio Says</h3>
+        <p><strong>Visually:</strong> "I have excellent taste, strong design systems thinking, and a distinctive point of view."</p>
+        <p><strong>Strategically:</strong> "I'm still figuring out my voice and my impact. I'm talented but unproven at senior level."</p>
+        <p><strong>Culturally:</strong> "I'm playful and thoughtful—but am I ready to lead?"</p>
+      </div>
+
+      <div class="verdict">
+        <h3>What It Should Say</h3>
+        <p><strong>Visually:</strong> ✓ (You nailed this)</p>
+        <p><strong>Strategically:</strong> "I've delivered campaigns that moved business metrics and built brand love. Here's how I think. Here's the impact."</p>
+        <p><strong>Culturally:</strong> "I'm dangerous. I understand culture AND strategy AND business. I can lead teams. Here's proof."</p>
+      </div>
+
+      <h3>The Gap</h3>
+      <p>Your portfolio excels at <em>craft and taste.</em> It fails at <em>credibility and proof.</em></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>For a junior designer</td>
+            <td><strong>8.5/10</strong></td>
+          </tr>
+          <tr>
+            <td>For a mid-level designer</td>
+            <td><strong>7.0/10</strong></td>
+          </tr>
+          <tr>
+            <td>For a senior strategist</td>
+            <td><strong>5.5/10</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Can You Fix It?</h3>
+      <p><strong>Absolutely.</strong> You have the raw ingredients:</p>
+      <ul>
+        <li>Strong visual systems ✓</li>
+        <li>Real client work ✓</li>
+        <li>Cultural fluency ✓</li>
+        <li>Technical skill ✓</li>
+      </ul>
+
+      <p>You're missing:</p>
+      <ul>
+        <li>Strategic depth</li>
+        <li>Business metrics</li>
+        <li>Authoritative positioning</li>
+        <li>Clear methodology</li>
+      </ul>
+
+      <p><strong>Expand your case studies. Add numbers. Reposition yourself. In 6 weeks, you could have a 9.0/10 portfolio for senior strategist roles.</strong></p>
+    </section>
+
+    <section class="section">
+      <h2>Closing Thoughts</h2>
+
+      <p>You've built something genuinely distinctive. That's rare and valuable. Most portfolios are forgettable—yours isn't.</p>
+
+      <p>But distinctiveness without depth doesn't get you senior roles at top agencies. You need both: <em>taste</em> (you have it) + <em>proof</em> (you need it).</p>
+
+      <p>The good news: You're 80% of the way there. The case studies and strategy positioning are lift-able. You can be a 9.0/10 in 6 weeks.</p>
+
+      <p><strong>The question is: Do you want to be a senior strategist, or a designer?</strong> Because right now this portfolio says "designer who thinks about strategy." To apply to Droga5, it needs to say "strategist who understands design."</p>
+
+      <p>Pick the path. Then retrofit the portfolio accordingly.</p>
+
+      <p><strong>You're close. Now go deep.</strong></p>
+    </section>
+
+    <div class="footer">
+      <p>Review conducted by award-winning design director<br>Frame of reference: Strategic hire standards at Special, R/GA, AKQA, Wieden+Kennedy, Droga5, Instrument, Fantasy<br>Assessment date: 2026</p>
+    </div>
+
+  </main>
+</body>
+</html>
