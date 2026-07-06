@@ -95,7 +95,7 @@ export const caseStudies = [
       ],
       title: 'Australian *Fashion Week*',
       description:
-        'A front-row presence built in polished purple and runway black, turning five days of shows into a shareable, always-on content moment.',
+        'A front-row presence built in real-time coverage and runway black, turning five days of shows into a shareable, always-on content moment.',
       tags: ['Event strategy', 'Live content', 'Talent & PR'],
       imageLabel: 'Australian Fashion Week, hero campaign shot',
       imageSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
@@ -112,7 +112,7 @@ export const caseStudies = [
         ['Industry', 'Fashion'],
         ['Role', 'Event & content strategy'],
       ],
-      heroLabel: 'AFW, polished purple, runway black, front-row moment',
+      heroLabel: 'AFW, real-time coverage, runway black, front-row moment',
       heroSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
       insight:
         "Fashion week is five days of noise. Presence isn't a seat in the room, it's *owning the feed* the room is looking at.",
@@ -154,7 +154,7 @@ export const caseStudies = [
         { hex: '#17141a', bordered: false },
       ],
       title: 'Vodka Cruiser × Brat Summer',
-      description: 'Riding an acid-chartreuse cultural wave in real time.',
+      description: 'Riding a brat-summer cultural wave in real time.',
       imageLabel: 'Vodka Cruiser × Brat Summer, campaign visual',
       imageSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
     },
@@ -170,7 +170,7 @@ export const caseStudies = [
         ['Angle', 'Cultural moment'],
         ['Role', 'Reactive strategy'],
       ],
-      heroLabel: 'Cruiser × Brat, acid-chartreuse hero',
+      heroLabel: 'Cruiser × Brat, brat-summer hero',
       heroSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
       insight:
         "Brat summer already owned a colour. A brand doesn't join a cultural wave by explaining it, it joins by *moving at its speed*.",
