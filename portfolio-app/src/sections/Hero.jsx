@@ -3,7 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
 import ZineLetters from '../components/ZineLetters';
-import { SparkleDoodle, HeartDoodle, PencilDoodle, ArrowDoodle, TapeDoodle } from '../components/Doodles';
+import { SparkleDoodle, PencilDoodle, ArrowDoodle, TapeDoodle } from '../components/Doodles';
 import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
@@ -131,7 +131,6 @@ export default function Hero({ onNavigate }) {
       <div className="hero__foot">
         <p className="hero__tagline">
           I make brands worth talking about, campaigns built on cultural insight, engineered to earn their reach.
-          <HeartDoodle className="hero__tagline-heart" size={15} />
         </p>
         <a
           href="#work"

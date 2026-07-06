@@ -58,7 +58,7 @@
 
 .about__zine-caption {
   margin: 12px 0 20px;
-  font-family: var(--font-decorative);
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.7;
   opacity: 0.8;
@@ -76,7 +76,7 @@
 }
 
 .about__statement em {
-  font-family: var(--font-display);
+  font-family: var(--font-decorative);
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -176,8 +176,8 @@
 }
 
 .about__step-num {
-  font-family: var(--font-decorative);
-  font-style: italic;
+  font-family: var(--font-body);
+  font-style: normal;
   font-size: 22px;
   color: var(--accent);
 }

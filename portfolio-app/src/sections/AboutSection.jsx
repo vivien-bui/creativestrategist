@@ -1,12 +1,12 @@
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Rich from '../components/Rich';
-import { HeartDoodle, CoffeeDoodle, MusicNoteDoodle, PinDoodle, TapeDoodle, CompassDoodle } from '../components/Doodles';
+import { HeartDoodle, CoffeeDoodle, MusicNoteDoodle, PinDoodle, TapeDoodle } from '../components/Doodles';
 import './AboutSection.css';
 
 const STEPS = [
-  { num: '01 · Find', copy: 'the cultural tension a brand can credibly own.' },
-  { num: '02 · Build', copy: 'the moment - product, stunt or story - that dramatises it.' },
-  { num: '03 · Earn', copy: 'the reach, engineer it to be shared  and talked about.' },
+  { num: '01 Find', copy: 'the cultural tension a brand can credibly own.' },
+  { num: '02 Build', copy: 'the moment - product, stunt or story - that dramatises it.' },
+  { num: '03 Earn', copy: 'the reach, engineer it to be shared  and talked about.' },
 ];
 
 export default function AboutSection() {
@@ -14,7 +14,7 @@ export default function AboutSection() {
     <section id="about" data-screen-label="About" className="about">
       <div className="about__intro" data-r="split-about">
         <div className="about__intro-left">
-          <span className="about__eyebrow"><CompassDoodle size={14} className="about__eyebrow-doodle" /> About</span>
+          <span className="about__eyebrow">About</span>
           <div className="about__zine-note" aria-hidden="true">
             <span className="about__zine-paren"><PinDoodle size={11} /> ( photo, below )</span>
             <p className="about__zine-caption">
@@ -62,7 +62,7 @@ export default function AboutSection() {
             book all at once, or taking way too many photos of a building that's caught my eye.&nbsp;
           </p>
           <div className="about__diary-aside" aria-hidden="true">
-            <CoffeeDoodle size={14} /> <span>currently on my 3rd oat latte today</span>
+            <CoffeeDoodle size={14} /> <span>currently on my second soy cappuccino</span>
             <MusicNoteDoodle size={14} /> <span>& listening to frank ocean on repeat</span>
           </div>
           <div className="about__steps" data-r="about-steps">

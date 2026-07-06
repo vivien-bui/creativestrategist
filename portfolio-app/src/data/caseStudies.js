@@ -84,13 +84,13 @@ export const caseStudies = [
     id: 'cs-afw-detail',
     order: 2,
     theme: 'dark',
-    accent: '#9b6ff0',
+    accent: '#c41e3a',
     workCard: {
       variant: 'featured-b', // text left, image right
       index: '02',
       tag: 'FASHION · 2026',
       dots: [
-        { hex: '#6a3fa0', bordered: false },
+        { hex: '#c41e3a', bordered: false },
         { hex: '#17141a', bordered: false },
       ],
       title: 'Australian *Fashion Week*',
@@ -102,7 +102,7 @@ export const caseStudies = [
     },
     detail: {
       dots: [
-        { hex: '#9b6ff0', bordered: false },
+        { hex: '#c41e3a', bordered: false },
         { hex: '#f3efe6', bordered: false },
       ],
       title: 'Front *row*, always on.',
@@ -123,7 +123,7 @@ export const caseStudies = [
       ],
       idea: [
         'Make Shark Beauty a cultural centerpiece at Australia Fashion Week .',
-        'A live content team turned each runway into same-day social, with talent and PR briefed to a shared narrative.\n\nInfluencers, behind-the-scenes moments, on-the-ground vox pops, and giveaways all worked together to capture the energy exactly as it happened.',
+        'A live content team turned each runway into same-day social, with talent and PR briefed to a shared narrative. Influencers, behind-the-scenes moments, on-the-ground vox pops, and giveaways all worked together to capture the energy exactly as it happened.',
       ],
       evolution: [
         'Influencer network mobilised across every show',
