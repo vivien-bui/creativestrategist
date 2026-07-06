@@ -1,15 +1,15 @@
 .about {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: 0 48px 120px;
+  padding: 0 var(--space-xl) var(--space-4xl);
 }
 
 .about__intro {
   border-top: 1px solid var(--ink-15);
-  padding-top: 28px;
+  padding-top: var(--space-lg);
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 40px;
+  gap: var(--space-xl);
 }
 
 .about__intro-left {
@@ -22,11 +22,11 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: lowercase;
-  opacity: 0.55;
+  opacity: var(--op-soft);
 }
 
 .about__eyebrow-doodle {
@@ -59,9 +59,9 @@
 .about__zine-caption {
   margin: 12px 0 20px;
   font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.7;
-  opacity: 0.8;
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  opacity: var(--op-strong);
 }
 
 /* Zine statement: heavy lowercase grotesque; the *emphasis* span keeps the
@@ -84,8 +84,8 @@
 .about__body {
   display: grid;
   grid-template-columns: 360px 1fr;
-  gap: 56px;
-  margin-top: 64px;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
   align-items: start;
 }
 
@@ -122,15 +122,15 @@
 }
 
 .about__bio {
-  margin: 0 0 18px;
-  font-size: 17px;
-  line-height: 1.75;
-  opacity: 0.85;
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  opacity: var(--op-strong);
   max-width: 620px;
 }
 
 .about__bio--last {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-sm);
 }
 
 .about__diary-aside {
@@ -170,9 +170,9 @@
 .about__steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: var(--space-md);
   border-top: 1px solid var(--ink-15);
-  padding-top: 24px;
+  padding-top: var(--space-md);
 }
 
 .about__step-num {
@@ -184,9 +184,9 @@
 
 .about__step-copy {
   margin: 8px 0 0;
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.75;
+  font-size: var(--text-sm);
+  line-height: var(--leading-compact);
+  opacity: var(--op-mid);
 }
 
 @media (max-width: 767px) {

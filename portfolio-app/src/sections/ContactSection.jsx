@@ -1,8 +1,8 @@
 import AmbientBackdrop from '../components/AmbientBackdrop';
-import { SparkleDoodle, HeartDoodle, PencilDoodle, StarDoodle } from '../components/Doodles';
+import { HeartDoodle, StarDoodle } from '../components/Doodles';
 import './ContactSection.css';
 
-const CONTACT_EMAIL = 'phuongvivien@gmail.com';
+const CONTACT_EMAIL = 'vivienbui98@gmail.com';
 
 export default function ContactSection({ onNavigate }) {
   return (
@@ -12,7 +12,7 @@ export default function ContactSection({ onNavigate }) {
         <div className="contact__grid">
           <div className="contact__primary">
             <p className="contact__eyebrow">
-              <SparkleDoodle className="contact__eyebrow-mark" size={16} /> Currently taking agency contracts
+              <span className="contact__status-dot" aria-hidden="true" /> Currently taking agency contracts
             </p>
             <h2 className="contact__heading">
               Let's make something people want to{' '}
@@ -24,9 +24,6 @@ export default function ContactSection({ onNavigate }) {
           </div>
 
           <div className="contact__details">
-            <div className="contact__diary-note" aria-hidden="true">
-              <PencilDoodle size={13} /> <span>leave a note in my diary?</span>
-            </div>
             <div className="contact__ledger">
               <div className="contact__row">
                 <span className="contact__row-label">Email</span>
@@ -40,12 +37,14 @@ export default function ContactSection({ onNavigate }) {
               </div>
               <div className="contact__row">
                 <span className="contact__row-label">Availability</span>
-                <span>Agency contracts · open now</span>
+                <span className="contact__availability">
+                  <span className="contact__status-dot" aria-hidden="true" />
+                  Agency contracts · open now
+                </span>
               </div>
               <div className="contact__row contact__row--last">
                 <span className="contact__row-label">Elsewhere</span>
                 <span className="contact__social">
-                  <a href="#" className="contact__row-link">Instagram</a>
                   <a href="#" className="contact__row-link">LinkedIn</a>
                 </span>
               </div>

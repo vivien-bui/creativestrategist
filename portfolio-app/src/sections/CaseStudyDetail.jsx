@@ -5,9 +5,13 @@ import Rich from '../components/Rich';
 import StatBand from '../components/StatBand';
 import AwardCallout from '../components/AwardCallout';
 import AmbientBackdrop from '../components/AmbientBackdrop';
+import FrostOverlay from '../components/FrostOverlay';
 import { SparkleDoodle, BookmarkDoodle, PinDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
+
+// Small rewards for the slow-scrolling visitor — a per-image cursor aside.
+const IMAGE_NOTES = ['behind the scenes', 'my favourite shot'];
 
 function Row({ label, accent, first, children }) {
   return (
@@ -52,6 +56,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
       style={{ '--study-accent': accent }}
     >
       <AmbientBackdrop variant="detail" theme={theme} accent={accent} />
+      {study.id === 'cs-cryoglow-detail' && <FrostOverlay />}
       <div className="detail__inner">
         <a
           href="#work"
@@ -88,8 +93,13 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           </div>
         </div>
 
-        <div ref={heroRef} className="detail__hero-img" data-r="detail-hero-img" data-reveal>
-          <ImagePlaceholder label={detail.heroLabel} radius={16} dark={theme !== 'light'} src={detail.heroSrc} />
+        <div
+          ref={heroRef}
+          className="detail__hero-img"
+          data-r="detail-hero-img"
+          data-cursor-note="the hero shot"
+        >
+          <ImagePlaceholder label={detail.heroLabel} radius={20} dark={theme !== 'light'} src={detail.heroSrc} />
         </div>
 
         {detail.award && <AwardCallout text={detail.award} />}
@@ -135,8 +145,13 @@ export default function CaseStudyDetail({ study, onNavigate }) {
         )}
 
         <div className="detail__images" data-r="split-images" data-reveal>
-          {detail.images.map((img) => (
-            <div key={img.id} className="detail__duo-img" data-r="duo-img">
+          {detail.images.map((img, i) => (
+            <div
+              key={img.id}
+              className="detail__duo-img"
+              data-r="duo-img"
+              data-cursor-note={IMAGE_NOTES[i] || 'a closer look'}
+            >
               <ImagePlaceholder label={img.label} radius={12} dark={theme !== 'light'} src={img.src} />
             </div>
           ))}

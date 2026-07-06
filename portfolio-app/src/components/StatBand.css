@@ -1,11 +1,11 @@
 .stat-band {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 28px;
-  margin-top: 48px;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
   border-top: 1px solid var(--detail-border-16);
   border-bottom: 1px solid var(--detail-border-16);
-  padding: 36px 0;
+  padding: var(--space-lg) 0;
 }
 
 .stat-band__item {
@@ -25,10 +25,10 @@
 
 .stat-band__label {
   font-family: var(--font-decorative);
-  font-size: 13px;
+  font-size: var(--text-sm);
   letter-spacing: 0.02em;
   text-transform: lowercase;
-  opacity: 0.6;
+  opacity: var(--op-soft);
   margin-top: 6px;
 }
 

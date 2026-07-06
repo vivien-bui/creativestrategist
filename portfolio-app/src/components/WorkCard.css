@@ -1,8 +1,8 @@
 .tag-pill {
   font-family: var(--font-body);
-  font-size: 12.5px;
+  font-size: var(--text-xs);
   border: 1px solid var(--ink-18);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 6px 14px;
 }
 
@@ -14,9 +14,9 @@
   gap: 0;
   background: var(--paper);
   border: 1px solid var(--ink-10);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 28px;
+  margin-bottom: var(--space-md);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -105,9 +105,9 @@
 .work-featured__desc {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 15.5px;
-  line-height: 1.6;
-  opacity: 0.75;
+  font-size: var(--text-base);
+  line-height: var(--leading-compact);
+  opacity: var(--op-mid);
 }
 
 .work-featured__tags {
@@ -125,7 +125,7 @@
   color: var(--ink);
   background: var(--paper);
   border: 1px solid var(--ink-10);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -175,9 +175,9 @@
 .work-grid-card__desc {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.7;
+  font-size: var(--text-base);
+  line-height: var(--leading-compact);
+  opacity: var(--op-mid);
 }
 
 @media (max-width: 767px) {

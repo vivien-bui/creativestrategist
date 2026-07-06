@@ -1,0 +1,164 @@
+/* CryoGlow frost layer — fixed over the page content (z 40), under the nav
+   (50) and grain (60), never catching pointer events. Four stacked layers:
+   an icy edge vignette, a frosted-glass grain rimming the window, a cold
+   light sweep, and drifting ice crystals. */
+.frost {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Ice creeping in from every edge — cool blue-white at the top-left /
+   bottom-right, the CryoGlow blue-violet at the other two, plus a bright
+   rime along the top and bottom. Breathes slowly, as if still forming. */
+.frost__edge {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(135% 100% at 0% 0%, rgba(214, 232, 248, 0.72), transparent 46%),
+    radial-gradient(135% 100% at 100% 0%, rgba(142, 124, 240, 0.34), transparent 48%),
+    radial-gradient(135% 100% at 0% 100%, rgba(142, 124, 240, 0.3), transparent 48%),
+    radial-gradient(135% 100% at 100% 100%, rgba(214, 232, 248, 0.66), transparent 46%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      transparent 16%,
+      transparent 84%,
+      rgba(233, 242, 252, 0.44) 100%
+    );
+  animation: frost-breathe 7.5s ease-in-out infinite;
+}
+
+@keyframes frost-breathe {
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+}
+
+/* Frosted-glass crystalline grain, masked so it only rimes the edges like a
+   frozen window — the centre stays clear so the case study is still readable.
+   Two blend layers give it a cold, etched sparkle. */
+.frost__glass {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  -webkit-mask: radial-gradient(125% 105% at 50% 50%, transparent 38%, #000 96%);
+  mask: radial-gradient(125% 105% at 50% 50%, transparent 38%, #000 96%);
+  animation: frost-crystallize 11s ease-in-out infinite;
+}
+
+@keyframes frost-crystallize {
+  0%,
+  100% {
+    opacity: 0.4;
+    background-position: 0 0;
+  }
+  50% {
+    opacity: 0.62;
+    background-position: 12px -8px;
+  }
+}
+
+/* A slow band of cold light glancing across the ice. */
+.frost__shimmer {
+  position: absolute;
+  inset: -40% -20%;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(232, 242, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0.28) 52%,
+    transparent 60%
+  );
+  transform: translateX(-75%);
+  animation: frost-sweep 9s ease-in-out infinite;
+}
+
+@keyframes frost-sweep {
+  0% {
+    transform: translateX(-80%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(80%);
+    opacity: 0;
+  }
+}
+
+/* Drifting ice crystals. */
+.frost__crystals {
+  position: absolute;
+  inset: 0;
+}
+
+.frost__crystal {
+  position: absolute;
+  top: 0;
+  left: var(--fx-left);
+  width: var(--fx-size);
+  height: auto;
+  color: rgba(224, 236, 250, 0.92);
+  filter: drop-shadow(0 0 5px rgba(142, 124, 240, 0.55));
+  opacity: 0;
+  transform: translate3d(0, -12vh, 0);
+  animation: frost-fall var(--fx-dur) linear var(--fx-delay) infinite,
+    frost-twinkle calc(var(--fx-dur) / 6) ease-in-out var(--fx-delay) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes frost-fall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(var(--fx-sway), 118vh, 0) rotate(360deg);
+  }
+}
+
+@keyframes frost-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Reduced motion / static fallback: keep the frozen-window feel, drop all
+   the movement. */
+.frost--static .frost__edge {
+  animation: none;
+  opacity: 1;
+}
+
+.frost--static .frost__glass {
+  animation: none;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frost__edge,
+  .frost__glass,
+  .frost__shimmer,
+  .frost__crystal {
+    animation: none !important;
+  }
+}
