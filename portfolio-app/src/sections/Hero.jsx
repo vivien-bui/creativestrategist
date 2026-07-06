@@ -3,7 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
 import ZineLetters from '../components/ZineLetters';
-import { SparkleDoodle, HeartDoodle, PencilDoodle, ArrowDoodle, TapeDoodle } from '../components/Doodles';
+import { SparkleDoodle, PencilDoodle, ArrowDoodle, TapeDoodle } from '../components/Doodles';
 import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
