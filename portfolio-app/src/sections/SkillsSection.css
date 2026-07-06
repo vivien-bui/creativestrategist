@@ -1,16 +1,16 @@
 .skills {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: 0 48px 120px;
+  padding: 0 var(--space-xl) var(--space-4xl);
 }
 
 .skills__header {
   border-top: 1px solid var(--ink-15);
-  padding-top: 28px;
+  padding-top: var(--space-lg);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 48px;
+  margin-bottom: var(--space-xl);
 }
 
 .skills__heading {
@@ -26,11 +26,11 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: lowercase;
-  opacity: 0.55;
+  opacity: var(--op-soft);
 }
 
 .skills__eyebrow-doodle {
@@ -41,7 +41,7 @@
 .skills__layout {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
-  gap: 48px;
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -100,14 +100,19 @@
   color: var(--thermal-ink);
   -webkit-mask: var(--torn-mask) center / 100% 100% no-repeat;
   mask: var(--torn-mask) center / 100% 100% no-repeat;
-  filter: drop-shadow(0 22px 34px rgba(38, 31, 43, 0.18))
-    drop-shadow(0 3px 6px rgba(38, 31, 43, 0.12));
+  /* Pronounced, layered cast shadow — a deep ambient throw, a mid lift and
+     a tight contact line — so the torn paper reads as physically raised off
+     the cream page. drop-shadow (not box-shadow) hugs the torn silhouette. */
+  filter: drop-shadow(0 34px 52px rgba(38, 31, 43, 0.32))
+    drop-shadow(0 12px 22px rgba(38, 31, 43, 0.22))
+    drop-shadow(0 2px 4px rgba(38, 31, 43, 0.18));
   transition: filter 0.6s ease;
 }
 
 .receipt:hover {
-  filter: drop-shadow(0 30px 46px rgba(38, 31, 43, 0.24))
-    drop-shadow(0 4px 8px rgba(38, 31, 43, 0.14));
+  filter: drop-shadow(0 44px 66px rgba(38, 31, 43, 0.4))
+    drop-shadow(0 16px 28px rgba(38, 31, 43, 0.26))
+    drop-shadow(0 2px 5px rgba(38, 31, 43, 0.2));
 }
 
 .receipt__head {
@@ -167,9 +172,10 @@
 .receipt__lines {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-xs);
   font-family: var(--receipt-mono);
-  font-size: 13px;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
   letter-spacing: 0.01em;
 }
 

@@ -2,8 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import Nav from './components/Nav';
 import GrainOverlay from './components/GrainOverlay';
-import DiaryLoader from './components/DiaryLoader';
-import ZineTicker from './components/ZineTicker';
+import ZineIntro from './components/ZineIntro';
 import CursorNote from './components/CursorNote';
 import SpreadIndicator from './components/SpreadIndicator';
 import Hero from './sections/Hero';
@@ -16,8 +15,6 @@ import { detailViewIds, getCaseStudy } from './data/caseStudies';
 import useReducedMotion from './hooks/useReducedMotion';
 import useScrollReveal from './hooks/useScrollReveal';
 import './App.css';
-
-const SPLASH_SEEN_KEY = 'diary-splash-seen';
 
 function initialView() {
   const hash = window.location.hash.slice(1);
@@ -41,17 +38,6 @@ export default function App() {
   const [view, setView] = useState(initialView);
   const savedScroll = useRef(0);
   const reduced = useReducedMotion();
-
-  const [showSplash, setShowSplash] = useState(
-    () => typeof window !== 'undefined' && !sessionStorage.getItem(SPLASH_SEEN_KEY)
-  );
-  const [splashLeaving, setSplashLeaving] = useState(false);
-
-  const dismissSplash = useCallback(() => {
-    setSplashLeaving(true);
-    sessionStorage.setItem(SPLASH_SEEN_KEY, '1');
-    setTimeout(() => setShowSplash(false), 500);
-  }, []);
 
   useScrollReveal([view]);
 
@@ -133,11 +119,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      {showSplash && (
-        <div className={`app-splash${splashLeaving ? ' app-splash--leaving' : ''}`}>
-          <DiaryLoader onComplete={dismissSplash} showReplay={false} />
-        </div>
-      )}
+      <ZineIntro />
       <GrainOverlay />
       <CursorNote />
       <SpreadIndicator view={view} />
@@ -148,7 +130,6 @@ export default function App() {
       {view === 'home' && (
         <>
           <Hero onNavigate={handleNavigate} />
-          <ZineTicker />
           <WorkSection onNavigate={handleNavigate} />
           <AboutSection />
           <SkillsSection />

@@ -16,8 +16,11 @@
   --ink-18: rgba(43, 36, 48, 0.18);
 
   --accent: #8b9486; /* sage */
+  --accent-strong: #6f7a68; /* deeper sage, for highlights over imagery */
   --hero-creative-color: #2b2430;
-  --hero-strategist-color: #8b9486;
+  /* "strategist" now matches "creative" ink — the sage moves to the
+     highlight behind both words instead of the letterforms. */
+  --hero-strategist-color: var(--hero-creative-color);
 
   --dark-bg: #17141a;
   --dark-text: #f3efe6;
@@ -33,6 +36,54 @@
 
   --container-wide: 1280px;
   --container-narrow: 1160px;
+
+  /* ============================================================
+     Disciplined scales — one source of truth so a trained eye
+     reads the whole site as a single system. Every spacing, size,
+     opacity and radius below should resolve to one of these.
+     ============================================================ */
+
+  /* Spacing — 8px base, ~1.4–1.5 ratio, 10 steps. */
+  --space-3xs: 4px;
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 120px;
+
+  /* Type — 7 fixed steps for UI/body; big headings use fluid clamp()
+     (a separate "display" tier layered on top of this scale). */
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 21px;
+  --text-xl: 26px;
+
+  /* Line-height — two body tiers + heading tiers. */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-compact: 1.6;
+  --leading-body: 1.7;
+
+  /* Opacity — 4-step text-emphasis scale. */
+  --op-faint: 0.4;
+  --op-soft: 0.55;
+  --op-mid: 0.7;
+  --op-strong: 0.85;
+
+  /* Border-radius — one consistent family. */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 }
 
 * {

@@ -3,7 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
 import ZineLetters from '../components/ZineLetters';
-import { SparkleDoodle, PencilDoodle, ArrowDoodle, TapeDoodle } from '../components/Doodles';
+import { SparkleDoodle, PencilDoodle, TapeDoodle } from '../components/Doodles';
 import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
@@ -123,14 +123,9 @@ export default function Hero({ onNavigate }) {
         </h1>
       </div>
 
-      <div className="hero__margin-note hero__margin-note--right" aria-hidden="true">
-        <ArrowDoodle size={16} className="hero__margin-doodle" />
-        <span className="hero__margin-text">scroll down, trust me</span>
-      </div>
-
       <div className="hero__foot">
         <p className="hero__tagline">
-          I make brands worth talking about, campaigns built on cultural insight, engineered to earn their reach.
+          I make brands <em>worth talking about</em>, campaigns built on cultural insight, engineered to <em>earn their reach</em>.
         </p>
         <a
           href="#work"

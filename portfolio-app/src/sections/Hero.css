@@ -2,7 +2,7 @@
   position: relative;
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: 72px 48px 120px;
+  padding: var(--space-2xl) var(--space-xl) var(--space-4xl);
   min-height: 78vh;
 }
 
@@ -26,11 +26,11 @@
 
 .hero__eyebrow p {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: lowercase;
-  opacity: 0.6;
+  opacity: var(--op-soft);
 }
 
 .hero__eyebrow p::before {
@@ -72,6 +72,64 @@
   color: var(--hero-strategist-color);
 }
 
+/* Sage highlight behind both hero words — a hand-drawn marker swipe that
+   sits on top of the hero image wherever the type overlaps it, but behind
+   the letterforms. It lives inside the word's stacking context (z-index 3),
+   so it rides the same parallax drift as the type. Scoped to the hero so
+   other ZineLetters headings are untouched. The inline-block shrinks the
+   run to the glyph width, keeping the highlight tight to the word (and
+   still right-aligned for "strategist"). */
+.hero__word .zine-letters {
+  position: relative;
+  display: inline-block;
+}
+
+.hero__word .zine-letters::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -0.16em;
+  right: -0.16em;
+  top: 0.2em;
+  bottom: 0.14em;
+  background: var(--accent);
+  opacity: 0.42;
+  border-radius: var(--radius-md);
+  transform-origin: center;
+  animation: hero-highlight-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero__word--creative .zine-letters::before {
+  transform: rotate(-1.4deg);
+  animation-delay: 0.15s;
+}
+
+.hero__word--strategist .zine-letters::before {
+  transform: rotate(1deg);
+  animation-delay: 0.35s;
+}
+
+/* Grows in from the baseline like a swipe of highlighter, so it arrives
+   with the paste-up type rather than sitting there pre-drawn. */
+@keyframes hero-highlight-in {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 0.42;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__word .zine-letters::before {
+    animation: none;
+    opacity: 0.42;
+    clip-path: none;
+  }
+}
+
 .hero__photo-row {
   position: relative;
   display: flex;
@@ -94,17 +152,25 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 56px;
-  gap: 40px;
+  margin-top: var(--space-xl);
+  gap: var(--space-xl);
 }
 
 .hero__tagline {
   margin: 0;
-  max-width: 420px;
+  max-width: 540px;
   font-family: var(--font-decorative);
-  font-size: 21px;
-  line-height: 1.5;
-  opacity: 0.8;
+  font-size: clamp(24px, 2.7vw, 33px);
+  line-height: 1.4;
+  color: var(--ink);
+  opacity: 0.95;
+}
+
+/* Lift the emphasis onto the verbs so the line carries more weight while
+   staying the same handwritten Mynerve voice. */
+.hero__tagline em {
+  color: var(--accent-strong);
+  font-style: normal;
 }
 
 .hero__cta {
@@ -152,13 +218,6 @@
   top: 45%;
   transform: rotate(-6deg);
   animation-delay: -1s;
-}
-
-.hero__margin-note--right {
-  right: 20px;
-  bottom: 28%;
-  transform: rotate(3deg);
-  animation-delay: -3s;
 }
 
 .hero__margin-doodle {

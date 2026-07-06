@@ -6,14 +6,18 @@ import { StampDoodle, HeartDoodle, CoffeeDoodle, LightningDoodle } from '../comp
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
+// Coffee-order framing over Vivien's real VaynerMedia skillset (insight-led
+// strategy, creative concepting, cultural/trend analysis, pitch decks,
+// social-first, creator partnerships, earned media, GWI/Canvas8/Sprinklr).
 const RECEIPT_LINES = [
-  'Venti brand strategy',
-  'Double shot of cultural insight',
-  'Earned media & PR froth',
-  'Social & influencer syrup',
-  'Copywriting, whole-milk smooth',
-  'Figma · Canva · Adobe blend',
-  'Topped with collaborative foam',
+  'Venti insight-led strategy',
+  'Double shot of cultural tension',
+  'Creative concepting & briefing',
+  'Earned media & PR, extra froth',
+  'Creator partnerships, oat-milk smooth',
+  'Pitch decks, brewed to win',
+  'Social-first blend, platform-native',
+  'GWI · Canvas8 · Sprinklr, ground fresh',
 ];
 
 // Printed on the receipt like a real till timestamp (DD.MM.YY · HH:MM).

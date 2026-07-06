@@ -1,7 +1,7 @@
 .work {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: 40px 48px 120px;
+  padding: var(--space-xl) var(--space-xl) var(--space-4xl);
 }
 
 .work__header {
@@ -9,8 +9,8 @@
   align-items: baseline;
   justify-content: space-between;
   border-top: 1px solid var(--ink-15);
-  padding-top: 28px;
-  margin-bottom: 48px;
+  padding-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .work__heading {
@@ -26,27 +26,15 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
-  opacity: 0.55;
+  opacity: var(--op-soft);
 }
 
 .work__count-doodle {
   color: var(--accent);
   opacity: 0.7;
-}
-
-.work__diary-note {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin: -36px 0 36px;
-  font-family: var(--font-decorative);
-  font-size: 13px;
-  color: var(--accent);
-  opacity: 0.5;
-  transform: rotate(-1deg);
 }
 
 .work__mobile-hint {
@@ -60,7 +48,7 @@
 .work__grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: var(--space-md);
 }
 
 @media (max-width: 767px) {
@@ -76,11 +64,6 @@
   }
   .work__count-doodle {
     display: none;
-  }
-  .work__diary-note {
-    margin: 6px 0 18px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
   .work__mobile-hint {
     display: flex;
