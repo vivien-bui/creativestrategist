@@ -1,4 +1,4 @@
-// Single source of truth for the 5 case studies — the Selected Work cards
+// Single source of truth for the 5 case studies: the Selected Work cards
 // and each case-study detail page both read from here.
 
 export const caseStudies = [
@@ -19,7 +19,7 @@ export const caseStudies = [
       badge: 'Latest',
       title: 'SharkBeauty *CryoGlow*',
       description:
-        'Repositioning cold-tech skincare from clinical to covetable — a creator-first launch strategy that tripled the week-one sales target in AU + NZ.',
+        'Repositioning cold-tech skincare from clinical to covetable: a creator-first launch strategy that tripled the week-one sales target in AU + NZ.',
       tags: ['Launch strategy', 'Creator seeding', 'Content system'],
       imageLabel: 'SharkBeauty CryoGlow, hero campaign shot',
       imageSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
@@ -41,9 +41,9 @@ export const caseStudies = [
       heroLabel: 'CryoGlow device, soft neutrals, blush, blue-violet LED glow',
       heroSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
       brief:
-        "SharkBeauty was entering a sceptical market. At-home beauty-tech devices promise clinical results, but the category aesthetic — blue LEDs, sterile packaging, lab-coat language — felt cold and uninviting. The brief: launch CryoGlow in AU + NZ with a target of 300 week-one units, and make a cold-tech device feel warm enough to *want*.",
+        "SharkBeauty was entering a sceptical market. At-home beauty-tech devices promise clinical results, but the category aesthetic (blue LEDs, sterile packaging, lab-coat language) felt cold and uninviting. The brief: launch CryoGlow in AU + NZ with a target of 300 week-one units, and make a cold-tech device feel warm enough to *want*.",
       insight:
-        "The barrier wasn't scepticism about the science — it was *desire*. Women believed the tech could work, but cold-tech aesthetics felt more lab coat than vanity. CryoGlow needed to prove efficacy without sacrificing covetability.",
+        "The barrier wasn't scepticism about the science, it was *desire*. Women believed the tech could work, but cold-tech aesthetics felt more lab coat than vanity. CryoGlow needed to prove efficacy without sacrificing covetability.",
       stats: [
         { value: 12.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
         { value: 18.8, suffix: '×', decimals: 1, label: 'Creative ROI' },
@@ -51,11 +51,11 @@ export const caseStudies = [
         { value: 100, suffix: '+', label: 'Pieces of social content' },
       ],
       idea: [
-        "Position CryoGlow at the intersection of clinic and vanity — not a medical device, not another beauty gadget, but a skincare *ritual* she'd leave out on the shelf. One high-trust creator partnership over broad seeding, because in beauty-tech, credibility compounds faster than reach.",
-        "Chloe Morello's real routine carried the proof. A bespoke content series — 'Light Therapy' — made every post unmistakably CryoGlow, feeding the algorithm for weeks without losing brand signature.",
+        "Position CryoGlow at the intersection of clinic and vanity: not a medical device, not another beauty gadget, but a skincare *ritual* she'd leave out on the shelf. One high-trust creator partnership over broad seeding, because in beauty-tech, credibility compounds faster than reach.",
+        "Chloe Morello's real routine carried the proof. A bespoke content series, 'Light Therapy', made every post unmistakably CryoGlow, feeding the algorithm for weeks without losing brand signature.",
       ],
       approach: [
-        "Single anchor creator over scatter-gun seeding — compounding trust in a low-trust category",
+        "Single anchor creator over scatter-gun seeding, compounding trust in a low-trust category",
         "Bespoke 'Light Therapy' series reframed clinical device demos as watchable, aspirational ritual content",
         "Modular content system: 100+ assets from one visual framework, each owning the feed without a logo lockup",
         "Layered micro-influencer and event seeding for trial conversion once awareness landed",
@@ -90,7 +90,7 @@ export const caseStudies = [
       ],
       title: 'Australian *Fashion Week*',
       description:
-        'Turning a beauty brand into a fashion week content engine — five days of real-time editorial that owned the feed, not just the front row.',
+        'Turning cultural weight into brand awareness: five days of real-time editorial that owned the feed, not just the front row.',
       tags: ['Event strategy', 'Live content', 'Talent & PR'],
       imageLabel: 'Australian Fashion Week, hero campaign shot',
       imageSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
@@ -110,17 +110,17 @@ export const caseStudies = [
       heroLabel: 'AFW, real-time coverage, runway black, front-row moment',
       heroSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
       brief:
-        "SharkBeauty needed to show up at Australian Fashion Week — not as a beauty brand buying a sponsorship, but as a cultural presence that *belonged* in the conversation. The brief: make a skincare brand relevant in a fashion context where every sponsor is fighting for attention.",
+        "Australian Fashion Week carries cultural weight most media moments can't buy: national press, front-row talent, and five days where the whole industry is watching the same feed. The brief: capitalise on that platform to build brand awareness and household penetration for SharkBeauty, not just book a sponsorship and hope for reflected glow.",
       insight:
-        "Fashion week is five days of noise. Every brand buys a seat; almost none own the conversation. Presence isn't physical — it's *owning the feed* the room is looking at.",
+        "Fashion week is five days of noise. Every brand buys a seat; almost none own the conversation. Presence isn't physical, it's *owning the feed* the room is looking at.",
       stats: [
         { value: 3, suffix: 'M', label: 'Total views' },
         { value: 270, label: 'Posts & stories' },
         { value: 4.34, prefix: '+', suffix: '%', decimals: 2, label: 'Engagement rate' },
       ],
       idea: [
-        'Turn SharkBeauty from a beauty sponsor into a real-time content engine — a live editorial team treating every runway, backstage moment, and front-row reaction as same-day social that travels further than any activation.',
-        'Talent and PR were briefed to one shared narrative, so influencers, behind-the-scenes moments, vox pops, and giveaways all told a single story — not five days of scattered content, but an always-on cultural presence.',
+        'Turn SharkBeauty from a beauty sponsor into a real-time content engine: a live editorial team treating every runway, backstage moment, and front-row reaction as same-day social that travels further than any activation.',
+        'Talent and PR were briefed to one shared narrative, so influencers, behind-the-scenes moments, vox pops, and giveaways all told a single story, not five days of scattered content, but an always-on cultural presence.',
       ],
       approach: [
         "Deployed a live content team briefed to one editorial narrative across all five days",
@@ -157,7 +157,7 @@ export const caseStudies = [
         { hex: '#17141a', bordered: false },
       ],
       title: 'Vodka Cruiser × Brat Summer',
-      description: 'A product drop colour-matched to a cultural moment — launched brat-coded from pack to platform before the window closed.',
+      description: 'A product drop colour-matched to a cultural moment, launched brat-coded from pack to platform before the window closed.',
       imageLabel: 'Vodka Cruiser × Brat Summer, campaign visual',
       imageSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
     },
@@ -176,22 +176,22 @@ export const caseStudies = [
       heroLabel: 'Cruiser × Brat, brat-summer hero',
       heroSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
       brief:
-        "Brat summer was peaking. Charli XCX had turned the world lime green — and Vodka Cruiser had a Summer Apple flavour ready to drop. The window to ride the wave was days, not weeks. The brief: move at *culture speed* and make Cruiser part of the moment, not a bystander commenting on it.",
+        "Brat summer was peaking. Charli XCX had turned the world lime green, and Vodka Cruiser had a Summer Apple flavour ready to drop. The window to ride the wave was days, not weeks. The brief: move at *culture speed* and make Cruiser part of the moment, not a bystander commenting on it.",
       insight:
-        "A brand doesn't join a cultural moment by explaining it — it joins by *moving at its speed*. Brat summer already owned a colour, a tone, and a typography. The only way in was to speak fluent brat before the moment passed.",
+        "A brand doesn't join a cultural moment by explaining it, it joins by *moving at its speed*. Brat summer already owned a colour, a tone, and a typography. The only way in was to speak fluent brat before the moment passed.",
       stats: [
         { value: 757, suffix: 'K', label: 'Users reached' },
         { value: 1, suffix: ' summer', label: 'Owned, start to finish' },
       ],
       idea: [
-        'Summer Apple, brat-coded from pack to platform. Lowercase billboards placed near festival sites spoke the language natively — \'drinkin that? ur so...\' — while reactive posting kept Cruiser inside the conversation at platform speed.',
-        "This wasn't trend-jacking — it was real-time brand choreography: matching a product launch to a cultural window that wouldn't stay open.",
+        'Summer Apple, brat-coded from pack to platform. Lowercase billboards placed near festival sites spoke the language natively (\'drinkin that? ur so...\'), while reactive posting kept Cruiser inside the conversation at platform speed.',
+        "This wasn't trend-jacking, it was real-time brand choreography: matching a product launch to a cultural window that wouldn't stay open.",
       ],
       approach: [
-        "Colour-matched a product launch to a live cultural moment — Summer Apple's lime green was strategic, not coincidental",
+        "Colour-matched a product launch to a live cultural moment: Summer Apple's lime green was strategic, not coincidental",
         "OOH designed to be screenshotted and shared ('dyeing your hair green for a festival?'), not just seen from a car",
         "Laneway Festival activation embedded the product in culture, not adjacent to it",
-        "Social content cadence matched the meme cycle — velocity over polish",
+        "Social content cadence matched the meme cycle: velocity over polish",
       ],
       evolution: [
         'Summer Apple flavour drop, brat-coded from pack design to platform presence',
@@ -223,7 +223,7 @@ export const caseStudies = [
         { hex: '#2e8b3a', bordered: false },
       ],
       title: 'Twisties Election',
-      description: "An escalation campaign that turned Australia's oldest snack rivalry into a national election — 702M earned impressions.",
+      description: "An escalation campaign that turned Australia's oldest snack rivalry into a national election: 702M earned impressions.",
       imageLabel: 'Twisties Election, campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
       imageStyle: { transform: 'scale(2.2)', transformOrigin: 'center top', objectPosition: 'center top' },
@@ -246,7 +246,7 @@ export const caseStudies = [
       brief:
         "Twisties needed to reignite a decades-old snack brand and drive unit sales. The Cheese vs Chicken debate had lived in Australian culture for years, but the brand had never properly capitalised on the rivalry. The brief: turn a passive cultural truth into an *active* national conversation that moves product.",
       insight:
-        "Cheese vs Chicken is the only two-party system Australians actually agree to care about. The tension didn't need inventing — it needed *escalating* into something the country couldn't ignore.",
+        "Cheese vs Chicken is the only two-party system Australians actually agree to care about. The tension didn't need inventing, it needed *escalating* into something the country couldn't ignore.",
       award: 'TikTok Award, Best Social Media Campaign 2025',
       stats: [
         { value: 702, suffix: 'M', label: 'Earned impressions' },
@@ -256,11 +256,11 @@ export const caseStudies = [
       ],
       idea: [
         "Run it like a real election. Election-poster art direction, celebrity candidates, vandalised billboards, a leaked third-party flavour, public outrage, a snap vote, and a winner. Every beat borrowed from political theatre to give a snack rivalry the stakes of a national headline.",
-        'The strategy was escalation by design — each phase was engineered to provoke a public reaction that fuelled the next, building from a Reddit leak to earned national news coverage.',
+        'The strategy was escalation by design: each phase was engineered to provoke a public reaction that fuelled the next, building from a Reddit leak to earned national news coverage.',
       ],
       approach: [
         "Manufactured escalation: a 'leaked' Chickeese flavour sparked genuine online outrage before the campaign even launched",
-        "Borrowed mechanics from political campaigns — attack ads, vandalised OOH, celebrity endorsements — to make the rivalry feel high-stakes",
+        "Borrowed mechanics from political campaigns (attack ads, vandalised OOH, celebrity endorsements) to make the rivalry feel high-stakes",
         "Every execution designed for earned media first: built to be reported on, not just seen",
         "Each phase engineered to provoke a public reaction that fuelled the next news cycle",
       ],
@@ -268,7 +268,7 @@ export const caseStudies = [
         "'Chickeese' leaks on Reddit; Chicken and Cheese fans go into meltdown",
         'A full-page apology cancels Chickeese amid escalating public outcry',
         'A snap election is called with celebrity candidates representing each party',
-        "Vandalised OOH and transit become lightning rods — 'CHICKEN RULES' sprayed over VOTE CHEESE",
+        "Vandalised OOH and transit become lightning rods: 'CHICKEN RULES' sprayed over VOTE CHEESE",
         'Viral influencer dance remix headlines the campaign spot as voting explodes',
         'Chicken is crowned; Cheese fans demand a recount',
       ],
@@ -306,7 +306,7 @@ export const caseStudies = [
         { hex: '#ff5a2a', bordered: false },
       ],
       title: "Doritos: Wash Your Mouth Out",
-      description: 'Turning a genetic flaw into a cultural phenomenon — 450M+ earned reach from 500 packs against a 9M target.',
+      description: 'Turning a genetic flaw into a cultural phenomenon: 450M+ earned reach from a run of just 500 packs.',
       imageLabel: "Doritos 'Wash Your Mouth Out', coriander DNA-to-soap concept diagram",
       imageSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
     },
@@ -326,7 +326,7 @@ export const caseStudies = [
       heroLabel: 'Coriander DNA-strand diagram linking leaves to bars of soap',
       heroSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
       brief:
-        "Doritos wanted headline-grabbing earned media from a limited product drop. Total production run: 500 packs. Earned reach target: 9M. The constraint *was* the strategy — scarcity had to do the heavy lifting.",
+        "Doritos wanted headline-grabbing earned media from a limited product drop of just 500 coriander-flavoured packs. With almost no paid media and a production run that small, the constraint *was* the strategy: scarcity had to do the heavy lifting.",
       stats: [
         { value: 450, suffix: 'M+', label: 'Earned reach, target beaten by 441M' },
         { value: 430, label: 'Pieces of earned media' },
@@ -334,22 +334,22 @@ export const caseStudies = [
         { value: 400, suffix: '×', label: 'Final-pack auction bid vs pack price' },
       ],
       insight:
-        "1 in 5 Australians carry the gene that makes coriander taste like *soap*. That's not a product barrier — it's a cultural fault line. The most divisive flavour in the country was also the most talkable.",
+        "1 in 5 Australians carry the gene that makes coriander taste like *soap*. That's not a product barrier, it's a cultural fault line. The most divisive flavour in the country was also the most talkable.",
       idea: [
         'Lean all the way into the hate. 500 coriander-flavoured packs launched with OOH placed directly beside Aesop and Lush, styling the chip as an aromatic, indulgently soapy luxury product.',
-        "Scarcity plus controversy plus a visual joke that wrote itself — the divisive flavour wasn't the obstacle, it was the entire strategy. A genetic quirk became a collectible cultural object.",
+        "Scarcity plus controversy plus a visual joke that wrote itself: the divisive flavour wasn't the obstacle, it was the entire strategy. A genetic quirk became a collectible cultural object.",
       ],
       approach: [
         "Weaponised the genetic divide: turned a product flaw into the campaign's entire proposition",
         "OOH placed beside premium soap retailers made the 'tastes like soap' joke physical, shareable, and newsworthy",
         "Seeded influencer mailers packed with real consumer hate-comments to manufacture debate at scale",
-        "500-unit scarcity turned a chip into a collectible — built for resale value and auction headlines",
+        "500-unit scarcity turned a chip into a collectible, built for resale value and auction headlines",
       ],
       evolution: [
         '500 packs drop unannounced; OOH runs beside Aesop & Lush styled as a premium soap product',
         'Seeded mailers to influencers filled with real consumer hate-comments and reactions',
         "Stoked debate in the 300K-member 'I Hate Coriander' Facebook group as UGC flooded in",
-        'Earned television, print, and online coverage drove national saturation — 430 media pieces',
+        'Earned television, print, and online coverage drove national saturation: 430 media pieces',
         'The final pack went to an unplanned eBay auction at 400× retail price',
       ],
       lines: [
