@@ -62,7 +62,7 @@
 .contact__emphasis {
   position: relative;
   white-space: nowrap;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0;

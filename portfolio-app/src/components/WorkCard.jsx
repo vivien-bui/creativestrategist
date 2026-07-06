@@ -1,5 +1,4 @@
 import ImagePlaceholder from './ImagePlaceholder';
-import ColorDots from './ColorDots';
 import Rich from './Rich';
 import { SparkleDoodle } from './Doodles';
 import './WorkCard.css';
@@ -34,7 +33,6 @@ export function FeaturedWorkCard({ study, onNavigate }) {
         <div>
           <div className="work-featured__top">
             <span className="work-featured__index">{workCard.index} · {workCard.tag}</span>
-            <ColorDots colors={workCard.dots} />
           </div>
           {workCard.badge && (
             <span className="work-featured__badge">
@@ -76,7 +74,6 @@ export function GridWorkCard({ study, onNavigate }) {
       <div className="work-grid-card__body">
         <div className="work-grid-card__top">
           <span className="work-grid-card__index">{workCard.index} · {workCard.tag}</span>
-          <ColorDots colors={workCard.dots} />
         </div>
         <h3 className="work-grid-card__title">
           <Rich text={workCard.title} />

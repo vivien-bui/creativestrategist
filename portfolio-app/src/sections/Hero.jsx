@@ -131,7 +131,6 @@ export default function Hero({ onNavigate }) {
       <div className="hero__foot">
         <p className="hero__tagline">
           I make brands worth talking about, campaigns built on cultural insight, engineered to earn their reach.
-          <HeartDoodle className="hero__tagline-heart" size={15} />
         </p>
         <a
           href="#work"
