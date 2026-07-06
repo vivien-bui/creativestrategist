@@ -58,9 +58,9 @@
     padding-bottom: 56px;
   }
   .work__header {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 10px;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+    margin-bottom: var(--space-2xs);
   }
   .work__count-doodle {
     display: none;
@@ -68,13 +68,13 @@
   .work__mobile-hint {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin: 0 0 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 12px;
+    gap: var(--space-2xs);
+    margin: 0 0 var(--space-sm);
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+    font-size: var(--text-xs);
     letter-spacing: 0.06em;
-    opacity: 0.5;
+    opacity: var(--op-soft);
   }
 
   /* One flat, swipeable row: the scroller becomes a real flex track and
@@ -82,12 +82,12 @@
      5 case studies sit side by side instead of stacking the full page. */
   .work__scroller {
     display: flex;
-    gap: 16px;
+    gap: var(--space-sm);
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: 20px;
-    padding: 4px 20px 12px;
+    scroll-padding-inline: var(--space-sm);
+    padding: var(--space-3xs) var(--space-sm) var(--space-xs);
     scrollbar-width: none;
   }
   .work__scroller::-webkit-scrollbar {

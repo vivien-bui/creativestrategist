@@ -248,17 +248,17 @@
 @media (max-width: 1024px) and (min-width: 768px) {
   .contact__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: var(--space-xl);
   }
 }
 
 @media (max-width: 767px) {
   .contact {
-    padding: 64px 20px 32px;
+    padding: var(--space-2xl) var(--space-sm) var(--space-lg);
   }
   .contact__grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--space-xl);
   }
   .contact__details {
     padding-top: 0;
@@ -267,6 +267,6 @@
     font-size: clamp(36px, 9vw, 52px);
   }
   .contact__cta {
-    margin-top: 28px;
+    margin-top: var(--space-md);
   }
 }

@@ -5,15 +5,15 @@
   z-index: 58; /* above nav (50), under the grain overlay (60) */
   pointer-events: none;
   font-family: var(--font-decorative);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--ink);
   background: rgba(247, 239, 228, 0.92);
   border: 1px solid var(--ink-15);
-  padding: 4px 9px;
-  border-radius: 3px;
-  box-shadow: 0 6px 18px rgba(43, 36, 48, 0.14);
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--radius-xs);
+  box-shadow: 0 6px 18px var(--ink-14);
   opacity: 0;
   scale: 0.85;
   transition: opacity 0.18s ease, scale 0.18s ease;

@@ -261,7 +261,7 @@
 
 @media (max-width: 767px) {
   .hero {
-    padding: 48px 20px 64px;
+    padding: var(--space-xl) var(--space-sm) var(--space-2xl);
   }
   .hero__word {
     font-size: clamp(46px, 16vw, 90px) !important;
@@ -270,10 +270,10 @@
     height: 320px;
   }
   .hero__photo-row {
-    margin-top: 28px;
+    margin-top: var(--space-md);
   }
   .hero__word--strategist {
-    margin-top: 24px;
+    margin-top: var(--space-md);
   }
   .hero__margin-note {
     display: none;

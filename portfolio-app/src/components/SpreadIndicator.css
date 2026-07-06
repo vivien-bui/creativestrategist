@@ -4,7 +4,7 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 14px;
+  bottom: var(--space-xs);
   z-index: 45; /* under the nav; the intro cover (55) hides it while booting */
   pointer-events: none;
   /* cream + difference reads dark on the cream homepage and light on the
@@ -12,7 +12,7 @@
   color: var(--cream);
   mix-blend-mode: difference;
   font-family: var(--font-decorative);
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 400;
   letter-spacing: 0.02em;
 }

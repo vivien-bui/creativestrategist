@@ -306,8 +306,8 @@
 
 @media (max-width: 767px) {
   .skills {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
   }
   .skills__layout {
     grid-template-columns: 1fr;
@@ -317,6 +317,6 @@
     height: 384px;
   }
   .receipt {
-    padding: 44px 30px 50px;
+    padding: var(--space-xl) var(--space-lg) var(--space-xl);
   }
 }

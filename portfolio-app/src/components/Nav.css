@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 48px;
+  padding: var(--space-sm) var(--space-xl);
   background: rgba(247, 239, 228, 0.82);
   backdrop-filter: blur(12px) saturate(1.2);
   border-bottom: 1px solid var(--ink-08);
@@ -14,14 +14,14 @@
 }
 
 .nav--scrolled {
-  box-shadow: 0 12px 32px rgba(43, 36, 48, 0.08);
+  box-shadow: 0 12px 32px var(--ink-08);
 }
 
 /* Masthead logo: title + volume line, like a zine's running head. */
 .nav__logo {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--space-3xs);
   color: inherit;
   text-decoration: none;
   cursor: pointer;
@@ -31,36 +31,36 @@
 .nav__logo-name {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2xs);
   font-weight: 800;
-  font-size: 19px;
+  font-size: 19px; /* masthead wordmark — deliberate display-tier exception */
   line-height: 1;
   letter-spacing: -0.03em;
 }
 
 .nav__logo-doodle {
   color: var(--accent);
-  opacity: 0.7;
+  opacity: var(--op-mid);
   flex-shrink: 0;
 }
 
 .nav__logo-vol {
   font-family: var(--font-decorative);
-  font-size: 11px;
+  font-size: var(--text-2xs);
   font-weight: 400;
   letter-spacing: 0.01em;
-  opacity: 0.55;
+  opacity: var(--op-soft);
 }
 
 .nav__logo:hover {
-  opacity: 0.75;
+  opacity: var(--op-mid);
 }
 
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 28px;
-  font-size: 13px;
+  gap: var(--space-md);
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -68,18 +68,18 @@
 .nav__link {
   color: var(--ink);
   text-decoration: none;
-  opacity: 0.75;
+  opacity: var(--op-mid);
   transition: opacity 0.2s ease;
 }
 
 .nav__link::before {
   content: '( ';
-  opacity: 0.5;
+  opacity: var(--op-soft);
 }
 
 .nav__link::after {
   content: ' )';
-  opacity: 0.5;
+  opacity: var(--op-soft);
 }
 
 .nav__link:hover {
@@ -103,8 +103,8 @@
 @media (max-width: 767px) {
   .nav {
     flex-wrap: wrap;
-    row-gap: 10px;
-    padding: 14px 20px;
+    row-gap: var(--space-2xs);
+    padding: var(--space-xs) var(--space-sm);
   }
   /* Single-line masthead on mobile — the volume line doesn't fit next to
      the wrapped link row. */
@@ -112,11 +112,11 @@
     display: none;
   }
   .nav__logo-name {
-    font-size: 17px;
+    font-size: 17px; /* masthead wordmark — deliberate display-tier exception */
   }
   .nav__links {
-    gap: 12px;
-    font-size: 11px;
+    gap: var(--space-xs);
+    font-size: var(--text-2xs);
     flex-wrap: wrap;
   }
 }

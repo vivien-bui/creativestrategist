@@ -46,18 +46,18 @@
    Small lowercase parenthetical labels + a caption list, echoing
    the zine layouts' "( left photo )" credit blocks. */
 .about__zine-note {
-  margin-top: 44px;
+  margin-top: var(--space-xl);
 }
 
 .about__zine-paren {
   display: block;
-  font-size: 12px;
+  font-size: var(--text-xs);
   letter-spacing: 0.02em;
-  opacity: 0.5;
+  opacity: var(--op-soft);
 }
 
 .about__zine-caption {
-  margin: 12px 0 20px;
+  margin: var(--space-xs) 0 var(--space-sm);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   line-height: var(--leading-body);
@@ -94,7 +94,7 @@
   width: 100%;
   height: 440px;
   display: block;
-  box-shadow: 0 24px 60px rgba(43, 36, 48, 0.14);
+  box-shadow: 0 24px 60px var(--ink-14);
 }
 
 /* Staggered lowercase zine type over the photo (06_DECISIONS.md #10).
@@ -178,12 +178,12 @@
 .about__step-num {
   font-family: var(--font-body);
   font-style: normal;
-  font-size: 22px;
+  font-size: var(--text-lg);
   color: var(--accent);
 }
 
 .about__step-copy {
-  margin: 8px 0 0;
+  margin: var(--space-2xs) 0 0;
   font-size: var(--text-sm);
   line-height: var(--leading-compact);
   opacity: var(--op-mid);
@@ -191,15 +191,15 @@
 
 @media (max-width: 767px) {
   .about {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
   }
   [data-r='split-about2'] {
     grid-template-columns: 1fr;
   }
   [data-r='about-steps'] {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: var(--space-sm);
   }
   .about__portrait {
     height: 360px;
