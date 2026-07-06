@@ -45,10 +45,10 @@ export const caseStudies = [
       insight:
         "The barrier wasn't scepticism about the science, it was *desire*. Women believed the tech could work, but cold-tech aesthetics felt more lab coat than vanity. CryoGlow needed to prove efficacy without sacrificing covetability.",
       stats: [
-        { value: 12.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
+        { value: 21.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
         { value: 18.8, suffix: '×', decimals: 1, label: 'Creative ROI' },
         { value: 850, label: 'Week-one units, target was 300' },
-        { value: 100, suffix: '+', label: 'Pieces of social content' },
+        { value: 300, suffix: '+', label: 'Pieces of social content' },
       ],
       idea: [
         "Position CryoGlow at the intersection of clinic and vanity: not a medical device, not another beauty gadget, but a skincare *ritual* she'd leave out on the shelf. One high-trust creator partnership over broad seeding, because in beauty-tech, credibility compounds faster than reach.",
@@ -57,13 +57,13 @@ export const caseStudies = [
       approach: [
         "Single anchor creator over scatter-gun seeding, compounding trust in a low-trust category",
         "Bespoke 'Light Therapy' series reframed clinical device demos as watchable, aspirational ritual content",
-        "Modular content system: 100+ assets from one visual framework, each owning the feed without a logo lockup",
+        "Modular content system: 300+ assets from one visual framework, each owning the feed without a logo lockup",
         "Layered micro-influencer and event seeding for trial conversion once awareness landed",
       ],
       evolution: [
         'Creator partnership with Chloe Morello anchors the launch in trust and credibility',
         "'Light Therapy' content series turns clinical device demos into shareable beauty ritual",
-        '100+ pieces of always-on social feed the algorithm, each unmistakably on-brand',
+        '300+ pieces of always-on social feed the algorithm, each unmistakably on-brand',
         'Micro-influencer and event seeding converts awareness into trial across AU + NZ',
       ],
       images: [
