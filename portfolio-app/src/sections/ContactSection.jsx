@@ -53,7 +53,7 @@ export default function ContactSection({ onNavigate }) {
         </div>
 
         <div className="contact__foot">
-          <span className="contact__copyright"><HeartDoodle size={12} className="contact__copyright-heart" /> © 2026 · Made with warm light <StarDoodle size={12} className="contact__copyright-star" /></span>
+          <span className="contact__copyright"><HeartDoodle size={12} className="contact__copyright-heart" /> © 2026 <StarDoodle size={12} className="contact__copyright-star" /></span>
           <a
             href="#hero"
             className="contact__top-link"

@@ -179,6 +179,7 @@
   font-family: var(--font-body);
   font-style: normal;
   font-size: var(--text-lg);
+  font-weight: 700;
   color: var(--accent);
 }
 
@@ -187,6 +188,7 @@
   font-size: var(--text-sm);
   line-height: var(--leading-compact);
   opacity: var(--op-mid);
+  font-weight: 600;
 }
 
 @media (max-width: 767px) {

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import FloatingPill from '../components/FloatingPill';
 import MatchaIllustration from './MatchaIllustration';
 import ZineLetters from '../components/ZineLetters';
-import { StampDoodle, HeartDoodle, CoffeeDoodle, LightningDoodle } from '../components/Doodles';
+import { HeartDoodle, CoffeeDoodle, LightningDoodle } from '../components/Doodles';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
@@ -129,7 +129,6 @@ export default function SkillsSection() {
 
         <div className="receipt">
           <div className="receipt__head" data-reveal>
-            <StampDoodle className="receipt__stamp" />
             <div className="receipt__title">The Strategist's Order</div>
             <div className="receipt__subtitle">Est. brewing since day one</div>
           </div>

@@ -3,7 +3,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder';
 import FloatingPill from '../components/FloatingPill';
 import AmbientBackdrop from '../components/AmbientBackdrop';
 import ZineLetters from '../components/ZineLetters';
-import { SparkleDoodle, PencilDoodle, TapeDoodle } from '../components/Doodles';
+import { SparkleDoodle, TapeDoodle } from '../components/Doodles';
 import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
@@ -65,10 +65,6 @@ export default function Hero({ onNavigate }) {
         <p>Creative strategist · Sydney · Available for agency contracts</p>
       </div>
 
-      <div className="hero__margin-note hero__margin-note--left" aria-hidden="true">
-        <PencilDoodle size={14} className="hero__margin-doodle" />
-        <span className="hero__margin-text">this is the good stuff</span>
-      </div>
 
       <div className="hero__headline">
         <h1 ref={creativeRef} id="hero-word-creative" className="hero__word hero__word--creative">
