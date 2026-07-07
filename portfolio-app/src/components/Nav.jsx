@@ -24,7 +24,7 @@ export default function Nav({ onNavigate }) {
     <nav ref={navRef} className="nav" data-screen-label="Nav">
       <a href="#" className="nav__logo" onClick={link('home')}>
         <span className="nav__logo-name"><BookmarkDoodle className="nav__logo-doodle" size={15} /> vivien bui</span>
-        <span className="nav__logo-vol">( vol. 01 — sydney )</span>
+        <span className="nav__logo-vol">( vol. 01 - strategy )</span>
       </a>
       <div className="nav__links">
         <a href="#work" onClick={link('work')} className="nav__link">work</a>

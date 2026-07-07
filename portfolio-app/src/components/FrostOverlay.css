@@ -72,17 +72,7 @@
 
 /* A slow band of cold light glancing across the ice. */
 .frost__shimmer {
-  position: absolute;
-  inset: -40% -20%;
-  background: linear-gradient(
-    115deg,
-    transparent 42%,
-    rgba(232, 242, 255, 0.42) 50%,
-    rgba(255, 255, 255, 0.28) 52%,
-    transparent 60%
-  );
-  transform: translateX(-75%);
-  animation: frost-sweep 9s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes frost-sweep {

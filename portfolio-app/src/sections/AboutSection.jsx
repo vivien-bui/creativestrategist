@@ -1,6 +1,6 @@
 import ImagePlaceholder from '../components/ImagePlaceholder';
 import Rich from '../components/Rich';
-import { HeartDoodle, CoffeeDoodle, MusicNoteDoodle, PinDoodle, TapeDoodle } from '../components/Doodles';
+import { CoffeeDoodle, MusicNoteDoodle, TapeDoodle } from '../components/Doodles';
 import './AboutSection.css';
 
 const STEPS = [
@@ -15,17 +15,6 @@ export default function AboutSection() {
       <div className="about__intro" data-r="split-about">
         <div className="about__intro-left">
           <span className="about__eyebrow">About</span>
-          <div className="about__zine-note" aria-hidden="true">
-            <span className="about__zine-paren"><PinDoodle size={11} /> ( photo, below )</span>
-            <p className="about__zine-caption">
-              warm light, one candle,
-              <br />
-              a wish being made —
-              <br />
-              somewhere in sydney
-            </p>
-            <span className="about__zine-paren">( fig. 01 — off the clock ) <HeartDoodle size={11} /></span>
-          </div>
         </div>
         <Rich
           as="p"
@@ -63,7 +52,7 @@ export default function AboutSection() {
           </p>
           <div className="about__diary-aside" aria-hidden="true">
             <CoffeeDoodle size={14} /> <span>currently on my second soy cappuccino</span>
-            <MusicNoteDoodle size={14} /> <span>& listening to frank ocean on repeat</span>
+            <span>& </span><MusicNoteDoodle size={14} /> <span>listening to frank ocean on repeat</span>
           </div>
           <div className="about__steps" data-r="about-steps">
             {STEPS.map((s) => (
