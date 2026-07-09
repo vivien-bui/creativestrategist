@@ -38,14 +38,20 @@ export default function ContactSection({ onNavigate }) {
               <div className="contact__row">
                 <span className="contact__row-label">Availability</span>
                 <span className="contact__availability">
-                  <span className="contact__status-dot" aria-hidden="true" />
-                  Agency contracts · open now
+                  Available to start immediately
                 </span>
               </div>
               <div className="contact__row contact__row--last">
                 <span className="contact__row-label">Elsewhere</span>
                 <span className="contact__social">
-                  <a href="#" className="contact__row-link">LinkedIn</a>
+                  <a
+                    href="https://www.linkedin.com/in/vivien-bui"
+                    className="contact__row-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    LinkedIn
+                  </a>
                 </span>
               </div>
             </div>
