@@ -41,9 +41,9 @@ export const caseStudies = [
       heroLabel: 'CryoGlow device, soft neutrals, blush, blue-violet LED glow',
       heroSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
       brief:
-        "SharkBeauty was entering a sceptical market. At-home beauty-tech devices promise clinical results, but the category aesthetic (blue LEDs, sterile packaging, lab-coat language) felt cold and uninviting. The brief: launch CryoGlow in AU + NZ with a target of 300 week-one units, and make a cold-tech device feel warm enough to *want*.",
+        "SharkBeauty was entering a sceptical market. At-home beauty-tech devices promise clinical results, but the category aesthetic (blue LEDs, sterile packaging, lab-coat language) felt cold and uninviting. To break in, the device had to feel warm enough to *want* — desirable enough to move 300 units in week one across AU and NZ.",
       insight:
-        "The barrier wasn't scepticism about the science, it was *desire*. Women believed the tech could work, but cold-tech aesthetics felt more lab coat than vanity. CryoGlow needed to prove efficacy without sacrificing covetability.",
+        "The barrier wasn't scepticism about the science, it was *desire*. Women expect the CryoGlow Mask to prove efficacy, but without sacrificing covetability. We needed our cold-tech product to feel warm enough to *want*.",
       stats: [
         { value: 21.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
         { value: 18.8, suffix: '×', decimals: 1, label: 'Creative ROI' },
@@ -51,13 +51,13 @@ export const caseStudies = [
         { value: 300, suffix: '+', label: 'Pieces of social content' },
       ],
       idea: [
-        "Position CryoGlow at the intersection of clinic and vanity: not a medical device, not another beauty gadget, but a skincare *ritual* she'd leave out on the shelf. One high-trust creator partnership over broad seeding, because in beauty-tech, credibility compounds faster than reach.",
+        "Position CryoGlow at the intersection of clinic and vanity: not a medical device, not another beauty gadget, but a skincare *ritual* she'd leave out on the shelf. One high-trust creator partnership and broad seeding, because in beauty-tech, credibility compounds faster than reach.",
         "Chloe Morello's real routine carried the proof. A bespoke content series, 'Light Therapy', made every post unmistakably CryoGlow, feeding the algorithm for weeks without losing brand signature.",
       ],
       approach: [
-        "Single anchor creator over scatter-gun seeding, compounding trust in a low-trust category",
+        "Single anchor creator to compound trust in a low-trust category",
         "Bespoke 'Light Therapy' series reframed clinical device demos as watchable, aspirational ritual content",
-        "Modular content system: 300+ assets from one visual framework, each owning the feed without a logo lockup",
+        "Built 300+ assets to show up in her feed more often — the more she saw CryoGlow, the more she wanted it",
         "Layered micro-influencer and event seeding for trial conversion once awareness landed",
       ],
       evolution: [
@@ -110,9 +110,9 @@ export const caseStudies = [
       heroLabel: 'AFW, real-time coverage, runway black, front-row moment',
       heroSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
       brief:
-        "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The brief: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
+        "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The opportunity was bigger than visibility: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
       insight:
-        "Presenting rights get your name on everything, but names don't trend, feeds do. Every brand at Fashion Week buys a seat; almost none own the conversation. Presence isn't a logo on the wall, it's *owning the feed* the room is looking at.",
+        "Presenting rights get your name on everything, but names don't trend, feeds do. Every brand at Fashion Week buys a seat; almost none own the conversation. Presence isn't a logo on the wall, it's *owning the feed*  the room is looking at.",
       stats: [
         { value: 3, suffix: 'M', label: 'Total views' },
         { value: 270, label: 'Posts & stories' },
@@ -177,9 +177,9 @@ export const caseStudies = [
       heroLabel: 'Cruiser × Brat, brat-summer hero',
       heroSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
       brief:
-        "Brat had already turned the world lime green, but it broke in the northern summer, six months before Australia's. By the time it was actually summer here, Charli XCX was landing for Laneway and Gen Z was hungry for the messy, unfiltered energy brat gave them. Vodka Cruiser had a Summer Apple flavour ready to drop. The brief: own Australia's brat summer for real, at the exact moment it peaked locally.",
+        "Brat had already turned the world lime green, but it broke in the northern summer, six months before Australia's. By the time it was actually summer here, Charli XCX was landing for Laneway and Gen Z was hungry for the messy, unfiltered energy brat gave them. Vodka Cruiser had a Summer Apple flavour ready to drop. The window was narrow: land Summer Apple in the middle of the moment while it was peaking here, and make Cruiser the drink Gen Z reached for.",
       insight:
-        "Australia wasn't late to brat summer, it got the real one. The trend hit the US in June, but it landed here in actual summer, with Charli XCX in the country for Laneway. Gen Z didn't want polished, they wanted messy and unfiltered. The only way in was to *speak fluent brat* while the moment was genuinely ours.",
+        "Gen Z didn't want polished, they wanted messy, loud and unfiltered — and brat handed them the permission slip. With Charli XCX in the country for Laneway, that energy was everywhere at once. The only way in was to *speak fluent brat*, not just borrow the colour.",
       stats: [
         { value: 757, suffix: 'K', label: 'Users reached' },
         { value: 1, suffix: ' summer', label: 'Owned, start to finish' },
@@ -249,9 +249,9 @@ export const caseStudies = [
       heroLabel: 'Twisties Election, poster-red / canary / green hero',
       heroSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
       brief:
-        "Twisties needed to reignite a decades-old snack brand and drive unit sales. The Cheese vs Chicken debate had lived in Australian culture for years, but the brand had never properly capitalised on the rivalry. The brief: turn a passive cultural truth into an *active* national conversation that moves product.",
+        "Twisties needed to reignite a decades-old snack brand and drive unit sales. The Cheese vs Chicken debate had lived in Australian culture for years, but the brand had never properly capitalised on the rivalry. The opportunity was to turn a passive cultural truth into an *active* national conversation — one loud enough to move product.",
       insight:
-        "Cheese vs Chicken is the only two-party system Australians actually agree to care about. The tension didn't need inventing, it needed *escalating* into something the country couldn't ignore.",
+        "Cheese vs Chicken is the only two-party system Australians actually agree to care about. The tension didn't need inventing, it needed *escalating*  into something the country couldn't ignore.",
       award: 'TikTok Award, Best Social Media Campaign 2025',
       stats: [
         { value: 702, suffix: 'M', label: 'Earned impressions' },
