@@ -125,7 +125,7 @@ export const caseStudies = [
         "Integrated giveaways converted viewership into active engagement and data capture",
       ],
       images: [
-        { id: 'afw-2', label: 'runway, night group walk in monochrome looks', src: './assets/afw/afw-12-runway-group-pink-black-sequin.jpg', imageStyle: { objectPosition: 'center 32%' } },
+        { id: 'afw-2', label: 'runway, night group walk in monochrome looks', src: './assets/afw/afw-12-runway-group-pink-black-sequin.jpg', imageStyle: { objectPosition: 'center 55%' } },
         { id: 'afw-3', label: 'backstage portrait, couture knitwear detail', src: './assets/afw/afw-02-model-portrait-knit-detail.jpg', imageStyle: { objectPosition: 'center 54%' } },
       ],
       scope: ['Event strategy', 'Live content ops', 'Talent & PR', 'Art direction'],
@@ -229,8 +229,11 @@ export const caseStudies = [
         ['Angle', 'Cultural hijack'],
         ['Role', 'Campaign strategy'],
       ],
-      heroLabel: 'Twisties Election, poster-red / canary / green hero',
-      heroSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
+      heroLabel: 'Twisties Election, Chicken vs Cheese stage with the campaign social strip',
+      // Spliced from the full spread: stage photo direct to the social-strip
+      // timeline, with the headline/stats/strategy-copy band cut out (those
+      // numbers are already shown lower on the page via StatBand).
+      heroSrc: './assets/twisties/twisties-06-hero-stage-social-strip.webp',
       heroStyle: { objectPosition: 'center top' },
       brief:
         "Twisties needed to reignite a decades-old snack brand and drive unit sales. The Cheese vs Chicken debate had lived in Australian culture for years, but the brand had never properly capitalised on the rivalry. The opportunity was to turn a passive cultural truth into an *active* national conversation — one loud enough to move product.",
