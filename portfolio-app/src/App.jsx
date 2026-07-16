@@ -100,6 +100,14 @@ export default function App() {
     [canUseViewTransition]
   );
 
+  // Logo click: scroll to the top of the current page when already on the
+  // home page, so it doesn't silently do nothing (there's no #home section).
+  const scrollHomeToTop = useCallback(() => {
+    const apply = () => window.scrollTo(0, 0);
+    if (canUseViewTransition()) document.startViewTransition(apply);
+    else apply();
+  }, [canUseViewTransition]);
+
   const handleNavigate = useCallback(
     (id) => {
       if (detailViewIds.includes(id)) {
@@ -107,12 +115,18 @@ export default function App() {
         return;
       }
       if (view !== 'home') {
-        goHome(id, id === 'work' ? savedScroll.current : null);
+        // Logo click from a case study restores wherever the reader left
+        // off on the home page, same as returning via the 'work' link.
+        goHome(id, id === 'work' || id === 'home' ? savedScroll.current : null);
+        return;
+      }
+      if (id === 'home') {
+        scrollHomeToTop();
         return;
       }
       jumpOnHome(id);
     },
-    [view, goToDetail, goHome, jumpOnHome]
+    [view, goToDetail, goHome, jumpOnHome, scrollHomeToTop]
   );
 
   const activeStudy = view !== 'home' ? getCaseStudy(view) : null;
