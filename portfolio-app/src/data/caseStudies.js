@@ -62,7 +62,7 @@ export const caseStudies = [
       ],
       images: [
         { id: 'cryoglow-2', label: 'creator routine / device in-use shot', src: './assets/cryoglow/cryoglow-02-light-therapy-campaign-grid.webp' },
-        { id: 'cryoglow-3', label: 'packaging / product detail', src: './assets/cryoglow/cryoglow-03-light-therapy-detail-duo.webp' },
+        { id: 'cryoglow-3', label: 'CryoGlow OOH, night bus-shelter placement', src: './assets/cryoglow/cryoglow-04-ooh-night-bus-shelter.webp' },
       ],
       scope: ['Positioning & messaging', 'Creator seeding', 'Content system', 'Launch calendar'],
       nextLabel: 'Australian Fashion Week →',
@@ -86,8 +86,9 @@ export const caseStudies = [
       description:
         "Presenting rights put SharkBeauty's name on Fashion Week. But names don't trend, what shows on the feed does. So we turned the sponsorship into an always-on editorial newsroom and made SharkBeauty the story.",
       tags: ['3M views', '270 posts in 5 days', '+4.34% engagement'],
-      imageLabel: 'Australian Fashion Week, hero campaign shot',
-      imageSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
+      imageLabel: 'Australian Fashion Week, runway finale in white tailoring',
+      imageSrc: './assets/afw/afw-08-runway-full-collection-whites.jpg',
+      imageStyle: { objectPosition: 'center 30%' },
     },
     detail: {
       dots: [
@@ -101,8 +102,9 @@ export const caseStudies = [
         ['Industry', 'Fashion'],
         ['Role', 'Event & content strategy'],
       ],
-      heroLabel: 'AFW, real-time coverage, runway black, front-row moment',
-      heroSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
+      heroLabel: 'AFW runway finale, white tailoring leading a procession of ivory looks',
+      heroSrc: './assets/afw/afw-08-runway-full-collection-whites.jpg',
+      heroStyle: { objectPosition: 'center 28%' },
       brief:
         "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The opportunity was bigger than visibility: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
       insight:
@@ -123,8 +125,8 @@ export const caseStudies = [
         "Integrated giveaways converted viewership into active engagement and data capture",
       ],
       images: [
-        { id: 'afw-2', label: 'runway / backstage content', src: './assets/afw/afw-03-runway-multi-model-yellow-black.jpg' },
-        { id: 'afw-3', label: 'talent / front-row social capture', src: './assets/afw/afw-08-runway-full-collection-whites.jpg' },
+        { id: 'afw-2', label: 'runway, night group walk in monochrome looks', src: './assets/afw/afw-12-runway-group-pink-black-sequin.jpg', imageStyle: { objectPosition: 'center 45%' } },
+        { id: 'afw-3', label: 'backstage portrait, couture knitwear detail', src: './assets/afw/afw-02-model-portrait-knit-detail.jpg', imageStyle: { objectPosition: 'center 54%' } },
       ],
       scope: ['Event strategy', 'Live content ops', 'Talent & PR', 'Art direction'],
       nextLabel: 'Vodka Cruiser →',
@@ -183,8 +185,7 @@ export const caseStudies = [
         "Reactive social matched the meme cycle: velocity over polish",
       ],
       images: [
-        { id: 'cruiser-2', label: 'social-native creative', src: './assets/cruiser/cruiser-02-four-pack-product-shot.jpg' },
-        { id: 'cruiser-3', label: 'reactive post / meme moment', src: './assets/cruiser/cruiser-02-four-pack-product-shot.jpg' },
+        { id: 'cruiser-2', label: 'Summer Apple four-pack, social-native product shot', src: './assets/cruiser/cruiser-02-four-pack-product-shot.jpg' },
       ],
       scope: ['Trend strategy', 'Social creative', 'Reactive posting'],
       nextLabel: 'Twisties Election →',
@@ -211,9 +212,9 @@ export const caseStudies = [
       tags: ['702M impressions', '+800% engagement YoY', 'TikTok Award winner'],
       imageLabel: 'Twisties Election, campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
-      // Cleaned hero: removed all campaign copy (headline, stats, white columns),
-      // repositioned thumbnail strip higher. Image now shows only photography +
-      // campaign assets. No zoom needed.
+      // Full campaign spread (restored from backup after a bad crop mangled the
+      // social strip). 'center top' leads with the Chicken vs Cheese stage +
+      // headline in the card's short crop.
       imageStyle: { objectPosition: 'center top' },
     },
     detail: {
@@ -229,8 +230,12 @@ export const caseStudies = [
         ['Angle', 'Cultural hijack'],
         ['Role', 'Campaign strategy'],
       ],
-      heroLabel: 'Twisties Election, poster-red / canary / green hero',
-      heroSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
+      heroLabel: 'Twisties Election, Chicken vs Cheese stage with the campaign social strip',
+      // Spliced from the full spread: stage photo direct to the social-strip
+      // timeline, with the headline/stats/strategy-copy band cut out (those
+      // numbers are already shown lower on the page via StatBand).
+      heroSrc: './assets/twisties/twisties-06-hero-stage-social-strip.webp',
+      heroStyle: { objectPosition: 'center top' },
       brief:
         "Twisties needed to reignite a decades-old snack brand and drive unit sales. The Cheese vs Chicken debate had lived in Australian culture for years, but the brand had never properly capitalised on the rivalry. The opportunity was to turn a passive cultural truth into an *active* national conversation — one loud enough to move product.",
       insight:
@@ -333,7 +338,7 @@ export const caseStudies = [
         '"Deliciously fragrant… and indulgently soapy."',
       ],
       images: [
-        { id: 'cs-detail-2', label: 'OOH placement next to soap retailer', src: './assets/doritos/doritos-04-media-collage-430-pieces.webp' },
+        { id: 'cs-detail-2', label: 'OOH placement next to soap retailer', src: './assets/doritos/doritos-08-ooh-soap-tasting-chip.webp', imageStyle: { objectPosition: 'left center' } },
         { id: 'cs-detail-3', label: 'influencer seeding mailer / eBay auction screenshot', src: './assets/doritos/doritos-06-ugc-social-phones-reviews.webp' },
       ],
       press: [

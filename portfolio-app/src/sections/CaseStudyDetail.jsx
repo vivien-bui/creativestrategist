@@ -99,7 +99,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           data-r="detail-hero-img"
           data-cursor-note="the hero shot"
         >
-          <ImagePlaceholder label={detail.heroLabel} radius={20} dark={theme !== 'light'} src={detail.heroSrc} />
+          <ImagePlaceholder label={detail.heroLabel} radius={20} dark={theme !== 'light'} src={detail.heroSrc} imageStyle={detail.heroStyle} />
         </div>
 
         {detail.award && <AwardCallout text={detail.award} />}
@@ -144,7 +144,11 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           </Row>
         )}
 
-        <div className="detail__images" data-r="split-images" data-reveal>
+        <div
+          className={`detail__images${detail.images.length === 1 ? ' detail__images--single' : ''}`}
+          data-r="split-images"
+          data-reveal
+        >
           {detail.images.map((img, i) => (
             <div
               key={img.id}
@@ -152,7 +156,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
               data-r="duo-img"
               data-cursor-note={IMAGE_NOTES[i] || 'a closer look'}
             >
-              <ImagePlaceholder label={img.label} radius={12} dark={theme !== 'light'} src={img.src} />
+              <ImagePlaceholder label={img.label} radius={12} dark={theme !== 'light'} src={img.src} imageStyle={img.imageStyle} />
             </div>
           ))}
         </div>
