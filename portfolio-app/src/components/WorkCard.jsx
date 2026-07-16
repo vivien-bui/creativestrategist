@@ -64,7 +64,7 @@ export function GridWorkCard({ study, onNavigate }) {
   return (
     <a
       href={`#${study.id}`}
-      className="work-grid-card"
+      className={`work-grid-card${workCard.flipMobile ? ' work-grid-card--flip-mobile' : ''}`}
       data-cursor-note="read the case study"
       onClick={navHandler(onNavigate, study.id)}
     >

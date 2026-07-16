@@ -15,7 +15,7 @@ export default function WorkSection({ onNavigate }) {
         <h2 className="work__heading">
           <ZineLetters text="selected work" salt={6} />
         </h2>
-        <span className="work__count"><strong><PaperclipDoodle size={13} className="work__count-doodle" /></strong> ( 05 case studies )</span>
+        <span className="work__count"><strong><PaperclipDoodle size={13} className="work__count-doodle" /></strong> ( case studies )</span>
       </div>
       <p className="work__mobile-hint" aria-hidden="true">
         Swipe to explore all five <SwipeDoodle />
