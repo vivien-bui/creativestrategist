@@ -299,6 +299,18 @@
   display: block;
 }
 
+/* When a study has a single detail image, let it span the full content width
+   and follow the page margins instead of sitting in one half of the duo grid.
+   aspect-ratio keeps the (landscape) shot fully visible at any width. */
+.detail__images--single {
+  grid-template-columns: 1fr;
+}
+
+.detail__images--single .detail__duo-img {
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+
 .detail__tags {
   display: flex;
   flex-wrap: wrap;
