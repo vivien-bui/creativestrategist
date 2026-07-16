@@ -11,7 +11,7 @@ import './SkillsSection.css';
 // creator partnerships, earned media). The last three lines are the actual
 // toolkit: insight/trend research (GWI, Canvas8, Google Trends), social
 // media management (Hootsuite, Sprinklr, Dash Social), and project systems
-// (ClickUp, Asana, Slack). Each line carries a `note` shown by CursorNote
+// (ClickUp, Asana, Slack, Google Workspace, Microsoft 365). Each line carries a `note` shown by CursorNote
 // on hover, so the playful order also reads clearly as a skillset.
 const RECEIPT_LINES = [
   { label: 'Venti insight-led strategy', note: 'audience & cultural insight into strategy' },
@@ -22,8 +22,8 @@ const RECEIPT_LINES = [
   { label: 'Pitch decks, brewed to win', note: 'narrative decks that win the room' },
   { label: 'Social-first blend, platform-native', note: 'platform-native social strategy' },
   { label: 'GWI · Canvas8 · Google Trends, ground fresh', note: 'insight & trend research tools' },
-  { label: 'Hootsuite · Sprinklr · Dash Social, double shot', note: 'social media management tools' },
-  { label: 'ClickUp · Asana · Slack, to go', note: 'project & team collaboration tools' },
+  { label: 'Hootsuite · Sprinklr · Dash Social, syrup', note: 'social media management tools' },
+  { label: 'ClickUp · Asana · Slack · Google Workspace · Microsoft 365, to go', note: 'project & team collaboration tools' },
 ];
 
 // Printed on the receipt like a real till timestamp (DD.MM.YY · HH:MM).
