@@ -57,7 +57,7 @@ export const caseStudies = [
       approach: [
         "Single anchor creator to compound trust in a low-trust category",
         "Bespoke 'Light Therapy' series reframed clinical device demos as watchable, aspirational ritual content",
-        "Built 300+ assets to show up in her feed more often — the more she saw CryoGlow, the more she wanted it",
+        "Built 300+ assets to show up in her feed more often: the more she saw CryoGlow, the more she wanted it",
         "Layered micro-influencer and event seeding for trial conversion once awareness landed",
       ],
       evolution: [
