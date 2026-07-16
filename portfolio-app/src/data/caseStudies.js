@@ -199,6 +199,7 @@ export const caseStudies = [
     accent: '#ffd23f',
     workCard: {
       variant: 'grid',
+      flipMobile: true,
       index: '04',
       tag: 'FOOD / POLITICS',
       dots: [
