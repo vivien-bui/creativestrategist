@@ -312,47 +312,6 @@
   padding: var(--space-2xs) var(--space-sm);
 }
 
-.detail__evo-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: 640px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.detail__evo-list li {
-  position: relative;
-  padding-left: var(--space-md);
-  font-size: var(--text-md);
-  line-height: var(--leading-body);
-  opacity: var(--op-strong);
-}
-
-.detail__evo-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--study-accent);
-}
-
-/* Evolution timeline folded into The Approach section (less scrolling). */
-.detail__rollout {
-  margin-top: var(--space-lg);
-}
-
-.detail__rollout-label {
-  display: block;
-  margin-bottom: var(--space-sm);
-  font-family: var(--font-decorative);
-  font-size: var(--text-sm);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--study-accent);
-  opacity: 0.85;
-}
-
 .detail__approach-list {
   list-style: none;
   margin: 0;
