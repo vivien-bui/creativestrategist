@@ -8,7 +8,9 @@ import './SkillsSection.css';
 
 // Coffee-order framing over Vivien's real VaynerMedia skillset (insight-led
 // strategy, creative concepting, cultural/trend analysis, pitch decks,
-// social-first, creator partnerships, earned media, GWI/Canvas8/Sprinklr).
+// social-first, creator partnerships, earned media). The last two lines are
+// the actual toolkit: insight/social-listening (GWI, Canvas8, Sprinklr) and
+// design/deck craft (Figma, Canva, Adobe, Keynote), sourced from the repo.
 const RECEIPT_LINES = [
   'Venti insight-led strategy',
   'Double shot of cultural tension',
@@ -18,6 +20,7 @@ const RECEIPT_LINES = [
   'Pitch decks, brewed to win',
   'Social-first blend, platform-native',
   'GWI · Canvas8 · Sprinklr, ground fresh',
+  'Figma · Canva · Adobe · Keynote, hand-poured',
 ];
 
 // Printed on the receipt like a real till timestamp (DD.MM.YY · HH:MM).
@@ -166,9 +169,6 @@ export default function SkillsSection() {
           </div>
 
           <div className="receipt__barcode" data-reveal />
-          <div className="receipt__barcode-num" data-reveal>
-            4 820135 002471
-          </div>
           <div className="receipt__thanks" data-reveal>THANK YOU · COME AGAIN <HeartDoodle size={10} className="receipt__thanks-heart" /></div>
           <div className="receipt__diary-scribble" data-reveal aria-hidden="true">
             <LightningDoodle size={12} /> best order yet tbh

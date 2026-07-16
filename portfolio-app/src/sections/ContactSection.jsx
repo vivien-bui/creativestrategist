@@ -37,9 +37,7 @@ export default function ContactSection({ onNavigate }) {
               </div>
               <div className="contact__row">
                 <span className="contact__row-label">Availability</span>
-                <span className="contact__availability">
-                  Available to start immediately
-                </span>
+                <span>Available to start immediately</span>
               </div>
               <div className="contact__row contact__row--last">
                 <span className="contact__row-label">Elsewhere</span>

@@ -1,4 +1,5 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Bookmark icon, handwritten/sketch style (Streamline-inspired), bolder stroke for legibility at small sizes -->
-  <path d="M 19 9 C 18 9 17.3 9.8 17.3 11 L 17.6 53.5 C 17.6 54.6 18.8 55.2 19.6 54.5 L 32 44 L 44.4 54.5 C 45.2 55.2 46.4 54.6 46.4 53.5 L 46.7 11 C 46.7 9.8 46 9 45 9 Z" fill="none" stroke="#000000" stroke-width="4.6"/>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2b2430" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Matches the nav bookmark doodle (BookmarkDoodle in Doodles.jsx),
+       with a heavier stroke so it stays legible at 16px favicon sizes. -->
+  <path d="M5.5 3.5h13v18l-6.5-4.2-6.5 4.2Z" stroke-width="2.6"/>
 </svg>
