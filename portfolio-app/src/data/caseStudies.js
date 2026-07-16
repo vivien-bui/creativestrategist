@@ -125,7 +125,7 @@ export const caseStudies = [
         "Integrated giveaways converted viewership into active engagement and data capture",
       ],
       images: [
-        { id: 'afw-2', label: 'runway, night group walk in monochrome looks', src: './assets/afw/afw-12-runway-group-pink-black-sequin.jpg', imageStyle: { objectPosition: 'center 55%' } },
+        { id: 'afw-2', label: 'runway, night group walk in monochrome looks', src: './assets/afw/afw-12-runway-group-pink-black-sequin.jpg', imageStyle: { objectPosition: 'center 45%' } },
         { id: 'afw-3', label: 'backstage portrait, couture knitwear detail', src: './assets/afw/afw-02-model-portrait-knit-detail.jpg', imageStyle: { objectPosition: 'center 54%' } },
       ],
       scope: ['Event strategy', 'Live content ops', 'Talent & PR', 'Art direction'],
