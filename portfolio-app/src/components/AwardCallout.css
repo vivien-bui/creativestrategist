@@ -38,12 +38,57 @@
   font-family: var(--font-decorative);
   color: var(--study-accent);
   white-space: nowrap;
+  position: relative;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
 }
 
 .award-callout__text:hover {
   transform: translateY(-2px);
   background: color-mix(in srgb, var(--study-accent) 15%, transparent);
+}
+
+/* One-time confetti burst layer, anchored to the pill. Confetti pieces are
+   appended here imperatively on first hover (see AwardCallout.jsx). */
+.award-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.award-confetti__piece {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  display: block;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: award-confetti-fly 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes award-confetti-fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  45% {
+    transform: translate(calc(var(--dx) * 0.55), var(--peak)) rotate(calc(var(--rot) * 0.5)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--fall)) rotate(var(--rot)) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .award-confetti__piece {
+    display: none;
+    animation: none;
+  }
 }
 
 @media (max-width: 767px) {

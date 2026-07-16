@@ -129,6 +129,16 @@ export default function CaseStudyDetail({ study, onNavigate }) {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            {detail.evolution && (
+              <div className="detail__rollout">
+                <span className="detail__rollout-label">How it unfolded</span>
+                <ul className="detail__evo-list">
+                  {detail.evolution.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </Row>
         )}
 
@@ -166,16 +176,6 @@ export default function CaseStudyDetail({ study, onNavigate }) {
                 </span>
               ))}
             </div>
-          </Row>
-        )}
-
-        {detail.evolution && (
-          <Row label="The Evolution" accent={accent}>
-            <ul className="detail__evo-list">
-              {detail.evolution.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </Row>
         )}
 

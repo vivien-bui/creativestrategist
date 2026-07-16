@@ -337,6 +337,22 @@
   color: var(--study-accent);
 }
 
+/* Evolution timeline folded into The Approach section (less scrolling). */
+.detail__rollout {
+  margin-top: var(--space-lg);
+}
+
+.detail__rollout-label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-decorative);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--study-accent);
+  opacity: 0.85;
+}
+
 .detail__approach-list {
   list-style: none;
   margin: 0;
