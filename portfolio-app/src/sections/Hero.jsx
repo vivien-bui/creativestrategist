@@ -80,7 +80,8 @@ export default function Hero({ onNavigate }) {
               <ImagePlaceholder
                 label="a photo with your energy: travel, golden hour, candid"
                 radius={4}
-                src="./assets/personal/personal-02-mountain-lookout-portrait.jpg"
+                src="./assets/personal/personal-03-office-desk-portrait.jpg"
+                imageStyle={{ objectPosition: 'center' }}
               />
             </div>
             <TapeDoodle className="hero__tape hero__tape--bottom" size={70} />
