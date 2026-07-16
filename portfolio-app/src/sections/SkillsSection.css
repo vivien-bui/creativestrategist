@@ -181,6 +181,9 @@
   align-items: baseline;
   gap: 14px;
   transition: transform 0.25s ease;
+  /* `help` cursor signals "there's info here" rather than a click target,
+     backing up the hover note (CursorNote) that names the real skill. */
+  cursor: help;
 }
 
 .receipt__line:hover {

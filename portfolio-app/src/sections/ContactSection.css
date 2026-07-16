@@ -48,38 +48,30 @@
   flex-shrink: 0;
 }
 
-/* Live "available now" indicator — a bright green dot with a bold pulsing
-   halo in the eyebrow, sized up to catch the eye against the dark footer. */
+/* Live "available now" indicator — a small solid green dot with a soft
+   ambient glow and one gentle pulse ring that expands and fades. Kept
+   understated (no hard halo, no pale inner core) so it reads as a tasteful
+   "lit" status light rather than a target. */
 .contact__status-dot {
-  position: relative;
   display: inline-block;
-  width: 13px;
-  height: 13px;
+  width: 9px;
+  height: 9px;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
   background: #4ee892;
-  box-shadow: 0 0 0 0 rgba(78, 232, 146, 0.85), 0 0 16px 3px rgba(78, 232, 146, 0.95);
-  animation: status-pulse 1.6s ease-out infinite;
-}
-
-/* Solid inner core so the dot reads as a lit bulb, not just a halo. */
-.contact__status-dot::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  border-radius: var(--radius-pill);
-  background: #d4ffe6;
+  box-shadow: 0 0 6px 0 rgba(78, 232, 146, 0.5), 0 0 0 0 rgba(78, 232, 146, 0.5);
+  animation: status-pulse 2.4s ease-out infinite;
 }
 
 @keyframes status-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(78, 232, 146, 0.9), 0 0 16px 3px rgba(78, 232, 146, 0.95);
+    box-shadow: 0 0 6px 0 rgba(78, 232, 146, 0.5), 0 0 0 0 rgba(78, 232, 146, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 13px rgba(78, 232, 146, 0), 0 0 16px 3px rgba(78, 232, 146, 0.95);
+    box-shadow: 0 0 6px 0 rgba(78, 232, 146, 0.5), 0 0 0 7px rgba(78, 232, 146, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(78, 232, 146, 0), 0 0 16px 3px rgba(78, 232, 146, 0.95);
+    box-shadow: 0 0 6px 0 rgba(78, 232, 146, 0.5), 0 0 0 0 rgba(78, 232, 146, 0);
   }
 }
 

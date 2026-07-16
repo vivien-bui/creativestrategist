@@ -16,7 +16,7 @@ const jitter = (i, salt) => {
 const MAGNET_RADIUS = 130;
 const MAGNET_PUSH = 30;
 
-export default function ZineLetters({ text, salt = 1, magnet = false, baseDelay = 0, className = '' }) {
+export default function ZineLetters({ text, salt = 1, magnet = false, baseDelay = 0, immediate = false, className = '' }) {
   const wrapRef = useRef(null);
   const reduced = useReducedMotion();
 
@@ -26,10 +26,15 @@ export default function ZineLetters({ text, salt = 1, magnet = false, baseDelay 
 
   // Paste-in reveal: IO adds the class that arms the CSS animation, so
   // headings further down the page assemble when scrolled into view.
+  // `immediate` arms on mount instead — the hero headline is always above
+  // the fold, and routing it through IO means its animation-delay is timed
+  // from whenever the IO callback happens to fire. During the intro cover
+  // that callback can be delayed by main-thread work, landing the headline
+  // visibly late. Arming on mount keeps the timing deterministic.
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap) return undefined;
-    if (reduced) {
+    if (reduced || immediate) {
       wrap.classList.add('zine-letters--in');
       return undefined;
     }
@@ -44,7 +49,7 @@ export default function ZineLetters({ text, salt = 1, magnet = false, baseDelay 
     );
     io.observe(wrap);
     return () => io.disconnect();
-  }, [reduced]);
+  }, [reduced, immediate]);
 
   // Cursor magnet (desktop pointers only). One rAF loop that eases each
   // letter toward its push target and back to rest; it self-stops once

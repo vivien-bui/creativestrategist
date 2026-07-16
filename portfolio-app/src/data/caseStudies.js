@@ -19,8 +19,8 @@ export const caseStudies = [
       badge: 'Latest',
       title: 'SharkBeauty *CryoGlow*',
       description:
-        'Reframed the barrier from doubt to desire: repositioning clinical beauty-tech as a ritual object by anchoring the entire launch to a single trusted creator, turning device efficacy into a desirable lifestyle moment.',
-      tags: ['Launch strategy', 'Creator seeding', 'Content system'],
+        'Cold, clinical beauty-tech had a desire problem. We bet the whole launch on one trusted creator and made device efficacy feel like a ritual worth wanting.',
+      tags: ['21.5M reach', '18.8× creative ROI', '283% of launch target'],
       imageLabel: 'SharkBeauty CryoGlow, hero campaign shot',
       imageSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
     },
@@ -90,8 +90,8 @@ export const caseStudies = [
       ],
       title: 'Australian *Fashion Week*',
       description:
-        'Transformed sponsorship into editorial authority: deployed a live content team as the only brand presence telling the real story of the show in real time, converting industry attention into measurable brand reach and follower growth.',
-      tags: ['Event strategy', 'Live content', 'Talent & PR'],
+        "Presenting rights put SharkBeauty's name on Fashion Week. Names don't trend; feeds do. We turned the sponsorship into an always-on editorial newsroom and made SharkBeauty the story.",
+      tags: ['3M views', '270 posts in 5 days', '+4.34% engagement'],
       imageLabel: 'Australian Fashion Week, hero campaign shot',
       imageSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
     },
@@ -110,9 +110,9 @@ export const caseStudies = [
       heroLabel: 'AFW, real-time coverage, runway black, front-row moment',
       heroSrc: './assets/afw/afw-01-pavilion-exterior-street-view.jpg',
       brief:
-        "Australian Fashion Week carries cultural weight most media moments can't buy: national press, front-row talent, and five days where the whole industry is watching the same feed. The brief: capitalise on that platform to build brand awareness and household penetration for SharkBeauty, not just book a sponsorship and hope for reflected glow.",
+        "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The brief: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
       insight:
-        "Fashion week is five days of noise. Every brand buys a seat; almost none own the conversation. Presence isn't physical, it's *owning the feed* the room is looking at.",
+        "Presenting rights get your name on everything, but names don't trend, feeds do. Every brand at Fashion Week buys a seat; almost none own the conversation. Presence isn't a logo on the wall, it's *owning the feed* the room is looking at.",
       stats: [
         { value: 3, suffix: 'M', label: 'Total views' },
         { value: 270, label: 'Posts & stories' },
@@ -157,7 +157,8 @@ export const caseStudies = [
         { hex: '#17141a', bordered: false },
       ],
       title: 'Vodka Cruiser × Brat Summer',
-      description: 'Proved that timing beats reach: shipped a product that spoke fluent brat in two weeks, embedding it into culture through velocity and tone rather than volume—proving a brand moves at culture speed or not at all.',
+      description: "Brat gave Gen Z permission to be messy, loud and unfiltered. Australia's version hit in real summer, with Charli XCX live at Laneway, and we made Vodka Cruiser the drink of it.",
+      tags: ['757K reached', '2 weeks to market', 'brat summer, owned'],
       imageLabel: 'Vodka Cruiser × Brat Summer, campaign visual',
       imageSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
     },
@@ -176,9 +177,9 @@ export const caseStudies = [
       heroLabel: 'Cruiser × Brat, brat-summer hero',
       heroSrc: './assets/cruiser/cruiser-01-hero-billboard-drinkin-that.jpg',
       brief:
-        "Brat summer was peaking. Charli XCX had turned the world lime green, and Vodka Cruiser had a Summer Apple flavour ready to drop. The window to ride the wave was days, not weeks. The brief: move at *culture speed* and make Cruiser part of the moment, not a bystander commenting on it.",
+        "Brat had already turned the world lime green, but it broke in the northern summer, six months before Australia's. By the time it was actually summer here, Charli XCX was landing for Laneway and Gen Z was hungry for the messy, unfiltered energy brat gave them. Vodka Cruiser had a Summer Apple flavour ready to drop. The brief: own Australia's brat summer for real, at the exact moment it peaked locally.",
       insight:
-        "A brand doesn't join a cultural moment by explaining it, it joins by *moving at its speed*. Brat summer already owned a colour, a tone, and a typography. The only way in was to speak fluent brat before the moment passed.",
+        "Australia wasn't late to brat summer, it got the real one. The trend hit the US in June, but it landed here in actual summer, with Charli XCX in the country for Laneway. Gen Z didn't want polished, they wanted messy and unfiltered. The only way in was to *speak fluent brat* while the moment was genuinely ours.",
       stats: [
         { value: 757, suffix: 'K', label: 'Users reached' },
         { value: 1, suffix: ' summer', label: 'Owned, start to finish' },
@@ -223,7 +224,8 @@ export const caseStudies = [
         { hex: '#2e8b3a', bordered: false },
       ],
       title: 'Twisties Election',
-      description: "Engineered escalation for earned media: took a passive cultural truth and weaponised it into a news cycle that fed itself—every campaign beat designed to provoke the next headline, turning a brand into a conversation the country couldn't ignore.",
+      description: "Cheese vs Chicken is the only two-party system Australia agrees to care about. We ran it like a real election, with leaks, scandals and vandalised billboards, until the country couldn't look away.",
+      tags: ['702M impressions', '+800% engagement YoY', 'TikTok Award winner'],
       imageLabel: 'Twisties Election, campaign visual',
       imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
       // Cleaned hero: removed all campaign copy (headline, stats, white columns),
@@ -309,7 +311,8 @@ export const caseStudies = [
         { hex: '#ff5a2a', bordered: false },
       ],
       title: "Doritos: Wash Your Mouth Out",
-      description: 'Flipped constraint into strategy: took a divisive product flaw, leaned all the way in, and built earned media entirely on contradiction—scarcity, controversy, and a visual joke that was so strong it sold the narrative without a single product shot.',
+      description: '1 in 5 Australians think coriander tastes like soap. So we leaned all the way in: 500 packs styled like luxury soap, engineered to divide the nation and make headlines do the selling.',
+      tags: ['450M+ earned reach', '441M over target', '95.7% headline mentions'],
       imageLabel: "Doritos 'Wash Your Mouth Out', coriander DNA-to-soap concept diagram",
       imageSrc: './assets/doritos/doritos-12-dna-soap-comparison-diagram.webp',
     },

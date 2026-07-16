@@ -79,6 +79,15 @@ export function GridWorkCard({ study, onNavigate }) {
           <Rich text={workCard.title} />
         </h3>
         <p className="work-grid-card__desc">{workCard.description}</p>
+        {workCard.tags && (
+          <div className="work-grid-card__tags">
+            {workCard.tags.map((t) => (
+              <span key={t} className="tag-pill">
+                {t}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </a>
   );
