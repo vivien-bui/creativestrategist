@@ -41,9 +41,9 @@ export const caseStudies = [
       heroLabel: 'CryoGlow device, soft neutrals, blush, blue-violet LED glow',
       heroSrc: './assets/cryoglow/cryoglow-01-social-grid-tiktok-instagram.webp',
       brief:
-        "SharkBeauty was entering a sceptical market. At-home beauty-tech devices promise clinical results, but the category aesthetic (blue LEDs, sterile packaging, lab-coat language) felt cold and uninviting. To break in, the device had to feel warm enough to *want* — desirable enough to move 300 units in week one across AU and NZ.",
+        "SharkBeauty was entering a sceptical market. At-home beauty-tech devices promise clinical results, but the category aesthetic (blue LEDs, sterile packaging, lab-coat language) felt cold and uninviting. To break in, the device had to feel warm enough to *want*, desirable enough to move 300 units in week one across AU and NZ.",
       insight:
-        "The barrier wasn't scepticism about the science, it was *desire*. Women expect the CryoGlow Mask to prove efficacy, but without sacrificing covetability. We needed our cold-tech product to feel warm enough to *want*.",
+        "The barrier wasn't scepticism about the science, it was *desire*. Women expect the CryoGlow Mask to prove efficacy, but without sacrificing covetability. Our cold-tech mask needed to feel warm enough to be *wanted*.",
       stats: [
         { value: 21.5, suffix: 'M', decimals: 1, label: 'Total reach AU + NZ' },
         { value: 18.8, suffix: '×', decimals: 1, label: 'Creative ROI' },
@@ -55,16 +55,10 @@ export const caseStudies = [
         "Chloe Morello's real routine carried the proof. A bespoke content series, 'Light Therapy', made every post unmistakably CryoGlow, feeding the algorithm for weeks without losing brand signature.",
       ],
       approach: [
-        "Single anchor creator to compound trust in a low-trust category",
-        "Bespoke 'Light Therapy' series reframed clinical device demos as watchable, aspirational ritual content",
-        "Built 300+ assets to show up in her feed more often: the more she saw CryoGlow, the more she wanted it",
-        "Layered micro-influencer and event seeding for trial conversion once awareness landed",
-      ],
-      evolution: [
-        'Creator partnership with Chloe Morello anchors the launch in trust and credibility',
-        "'Light Therapy' content series turns clinical device demos into shareable beauty ritual",
-        '300+ pieces of always-on social feed the algorithm, each unmistakably on-brand',
-        'Micro-influencer and event seeding converts awareness into trial across AU + NZ',
+        "Anchored the launch on one high-trust creator, Chloe Morello, to compound credibility in a low-trust category",
+        "'Light Therapy' series reframed clinical device demos as aspirational, shareable ritual content",
+        "300+ always-on assets kept CryoGlow in her feed: the more she saw it, the more she wanted it",
+        "Micro-influencer and event seeding converted awareness into trial across AU + NZ",
       ],
       images: [
         { id: 'cryoglow-2', label: 'creator routine / device in-use shot', src: './assets/cryoglow/cryoglow-02-light-therapy-campaign-grid.webp' },
@@ -123,16 +117,10 @@ export const caseStudies = [
         'Talent and PR were briefed to one shared narrative, so influencers, behind-the-scenes moments, vox pops, and giveaways all told a single story, not five days of scattered content, but an always-on cultural presence.',
       ],
       approach: [
-        "Deployed a live content team briefed to one editorial narrative across all five days",
-        "Influencer network mobilised per-show, each briefed to the same visual and tonal system",
+        "Deployed a live content team to one editorial narrative, publishing runway and front-row moments same-day",
+        "Mobilised the influencer network per-show, each briefed to a single visual and tonal system",
         "On-the-ground vox pops turned passive spectacle into participatory, audience-facing content",
         "Integrated giveaways converted viewership into active engagement and data capture",
-      ],
-      evolution: [
-        'Influencer network activated across every show with a unified brief',
-        'Behind-the-scenes and front-row reactions captured and published same-day',
-        'On-the-ground vox pops bring the audience onto the runway in real time',
-        'Integrated giveaways convert spectacle into participation and follower growth',
       ],
       images: [
         { id: 'afw-2', label: 'runway / backstage content', src: './assets/afw/afw-03-runway-multi-model-yellow-black.jpg' },
@@ -189,16 +177,10 @@ export const caseStudies = [
         "This wasn't trend-jacking, it was real-time brand choreography: matching a product launch to a cultural window that wouldn't stay open.",
       ],
       approach: [
-        "Colour-matched a product launch to a live cultural moment: Summer Apple's lime green was strategic, not coincidental",
-        "OOH designed to be screenshotted and shared ('dyeing your hair green for a festival?'), not just seen from a car",
-        "Laneway Festival activation embedded the product in culture, not adjacent to it",
-        "Social content cadence matched the meme cycle: velocity over polish",
-      ],
-      evolution: [
-        'Summer Apple flavour drop, brat-coded from pack design to platform presence',
-        "Lowercase OOH speaks fluent brat: 'dyeing your hair green for a festival?'",
-        'Laneway Festival activation puts the bottle in the culture, not the ad break',
-        'Social-first reactive content matches the speed of the conversation',
+        "Colour-matched the Summer Apple drop to a live cultural moment, brat-coded from pack to platform",
+        "Lowercase OOH built to be screenshotted, not just seen from a car: 'dyeing your hair green for a festival?'",
+        "Laneway Festival activation embedded the bottle in the culture, not adjacent to it",
+        "Reactive social matched the meme cycle: velocity over polish",
       ],
       images: [
         { id: 'cruiser-2', label: 'social-native creative', src: './assets/cruiser/cruiser-02-four-pack-product-shot.jpg' },
@@ -264,18 +246,11 @@ export const caseStudies = [
         'The strategy was escalation by design: each phase was engineered to provoke a public reaction that fuelled the next, building from a Reddit leak to earned national news coverage.',
       ],
       approach: [
-        "Manufactured escalation: a 'leaked' Chickeese flavour sparked genuine online outrage before the campaign even launched",
-        "Borrowed mechanics from political campaigns (attack ads, vandalised OOH, celebrity endorsements) to make the rivalry feel high-stakes",
-        "Every execution designed for earned media first: built to be reported on, not just seen",
-        "Each phase engineered to provoke a public reaction that fuelled the next news cycle",
-      ],
-      evolution: [
-        "'Chickeese' leaks on Reddit; Chicken and Cheese fans go into meltdown",
-        'A full-page apology cancels Chickeese amid escalating public outcry',
-        'A snap election is called with celebrity candidates representing each party',
-        "Vandalised OOH and transit become lightning rods: 'CHICKEN RULES' sprayed over VOTE CHEESE",
-        'Viral influencer dance remix headlines the campaign spot as voting explodes',
-        'Chicken is crowned; Cheese fans demand a recount',
+        "Manufactured escalation: a 'leaked' Chickeese flavour sparked genuine outrage before the campaign even launched",
+        "Ran it like a real election, borrowing political mechanics: attack ads, vandalised OOH, celebrity candidates",
+        "A full-page apology and snap vote turned a snack rivalry into national theatre",
+        "Every execution built for earned media first: designed to be reported on, not just seen",
+        "Each phase engineered to provoke the public reaction that fuelled the next news cycle",
       ],
       press: [
         {
@@ -347,16 +322,9 @@ export const caseStudies = [
       ],
       approach: [
         "Weaponised the genetic divide: turned a product flaw into the campaign's entire proposition",
-        "OOH placed beside premium soap retailers made the 'tastes like soap' joke physical, shareable, and newsworthy",
+        "OOH styled beside Aesop & Lush made the 'tastes like soap' joke physical, shareable and newsworthy",
         "Seeded influencer mailers packed with real consumer hate-comments to manufacture debate at scale",
-        "500-unit scarcity turned a chip into a collectible, built for resale value and auction headlines",
-      ],
-      evolution: [
-        '500 packs drop unannounced; OOH runs beside Aesop & Lush styled as a premium soap product',
-        'Seeded mailers to influencers filled with real consumer hate-comments and reactions',
-        "Stoked debate in the 300K-member 'I Hate Coriander' Facebook group as UGC flooded in",
-        'Earned television, print, and online coverage drove national saturation: 430 media pieces',
-        'The final pack went to an unplanned eBay auction at 400× retail price',
+        "500-unit scarcity turned a chip into a collectible: resale value and a 400× auction headline",
       ],
       lines: [
         '"A soap tasting chip? Not a fable."',
