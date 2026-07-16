@@ -81,7 +81,7 @@ export default function Hero({ onNavigate }) {
                 label="a photo with your energy: travel, golden hour, candid"
                 radius={4}
                 src="./assets/personal/personal-03-office-desk-portrait.jpg"
-                imageStyle={{ objectPosition: '50% 28%', transform: 'scale(1.32)', filter: 'grayscale(1)' }}
+                imageStyle={{ objectPosition: '50% 28%', transform: 'scale(1.32)' }}
               />
             </div>
             <TapeDoodle className="hero__tape hero__tape--bottom" size={70} />
