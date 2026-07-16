@@ -48,37 +48,39 @@
   flex-shrink: 0;
 }
 
-/* Live "available now" indicator — a small green dot with a soft pulsing
-   halo, used in the eyebrow and the availability ledger row to draw the eye. */
+/* Live "available now" indicator — a bright green dot with a bold pulsing
+   halo in the eyebrow, sized up to catch the eye against the dark footer. */
 .contact__status-dot {
   position: relative;
   display: inline-block;
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
   background: #4ee892;
-  box-shadow: 0 0 0 0 rgba(78, 232, 146, 0.6), 0 0 10px 1px rgba(78, 232, 146, 0.85);
-  animation: status-pulse 1.8s ease-out infinite;
+  box-shadow: 0 0 0 0 rgba(78, 232, 146, 0.85), 0 0 16px 3px rgba(78, 232, 146, 0.95);
+  animation: status-pulse 1.6s ease-out infinite;
+}
+
+/* Solid inner core so the dot reads as a lit bulb, not just a halo. */
+.contact__status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: var(--radius-pill);
+  background: #d4ffe6;
 }
 
 @keyframes status-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(78, 232, 146, 0.65), 0 0 10px 1px rgba(78, 232, 146, 0.85);
+    box-shadow: 0 0 0 0 rgba(78, 232, 146, 0.9), 0 0 16px 3px rgba(78, 232, 146, 0.95);
   }
   70% {
-    box-shadow: 0 0 0 9px rgba(78, 232, 146, 0), 0 0 10px 1px rgba(78, 232, 146, 0.85);
+    box-shadow: 0 0 0 13px rgba(78, 232, 146, 0), 0 0 16px 3px rgba(78, 232, 146, 0.95);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(78, 232, 146, 0), 0 0 10px 1px rgba(78, 232, 146, 0.85);
+    box-shadow: 0 0 0 0 rgba(78, 232, 146, 0), 0 0 16px 3px rgba(78, 232, 146, 0.95);
   }
-}
-
-.contact__availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #7bd3a0;
 }
 
 /* Zine back-cover type: heavy lowercase grotesque; the emphasized phrase
