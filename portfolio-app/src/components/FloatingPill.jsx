@@ -6,7 +6,7 @@ import './FloatingPill.css';
 // instead of drifting off the narrow viewport) below 768px. Exposed as CSS
 // custom properties so a single plain-CSS media query can pick between
 // them with no JS/layout thrash.
-export default function FloatingPill({ children, pos, mobilePos, duration = '5.5s' }) {
+export default function FloatingPill({ children, pos, mobilePos, duration = '5.5s', note }) {
   const style = { animationDuration: duration };
   for (const [side, value] of Object.entries(pos || {})) {
     style[`--fp-${side}`] = value;
@@ -15,7 +15,7 @@ export default function FloatingPill({ children, pos, mobilePos, duration = '5.5
     style[`--fp-${side}-m`] = value;
   }
   return (
-    <div className="floating-pill" data-r="float-pill" style={style}>
+    <div className="floating-pill" data-r="float-pill" style={style} data-cursor-note={note || undefined}>
       {children}
     </div>
   );

@@ -180,6 +180,15 @@
   opacity: var(--op-mid);
 }
 
+.work-grid-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--ink-10);
+  padding-top: 18px;
+  margin-top: 20px;
+}
+
 @media (max-width: 767px) {
   .work-featured--a,
   .work-featured--b {
@@ -211,7 +220,17 @@
   .work-featured__desc {
     font-size: var(--text-sm);
   }
-  .work-featured__tags {
-    display: none;
+  /* Metric pills are the highlight now, so keep them on the compact swipe
+     cards too — just tighten the divider spacing so they don't add bulk. */
+  .work-featured__tags,
+  .work-grid-card__tags {
+    gap: 6px;
+    padding-top: 12px;
+    margin-top: 14px;
+  }
+  .work-featured__tags .tag-pill,
+  .work-grid-card__tags .tag-pill {
+    font-size: var(--text-2xs);
+    padding: 4px 10px;
   }
 }

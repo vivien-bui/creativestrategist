@@ -8,10 +8,12 @@ import { INTRO_ACTIVE_ON_LOAD } from '../components/introState';
 import useReducedMotion from '../hooks/useReducedMotion';
 import './Hero.css';
 
-// Hold the paste-up assembly until the ZineIntro cover lifts (~2.7s), so
-// the headline visibly assembles as the site is revealed instead of
-// finishing behind the cover.
-const HERO_LETTER_DELAY = INTRO_ACTIVE_ON_LOAD ? 2500 : 150;
+// Start the paste-up assembly as the ZineIntro cover begins lifting (its
+// fade runs ~2.1s–2.75s), so the headline visibly assembles into the reveal
+// and settles just after the cover clears — not a full second behind it.
+// The hero words arm on mount (immediate), so this delay is measured from a
+// stable point and the assembly no longer drifts late.
+const HERO_LETTER_DELAY = INTRO_ACTIVE_ON_LOAD ? 2000 : 150;
 
 export default function Hero({ onNavigate }) {
   const creativeRef = useRef(null);
@@ -68,7 +70,7 @@ export default function Hero({ onNavigate }) {
 
       <div className="hero__headline">
         <h1 ref={creativeRef} id="hero-word-creative" className="hero__word hero__word--creative">
-          <ZineLetters text="creative" salt={2} magnet baseDelay={HERO_LETTER_DELAY} />
+          <ZineLetters text="creative" salt={2} magnet immediate baseDelay={HERO_LETTER_DELAY} />
         </h1>
 
         <div className="hero__photo-row">
@@ -87,6 +89,7 @@ export default function Hero({ onNavigate }) {
               pos={{ top: '12%', left: '-140px' }}
               mobilePos={{ top: '2%', left: '2%' }}
               duration="5s"
+              note="positioning for FMCG, beauty & challenger brands"
             >
               brand strategy
             </FloatingPill>
@@ -94,6 +97,7 @@ export default function Hero({ onNavigate }) {
               pos={{ top: '-8%', right: '-110px' }}
               mobilePos={{ top: '16%', right: '2%' }}
               duration="6s"
+              note="702M impressions & a TikTok Award, built to be reported on"
             >
               earned media
             </FloatingPill>
@@ -101,6 +105,7 @@ export default function Hero({ onNavigate }) {
               pos={{ bottom: '30%', right: '-150px' }}
               mobilePos={{ bottom: '24%', right: '-2%' }}
               duration="5.5s"
+              note="creator seeding, live event coverage, always-on social"
             >
               social &amp; influencer
             </FloatingPill>
@@ -108,6 +113,7 @@ export default function Hero({ onNavigate }) {
               pos={{ bottom: '-6%', left: '-100px' }}
               mobilePos={{ bottom: '2%', left: '-2%' }}
               duration="6.5s"
+              note="brat summer, Fashion Week & a mock national election"
             >
               cultural moments
             </FloatingPill>
@@ -115,7 +121,7 @@ export default function Hero({ onNavigate }) {
         </div>
 
         <h1 ref={strategistRef} id="hero-word-strategist" className="hero__word hero__word--strategist">
-          <ZineLetters text="strategist" salt={4} magnet baseDelay={HERO_LETTER_DELAY + 340} />
+          <ZineLetters text="strategist" salt={4} magnet immediate baseDelay={HERO_LETTER_DELAY + 240} />
         </h1>
       </div>
 

@@ -6,21 +6,24 @@ import { HeartDoodle, CoffeeDoodle, LightningDoodle } from '../components/Doodle
 import useReducedMotion from '../hooks/useReducedMotion';
 import './SkillsSection.css';
 
-// Coffee-order framing over Vivien's real VaynerMedia skillset (insight-led
-// strategy, creative concepting, cultural/trend analysis, pitch decks,
-// social-first, creator partnerships, earned media). The last two lines are
-// the actual toolkit: insight/social-listening (GWI, Canvas8, Sprinklr) and
-// design/deck craft (Figma, Canva, Adobe, Keynote), sourced from the repo.
+// Coffee-order framing over Vivien's real skillset (insight-led strategy,
+// creative concepting, cultural/trend analysis, pitch decks, social-first,
+// creator partnerships, earned media). The last three lines are the actual
+// toolkit: insight/trend research (GWI, Canvas8, Google Trends), social
+// media management (Hootsuite, Sprinklr, Dash Social), and project systems
+// (ClickUp, Asana, Slack). Each line carries a `note` shown by CursorNote
+// on hover, so the playful order also reads clearly as a skillset.
 const RECEIPT_LINES = [
-  'Venti insight-led strategy',
-  'Double shot of cultural tension',
-  'Creative concepting & briefing',
-  'Earned media & PR, extra froth',
-  'Creator partnerships, oat-milk smooth',
-  'Pitch decks, brewed to win',
-  'Social-first blend, platform-native',
-  'GWI · Canvas8 · Sprinklr, ground fresh',
-  'Figma · Canva · Adobe · Keynote, hand-poured',
+  { label: 'Venti insight-led strategy', note: 'audience & cultural insight into strategy' },
+  { label: 'Double shot of cultural tension', note: 'finding the tension a brand can own' },
+  { label: 'Creative concepting & briefing', note: 'big ideas and the briefs behind them' },
+  { label: 'Earned media & PR, extra froth', note: 'earned media & PR campaigns' },
+  { label: 'Creator partnerships, oat-milk smooth', note: 'creator & influencer strategy' },
+  { label: 'Pitch decks, brewed to win', note: 'narrative decks that win the room' },
+  { label: 'Social-first blend, platform-native', note: 'platform-native social strategy' },
+  { label: 'GWI · Canvas8 · Google Trends, ground fresh', note: 'insight & trend research tools' },
+  { label: 'Hootsuite · Sprinklr · Dash Social, double shot', note: 'social media management tools' },
+  { label: 'ClickUp · Asana · Slack, to go', note: 'project & team collaboration tools' },
 ];
 
 // Printed on the receipt like a real till timestamp (DD.MM.YY · HH:MM).
@@ -144,10 +147,13 @@ export default function SkillsSection() {
           <div className="receipt__rule" aria-hidden="true" />
 
           {/* Each line carries its own data-reveal so the shared scroll
-              stagger makes the receipt "print" item by item. */}
+              stagger makes the receipt "print" item by item. data-cursor-note
+              surfaces the underlying skill on hover, layered on top of the
+              existing translateX hover so the "ingredients" read as a
+              skillset instead of feeling like a dead click target. */}
           <div className="receipt__lines" data-r="receipt-lines">
-            {RECEIPT_LINES.map((label) => (
-              <div className="receipt__line" key={label} data-reveal>
+            {RECEIPT_LINES.map(({ label, note }) => (
+              <div className="receipt__line" key={label} data-reveal data-cursor-note={note}>
                 <span>{label}</span>
                 <span className="receipt__dots" />
               </div>
