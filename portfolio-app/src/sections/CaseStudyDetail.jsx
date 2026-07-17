@@ -10,9 +10,6 @@ import { SparkleDoodle, BookmarkDoodle, PinDoodle } from '../components/Doodles'
 import useReducedMotion from '../hooks/useReducedMotion';
 import './CaseStudyDetail.css';
 
-// Small rewards for the slow-scrolling visitor — a per-image cursor aside.
-const IMAGE_NOTES = ['behind the scenes', 'my favourite shot'];
-
 function Row({ label, accent, first, children }) {
   return (
     <div className={`detail-row${first ? ' detail-row--first' : ''}`} data-r="row-label" data-reveal>
@@ -97,7 +94,6 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           ref={heroRef}
           className="detail__hero-img"
           data-r="detail-hero-img"
-          data-cursor-note="the hero shot"
         >
           <ImagePlaceholder label={detail.heroLabel} radius={20} dark={theme !== 'light'} src={detail.heroSrc} imageStyle={detail.heroStyle} />
         </div>
@@ -149,12 +145,11 @@ export default function CaseStudyDetail({ study, onNavigate }) {
           data-r="split-images"
           data-reveal
         >
-          {detail.images.map((img, i) => (
+          {detail.images.map((img) => (
             <div
               key={img.id}
               className="detail__duo-img"
               data-r="duo-img"
-              data-cursor-note={IMAGE_NOTES[i] || 'a closer look'}
             >
               <ImagePlaceholder label={img.label} radius={12} dark={theme !== 'light'} src={img.src} imageStyle={img.imageStyle} />
             </div>
