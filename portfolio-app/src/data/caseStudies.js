@@ -104,7 +104,7 @@ export const caseStudies = [
       ],
       heroLabel: 'AFW runway finale, white tailoring leading a procession of ivory looks',
       heroSrc: './assets/afw/afw-08-runway-full-collection-whites.jpg',
-      heroStyle: { objectPosition: 'center 38%' },
+      heroStyle: { objectPosition: 'center 34%' },
       brief:
         "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The opportunity was bigger than visibility: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
       insight:
