@@ -104,7 +104,7 @@ export const caseStudies = [
       ],
       heroLabel: 'AFW runway finale, white tailoring leading a procession of ivory looks',
       heroSrc: './assets/afw/afw-08-runway-full-collection-whites.jpg',
-      heroStyle: { objectPosition: 'center 42%' },
+      heroStyle: { objectPosition: 'center 34%' },
       brief:
         "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The opportunity was bigger than visibility: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
       insight:
@@ -169,7 +169,7 @@ export const caseStudies = [
       brief:
         "Brat had already turned the world lime green, but it broke in the northern summer, six months before Australia's. By the time it was actually summer here, Charli XCX was landing for Laneway and Gen Z was hungry for the messy, unfiltered energy brat gave them. Vodka Cruiser had a Summer Apple flavour ready to drop. The window was narrow: land Summer Apple in the middle of the moment while it was peaking here, and make Cruiser the drink Gen Z reached for.",
       insight:
-        "Gen Z didn't want polished, they wanted messy, loud and unfiltered — and brat handed them the permission slip. With Charli XCX in the country for Laneway, that energy was everywhere at once. The only way in was to *speak fluent brat*, not just borrow the colour.",
+        "Gen Z didn't want polished, they wanted messy, loud and unfiltered, and brat handed them the permission slip. With Charli XCX in the country for Laneway, that energy was everywhere at once. The only way in was to *speak fluent brat*, not just borrow the colour.",
       stats: [
         { value: 757, suffix: 'K', label: 'Users reached' },
         { value: 1, suffix: ' summer', label: 'Owned, start to finish' },
