@@ -72,7 +72,7 @@ export default function CaseStudyDetail({ study, onNavigate }) {
 
         <div className="detail__title-block" data-r="split-title" data-reveal>
           <div>
-            <ColorDots colors={detail.dots} size={12} gap={8} />
+            <ColorDots colors={detail.dots} size={8} gap={6} />
             {detail.eyebrow && (
               <span className="detail__eyebrow" style={{ color: accent }}>
                 <SparkleDoodle size={13} /> {detail.eyebrow}
