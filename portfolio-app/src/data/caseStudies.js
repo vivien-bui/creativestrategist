@@ -88,7 +88,7 @@ export const caseStudies = [
       tags: ['3M views', '270 posts in 5 days', '+4.34% engagement'],
       imageLabel: 'Australian Fashion Week, runway finale in white tailoring',
       imageSrc: './assets/afw/afw-08-runway-full-collection-whites.jpg',
-      imageStyle: { objectPosition: 'center 30%' },
+      imageStyle: { objectPosition: 'center 48%' },
     },
     detail: {
       dots: [
@@ -104,7 +104,7 @@ export const caseStudies = [
       ],
       heroLabel: 'AFW runway finale, white tailoring leading a procession of ivory looks',
       heroSrc: './assets/afw/afw-08-runway-full-collection-whites.jpg',
-      heroStyle: { objectPosition: 'center 28%' },
+      heroStyle: { objectPosition: 'center 42%' },
       brief:
         "As presenting partner of Australian Fashion Week, SharkBeauty had its name on the biggest platform in Australian fashion: national press, front-row talent, and five days where the whole industry watches the same feed. The opportunity was bigger than visibility: turn presenting rights into real brand awareness and household penetration, not just a logo on the step-and-repeat.",
       insight:
@@ -210,11 +210,11 @@ export const caseStudies = [
       title: 'Twisties Election',
       description: "Cheese vs Chicken is the only two-party system Australia agrees to care about. We ran it like a real election, until the country couldn't look away.",
       tags: ['702M impressions', '+800% engagement YoY', 'TikTok Award winner'],
-      imageLabel: 'Twisties Election, campaign visual',
-      imageSrc: './assets/twisties/twisties-01-hero-chicken-vs-cheese-overview.webp',
-      // Full campaign spread (restored from backup after a bad crop mangled the
-      // social strip). 'center top' leads with the Chicken vs Cheese stage +
-      // headline in the card's short crop.
+      imageLabel: 'Twisties Election, Chicken vs Cheese stage with headline stats',
+      // Pre-cropped to the banner/stage/stats band only (social strip + white
+      // body copy cut out) so the small grid-card thumbnail reads as a zoomed-in
+      // shot instead of a thin sliver of the full spread.
+      imageSrc: './assets/twisties/twisties-07-hero-banner-stats.webp',
       imageStyle: { objectPosition: 'center top' },
     },
     detail: {
