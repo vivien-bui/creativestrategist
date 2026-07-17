@@ -231,6 +231,7 @@
   .work-featured__tags .tag-pill,
   .work-grid-card__tags .tag-pill {
     font-size: var(--text-sm);
+    font-weight: 700;
     padding: 4px 10px;
   }
 
