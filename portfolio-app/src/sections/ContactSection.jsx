@@ -35,10 +35,6 @@ export default function ContactSection({ onNavigate }) {
                 <span className="contact__row-label">Based in</span>
                 <span>Sydney, Australia</span>
               </div>
-              <div className="contact__row">
-                <span className="contact__row-label">Availability</span>
-                <span>Available to start immediately</span>
-              </div>
               <div className="contact__row contact__row--last">
                 <span className="contact__row-label">Elsewhere</span>
                 <span className="contact__social">
