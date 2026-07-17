@@ -1,6 +1,6 @@
 import './ColorDots.css';
 
-// Each case study's real palette, shown as small circles — never generic
+// Each case study's real palette, shown as small squares — never generic
 // decoration. See 03_COMPONENTS.md "Color-dot Swatch".
 export default function ColorDots({ colors, size = 10, gap = 6 }) {
   return (
